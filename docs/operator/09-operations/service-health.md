@@ -1,31 +1,25 @@
-# 服务状态与监听端口
+---
+nav_title: 服务状态与监听端口
+nav_overview: 介绍
+---
 
-## 功能介绍
+
+# 服务状态与监听端口
 
 设备提供服务、健康状态和监听端口查询，可用来区分连通性问题与本地服务未启动。
 
-## 配置准备
+```{toctree}
+:maxdepth: 1
 
-确定希望排查的服务和协议。远程排查前保留当前会话。
-
-## 配置案例
-
-以 SSH 不通为例，先确认管理接口与路由，再核对 TCP 监听和 SSH 登录记录。服务状态异常时同时查看告警。
-
-```vortexros-cli
-display ip interface brief
-display process tcp listen
-display ssh user login-info failed
+功能特性 <service-health/features>
+配置案例 <service-health/cases>
+注意事项 <service-health/notes>
 ```
 
-## 验证配置
+<p id="id2" class="manual-previous-section" data-section-moved><a href="./">介绍</a></p>
 
-```vortexros-cli
-display service verbose
-display health
-display process listen
-display process udp listen
-display alarm active
-```
+<p id="id3" class="manual-previous-section" data-section-moved><a href="cases/#case-conditions-09-operations-service-health">配置准备</a></p>
 
-核对协议、监听地址、端口和主进程。恢复后从远端新建连接，确认业务可用。
+<p id="id4" class="manual-previous-section" data-section-moved><a href="cases/">配置案例</a></p>
+
+<p id="id5" class="manual-previous-section" data-section-moved><a href="cases/#case-verification-09-operations-service-health">验证配置</a></p>

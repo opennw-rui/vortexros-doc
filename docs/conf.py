@@ -1,4 +1,3 @@
-from docutils import nodes
 from pygments.lexers.special import TextLexer
 
 project = "VortexROS 用户手册"
@@ -19,36 +18,21 @@ html_copy_source = False
 
 
 def feature_navigation(app, page, template, context, doctree):
-    tree = app.env.toctree_includes
-    titles = app.env.titles
+    env = app.env
 
-    def sections(doc, item, nested=False):
-        for children in item.children:
-            if not isinstance(children, nodes.bullet_list):
-                continue
-            for entry in children:
-                if not isinstance(entry, nodes.list_item):
-                    continue
-                link = next(entry[0].findall(nodes.reference), None)
-                if link is None or link.get("refuri") != doc or not link.get("anchorname"):
-                    continue
-                title = link.astext()
-                examples = []
-                if not nested and title in {"配置案例", "操作案例", "查询案例"}:
-                    examples = list(sections(doc, entry, nested=True))
-                yield ("介绍" if title == "功能介绍" else title, link["anchorname"], examples)
-
-    def leaves(doc):
-        children = tree.get(doc, [])
-        if not children:
-            toc = app.env.tocs[doc]
-            yield doc, titles[doc].astext(), list(sections(doc, toc[0])) if len(toc) else []
-        for child in children:
-            yield from leaves(child)
+    def entry(doc):
+        metadata = env.metadata.get(doc, {})
+        children = [entry(child) for child in env.toctree_includes.get(doc, [])]
+        return {
+            "doc": doc,
+            "title": metadata.get("nav_title") or env.titles[doc].astext(),
+            "overview": metadata.get("nav_overview", "概览"),
+            "active": doc == page or any(child["active"] for child in children),
+            "children": children,
+        }
 
     context["feature_navigation"] = [
-        (category, titles[category].astext() if tree.get(category) else "", list(leaves(category)))
-        for category in tree[app.config.root_doc]
+        entry(doc) for doc in env.toctree_includes[app.config.root_doc]
     ]
 
 

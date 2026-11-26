@@ -1,32 +1,25 @@
-# Vbdif 三层网关
+---
+nav_title: Vbdif 三层网关
+nav_overview: 介绍
+---
 
-## 功能介绍
+
+# Vbdif 三层网关
 
 Vbdif 是 Bridge Domain 的网关接口。它让桥域中的终端通过网关地址访问其他网段。
 
-## 配置准备
+```{toctree}
+:maxdepth: 1
 
-先建立 Bridge Domain 11，配置能承载业务的本地接入口或 VXLAN。
-
-## 配置案例
-
-```vortexros-config
-bridge-domain 11
-#
-interface Vbdif 11
- ip address 10.11.0.1 255.255.255.0
-#
-return
+功能特性 <vbdif/features>
+配置案例 <vbdif/cases>
+注意事项 <vbdif/notes>
 ```
 
-录入并提交。客户端以 10.11.0.1 作为网关。移除桥域前先解除 Vbdif 及其路由和协议引用。
+<p id="id1" class="manual-previous-section" data-section-moved><a href="./">介绍</a></p>
 
-## 验证配置
+<p id="id2" class="manual-previous-section" data-section-moved><a href="cases/#case-conditions-03-interfaces-l2-vbdif">配置准备</a></p>
 
-```vortexros-cli
-display interface Vbdif 11
-display bridge-domain 11
-display ip routing-table protocol direct
-```
+<p id="id3" class="manual-previous-section" data-section-moved><a href="cases/">配置案例</a></p>
 
-确认网关处于工作状态，桥域和网关编号对应，直连路由指向 Vbdif11。再从桥域终端测试网关和远端地址。
+<p id="id4" class="manual-previous-section" data-section-moved><a href="cases/#case-verification-03-interfaces-l2-vbdif">验证配置</a></p>

@@ -1,3 +1,9 @@
+---
+nav_title: 真机验收
+nav_overview: 介绍
+---
+
+
 # 真机验收
 
 | 项目 | 通过条件 |
@@ -10,4 +16,10 @@
 | 业务与恢复 | 从隔离对端验证静态与动态路由、双向转发、管理登录和重启后恢复。 |
 | 升级和回退 | 用签名包从已知版本试启动、确认后回退，并复核配置和业务。 |
 
-用 `display interface brief` 和 `display dataplane interfaces topological` 记录接口和归属。保留镜像版本、校验值、端口连接、对端和通过条件，便于重现实测结果。
+```{toctree}
+:maxdepth: 1
+
+功能特性 <08-hardware-acceptance/features>
+配置案例 <08-hardware-acceptance/cases>
+注意事项 <08-hardware-acceptance/notes>
+```

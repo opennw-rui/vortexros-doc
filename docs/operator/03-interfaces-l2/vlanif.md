@@ -1,35 +1,25 @@
-# Vlanif 三层网关
+---
+nav_title: Vlanif 三层网关
+nav_overview: 介绍
+---
 
-## 功能介绍
+
+# Vlanif 三层网关
 
 Vlanif 为一个 VLAN 提供三层接口，可作为终端默认网关并在网段之间路由。
 
-## 配置准备
+```{toctree}
+:maxdepth: 1
 
-先建立 VLAN 100 并配置至少一个可用成员端口。
-
-## 配置案例
-
-```vortexros-config
-enable switch
-vlan 100
-#
-interface Vlanif 100
- ip address 10.100.0.1 255.255.255.0
-#
-return
+功能特性 <vlanif/features>
+配置案例 <vlanif/cases>
+注意事项 <vlanif/notes>
 ```
 
-录入后执行 commit。终端配置 10.100.0.1 作为默认网关。
+<p id="id1" class="manual-previous-section" data-section-moved><a href="./">介绍</a></p>
 
-## 验证配置
+<p id="id2" class="manual-previous-section" data-section-moved><a href="cases/#case-conditions-03-interfaces-l2-vlanif">配置准备</a></p>
 
-```vortexros-cli
-display vlan
-display interface Vlanif 100
-display ip routing-table protocol direct
-```
+<p id="id3" class="manual-previous-section" data-section-moved><a href="cases/">配置案例</a></p>
 
-确认 Vlanif100 协议状态为 up，路由表存在 10.100.0.0/24 的直连路由。从终端测试网关。最后一个成员失去链路时，Vlanif 和对应直连路由会随之变化。
-
-[VLAN 二层交换](vlan.md)
+<p id="id4" class="manual-previous-section" data-section-moved><a href="cases/#case-verification-03-interfaces-l2-vlanif">验证配置</a></p>

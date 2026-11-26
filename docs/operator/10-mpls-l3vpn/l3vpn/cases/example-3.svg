@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 170" role="img" aria-labelledby="label">
+<title id="label">PE1 / VPN BLUE → PE2 / VPN BLUE。主路径 · Ethernet0，备用 · Ethernet2 · OSPF cost 1000</title>
+<defs><marker id="arrow" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto"><path d="M 0 0 L 7 3.5 L 0 7 Z" fill="#476781"/></marker></defs>
+<rect x="1" y="1" width="758" height="168" rx="10" fill="#fcfdff" stroke="#cedbe7"/>
+<g font-family="Arial, Microsoft YaHei, PingFang SC, sans-serif" text-anchor="middle" dominant-baseline="middle">
+<rect x="32" y="41" width="226" height="86" rx="9" fill="#e9f3fc" stroke="#457aa5"/>
+<text x="145" y="73.5" font-size="16" fill="#19374f">PE1</text>
+<text x="145" y="94.5" font-size="16" fill="#19374f">VPN BLUE</text>
+<rect x="502" y="41" width="226" height="86" rx="9" fill="#e9f3fc" stroke="#457aa5"/>
+<text x="615" y="73.5" font-size="16" fill="#19374f">PE2</text>
+<text x="615" y="94.5" font-size="16" fill="#19374f">VPN BLUE</text>
+<path d="M 258 65 L 502 65" stroke="#476781" stroke-width="1.8" marker-end="url(#arrow)" fill="none"/>
+<path d="M 258 104 L 502 104" stroke="#476781" stroke-width="1.8" marker-end="url(#arrow)" fill="none"/>
+<text x="380" y="51" font-size="14" fill="#37536c">主路径 · Ethernet0</text>
+<text x="380" y="92" font-size="12" fill="#37536c">备用 · Ethernet2 · OSPF cost 1000</text>
+</g>
+</svg>

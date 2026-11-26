@@ -1,154 +1,35 @@
-# VRRP 与 VRRP6 网关冗余
+---
+nav_title: VRRP 与 VRRP6 网关冗余
+nav_overview: 介绍
+---
 
-## 功能介绍
+
+# VRRP 与 VRRP6 网关冗余
 
 VRRP 让多台设备共用虚拟网关，适用于接入网段的网关冗余。IPv4 默认 VRRPv2，IPv6 使用 VRRPv3。
 
-## 配置准备
+```{toctree}
+:maxdepth: 1
 
-两台设备接在同一二层网段，使用不同真实地址、相同 VRID 和虚拟地址。启用跟踪前配置被跟踪接口。
-
-## 配置案例
-
-VRRP 让两台或多台设备共享一个网关地址。可在三层 Ethernet、Eth-Trunk、三层子接口、Vlanif 或 Vbdif 配置。IPv4 默认使用 VRRPv2。IPv6 固定使用 VRRPv3，需要配置本组的链路本地虚拟地址。
-
-### IPv4完整示例
-
-假设P1与P2都连接到VLAN 100，客户端使用 `10.100.0.254`作为默认网关。P1优先级120作为Master，P2保持默认优先级100作为Backup。
-
-P1：
-
-```text
-interface Vlanif 100
- ip address 10.100.0.1 255.255.255.0
- vrrp vrid 10 virtual-ip 10.100.0.254
- vrrp vrid 10 priority 120
- vrrp vrid 10 timer advertise 1
- vrrp vrid 10 track interface Vlanif 200 reduced 30
+功能特性 <vrrp/features>
+配置案例 <vrrp/cases>
+注意事项 <vrrp/notes>
 ```
 
-P2：
+<p id="id1" class="manual-previous-section" data-section-moved><a href="./">介绍</a></p>
 
-```text
-interface Vlanif 100
- ip address 10.100.0.2 255.255.255.0
- vrrp vrid 10 virtual-ip 10.100.0.254
- vrrp vrid 10 timer advertise 1
-```
+<p id="id2" class="manual-previous-section" data-section-moved><a href="cases/#case-conditions-05-dynamic-routing-vrrp">配置准备</a></p>
 
-IPv4 用首条 `virtual-ip` 创建组。默认优先级为 100、通告间隔为 1 秒、抢占开启。在 P1 已配置的 Vlanif200 断开后，P1 的运行优先级降低 30。若低于 P2，P2 接管虚拟网关。
+<p id="id3" class="manual-previous-section" data-section-moved><a href="cases/">配置案例</a></p>
 
-需要 IPv4 VRRPv3 时，在两端系统视图执行 `vrrp version v3` 并提交。用 `undo vrrp version` 恢复 IPv4 的 v2 默认值。此前保存的按组 v3 配置仍可回放。单播要求 v3，通过 `peer-ip` 配置同链路对端真实地址。IPv6 单播使用对端链路本地地址。删除某个地址族的最后一个对端后，该族恢复组播。
+<p id="id6" class="manual-previous-section" data-section-moved><a href="cases/#case-verification-05-dynamic-routing-vrrp">验证配置</a></p>
 
-虚拟IP可以与接口自身地址相同。此时设备是该虚拟地址的地址拥有者，运行优先级自动为255；配置中仍保留用户输入的优先级，状态显示以运行优先级为准。
+<p id="id4" class="manual-previous-section" data-section-moved><a href="cases/#case-verification-05-dynamic-routing-vrrp">查看状态和效果</a></p>
 
-### IPv6示例
+<p id="id5" class="manual-previous-section" data-section-moved><a href="notes/">修改和删除</a></p>
 
-```text
-interface Vlanif 100
- ipv6 address 2001:db8:100::1 64
- vrrp6 vrid 20 virtual-ip fe80::fe
- vrrp6 vrid 20 virtual-ip 2001:db8:100::fe
- vrrp6 vrid 20 priority 120
- vrrp6 vrid 20 timer advertise 1
-```
+<p id="ipv4" class="manual-previous-section" data-section-moved><a href="cases/example-1/">IPv4完整示例</a></p>
 
-两端使用相同的 VRID 和虚拟地址。IPv6 的全局虚拟地址可与链路本地虚拟地址同组使用。
+<p id="ipv6" class="manual-previous-section" data-section-moved><a href="cases/example-2/">IPv6示例</a></p>
 
-### 查看状态和效果
-
-```vortexros-cli
-display vrrp brief
-display vrrp interface Vlanif 100
-display vrrp 10
-display vrrp statistics
-display vrrp6 brief
-```
-
-brief输出示例：
-
-```text
-VRID  State   Interface  Type  Virtual IP      Priority  RunPri  Adv
-10    Master  Vlanif100  IPv4  10.100.0.254   120       120     1.00s
-```
-
-详细输出会显示状态、版本、地址族、虚拟IP、配置优先级、运行优先级、虚拟MAC、通告间隔和抢占状态。配置已经提交但VRRP组尚未创建时，State显示 `Pending (not created in dataplane)`，应检查接口模式、地址和服务健康状态。
-
-业务验证应包括：客户端持续ping虚拟IP和外部地址；关闭Master的上联或被跟踪接口；确认Backup接管、ARP/ND更新且业务恢复；再恢复接口并观察抢占行为。
-
-### 修改和删除
-
-```text
-interface Vlanif 100
- undo vrrp vrid 10 track interface Vlanif 200
- undo vrrp vrid 10 priority
- undo vrrp vrid 10 timer advertise
- undo vrrp vrid 10 virtual-ip 10.100.0.254
- undo vrrp vrid 10
-```
-
-`undo priority`恢复100，`undo timer advertise`恢复1秒，`undo preempt-mode`恢复抢占。`undo vrrp vrid 10`删除整个IPv4组；IPv6使用对应的 `undo vrrp6 vrid 20 ...`。
-
-### 双栈 VRRPv3 单播网关
-
-R1、R2 和客户端连到同一个接入交换机。两台设备都用 Ethernet0，真实 IPv4 为 192.0.2.1/24 和 192.0.2.2/24。先用 `display ipv6 interface Ethernet0` 查出两个真实链路本地地址，再把下例 fe80::1 和 fe80::2 换成实测值。客户端用 192.0.2.254 和 fe80::fe 作为默认网关。
-
-两台设备分别在系统视图录入各自的配置片段，退出功能视图后提交。
-
-**R1**
-
-```vortexros-config
-vrrp version v3
-#
-interface Ethernet 0
- ip address 192.0.2.1 255.255.255.0
- ipv6 enable
- ipv6 address 2001:db8:12::1 64
- vrrp vrid 10 virtual-ip 192.0.2.254
- vrrp vrid 10 priority 120
- vrrp vrid 10 peer-ip 192.0.2.2
- vrrp6 vrid 20 virtual-ip fe80::fe
- vrrp6 vrid 20 virtual-ip 2001:db8:12::fe
- vrrp6 vrid 20 priority 120
- vrrp6 vrid 20 peer-ip fe80::2
-#
-return
-```
-
-**R2**
-
-```vortexros-config
-vrrp version v3
-#
-interface Ethernet 0
- ip address 192.0.2.2 255.255.255.0
- ipv6 enable
- ipv6 address 2001:db8:12::2 64
- vrrp vrid 10 virtual-ip 192.0.2.254
- vrrp vrid 10 peer-ip 192.0.2.1
- vrrp6 vrid 20 virtual-ip fe80::fe
- vrrp6 vrid 20 virtual-ip 2001:db8:12::fe
- vrrp6 vrid 20 peer-ip fe80::1
-#
-return
-```
-
-分别查看状态。
-
-```vortexros-cli
-display vrrp brief
-display vrrp6 brief
-display vrrp statistics
-```
-
-正常时 R1 为 Master、运行优先级 120，R2 为 Backup、运行优先级 100。从客户端持续访问两端已可达的下游地址，关闭 R1 的接入口后，应看到 R2 接管两个虚拟网关，客户端业务恢复。恢复 R1 后检查抢占。若把某端的虚拟地址配置成该端真实地址，另用独立用例核对地址拥有者的运行优先级为 255。
-
-## 验证配置
-
-```vortexros-cli
-display vrrp brief
-display vrrp interface Vlanif 100
-display vrrp6 brief
-```
-
-确认主备用状态和运行优先级。持续从终端发送流量，断开主设备上联再恢复，检查网关迁移与转发恢复。
+<p id="vrrpv3" class="manual-previous-section" data-section-moved><a href="cases/dual-stack-vrrp-unicast/">双栈 VRRPv3 单播网关</a></p>

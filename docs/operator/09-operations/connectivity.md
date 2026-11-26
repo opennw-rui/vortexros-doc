@@ -1,29 +1,25 @@
-# Ping、Tracert 与 MTR 连通性诊断
+---
+nav_title: Ping、Tracert 与 MTR 连通性诊断
+nav_overview: 介绍
+---
 
-## 功能介绍
+
+# Ping、Tracert 与 MTR 连通性诊断
 
 Ping 检查端到端可达性，Tracert 查看逐跳路径，MTR 持续观察丢包与延迟。可从指定 VPN 进行诊断。
 
-## 配置准备
+```{toctree}
+:maxdepth: 1
 
-准备目标地址，先确认应该使用默认路由表还是业务 VPN。
-
-## 配置案例
-
-```vortexros-cli
-ping 192.0.2.1
-ping -vpn-instance BLUE 10.0.0.1
-tracert 198.51.100.1
-mtr -vpn-instance BLUE 10.0.0.1
+功能特性 <connectivity/features>
+配置案例 <connectivity/cases>
+注意事项 <connectivity/notes>
 ```
 
-按 Ctrl+C 结束当前诊断命令，保留登录会话。
+<p id="id1" class="manual-previous-section" data-section-moved><a href="./">介绍</a></p>
 
-## 验证配置
+<p id="id2" class="manual-previous-section" data-section-moved><a href="cases/#case-conditions-09-operations-connectivity">配置准备</a></p>
 
-```vortexros-cli
-display ip routing-table vpn-instance BLUE
-display ip interface brief
-```
+<p id="id3" class="manual-previous-section" data-section-moved><a href="cases/">配置案例</a></p>
 
-确认目标已匹配所需路由及出接口。比较实际 Ping 和路径结果；防火墙阻止 ICMP 时，再验证业务所用的协议。
+<p id="id4" class="manual-previous-section" data-section-moved><a href="cases/#case-verification-09-operations-connectivity">验证配置</a></p>

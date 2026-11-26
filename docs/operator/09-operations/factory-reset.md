@@ -1,31 +1,25 @@
-# 配置恢复与出厂重置
+---
+nav_title: 配置恢复与出厂重置
+nav_overview: 介绍
+---
 
-## 功能介绍
+
+# 配置恢复与出厂重置
 
 可单独重置启动配置文件，或恢复整机出厂配置。出厂操作会清理受管账户与服务状态。
 
-## 配置准备
+```{toctree}
+:maxdepth: 1
 
-准备独立 Console，并备份当前可用配置。启动配置重置不会立即撤销当前运行中的业务；整机重置需要业务窗口。
-
-## 配置案例
-
-以下为将当前启动文件重置为出厂配置的用户视图示例，执行前先选择要操作的设备。
-
-```vortexros-cli
-display startup
-reset saved-configuration
-display startup
+功能特性 <factory-reset/features>
+配置案例 <factory-reset/cases>
+注意事项 <factory-reset/notes>
 ```
 
-若要同时恢复运行和启动状态，请按 Console 提示执行 `restore factory-configuration`。恢复后完成首次改密，再重新建立管理通道。
+<p id="id2" class="manual-previous-section" data-section-moved><a href="./">介绍</a></p>
 
-## 验证配置
+<p id="id3" class="manual-previous-section" data-section-moved><a href="cases/#case-conditions-09-operations-factory-reset">配置准备</a></p>
 
-```vortexros-cli
-display startup
-display current-configuration
-display users
-```
+<p id="id4" class="manual-previous-section" data-section-moved><a href="cases/">配置案例</a></p>
 
-核对启动文件。以空配置或出厂配置重启后再次查询，确认只保留预期的默认设置。
+<p id="id5" class="manual-previous-section" data-section-moved><a href="cases/#case-verification-09-operations-factory-reset">验证配置</a></p>

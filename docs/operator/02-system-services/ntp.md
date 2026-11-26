@@ -1,56 +1,27 @@
-# NTP 时间同步
+---
+nav_title: NTP 时间同步
+nav_overview: 介绍
+---
 
-## 功能介绍
+
+# NTP 时间同步
 
 NTP 使设备向指定时间源同步时钟。可使用 IPv4、IPv6 及独立的管理 VPN。
 
-## 配置准备
+```{toctree}
+:maxdepth: 1
 
-确认时间源可达。使用 vpn-instance 前先创建相应的 VPN 并准备到服务器的路由。
-
-## 配置案例
-
-在系统视图用 `ntp-service unicast-server` 配置 IPv4，IPv6 使用 `ntp-service ipv6 unicast-server`。可指定 `vpn-instance`、`version 3` 或 `version 4`，以及 `preference`。未指定 VPN 时使用默认路由表，指定时先配置对应的 VPN 并确认服务器可达。
-
-```text
-system-view
-ntp-service unicast-server 192.0.2.123 version 4
-ntp-service ipv6 unicast-server 2001:db8::123 vpn-instance MGMT version 4
-commit
-return
-display ntp-service status
-display ntp-service sessions
+功能特性 <ntp/features>
+配置案例 <ntp/cases>
+注意事项 <ntp/notes>
 ```
 
-设备配置只有管理实例 `MGMT` 已存在时，才可使用示例中的 VPN 参数。`display ntp-service sessions` 可核对地址、VPN、可达性和选源。用含相同地址和 VPN 的 `undo` 命令删除时间源。用 `ntp-service disable` 暂停同步，已设置的时间源会保留。用 `ntp-service enable` 恢复。
+<p id="id1" class="manual-previous-section" data-section-moved><a href="./">介绍</a></p>
 
-### 在不同 VPN 使用相同时间源地址
+<p id="id2" class="manual-previous-section" data-section-moved><a href="cases/#case-conditions-02-system-services-ntp">配置准备</a></p>
 
-默认表与 MGMT 各自可到达 192.0.2.123，两个时间源位于隔离的管理网络。管理员先配置 MGMT 上联与路由；两台时间服务器均允许设备的 UDP 123 请求。
+<p id="id3" class="manual-previous-section" data-section-moved><a href="cases/">配置案例</a></p>
 
-```vortexros-config
-ip vpn-instance MGMT
- ipv4-family
-#
-ntp-service unicast-server 192.0.2.123 version 4
-ntp-service unicast-server 192.0.2.123 vpn-instance MGMT version 4 preference
-#
-return
-```
+<p id="id4" class="manual-previous-section" data-section-moved><a href="cases/#case-verification-02-system-services-ntp">验证配置</a></p>
 
-```vortexros-cli
-display current-configuration configuration ntp
-display ntp-service sessions
-display ntp-service status
-```
-
-两条会话应按默认表和 MGMT 分开显示。等待采样后应至少有一条可达时间源，并在 status 看到同步后的参考源和偏移。若 MGMT 路径中断，复查其可达性和当前选源，再恢复上联。
-
-## 验证配置
-
-```vortexros-cli
-display ntp-service status
-display ntp-service sessions
-```
-
-等待设备选源，核对同步状态、服务器地址、所属 VPN 和可达性。
+<p id="vpn" class="manual-previous-section" data-section-moved><a href="cases/example-2/">在不同 VPN 使用相同时间源地址</a></p>

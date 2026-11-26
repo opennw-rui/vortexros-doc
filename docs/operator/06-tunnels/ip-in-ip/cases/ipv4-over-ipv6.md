@@ -1,0 +1,64 @@
+---
+nav_title: IPv4 业务经 IPv6 底层
+---
+
+
+# IPv4 业务经 IPv6 底层
+
+## 拓扑
+
+![R1 Ethernet0，2001:db8:12::1，Tunnel2 → R2 Ethernet0，2001:db8:12::2，Tunnel2](ipv4-over-ipv6.svg)
+
+## 配置条件
+
+准备两个可达的三层外层端点，并按内层和外层地址族选择相同的封装模式。隧道网络与底层链路使用不同网段。
+
+R1 与 R2 的 Ethernet0 互联。外层使用两端真实接口地址，内层通过 Tunnel2 组成独立的业务网段。以下模式分别部署，不在同一个 Tunnel2 上叠加。
+
+## 配置步骤
+
+两台设备分别在系统视图录入各自的配置片段，退出功能视图后提交。
+
+**R1**
+
+```vortexros-config
+interface Ethernet 0
+ ipv6 enable
+ ipv6 address 2001:db8:12::1 64
+#
+interface Tunnel 2
+ tunnel-protocol ipv4-ipv6
+ source 2001:db8:12::1
+ destination 2001:db8:12::2
+ ip address 10.0.12.1 255.255.255.252
+#
+return
+```
+
+**R2**
+
+```vortexros-config
+interface Ethernet 0
+ ipv6 enable
+ ipv6 address 2001:db8:12::2 64
+#
+interface Tunnel 2
+ tunnel-protocol ipv4-ipv6
+ source 2001:db8:12::2
+ destination 2001:db8:12::1
+ ip address 10.0.12.2 255.255.255.252
+#
+return
+```
+
+## 验证方法
+
+对照以下命令和预期结果核对设备状态。
+
+```vortexros-cli
+display interface Tunnel 2
+display ip interface brief
+display ip routing-table protocol direct
+```
+
+隧道接口应为 up，直连前缀 10.0.12.0/30 指向 Tunnel2。分别从两端 ping 对端的隧道 IPv4 地址。

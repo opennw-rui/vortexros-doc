@@ -1,29 +1,25 @@
-# 重启与关机
+---
+nav_title: 重启与关机
+nav_overview: 介绍
+---
 
-## 功能介绍
+
+# 重启与关机
 
 系统管理员可在用户视图重启设备或关机。操作会中断所有服务与连接。
 
-## 配置准备
+```{toctree}
+:maxdepth: 1
 
-安排维护窗口，准备能观察开机或恢复供电的独立控制台。若要保留已提交配置，先执行 save。
-
-## 配置案例
-
-以下为重启示例，按 CLI 提示完成确认。若需停止系统且由现场恢复电源，则使用 `poweroff`。
-
-```vortexros-cli
-save
-display startup
-reboot
+功能特性 <power/features>
+配置案例 <power/cases>
+注意事项 <power/notes>
 ```
 
-## 验证配置
+<p id="id2" class="manual-previous-section" data-section-moved><a href="./">介绍</a></p>
 
-```vortexros-cli
-display version
-display startup
-display health
-```
+<p id="id3" class="manual-previous-section" data-section-moved><a href="cases/#case-conditions-09-operations-power">配置准备</a></p>
 
-重启后确认启动了预期镜像，设备管理和业务能够恢复。关机完成后从 Console 或设备电源状态确认结果。
+<p id="id4" class="manual-previous-section" data-section-moved><a href="cases/">配置案例</a></p>
+
+<p id="id5" class="manual-previous-section" data-section-moved><a href="cases/#case-verification-09-operations-power">验证配置</a></p>

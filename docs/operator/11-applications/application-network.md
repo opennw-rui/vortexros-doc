@@ -1,71 +1,27 @@
-# 应用桥、出口与端口发布
+---
+nav_title: 应用桥、出口与端口发布
+nav_overview: 介绍
+---
 
-## 功能介绍
+
+# 应用桥、出口与端口发布
 
 应用可通过隔离的双栈桥互通。需要访问外部服务或向指定来源发布端口时，可单独配置受管出口策略。
 
-## 配置准备
+```{toctree}
+:maxdepth: 1
 
-准备独立应用卷、支持应用桥的签名应用，以及在默认路由表可达的上联。先创建桥，再安装和启动使用该桥的应用。
-
-## 配置案例
-
-```sh
-sudo vortexros-image app bridge-create 192.0.2.0/24 2001:db8:400::/64 1420
-sudo vortexros-image app bridge-status
+功能特性 <application-network/features>
+配置案例 <application-network/cases>
+注意事项 <application-network/notes>
 ```
 
-在维护 shell 可使用 `app bridge-policy /path/policy.json` 设置受管策略。下例仅允许指定 HTTPS 目标、指定 DNS，并发布一个端口。应用必须使用与 target 一致的固定地址。
+<p id="id2" class="manual-previous-section" data-section-moved><a href="./">介绍</a></p>
 
-```json
-{
-  "uplink": "Ethernet2",
-  "dns": [
-    "198.51.100.2"
-  ],
-  "allow": [
-    {
-      "destination": "198.51.100.2/32",
-      "protocol": "tcp",
-      "port": 443
-    }
-  ],
-  "publish": [
-    {
-      "application": "probe",
-      "protocol": "tcp",
-      "listen": "198.51.100.1:8443",
-      "target": "192.0.2.10:443",
-      "from": [
-        "198.51.100.0/25"
-      ]
-    }
-  ],
-  "advertise": false
-}
-```
+<p id="id3" class="manual-previous-section" data-section-moved><a href="cases/#case-conditions-11-applications-application-network">配置准备</a></p>
 
-要撤销出口、端口发布及显式通告，执行 `sudo vortexros-image app bridge-policy-clear`。要删除桥，请先停止并移除使用该桥的应用。
+<p id="id4" class="manual-previous-section" data-section-moved><a href="cases/">配置案例</a></p>
 
-### 应用出口放行、发布与撤销
+<p id="id6" class="manual-previous-section" data-section-moved><a href="cases/#case-verification-11-applications-application-network">验证配置</a></p>
 
-应用 probe 使用 192.0.2.10，设备 Ethernet2 为外部上联。198.51.100.2 同时提供 DNS 和 HTTPS。外部访问者从允许的 198.51.100.0/25 测试 198.51.100.1:8443，再从未授权的来源做对照。
-
-先以不含 publish 的策略文件创建桥，再安装并启动 probe。待应用有固定地址后应用完整策略。
-
-```sh
-sudo vortexros-image app bridge-create 192.0.2.0/24 2001:db8:400::/64 1420 /path/initial-policy.json
-sudo vortexros-image app bridge-policy /path/policy.json
-sudo vortexros-image app bridge-status
-```
-
-正常时应用仅匹配所配 DNS 和 HTTPS 出口，外部端口只接受显式来源。若启用 advertise，在设备用 `display ip routing-table` 和 `display ipv6 routing-table` 查厂内应用前缀，只有配置发布的路由邻居才应收到通告。清空策略后，重复测试并确认许可流量、端口发布和通告撤销。
-
-## 验证配置
-
-```vortexros-cli
-display ip routing-table
-display ipv6 routing-table
-```
-
-使用 app bridge-status 查看桥与策略。从应用和管理站分别测试允许和拒绝的流量。当 advertise 为 true 时，核对桥前缀是否按配置通告；清除策略后确认通告撤销。
+<p id="id5" class="manual-previous-section" data-section-moved><a href="cases/example-2/">应用出口放行、发布与撤销</a></p>

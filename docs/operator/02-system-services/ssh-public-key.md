@@ -1,34 +1,25 @@
-# SSH 公钥认证
+---
+nav_title: SSH 公钥认证
+nav_overview: 介绍
+---
 
-## 功能介绍
+
+# SSH 公钥认证
 
 将用户的 OpenSSH 公钥导入设备并按名称关联到账户，适用于管理终端的免口令公钥认证。
 
-## 配置准备
+```{toctree}
+:maxdepth: 1
 
-准备客户端公钥文件，并确认 STelnet 已可用。只复制 .pub 文件内容。
-
-## 配置案例
-
-在系统视图输入 `rsa peer-public-key workstation encoding-type openssh`。进入命名视图后执行 `public-key-code begin`，在下一行粘贴本机的 OpenSSH 公钥整行或 Base64 数据。执行 `public-key-code end` 完成录入，`peer-public-key end` 返回系统视图。
-
-```text
-ssh user vortexros assign rsa-key workstation
-commit
-return
-display aaa user vortexros
+功能特性 <ssh-public-key/features>
+配置案例 <ssh-public-key/cases>
+注意事项 <ssh-public-key/notes>
 ```
 
-Ed25519 使用 `ed25519 peer-public-key` 和 `assign ed25519-key`。撤销时用 `undo ssh user vortexros assign rsa-key workstation`，提交后从独立会话验证相应密钥已经失效。
+<p id="id1" class="manual-previous-section" data-section-moved><a href="./">介绍</a></p>
 
-## 验证配置
+<p id="id2" class="manual-previous-section" data-section-moved><a href="cases/#case-conditions-02-system-services-ssh-public-key">配置准备</a></p>
 
-```vortexros-cli
-display aaa user vortexros
-display ssh user vortexros login-info succeeded
-display ssh user vortexros login-info failed
-```
+<p id="id3" class="manual-previous-section" data-section-moved><a href="cases/">配置案例</a></p>
 
-从客户端使用与 workstation 公钥配对的私钥发起新会话，检查对应用户出现在成功记录中。撤销后先从独立会话复验。
-
-[STelnet 与 VTY](stelnet.md)
+<p id="id4" class="manual-previous-section" data-section-moved><a href="cases/#case-verification-02-system-services-ssh-public-key">验证配置</a></p>

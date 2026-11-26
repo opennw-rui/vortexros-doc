@@ -1,37 +1,25 @@
-# VPN 实例与路由隔离
+---
+nav_title: VPN 实例与路由隔离
+nav_overview: 介绍
+---
 
-## 功能介绍
+
+# VPN 实例与路由隔离
 
 VPN 实例提供独立的路由表。在一台设备上可隔离不同租户的三层接口与路由，共用的设备可以承载重叠的地址规划。
 
-## 配置准备
+```{toctree}
+:maxdepth: 1
 
-规划实例名称、地址族及关联接口。如果接口已有地址，绑定或切换 VPN 后须按目标实例重新配置所需的地址。
-
-## 配置案例
-
-```vortexros-config
-ip vpn-instance BLUE
- ipv4-family
-  route-distinguisher 65000:100
-  vpn-target 65000:100 both
- ipv6-family
-#
-interface Ethernet 1
- ip binding vpn-instance BLUE
- ip address 192.0.2.2 255.255.255.0
-#
-return
+功能特性 <vpn-instance/features>
+配置案例 <vpn-instance/cases>
+注意事项 <vpn-instance/notes>
 ```
 
-录入并提交。仍有接口、路由或动态协议引用时，应先解除引用，再删除 VPN 实例。
+<p id="id1" class="manual-previous-section" data-section-moved><a href="./">介绍</a></p>
 
-## 验证配置
+<p id="id2" class="manual-previous-section" data-section-moved><a href="cases/#case-conditions-04-ip-routing-vpn-instance">配置准备</a></p>
 
-```vortexros-cli
-display ip vpn-instance
-display ip vpn-instance interface
-display ip routing-table vpn-instance BLUE
-```
+<p id="id3" class="manual-previous-section" data-section-moved><a href="cases/">配置案例</a></p>
 
-确认 Ethernet1 属于 BLUE，并检查该路由表中的直连路径。从对应 VPN 发起连通性测试。
+<p id="id4" class="manual-previous-section" data-section-moved><a href="cases/#case-verification-04-ip-routing-vpn-instance">验证配置</a></p>

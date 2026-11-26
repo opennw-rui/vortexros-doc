@@ -1,120 +1,29 @@
-# 静态 VXLAN
+---
+nav_title: 静态 VXLAN
+nav_overview: 介绍
+---
 
-## 介绍
+
+# 静态 VXLAN
 
 VXLAN 在 IP 网络上延伸二层业务。静态模式从 NVE 手动指定远端 VTEP，适用于远端固定的部署。
 
-## 功能特性
+```{toctree}
+:maxdepth: 1
 
-NVE 指定本端 VTEP 地址，并为每个 VNI 配置远端 VTEP 列表。发送广播、未知单播或组播时，本端向该 VNI 中的静态对端复制报文。用 `display vxlan tunnel` 查看实际隧道，用 `display vxlan statistics` 查看对应 VNI 和对端的收发量。
-
-## 配置案例
-
-为两台设备规划可达的 VTEP 地址，预建相同的 VNI 与本地桥域。
-
-### 为已有桥域添加一个静态对端
-
-示例源地址为 192.0.2.1，远端为 192.0.2.2。对端使用自己的源地址，并将 192.0.2.1 配为远端。
-
-```text
-interface Nve 1
- source 192.0.2.1
- vni 1011 head-end peer-list 192.0.2.2
+功能特性 <vxlan-static/features>
+配置案例 <vxlan-static/cases>
+注意事项 <vxlan-static/notes>
 ```
 
-使用 [Bridge Domain](../03-interfaces-l2/bridge-domain.md) 绑定本地业务。验证时可执行：
+<p id="id1" class="manual-previous-section" data-section-moved><a href="./">介绍</a></p>
 
-```vortexros-cli
-display vxlan tunnel
-display vxlan statistics source 192.0.2.1 peer 192.0.2.2 vni 1011
-display bridge-domain 11
-display mac-address
-```
+<p id="id2" class="manual-previous-section" data-section-moved><a href="features/">功能特性</a></p>
 
-删除远端或整个NVE配置：
+<p id="id3" class="manual-previous-section" data-section-moved><a href="cases/">配置案例</a></p>
 
-```text
-interface Nve 1
- undo vni 1011 head-end peer-list 192.0.2.2
-quit
-undo interface Nve 1
-commit
-```
+<p id="id5" class="manual-previous-section" data-section-moved><a href="cases/#case-verification-06-tunnels-vxlan-static">验证配置</a></p>
 
-### 两个 VTEP 的静态二层互通
+<p id="id4" class="manual-previous-section" data-section-moved><a href="cases/example-1/">为已有桥域添加一个静态对端</a></p>
 
-R1 和 R2 各用 Ethernet0 作为底层，地址为 192.0.2.1 和 .2。两个终端分别接两端 Ethernet1，使用同一个业务网段 203.0.113.0/24。两台设备都使用 VLAN 100、BD 11 和 VNI 1011。
-
-两台设备分别在系统视图录入各自的配置片段，退出功能视图后提交。
-
-**R1**
-
-```vortexros-config
-interface Ethernet 0
- ip address 192.0.2.1 255.255.255.0
-#
-enable switch
-#
-vlan 100
-#
-interface Ethernet 1
- portswitch
- port link-type access
- port default vlan 100
-#
-bridge-domain 11
- l2 binding vlan 100
- vxlan vni 1011
-#
-interface Nve 1
- source 192.0.2.1
- vni 1011 head-end peer-list 192.0.2.2
-#
-return
-```
-
-**R2**
-
-```vortexros-config
-interface Ethernet 0
- ip address 192.0.2.2 255.255.255.0
-#
-enable switch
-#
-vlan 100
-#
-interface Ethernet 1
- portswitch
- port link-type access
- port default vlan 100
-#
-bridge-domain 11
- l2 binding vlan 100
- vxlan vni 1011
-#
-interface Nve 1
- source 192.0.2.2
- vni 1011 head-end peer-list 192.0.2.1
-#
-return
-```
-
-分别查看状态。
-
-```vortexros-cli
-display vxlan tunnel
-display bridge-domain 11
-display mac-address
-```
-
-每端只有一个远端 VTEP，VNI 为 1011。终端互相 ping 后，检查桥域本地口和远端 MAC 出口，确认隧道计数增长。撤去静态列表条目后，相应远端应从该 VNI 消失。
-
-## 验证配置
-
-```vortexros-cli
-display vxlan tunnel
-display vxlan statistics source 192.0.2.1 peer 192.0.2.2 vni 1011
-display bridge-domain 11
-```
-
-确认 VNI 与 VTEP 一致，从两端桥域内的终端测试互通，并检查 VXLAN 收发计数。
+<p id="vtep" class="manual-previous-section" data-section-moved><a href="cases/two-vteps/">两个 VTEP 的静态二层互通</a></p>

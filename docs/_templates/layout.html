@@ -6,42 +6,30 @@
 {% include "searchbox.html" %}
 {% endblock %}
 
-{% macro section_links(doc, sections) %}
-  {% set base = '' if doc == pagename else pathto(doc) %}
-  {% for title, anchor, examples in sections %}
-  <a href="{{ base }}{{ anchor }}">{{ title }}</a>
-  {% if examples %}
-  <div class="manual-example-links">{{ section_links(doc, examples) }}</div>
-  {% endif %}
-  {% endfor %}
+{% macro page_link(doc, title) %}
+<a href="{{ pathto(doc) }}"{% if pagename == doc %} aria-current="page"{% endif %}>{{ title }}</a>
 {% endmacro %}
 
-{% macro feature_rows(entries) %}
-  {% for doc, title, sections in entries %}
-  {% if sections %}
-  <details class="manual-feature"{% if pagename == doc %} open{% endif %}>
-    <summary{% if pagename == doc %} aria-current="page"{% endif %}>{{ title }}</summary>
-    <div class="manual-section-links">{{ section_links(doc, sections) }}</div>
+{% macro feature_rows(entries, level=0) %}
+  {% for entry in entries %}
+  {% if entry.children %}
+  <details{% if level == 0 %} class="manual-category"{% endif %}{% if entry.active %} open{% endif %}>
+    <summary>{{ entry.title }}</summary>
+    <div class="manual-children">
+      {{ page_link(entry.doc, entry.overview) }}
+      {{ feature_rows(entry.children, level + 1) }}
+    </div>
   </details>
   {% else %}
-  <a href="{{ pathto(doc) }}"{% if pagename == doc %} aria-current="page"{% endif %}>{{ title }}</a>
+  {{ page_link(entry.doc, entry.title) }}
   {% endif %}
   {% endfor %}
 {% endmacro %}
 
 {% block navigation %}
 <div class="manual-menu" role="navigation" aria-label="功能目录">
-  <a href="{{ pathto(root_doc) }}"{% if pagename == root_doc %} aria-current="page"{% endif %}>首页</a>
-  {% for doc, category, entries in feature_navigation %}
-  {% if category %}
-  <details class="manual-category"{% if doc == pagename or pagename in entries|map(attribute=0)|list %} open{% endif %}>
-    <summary>{{ category }}</summary>
-    <div class="manual-feature-list">{{ feature_rows(entries) }}</div>
-  </details>
-  {% else %}
-  {{ feature_rows(entries) }}
-  {% endif %}
-  {% endfor %}
+  {{ page_link(root_doc, '首页') }}
+  {{ feature_rows(feature_navigation) }}
 </div>
 <details class="manual-resources">
   <summary>版本与资源 <span>{{ release }}</span></summary>
@@ -56,6 +44,10 @@
 {% block footer %}
 {{ super() }}
 <script>
+  const legacySection = document.getElementById(location.hash.slice(1));
+  if (legacySection && legacySection.hasAttribute('data-section-moved')) {
+    location.replace(legacySection.querySelector('a').href);
+  }
   const currentFeature = document.querySelector('.manual-menu [aria-current="page"]');
   if (currentFeature) {
     currentFeature.scrollIntoView({ block: 'nearest' });

@@ -1,31 +1,25 @@
-# 系统时区
+---
+nav_title: 系统时区
+nav_overview: 介绍
+---
 
-## 功能介绍
+
+# 系统时区
 
 时区决定时间、运行状态和日志的本地显示方式。它不改变时间同步所使用的实际时刻。
 
-## 配置准备
+```{toctree}
+:maxdepth: 1
 
-用 `clock timezone ?` 查询有效的 IANA 时区名称。
-
-## 配置案例
-
-```vortexros-cli
-system-view
-clock timezone Asia/Shanghai
-commit
-return
-display clock
-save
+功能特性 <timezone/features>
+配置案例 <timezone/cases>
+注意事项 <timezone/notes>
 ```
 
-也可在用户视图直接设置时区，此时更改立即提交。用 `undo clock timezone` 恢复 UTC。
+<p id="id2" class="manual-previous-section" data-section-moved><a href="./">介绍</a></p>
 
-## 验证配置
+<p id="id3" class="manual-previous-section" data-section-moved><a href="cases/#case-conditions-02-system-services-timezone">配置准备</a></p>
 
-```vortexros-cli
-display clock
-display logbuffer last 10
-```
+<p id="id4" class="manual-previous-section" data-section-moved><a href="cases/">配置案例</a></p>
 
-核对时区与本地时间。需要保留该设置时执行 save。
+<p id="id5" class="manual-previous-section" data-section-moved><a href="cases/#case-verification-02-system-services-timezone">验证配置</a></p>
