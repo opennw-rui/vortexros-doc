@@ -56,19 +56,20 @@
     cursor: pointer;
 }
 
-.manual-feature-list,
-.manual-section-links,
-.manual-example-links {
+.manual-children {
     margin-inline-start: 0.8rem;
 }
 
-.manual-section-links a,
-.manual-example-links a {
+.manual-children .manual-children a {
     font-size: 0.875rem;
 }
 
-.manual-example-links {
+.manual-children .manual-children .manual-children {
     border-inline-start: 1px solid #605b5b;
+}
+
+.manual-previous-section:not(:target) {
+    display: none;
 }
 
 .manual-menu a:hover,

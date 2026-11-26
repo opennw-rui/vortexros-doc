@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 248" role="img" aria-labelledby="label">
+<title id="label">R1 192.0.2.1 → 目标 198.51.100.11/32 → 组下一跳 192.0.2.2 → 静态下一跳 192.0.2.3。两条等价路径，路由组，普通静态</title>
+<defs><marker id="arrow" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto"><path d="M 0 0 L 7 3.5 L 0 7 Z" fill="#476781"/></marker></defs>
+<rect x="1" y="1" width="758" height="246" rx="10" fill="#fcfdff" stroke="#cedbe7"/>
+<g font-family="Arial, Microsoft YaHei, PingFang SC, sans-serif" text-anchor="middle" dominant-baseline="middle">
+<rect x="24" y="80" width="167" height="86" rx="9" fill="#e9f3fc" stroke="#457aa5"/>
+<text x="107.5" y="123" font-size="16" fill="#19374f">R1 192.0.2.1</text>
+<rect x="282" y="80" width="174" height="86" rx="9" fill="#e9f3fc" stroke="#457aa5"/>
+<text x="369" y="123" font-size="13" fill="#19374f">目标 198.51.100.11/32</text>
+<rect x="565" y="20" width="171" height="86" rx="9" fill="#e9f3fc" stroke="#457aa5"/>
+<text x="650.5" y="63" font-size="15" fill="#19374f">组下一跳 192.0.2.2</text>
+<rect x="565" y="140" width="171" height="86" rx="9" fill="#e9f3fc" stroke="#457aa5"/>
+<text x="650.5" y="183" font-size="14" fill="#19374f">静态下一跳 192.0.2.3</text>
+<path d="M 191 123 L 282 123" stroke="#476781" stroke-width="1.8" marker-end="url(#arrow)" fill="none"/>
+<path d="M 456 112 L 565 63" stroke="#476781" stroke-width="1.8" marker-end="url(#arrow)" fill="none"/>
+<path d="M 456 137 L 565 183" stroke="#476781" stroke-width="1.8" marker-end="url(#arrow)" fill="none"/>
+<text x="237" y="108" font-size="14" fill="#37536c">两条等价路径</text>
+<text x="515" y="75" font-size="14" fill="#37536c">路由组</text>
+<text x="515" y="195" font-size="14" fill="#37536c">普通静态</text>
+</g>
+</svg>
