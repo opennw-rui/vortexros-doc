@@ -6,22 +6,27 @@
 {% include "searchbox.html" %}
 {% endblock %}
 
-{% macro page_link(doc, title) %}
-<a href="{{ pathto(doc) }}"{% if pagename == doc %} aria-current="page"{% endif %}>{{ title }}</a>
+{% macro page_link(doc, title, active=false) %}
+<a href="{{ pathto(doc) }}"{% if pagename == doc %} aria-current="page"{% elif active %} aria-current="location"{% endif %}>{{ title }}</a>
 {% endmacro %}
 
 {% macro feature_rows(entries, level=0) %}
   {% for entry in entries %}
-  {% if entry.children %}
-  <details{% if level == 0 %} class="manual-category"{% endif %}{% if entry.active %} open{% endif %}>
+  {% if entry.children and level == 0 %}
+  <details class="manual-category"{% if entry.active %} open{% endif %}>
     <summary>{{ entry.title }}</summary>
     <div class="manual-children">
       {{ page_link(entry.doc, entry.overview) }}
       {{ feature_rows(entry.children, level + 1) }}
     </div>
   </details>
+  {% elif entry.children %}
+  <div class="manual-subtopic">
+    {{ page_link(entry.doc, entry.title) }}
+    <div class="manual-children">{{ feature_rows(entry.children, level + 1) }}</div>
+  </div>
   {% else %}
-  {{ page_link(entry.doc, entry.title) }}
+  {{ page_link(entry.doc, entry.title, entry.feature and entry.active) }}
   {% endif %}
   {% endfor %}
 {% endmacro %}
@@ -44,11 +49,12 @@
 {% block footer %}
 {{ super() }}
 <script>
-  const legacySection = document.getElementById(location.hash.slice(1));
-  if (legacySection && legacySection.hasAttribute('data-section-moved')) {
+  const legacySection = Array.from(document.querySelectorAll('[data-section-moved]'))
+    .find(section => (section.dataset.legacyId || section.id) === location.hash.slice(1));
+  if (legacySection) {
     location.replace(legacySection.querySelector('a').href);
   }
-  const currentFeature = document.querySelector('.manual-menu [aria-current="page"]');
+  const currentFeature = document.querySelector('.manual-menu [aria-current]');
   if (currentFeature) {
     currentFeature.scrollIntoView({ block: 'nearest' });
   }

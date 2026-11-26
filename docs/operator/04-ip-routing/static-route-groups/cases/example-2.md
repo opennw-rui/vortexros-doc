@@ -60,6 +60,8 @@ Ctrl+C只停止当前终端的进度显示，不取消设备正在执行的更�
 
 ## 验证方法
 
+对照{ref}`本功能页的实测结果 <recorded-result-04-ip-routing-static-route-groups>`可以核对设备实际显示的字段或业务表现。不同拓扑请按本案例的地址和接口检查。
+
 对照以下命令和预期结果核对设备状态。
 
 ```vortexros-cli

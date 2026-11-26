@@ -39,6 +39,8 @@ sudo docker compose up -d
 
 ## 验证方法
 
+对照{ref}`本功能页的实测结果 <recorded-result-11-applications-application-network>`可以核对设备实际显示的字段或业务表现。不同拓扑请按本案例的地址和接口检查。
+
 ```sh
 sudo docker compose port web 8080
 curl -fsS http://127.0.0.1:8080/

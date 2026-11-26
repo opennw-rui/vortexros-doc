@@ -8571,18 +8571,6 @@
   address { IP | IP/LEN | IP MASK }
   ```
 
-### `apply config`
-
-- 类别：即时运维命令
-- 执行效果：立即执行受权限控制的运维动作，不写入配置。
-- 视图：`任意允许视图`
-- CLI 帮助：restart VPP and apply the saved config.cfg configuration
-- 合法语法：
-
-  ```text
-  apply config
-  ```
-
 ### `car`
 
 - 类别：配置命令

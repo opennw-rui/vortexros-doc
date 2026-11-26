@@ -1,0 +1,998 @@
+{
+  "installation/00-planning/features": [
+    "installation/00-planning",
+    "principles"
+  ],
+  "installation/00-planning/cases": [
+    "installation/00-planning",
+    "examples"
+  ],
+  "installation/00-planning/notes": [
+    "installation/00-planning",
+    "precautions"
+  ],
+  "installation/01-management-safety/features": [
+    "installation/01-management-safety",
+    "principles"
+  ],
+  "installation/01-management-safety/cases": [
+    "installation/01-management-safety",
+    "examples"
+  ],
+  "installation/01-management-safety/notes": [
+    "installation/01-management-safety",
+    "precautions"
+  ],
+  "installation/02-backends/features": [
+    "installation/02-backends",
+    "principles"
+  ],
+  "installation/02-backends/cases": [
+    "installation/02-backends",
+    "examples"
+  ],
+  "installation/02-backends/notes": [
+    "installation/02-backends",
+    "precautions"
+  ],
+  "installation/03-install-vortexros/features": [
+    "installation/03-install-vortexros",
+    "principles"
+  ],
+  "installation/03-install-vortexros/cases": [
+    "installation/03-install-vortexros",
+    "examples"
+  ],
+  "installation/03-install-vortexros/notes": [
+    "installation/03-install-vortexros",
+    "precautions"
+  ],
+  "installation/04-system-services/features": [
+    "installation/04-system-services",
+    "principles"
+  ],
+  "installation/04-system-services/cases": [
+    "installation/04-system-services",
+    "examples"
+  ],
+  "installation/04-system-services/notes": [
+    "installation/04-system-services",
+    "precautions"
+  ],
+  "installation/05-vpp-startup/features": [
+    "installation/05-vpp-startup",
+    "principles"
+  ],
+  "installation/05-vpp-startup/cases": [
+    "installation/05-vpp-startup",
+    "examples"
+  ],
+  "installation/05-vpp-startup/notes": [
+    "installation/05-vpp-startup",
+    "precautions"
+  ],
+  "installation/06-first-start/features": [
+    "installation/06-first-start",
+    "principles"
+  ],
+  "installation/06-first-start/cases": [
+    "installation/06-first-start",
+    "examples"
+  ],
+  "installation/06-first-start/notes": [
+    "installation/06-first-start",
+    "precautions"
+  ],
+  "installation/08-hardware-acceptance/features": [
+    "installation/08-hardware-acceptance",
+    "principles"
+  ],
+  "installation/08-hardware-acceptance/cases": [
+    "installation/08-hardware-acceptance",
+    "examples"
+  ],
+  "installation/08-hardware-acceptance/notes": [
+    "installation/08-hardware-acceptance",
+    "precautions"
+  ],
+  "installation/software-rollback/features": [
+    "installation/software-rollback",
+    "principles"
+  ],
+  "installation/software-rollback/cases": [
+    "installation/software-rollback",
+    "examples"
+  ],
+  "installation/software-rollback/notes": [
+    "installation/software-rollback",
+    "precautions"
+  ],
+  "installation/software-upgrade/features": [
+    "installation/software-upgrade",
+    "principles"
+  ],
+  "installation/software-upgrade/cases": [
+    "installation/software-upgrade",
+    "examples"
+  ],
+  "installation/software-upgrade/notes": [
+    "installation/software-upgrade",
+    "precautions"
+  ],
+  "installation/system-recovery/features": [
+    "installation/system-recovery",
+    "principles"
+  ],
+  "installation/system-recovery/cases": [
+    "installation/system-recovery",
+    "examples"
+  ],
+  "installation/system-recovery/notes": [
+    "installation/system-recovery",
+    "precautions"
+  ],
+  "operator/01-cli/configuration/features": [
+    "operator/01-cli/configuration",
+    "principles"
+  ],
+  "operator/01-cli/configuration/cases": [
+    "operator/01-cli/configuration",
+    "examples"
+  ],
+  "operator/01-cli/configuration/notes": [
+    "operator/01-cli/configuration",
+    "precautions"
+  ],
+  "operator/01-cli/configuration-files/features": [
+    "operator/01-cli/configuration-files",
+    "principles"
+  ],
+  "operator/01-cli/configuration-files/cases": [
+    "operator/01-cli/configuration-files",
+    "examples"
+  ],
+  "operator/01-cli/configuration-files/notes": [
+    "operator/01-cli/configuration-files",
+    "precautions"
+  ],
+  "operator/01-cli/navigation/features": [
+    "operator/01-cli/navigation",
+    "principles"
+  ],
+  "operator/01-cli/navigation/cases": [
+    "operator/01-cli/navigation",
+    "examples"
+  ],
+  "operator/01-cli/navigation/notes": [
+    "operator/01-cli/navigation",
+    "precautions"
+  ],
+  "operator/02-system-services/dns/features": [
+    "operator/02-system-services/dns",
+    "principles"
+  ],
+  "operator/02-system-services/dns/cases": [
+    "operator/02-system-services/dns",
+    "examples"
+  ],
+  "operator/02-system-services/dns/notes": [
+    "operator/02-system-services/dns",
+    "precautions"
+  ],
+  "operator/02-system-services/identity/features": [
+    "operator/02-system-services/identity",
+    "principles"
+  ],
+  "operator/02-system-services/identity/cases": [
+    "operator/02-system-services/identity",
+    "examples"
+  ],
+  "operator/02-system-services/identity/notes": [
+    "operator/02-system-services/identity",
+    "precautions"
+  ],
+  "operator/02-system-services/licensing/features": [
+    "operator/02-system-services/licensing",
+    "principles"
+  ],
+  "operator/02-system-services/licensing/cases": [
+    "operator/02-system-services/licensing",
+    "examples"
+  ],
+  "operator/02-system-services/licensing/notes": [
+    "operator/02-system-services/licensing",
+    "precautions"
+  ],
+  "operator/02-system-services/local-aaa/features": [
+    "operator/02-system-services/local-aaa",
+    "principles"
+  ],
+  "operator/02-system-services/local-aaa/cases": [
+    "operator/02-system-services/local-aaa",
+    "examples"
+  ],
+  "operator/02-system-services/local-aaa/notes": [
+    "operator/02-system-services/local-aaa",
+    "precautions"
+  ],
+  "operator/02-system-services/ntp/features": [
+    "operator/02-system-services/ntp",
+    "principles"
+  ],
+  "operator/02-system-services/ntp/cases": [
+    "operator/02-system-services/ntp",
+    "examples"
+  ],
+  "operator/02-system-services/ntp/notes": [
+    "operator/02-system-services/ntp",
+    "precautions"
+  ],
+  "operator/02-system-services/ssh-public-key/features": [
+    "operator/02-system-services/ssh-public-key",
+    "principles"
+  ],
+  "operator/02-system-services/ssh-public-key/cases": [
+    "operator/02-system-services/ssh-public-key",
+    "examples"
+  ],
+  "operator/02-system-services/ssh-public-key/notes": [
+    "operator/02-system-services/ssh-public-key",
+    "precautions"
+  ],
+  "operator/02-system-services/stelnet/features": [
+    "operator/02-system-services/stelnet",
+    "principles"
+  ],
+  "operator/02-system-services/stelnet/cases": [
+    "operator/02-system-services/stelnet",
+    "examples"
+  ],
+  "operator/02-system-services/stelnet/notes": [
+    "operator/02-system-services/stelnet",
+    "precautions"
+  ],
+  "operator/02-system-services/timezone/features": [
+    "operator/02-system-services/timezone",
+    "principles"
+  ],
+  "operator/02-system-services/timezone/cases": [
+    "operator/02-system-services/timezone",
+    "examples"
+  ],
+  "operator/02-system-services/timezone/notes": [
+    "operator/02-system-services/timezone",
+    "precautions"
+  ],
+  "operator/03-interfaces-l2/arp/features": [
+    "operator/03-interfaces-l2/arp",
+    "principles"
+  ],
+  "operator/03-interfaces-l2/arp/cases": [
+    "operator/03-interfaces-l2/arp",
+    "examples"
+  ],
+  "operator/03-interfaces-l2/arp/notes": [
+    "operator/03-interfaces-l2/arp",
+    "precautions"
+  ],
+  "operator/03-interfaces-l2/bridge-domain/features": [
+    "operator/03-interfaces-l2/bridge-domain",
+    "principles"
+  ],
+  "operator/03-interfaces-l2/bridge-domain/cases": [
+    "operator/03-interfaces-l2/bridge-domain",
+    "examples"
+  ],
+  "operator/03-interfaces-l2/bridge-domain/notes": [
+    "operator/03-interfaces-l2/bridge-domain",
+    "precautions"
+  ],
+  "operator/03-interfaces-l2/eth-trunk/features": [
+    "operator/03-interfaces-l2/eth-trunk",
+    "principles"
+  ],
+  "operator/03-interfaces-l2/eth-trunk/cases": [
+    "operator/03-interfaces-l2/eth-trunk",
+    "examples"
+  ],
+  "operator/03-interfaces-l2/eth-trunk/notes": [
+    "operator/03-interfaces-l2/eth-trunk",
+    "precautions"
+  ],
+  "operator/03-interfaces-l2/ipv6-neighbor-discovery/features": [
+    "operator/03-interfaces-l2/ipv6-neighbor-discovery",
+    "principles"
+  ],
+  "operator/03-interfaces-l2/ipv6-neighbor-discovery/cases": [
+    "operator/03-interfaces-l2/ipv6-neighbor-discovery",
+    "examples"
+  ],
+  "operator/03-interfaces-l2/ipv6-neighbor-discovery/notes": [
+    "operator/03-interfaces-l2/ipv6-neighbor-discovery",
+    "precautions"
+  ],
+  "operator/03-interfaces-l2/mac-table/features": [
+    "operator/03-interfaces-l2/mac-table",
+    "principles"
+  ],
+  "operator/03-interfaces-l2/mac-table/cases": [
+    "operator/03-interfaces-l2/mac-table",
+    "examples"
+  ],
+  "operator/03-interfaces-l2/mac-table/notes": [
+    "operator/03-interfaces-l2/mac-table",
+    "precautions"
+  ],
+  "operator/03-interfaces-l2/physical-interfaces/features": [
+    "operator/03-interfaces-l2/physical-interfaces",
+    "principles"
+  ],
+  "operator/03-interfaces-l2/physical-interfaces/cases": [
+    "operator/03-interfaces-l2/physical-interfaces",
+    "examples"
+  ],
+  "operator/03-interfaces-l2/physical-interfaces/notes": [
+    "operator/03-interfaces-l2/physical-interfaces",
+    "precautions"
+  ],
+  "operator/03-interfaces-l2/subinterfaces/features": [
+    "operator/03-interfaces-l2/subinterfaces",
+    "principles"
+  ],
+  "operator/03-interfaces-l2/subinterfaces/cases": [
+    "operator/03-interfaces-l2/subinterfaces",
+    "examples"
+  ],
+  "operator/03-interfaces-l2/subinterfaces/notes": [
+    "operator/03-interfaces-l2/subinterfaces",
+    "precautions"
+  ],
+  "operator/03-interfaces-l2/vbdif/features": [
+    "operator/03-interfaces-l2/vbdif",
+    "principles"
+  ],
+  "operator/03-interfaces-l2/vbdif/cases": [
+    "operator/03-interfaces-l2/vbdif",
+    "examples"
+  ],
+  "operator/03-interfaces-l2/vbdif/notes": [
+    "operator/03-interfaces-l2/vbdif",
+    "precautions"
+  ],
+  "operator/03-interfaces-l2/vlan/features": [
+    "operator/03-interfaces-l2/vlan",
+    "principles"
+  ],
+  "operator/03-interfaces-l2/vlan/cases": [
+    "operator/03-interfaces-l2/vlan",
+    "examples"
+  ],
+  "operator/03-interfaces-l2/vlan/notes": [
+    "operator/03-interfaces-l2/vlan",
+    "precautions"
+  ],
+  "operator/03-interfaces-l2/vlanif/features": [
+    "operator/03-interfaces-l2/vlanif",
+    "principles"
+  ],
+  "operator/03-interfaces-l2/vlanif/cases": [
+    "operator/03-interfaces-l2/vlanif",
+    "examples"
+  ],
+  "operator/03-interfaces-l2/vlanif/notes": [
+    "operator/03-interfaces-l2/vlanif",
+    "precautions"
+  ],
+  "operator/04-ip-routing/ip-addresses/features": [
+    "operator/04-ip-routing/ip-addresses",
+    "principles"
+  ],
+  "operator/04-ip-routing/ip-addresses/cases": [
+    "operator/04-ip-routing/ip-addresses",
+    "examples"
+  ],
+  "operator/04-ip-routing/ip-addresses/notes": [
+    "operator/04-ip-routing/ip-addresses",
+    "precautions"
+  ],
+  "operator/04-ip-routing/ipv6-path-mtu/features": [
+    "operator/04-ip-routing/ipv6-path-mtu",
+    "principles"
+  ],
+  "operator/04-ip-routing/ipv6-path-mtu/cases": [
+    "operator/04-ip-routing/ipv6-path-mtu",
+    "examples"
+  ],
+  "operator/04-ip-routing/ipv6-path-mtu/notes": [
+    "operator/04-ip-routing/ipv6-path-mtu",
+    "precautions"
+  ],
+  "operator/04-ip-routing/ipv6-router-advertisement/features": [
+    "operator/04-ip-routing/ipv6-router-advertisement",
+    "principles"
+  ],
+  "operator/04-ip-routing/ipv6-router-advertisement/cases": [
+    "operator/04-ip-routing/ipv6-router-advertisement",
+    "examples"
+  ],
+  "operator/04-ip-routing/ipv6-router-advertisement/notes": [
+    "operator/04-ip-routing/ipv6-router-advertisement",
+    "precautions"
+  ],
+  "operator/04-ip-routing/static-route-groups/features": [
+    "operator/04-ip-routing/static-route-groups",
+    "principles"
+  ],
+  "operator/04-ip-routing/static-route-groups/cases": [
+    "operator/04-ip-routing/static-route-groups",
+    "examples"
+  ],
+  "operator/04-ip-routing/static-route-groups/notes": [
+    "operator/04-ip-routing/static-route-groups",
+    "precautions"
+  ],
+  "operator/04-ip-routing/static-routes/features": [
+    "operator/04-ip-routing/static-routes",
+    "principles"
+  ],
+  "operator/04-ip-routing/static-routes/cases": [
+    "operator/04-ip-routing/static-routes",
+    "examples"
+  ],
+  "operator/04-ip-routing/static-routes/notes": [
+    "operator/04-ip-routing/static-routes",
+    "precautions"
+  ],
+  "operator/04-ip-routing/urpf/features": [
+    "operator/04-ip-routing/urpf",
+    "principles"
+  ],
+  "operator/04-ip-routing/urpf/cases": [
+    "operator/04-ip-routing/urpf",
+    "examples"
+  ],
+  "operator/04-ip-routing/urpf/notes": [
+    "operator/04-ip-routing/urpf",
+    "precautions"
+  ],
+  "operator/04-ip-routing/vpn-instance/features": [
+    "operator/04-ip-routing/vpn-instance",
+    "principles"
+  ],
+  "operator/04-ip-routing/vpn-instance/cases": [
+    "operator/04-ip-routing/vpn-instance",
+    "examples"
+  ],
+  "operator/04-ip-routing/vpn-instance/notes": [
+    "operator/04-ip-routing/vpn-instance",
+    "precautions"
+  ],
+  "operator/05-dynamic-routing/bfd/features": [
+    "operator/05-dynamic-routing/bfd",
+    "principles"
+  ],
+  "operator/05-dynamic-routing/bfd/cases": [
+    "operator/05-dynamic-routing/bfd",
+    "examples"
+  ],
+  "operator/05-dynamic-routing/bfd/notes": [
+    "operator/05-dynamic-routing/bfd",
+    "precautions"
+  ],
+  "operator/05-dynamic-routing/bgp/features": [
+    "operator/05-dynamic-routing/bgp",
+    "principles"
+  ],
+  "operator/05-dynamic-routing/bgp/cases": [
+    "operator/05-dynamic-routing/bgp",
+    "examples"
+  ],
+  "operator/05-dynamic-routing/bgp/notes": [
+    "operator/05-dynamic-routing/bgp",
+    "precautions"
+  ],
+  "operator/05-dynamic-routing/isis/features": [
+    "operator/05-dynamic-routing/isis",
+    "principles"
+  ],
+  "operator/05-dynamic-routing/isis/cases": [
+    "operator/05-dynamic-routing/isis",
+    "examples"
+  ],
+  "operator/05-dynamic-routing/isis/notes": [
+    "operator/05-dynamic-routing/isis",
+    "precautions"
+  ],
+  "operator/05-dynamic-routing/ospf/features": [
+    "operator/05-dynamic-routing/ospf",
+    "principles"
+  ],
+  "operator/05-dynamic-routing/ospf/cases": [
+    "operator/05-dynamic-routing/ospf",
+    "examples"
+  ],
+  "operator/05-dynamic-routing/ospf/notes": [
+    "operator/05-dynamic-routing/ospf",
+    "precautions"
+  ],
+  "operator/05-dynamic-routing/ospfv3/features": [
+    "operator/05-dynamic-routing/ospfv3",
+    "principles"
+  ],
+  "operator/05-dynamic-routing/ospfv3/cases": [
+    "operator/05-dynamic-routing/ospfv3",
+    "examples"
+  ],
+  "operator/05-dynamic-routing/ospfv3/notes": [
+    "operator/05-dynamic-routing/ospfv3",
+    "precautions"
+  ],
+  "operator/05-dynamic-routing/rip/features": [
+    "operator/05-dynamic-routing/rip",
+    "principles"
+  ],
+  "operator/05-dynamic-routing/rip/cases": [
+    "operator/05-dynamic-routing/rip",
+    "examples"
+  ],
+  "operator/05-dynamic-routing/rip/notes": [
+    "operator/05-dynamic-routing/rip",
+    "precautions"
+  ],
+  "operator/05-dynamic-routing/ripng/features": [
+    "operator/05-dynamic-routing/ripng",
+    "principles"
+  ],
+  "operator/05-dynamic-routing/ripng/cases": [
+    "operator/05-dynamic-routing/ripng",
+    "examples"
+  ],
+  "operator/05-dynamic-routing/ripng/notes": [
+    "operator/05-dynamic-routing/ripng",
+    "precautions"
+  ],
+  "operator/05-dynamic-routing/route-policy/features": [
+    "operator/05-dynamic-routing/route-policy",
+    "principles"
+  ],
+  "operator/05-dynamic-routing/route-policy/cases": [
+    "operator/05-dynamic-routing/route-policy",
+    "examples"
+  ],
+  "operator/05-dynamic-routing/route-policy/notes": [
+    "operator/05-dynamic-routing/route-policy",
+    "precautions"
+  ],
+  "operator/05-dynamic-routing/vrrp/features": [
+    "operator/05-dynamic-routing/vrrp",
+    "principles"
+  ],
+  "operator/05-dynamic-routing/vrrp/cases": [
+    "operator/05-dynamic-routing/vrrp",
+    "examples"
+  ],
+  "operator/05-dynamic-routing/vrrp/notes": [
+    "operator/05-dynamic-routing/vrrp",
+    "precautions"
+  ],
+  "operator/06-tunnels/amneziawg/features": [
+    "operator/06-tunnels/amneziawg",
+    "principles"
+  ],
+  "operator/06-tunnels/amneziawg/cases": [
+    "operator/06-tunnels/amneziawg",
+    "examples"
+  ],
+  "operator/06-tunnels/amneziawg/notes": [
+    "operator/06-tunnels/amneziawg",
+    "precautions"
+  ],
+  "operator/06-tunnels/evpn-gateway/features": [
+    "operator/06-tunnels/evpn-gateway",
+    "principles"
+  ],
+  "operator/06-tunnels/evpn-gateway/cases": [
+    "operator/06-tunnels/evpn-gateway",
+    "examples"
+  ],
+  "operator/06-tunnels/evpn-gateway/notes": [
+    "operator/06-tunnels/evpn-gateway",
+    "precautions"
+  ],
+  "operator/06-tunnels/evpn-multihoming/features": [
+    "operator/06-tunnels/evpn-multihoming",
+    "principles"
+  ],
+  "operator/06-tunnels/evpn-multihoming/cases": [
+    "operator/06-tunnels/evpn-multihoming",
+    "examples"
+  ],
+  "operator/06-tunnels/evpn-multihoming/notes": [
+    "operator/06-tunnels/evpn-multihoming",
+    "precautions"
+  ],
+  "operator/06-tunnels/evpn-type5/features": [
+    "operator/06-tunnels/evpn-type5",
+    "principles"
+  ],
+  "operator/06-tunnels/evpn-type5/cases": [
+    "operator/06-tunnels/evpn-type5",
+    "examples"
+  ],
+  "operator/06-tunnels/evpn-type5/notes": [
+    "operator/06-tunnels/evpn-type5",
+    "precautions"
+  ],
+  "operator/06-tunnels/gre/features": [
+    "operator/06-tunnels/gre",
+    "principles"
+  ],
+  "operator/06-tunnels/gre/cases": [
+    "operator/06-tunnels/gre",
+    "examples"
+  ],
+  "operator/06-tunnels/gre/notes": [
+    "operator/06-tunnels/gre",
+    "precautions"
+  ],
+  "operator/06-tunnels/ip-in-ip/features": [
+    "operator/06-tunnels/ip-in-ip",
+    "principles"
+  ],
+  "operator/06-tunnels/ip-in-ip/cases": [
+    "operator/06-tunnels/ip-in-ip",
+    "examples"
+  ],
+  "operator/06-tunnels/ip-in-ip/notes": [
+    "operator/06-tunnels/ip-in-ip",
+    "precautions"
+  ],
+  "operator/06-tunnels/vxlan-evpn/features": [
+    "operator/06-tunnels/vxlan-evpn",
+    "principles"
+  ],
+  "operator/06-tunnels/vxlan-evpn/cases": [
+    "operator/06-tunnels/vxlan-evpn",
+    "examples"
+  ],
+  "operator/06-tunnels/vxlan-evpn/notes": [
+    "operator/06-tunnels/vxlan-evpn",
+    "precautions"
+  ],
+  "operator/06-tunnels/vxlan-static/features": [
+    "operator/06-tunnels/vxlan-static",
+    "principles"
+  ],
+  "operator/06-tunnels/vxlan-static/cases": [
+    "operator/06-tunnels/vxlan-static",
+    "examples"
+  ],
+  "operator/06-tunnels/vxlan-static/notes": [
+    "operator/06-tunnels/vxlan-static",
+    "precautions"
+  ],
+  "operator/06-tunnels/wireguard/features": [
+    "operator/06-tunnels/wireguard",
+    "principles"
+  ],
+  "operator/06-tunnels/wireguard/cases": [
+    "operator/06-tunnels/wireguard",
+    "examples"
+  ],
+  "operator/06-tunnels/wireguard/notes": [
+    "operator/06-tunnels/wireguard",
+    "precautions"
+  ],
+  "operator/07-policy/acl/features": [
+    "operator/07-policy/acl",
+    "principles"
+  ],
+  "operator/07-policy/acl/cases": [
+    "operator/07-policy/acl",
+    "examples"
+  ],
+  "operator/07-policy/acl/notes": [
+    "operator/07-policy/acl",
+    "precautions"
+  ],
+  "operator/07-policy/interface-qos/features": [
+    "operator/07-policy/interface-qos",
+    "principles"
+  ],
+  "operator/07-policy/interface-qos/cases": [
+    "operator/07-policy/interface-qos",
+    "examples"
+  ],
+  "operator/07-policy/interface-qos/notes": [
+    "operator/07-policy/interface-qos",
+    "precautions"
+  ],
+  "operator/07-policy/mqc/features": [
+    "operator/07-policy/mqc",
+    "principles"
+  ],
+  "operator/07-policy/mqc/cases": [
+    "operator/07-policy/mqc",
+    "examples"
+  ],
+  "operator/07-policy/mqc/notes": [
+    "operator/07-policy/mqc",
+    "precautions"
+  ],
+  "operator/07-policy/nat/features": [
+    "operator/07-policy/nat",
+    "principles"
+  ],
+  "operator/07-policy/nat/cases": [
+    "operator/07-policy/nat",
+    "examples"
+  ],
+  "operator/07-policy/nat/notes": [
+    "operator/07-policy/nat",
+    "precautions"
+  ],
+  "operator/07-policy/tcp-mss/features": [
+    "operator/07-policy/tcp-mss",
+    "principles"
+  ],
+  "operator/07-policy/tcp-mss/cases": [
+    "operator/07-policy/tcp-mss",
+    "examples"
+  ],
+  "operator/07-policy/tcp-mss/notes": [
+    "operator/07-policy/tcp-mss",
+    "precautions"
+  ],
+  "operator/08-network-services/dhcpv4-client/features": [
+    "operator/08-network-services/dhcpv4-client",
+    "principles"
+  ],
+  "operator/08-network-services/dhcpv4-client/cases": [
+    "operator/08-network-services/dhcpv4-client",
+    "examples"
+  ],
+  "operator/08-network-services/dhcpv4-client/notes": [
+    "operator/08-network-services/dhcpv4-client",
+    "precautions"
+  ],
+  "operator/08-network-services/dhcpv4-relay/features": [
+    "operator/08-network-services/dhcpv4-relay",
+    "principles"
+  ],
+  "operator/08-network-services/dhcpv4-relay/cases": [
+    "operator/08-network-services/dhcpv4-relay",
+    "examples"
+  ],
+  "operator/08-network-services/dhcpv4-relay/notes": [
+    "operator/08-network-services/dhcpv4-relay",
+    "precautions"
+  ],
+  "operator/08-network-services/dhcpv4-server/features": [
+    "operator/08-network-services/dhcpv4-server",
+    "principles"
+  ],
+  "operator/08-network-services/dhcpv4-server/cases": [
+    "operator/08-network-services/dhcpv4-server",
+    "examples"
+  ],
+  "operator/08-network-services/dhcpv4-server/notes": [
+    "operator/08-network-services/dhcpv4-server",
+    "precautions"
+  ],
+  "operator/08-network-services/dhcpv6-client/features": [
+    "operator/08-network-services/dhcpv6-client",
+    "principles"
+  ],
+  "operator/08-network-services/dhcpv6-client/cases": [
+    "operator/08-network-services/dhcpv6-client",
+    "examples"
+  ],
+  "operator/08-network-services/dhcpv6-client/notes": [
+    "operator/08-network-services/dhcpv6-client",
+    "precautions"
+  ],
+  "operator/08-network-services/dhcpv6-relay/features": [
+    "operator/08-network-services/dhcpv6-relay",
+    "principles"
+  ],
+  "operator/08-network-services/dhcpv6-relay/cases": [
+    "operator/08-network-services/dhcpv6-relay",
+    "examples"
+  ],
+  "operator/08-network-services/dhcpv6-relay/notes": [
+    "operator/08-network-services/dhcpv6-relay",
+    "precautions"
+  ],
+  "operator/08-network-services/dhcpv6-server/features": [
+    "operator/08-network-services/dhcpv6-server",
+    "principles"
+  ],
+  "operator/08-network-services/dhcpv6-server/cases": [
+    "operator/08-network-services/dhcpv6-server",
+    "examples"
+  ],
+  "operator/08-network-services/dhcpv6-server/notes": [
+    "operator/08-network-services/dhcpv6-server",
+    "precautions"
+  ],
+  "operator/08-network-services/lldp/features": [
+    "operator/08-network-services/lldp",
+    "principles"
+  ],
+  "operator/08-network-services/lldp/cases": [
+    "operator/08-network-services/lldp",
+    "examples"
+  ],
+  "operator/08-network-services/lldp/notes": [
+    "operator/08-network-services/lldp",
+    "precautions"
+  ],
+  "operator/08-network-services/snmp/features": [
+    "operator/08-network-services/snmp",
+    "principles"
+  ],
+  "operator/08-network-services/snmp/cases": [
+    "operator/08-network-services/snmp",
+    "examples"
+  ],
+  "operator/08-network-services/snmp/notes": [
+    "operator/08-network-services/snmp",
+    "precautions"
+  ],
+  "operator/09-operations/connectivity/features": [
+    "operator/09-operations/connectivity",
+    "principles"
+  ],
+  "operator/09-operations/connectivity/cases": [
+    "operator/09-operations/connectivity",
+    "examples"
+  ],
+  "operator/09-operations/connectivity/notes": [
+    "operator/09-operations/connectivity",
+    "precautions"
+  ],
+  "operator/09-operations/factory-reset/features": [
+    "operator/09-operations/factory-reset",
+    "principles"
+  ],
+  "operator/09-operations/factory-reset/cases": [
+    "operator/09-operations/factory-reset",
+    "examples"
+  ],
+  "operator/09-operations/factory-reset/notes": [
+    "operator/09-operations/factory-reset",
+    "precautions"
+  ],
+  "operator/09-operations/operational-reset/features": [
+    "operator/09-operations/operational-reset",
+    "principles"
+  ],
+  "operator/09-operations/operational-reset/cases": [
+    "operator/09-operations/operational-reset",
+    "examples"
+  ],
+  "operator/09-operations/operational-reset/notes": [
+    "operator/09-operations/operational-reset",
+    "precautions"
+  ],
+  "operator/09-operations/power/features": [
+    "operator/09-operations/power",
+    "principles"
+  ],
+  "operator/09-operations/power/cases": [
+    "operator/09-operations/power",
+    "examples"
+  ],
+  "operator/09-operations/power/notes": [
+    "operator/09-operations/power",
+    "precautions"
+  ],
+  "operator/09-operations/resource-usage/features": [
+    "operator/09-operations/resource-usage",
+    "principles"
+  ],
+  "operator/09-operations/resource-usage/cases": [
+    "operator/09-operations/resource-usage",
+    "examples"
+  ],
+  "operator/09-operations/resource-usage/notes": [
+    "operator/09-operations/resource-usage",
+    "precautions"
+  ],
+  "operator/09-operations/service-health/features": [
+    "operator/09-operations/service-health",
+    "principles"
+  ],
+  "operator/09-operations/service-health/cases": [
+    "operator/09-operations/service-health",
+    "examples"
+  ],
+  "operator/09-operations/service-health/notes": [
+    "operator/09-operations/service-health",
+    "precautions"
+  ],
+  "operator/10-mpls-l3vpn/6pe/features": [
+    "operator/10-mpls-l3vpn/6pe",
+    "principles"
+  ],
+  "operator/10-mpls-l3vpn/6pe/cases": [
+    "operator/10-mpls-l3vpn/6pe",
+    "examples"
+  ],
+  "operator/10-mpls-l3vpn/6pe/notes": [
+    "operator/10-mpls-l3vpn/6pe",
+    "precautions"
+  ],
+  "operator/10-mpls-l3vpn/l3vpn/features": [
+    "operator/10-mpls-l3vpn/l3vpn",
+    "principles"
+  ],
+  "operator/10-mpls-l3vpn/l3vpn/cases": [
+    "operator/10-mpls-l3vpn/l3vpn",
+    "examples"
+  ],
+  "operator/10-mpls-l3vpn/l3vpn/notes": [
+    "operator/10-mpls-l3vpn/l3vpn",
+    "precautions"
+  ],
+  "operator/10-mpls-l3vpn/ldp/features": [
+    "operator/10-mpls-l3vpn/ldp",
+    "principles"
+  ],
+  "operator/10-mpls-l3vpn/ldp/cases": [
+    "operator/10-mpls-l3vpn/ldp",
+    "examples"
+  ],
+  "operator/10-mpls-l3vpn/ldp/notes": [
+    "operator/10-mpls-l3vpn/ldp",
+    "precautions"
+  ],
+  "operator/10-mpls-l3vpn/mpls/features": [
+    "operator/10-mpls-l3vpn/mpls",
+    "principles"
+  ],
+  "operator/10-mpls-l3vpn/mpls/cases": [
+    "operator/10-mpls-l3vpn/mpls",
+    "examples"
+  ],
+  "operator/10-mpls-l3vpn/mpls/notes": [
+    "operator/10-mpls-l3vpn/mpls",
+    "precautions"
+  ],
+  "operator/11-applications/application-network/features": [
+    "operator/11-applications/application-network",
+    "principles"
+  ],
+  "operator/11-applications/application-network/cases": [
+    "operator/11-applications/application-network",
+    "examples"
+  ],
+  "operator/11-applications/application-network/notes": [
+    "operator/11-applications/application-network",
+    "precautions"
+  ],
+  "operator/11-applications/installed-apps/features": [
+    "operator/11-applications/installed-apps",
+    "principles"
+  ],
+  "operator/11-applications/installed-apps/cases": [
+    "operator/11-applications/installed-apps",
+    "examples"
+  ],
+  "operator/11-applications/installed-apps/notes": [
+    "operator/11-applications/installed-apps",
+    "precautions"
+  ],
+  "operator/operations/logs/features": [
+    "operator/operations/logs",
+    "principles"
+  ],
+  "operator/operations/logs/cases": [
+    "operator/operations/logs",
+    "examples"
+  ],
+  "operator/operations/logs/notes": [
+    "operator/operations/logs",
+    "precautions"
+  ]
+}

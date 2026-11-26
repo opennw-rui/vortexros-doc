@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="robots" content="noindex">
+  <link rel="canonical" href="{{ target }}">
+  <title>VortexROS 用户手册</title>
+</head>
+<body>
+  <a id="current-section" href="{{ target }}#{{ section }}">打开对应功能章节</a>
+  <script>
+    const link = document.getElementById('current-section');
+    if (location.hash && !/^#id\d+$/.test(location.hash)) {
+      link.hash = location.hash;
+    }
+    location.replace(link.href);
+  </script>
+</body>
+</html>
