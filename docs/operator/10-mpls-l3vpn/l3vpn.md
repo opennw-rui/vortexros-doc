@@ -123,18 +123,6 @@ display mpls forwarding-table
 
 PE1 应在 BLUE 看到 PE2 的 203.0.113.128/25 和 2001:db8:2::/64，VPNv6 下一跳为 IPv4 映射地址。PE2 应看到反向前缀。CE 两端互 ping，默认路由表中不应学习这些 VPN 前缀。
 
-## 验证配置
-
-```vortexros-cli
-display bgp vpnv4 vpn-instance BLUE routing-table
-display bgp vpnv6 vpn-instance BLUE routing-table
-display ip routing-table vpn-instance BLUE
-display ipv6 routing-table vpn-instance BLUE
-display mpls forwarding-table
-```
-
-在 PE 核对远端 VPN 前缀及标签路径。从两端客户设备分别测试 IPv4 与 IPv6 的双向转发。
-
 ### 增加备用核心链路并验证切换
 
 在已有 VPNv4/VPNv6 的两端 LDP 案例上，将两台 PE 的 Ethernet2 额外互联。主链路仍使用 Ethernet0，备用用 192.0.2.4/30，OSPF 成本设为 1000。两台设备分别录入增量后提交。独立四节点核心同理，可用现有 IGP 及 LDP 协议逐段确认。
@@ -195,3 +183,15 @@ display ip routing-table protocol ospf
 两端先检查备用口启用 MPLS/LDP，远端 PE 环回仍优选主链路。断开 Ethernet0，远端环回与标签转发路径应改经 Ethernet2，CE 间双栈通信应在收敛后恢复。重新接回 Ethernet0，确认主路径恢复。完成后可移除备用接口在 OSPF 的 network 项及接口上的 LDP、MPLS 和测试地址。
 
 [VPN 实例](../04-ip-routing/vpn-instance.md) · [BGP 与 MP-BGP](../05-dynamic-routing/bgp.md)
+
+## 验证配置
+
+```vortexros-cli
+display bgp vpnv4 vpn-instance BLUE routing-table
+display bgp vpnv6 vpn-instance BLUE routing-table
+display ip routing-table vpn-instance BLUE
+display ipv6 routing-table vpn-instance BLUE
+display mpls forwarding-table
+```
+
+在 PE 核对远端 VPN 前缀及标签路径。从两端客户设备分别测试 IPv4 与 IPv6 的双向转发。

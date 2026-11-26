@@ -7,7 +7,7 @@
 - [接口与二层交换](03-interfaces-l2.md)
 - [IP 接入与静态路由](04-ip-routing.md)
 - [动态路由与高可用](05-dynamic-routing.md)
-- [隧道与覆盖网络](06-tunnels.md)
+- [Tunnel 与 Overlay 网络](06-tunnels.md)
 - [访问控制、QoS 与 NAT](07-policy.md)
 - [DHCP 与网络管理服务](08-network-services.md)
 - [运行监控与故障处理](09-operations.md)

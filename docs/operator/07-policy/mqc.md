@@ -76,16 +76,6 @@ display ip routing-table vpn-instance BLUE
 
 从客户端发往同一服务器的 TCP 443 和另一个端口。服务器网口应收到 443 流量，其他端口继续按原路由表查找，原表无路由时不会经 BLUE 到达。修改分类器时，保留原策略绑定，提交后以新流验证结果。
 
-## 验证配置
-
-```vortexros-cli
-display traffic classifier user-defined WEB-CLASS
-display traffic behavior user-defined WEB-BEHAVIOR
-display traffic policy user-defined WEB-POLICY
-```
-
-检查分类条件、动作及绑定。让命中和未命中的业务分别通过设备，检查出口和限速效果。
-
 ### 标记 TCP 流量并原位修改匹配条件
 
 客户端经 Ethernet0 进入设备，通过已有三层路由到达对端服务器。只对目的端口 12345–12346 的 TCP 流量标记 DSCP 16。把同一连接与一个未命中连接作对照。
@@ -125,3 +115,13 @@ commit
 ```
 
 再次查询分类器应看到来源端口，并用新连接确认标记效果。
+
+## 验证配置
+
+```vortexros-cli
+display traffic classifier user-defined WEB-CLASS
+display traffic behavior user-defined WEB-BEHAVIOR
+display traffic policy user-defined WEB-POLICY
+```
+
+检查分类条件、动作及绑定。让命中和未命中的业务分别通过设备，检查出口和限速效果。

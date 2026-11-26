@@ -1,3 +1,4 @@
+from docutils import nodes
 from pygments.lexers.special import TextLexer
 
 project = "VortexROS 用户手册"
@@ -21,15 +22,32 @@ def feature_navigation(app, page, template, context, doctree):
     tree = app.env.toctree_includes
     titles = app.env.titles
 
+    def sections(doc, item, nested=False):
+        for children in item.children:
+            if not isinstance(children, nodes.bullet_list):
+                continue
+            for entry in children:
+                if not isinstance(entry, nodes.list_item):
+                    continue
+                link = next(entry[0].findall(nodes.reference), None)
+                if link is None or link.get("refuri") != doc or not link.get("anchorname"):
+                    continue
+                title = link.astext()
+                examples = []
+                if not nested and title in {"配置案例", "操作案例", "查询案例"}:
+                    examples = list(sections(doc, entry, nested=True))
+                yield ("介绍" if title == "功能介绍" else title, link["anchorname"], examples)
+
     def leaves(doc):
         children = tree.get(doc, [])
         if not children:
-            yield doc, titles[doc].astext()
+            toc = app.env.tocs[doc]
+            yield doc, titles[doc].astext(), list(sections(doc, toc[0])) if len(toc) else []
         for child in children:
             yield from leaves(child)
 
     context["feature_navigation"] = [
-        (titles[category].astext() if tree.get(category) else "", list(leaves(category)))
+        (category, titles[category].astext() if tree.get(category) else "", list(leaves(category)))
         for category in tree[app.config.root_doc]
     ]
 

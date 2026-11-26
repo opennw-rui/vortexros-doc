@@ -4,11 +4,13 @@
 
 EVPN 通过 BGP 发布二层业务的远端信息，适用于无需逐个填写 VTEP 地址的 VXLAN 网络。
 
-## 配置准备
+## 功能特性
 
-先建立 VTEP 底层连通和 BGP EVPN 邻居。两端 VNI 与业务 RT 必须一致，RD 按设备分别指定。示例使用 VNI 65010。
+EVPN Type-3 让同一 VNI 的 VTEP 发现彼此。Type-2 通告客户 MAC，携带 IP 时还可用于 ARP/ND 抑制。高位 BD 使用独立域编号，可和普通 VLAN 并行运行。
 
 ## 配置案例
+
+先建立 VTEP 底层连通和 BGP EVPN 邻居。两端 VNI 与业务 RT 必须一致，RD 按设备分别指定。示例使用 VNI 65010。
 
 ```vortexros-config
 evpn-overlay enable
@@ -114,17 +116,6 @@ display mac-address bridge-domain 65536
 
 对端 VTEP 应动态出现。终端收发后可在 EVPN 表看到 Type-3 和站点 MAC 对应的 Type-2。两个终端应互通。撤销 R2 的 NVE 下 VNI 65010 动态对等项后，应看到远端路径撤销，本地网段配置仍保留。重新添加可恢复。
 
-## 验证配置
-
-```vortexros-cli
-display bgp peer
-display bridge-domain 65536
-display vxlan tunnel
-display mac-address
-```
-
-先确认 BGP 邻居已建立，再检查远端 VTEP 和 MAC。移动终端后，确认旧位置的表项撤销且新位置学习正常。
-
 ### 高位域隔离、组播订阅与 MAC/IP 迁移
 
 在双端高位 BD 案例上增加第二个业务域。两端复用同一 VTEP 源，Ethernet1 保留原高位域，Ethernet2 加入 BD 65537。如果需要观察订阅只选择一个远端，可增加第三个 VTEP，并在它上面复用相同配置、不同 RD 和本地 VTEP 地址。
@@ -171,3 +162,14 @@ display mac-address bridge-domain 65537
 4. 测试组播时，在该域提供 IGMP 或 MLD 查询器，让接收端加入组后查看各端实际收包。存在有效查询器时只应转发至有订阅的成员及需要的组播路由器端口。取消订阅并等待相应组状态到期，再核对不再向该接入口复制报文。两个高位域可使用相同组地址。
 
 [高位 Bridge Domain](../03-interfaces-l2/bridge-domain.md) · [BGP](../05-dynamic-routing/bgp.md)
+
+## 验证配置
+
+```vortexros-cli
+display bgp peer
+display bridge-domain 65536
+display vxlan tunnel
+display mac-address
+```
+
+先确认 BGP 邻居已建立，再检查远端 VTEP 和 MAC。移动终端后，确认旧位置的表项撤销且新位置学习正常。

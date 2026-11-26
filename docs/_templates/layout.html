@@ -6,14 +6,41 @@
 {% include "searchbox.html" %}
 {% endblock %}
 
+{% macro section_links(doc, sections) %}
+  {% set base = '' if doc == pagename else pathto(doc) %}
+  {% for title, anchor, examples in sections %}
+  <a href="{{ base }}{{ anchor }}">{{ title }}</a>
+  {% if examples %}
+  <div class="manual-example-links">{{ section_links(doc, examples) }}</div>
+  {% endif %}
+  {% endfor %}
+{% endmacro %}
+
+{% macro feature_rows(entries) %}
+  {% for doc, title, sections in entries %}
+  {% if sections %}
+  <details class="manual-feature"{% if pagename == doc %} open{% endif %}>
+    <summary{% if pagename == doc %} aria-current="page"{% endif %}>{{ title }}</summary>
+    <div class="manual-section-links">{{ section_links(doc, sections) }}</div>
+  </details>
+  {% else %}
+  <a href="{{ pathto(doc) }}"{% if pagename == doc %} aria-current="page"{% endif %}>{{ title }}</a>
+  {% endif %}
+  {% endfor %}
+{% endmacro %}
+
 {% block navigation %}
 <div class="manual-menu" role="navigation" aria-label="功能目录">
   <a href="{{ pathto(root_doc) }}"{% if pagename == root_doc %} aria-current="page"{% endif %}>首页</a>
-  {% for category, entries in feature_navigation %}
-  {% if category %}<div class="manual-category">{{ category }}</div>{% endif %}
-  {% for doc, title in entries %}
-  <a href="{{ pathto(doc) }}"{% if pagename == doc %} aria-current="page"{% endif %}>{{ title }}</a>
-  {% endfor %}
+  {% for doc, category, entries in feature_navigation %}
+  {% if category %}
+  <details class="manual-category"{% if doc == pagename or pagename in entries|map(attribute=0)|list %} open{% endif %}>
+    <summary>{{ category }}</summary>
+    <div class="manual-feature-list">{{ feature_rows(entries) }}</div>
+  </details>
+  {% else %}
+  {{ feature_rows(entries) }}
+  {% endif %}
   {% endfor %}
 </div>
 <details class="manual-resources">

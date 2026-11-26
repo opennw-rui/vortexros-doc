@@ -15,7 +15,7 @@
 - [接口与二层交换](operator/03-interfaces-l2.md)
 - [IP 接入与静态路由](operator/04-ip-routing.md)
 - [动态路由与高可用](operator/05-dynamic-routing.md)
-- [隧道与覆盖网络](operator/06-tunnels.md)
+- [Tunnel 与 Overlay 网络](operator/06-tunnels.md)
 - [访问控制、QoS 与 NAT](operator/07-policy.md)
 - [DHCP 与网络管理服务](operator/08-network-services.md)
 - [运行监控与故障处理](operator/09-operations.md)
