@@ -1,5 +1,5 @@
 ---
-nav_title: EVPN Type-5 租户路由
+nav_title: Type-5 租户路由
 nav_overview: 介绍
 ---
 

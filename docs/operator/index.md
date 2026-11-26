@@ -1,15 +1,18 @@
 # 配置指南
 
-按业务需要选择功能。每页包含适用场景、配置准备、配置案例和验证步骤。
+先选择业务大类，再进入专题和具体功能。功能页提供介绍、功能特性、配置案例和注意事项。
 
 - [命令行与配置管理](01-cli.md)
 - [系统设置与远程管理](02-system-services.md)
-- [接口与二层交换](03-interfaces-l2.md)
-- [IP 接入与静态路由](04-ip-routing.md)
-- [动态路由与高可用](05-dynamic-routing.md)
-- [Tunnel 与 Overlay 网络](06-tunnels.md)
+- [接口](interfaces.md)
+- [二层交换](layer2-switching.md)
+- [IP 接入](ip-access.md)
+- [静态路由](static-routing.md)
+- [动态路由](05-dynamic-routing.md)
+- [高可用与故障检测](high-availability.md)
+- [隧道与 Overlay 网络](06-tunnels.md)，含 [EVPN](06-tunnels/evpn.md)
 - [访问控制、QoS 与 NAT](07-policy.md)
-- [DHCP 与网络管理服务](08-network-services.md)
+- [网络服务与管理协议](08-network-services.md)
 - [运行监控与故障处理](09-operations.md)
 - [MPLS 与 L3VPN](10-mpls-l3vpn.md)
 - [应用部署与网络](11-applications.md)

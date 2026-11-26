@@ -43,4 +43,4 @@ return
 
 接口已被 VPP 接管时，在接口摘要及数据面拓扑中核对 DPDK 类型或活动模式。要回到 Linux，调整目标设备模式、提交、保存，再执行 `reset dataplane`，从独立控制台复查驱动、地址和双向转发。
 
-[接口、聚合与二层](../../operator/03-interfaces-l2.md)
+[接口](../../operator/interfaces.md) · [二层交换](../../operator/layer2-switching.md)

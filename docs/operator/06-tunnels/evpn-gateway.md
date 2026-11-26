@@ -1,5 +1,5 @@
 ---
-nav_title: EVPN Vbdif 网关通告
+nav_title: Vbdif 网关通告
 nav_overview: 介绍
 ---
 

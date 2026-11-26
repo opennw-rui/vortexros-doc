@@ -1,26 +1,12 @@
-# Tunnel 与 Overlay 网络
+# 隧道与 Overlay 网络
 
-- [GRE Tunnel](06-tunnels/gre.md)。在可达的三层网络上承载另一条三层逻辑链路。
-- [IPIP Tunnel](06-tunnels/ip-in-ip.md)。封装 IPv4 或 IPv6 报文。
-- [静态 VXLAN](06-tunnels/vxlan-static.md)。为 VNI 手动指定远端 VTEP。
-- [EVPN Vbdif 网关通告](06-tunnels/evpn-gateway.md)。Vbdif 可向远端 VTEP 通告双栈网关的 MAC/IP。
-- [EVPN All-Active 多归属](06-tunnels/evpn-multihoming.md)。All-Active 允许一个客户以太网段同时通过两台 PE 转发。
-- [EVPN Type-5 租户路由](06-tunnels/evpn-type5.md)。EVPN Type-5 在 VTEP 之间通告租户的 IPv4 和 IPv6 前缀。
-- [BGP EVPN 与动态 VXLAN](06-tunnels/vxlan-evpn.md)。EVPN 通过 BGP 发布二层业务的远端信息，适用于无需逐个填写 VTEP 地址的 VXLAN 网络。
-- [WireGuard 隧道](06-tunnels/wireguard.md)。WireGuard 用于在站点或终端之间建立加密三层连接。可按对端指定公钥、网络前缀和远端地址。
-- [AmneziaWG 隧道](06-tunnels/amneziawg.md)。AmneziaWG 为站点间提供加密隧道及可配置的握手与报文格式。可以与 WireGuard 并行配置。
+选择三层封装、加密隧道或 VXLAN。需要通过 BGP 自动学习远端端点时，进入 EVPN 专题。
 
 ```{toctree}
 :maxdepth: 1
-:hidden:
 
-06-tunnels/gre
-06-tunnels/ip-in-ip
-06-tunnels/vxlan-static
-06-tunnels/vxlan-evpn
-06-tunnels/wireguard
-06-tunnels/amneziawg
-06-tunnels/evpn-type5
-06-tunnels/evpn-multihoming
-06-tunnels/evpn-gateway
+/operator/topics/ip-tunnels
+/operator/topics/encrypted-tunnels
+/operator/06-tunnels/vxlan-static
+/operator/06-tunnels/evpn
 ```

@@ -1,5 +1,5 @@
 ---
-nav_title: EVPN All-Active 多归属
+nav_title: All-Active 多归属
 nav_overview: 介绍
 ---
 

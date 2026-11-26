@@ -12,12 +12,15 @@
 
 - [命令行与配置管理](operator/01-cli.md)
 - [系统设置与远程管理](operator/02-system-services.md)
-- [接口与二层交换](operator/03-interfaces-l2.md)
-- [IP 接入与静态路由](operator/04-ip-routing.md)
-- [动态路由与高可用](operator/05-dynamic-routing.md)
-- [Tunnel 与 Overlay 网络](operator/06-tunnels.md)
+- [接口](operator/interfaces.md)
+- [二层交换](operator/layer2-switching.md)
+- [IP 接入](operator/ip-access.md)
+- [静态路由](operator/static-routing.md)
+- [动态路由](operator/05-dynamic-routing.md)
+- [高可用与故障检测](operator/high-availability.md)
+- [隧道与 Overlay 网络](operator/06-tunnels.md)，含 [EVPN](operator/06-tunnels/evpn.md)
 - [访问控制、QoS 与 NAT](operator/07-policy.md)
-- [DHCP 与网络管理服务](operator/08-network-services.md)
+- [网络服务与管理协议](operator/08-network-services.md)
 - [运行监控与故障处理](operator/09-operations.md)
 - [MPLS 与 L3VPN](operator/10-mpls-l3vpn.md)
 - [应用部署与网络](operator/11-applications.md)
@@ -35,9 +38,12 @@
 installation/index
 operator/01-cli
 operator/02-system-services
-operator/03-interfaces-l2
-operator/04-ip-routing
+operator/interfaces
+operator/layer2-switching
+operator/ip-access
+operator/static-routing
 operator/05-dynamic-routing
+operator/high-availability
 operator/06-tunnels
 operator/07-policy
 operator/08-network-services

@@ -1,5 +1,5 @@
 ---
-nav_title: BGP EVPN 与动态 VXLAN
+nav_title: 动态 VXLAN 与二层学习
 nav_overview: 介绍
 ---
 
