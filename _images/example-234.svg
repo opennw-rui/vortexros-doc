@@ -1,17 +1,17 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 802 170" role="img" aria-labelledby="label">
-<title id="label">应用与独立数据卷 → 应用双栈桥 → 管理上联与外部服务。桥内互通，按出口策略转发</title>
+<title id="label">本机客户端 → Docker 端口发布 → 容器 HTTP 服务</title>
 <defs><marker id="arrow" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto"><path d="M 0 0 L 7 3.5 L 0 7 Z" fill="#476781"/></marker></defs>
 <rect x="1" y="1" width="800" height="168" rx="10" fill="#fcfdff" stroke="#cedbe7"/>
 <g font-family="Arial, Microsoft YaHei, PingFang SC, sans-serif" text-anchor="middle" dominant-baseline="middle">
 <rect x="18" y="42" width="188" height="86" rx="9" fill="#e9f3fc" stroke="#457aa5"/>
-<text x="112" y="85" font-size="16" fill="#19374f">应用与独立数据卷</text>
+<text x="112" y="85" font-size="16" fill="#19374f">本机客户端</text>
 <rect x="307" y="42" width="188" height="86" rx="9" fill="#e9f3fc" stroke="#457aa5"/>
-<text x="401" y="85" font-size="16" fill="#19374f">应用双栈桥</text>
+<text x="401" y="85" font-size="16" fill="#19374f">Docker 端口发布</text>
 <rect x="596" y="42" width="188" height="86" rx="9" fill="#e9f3fc" stroke="#457aa5"/>
-<text x="690" y="85" font-size="16" fill="#19374f">管理上联与外部服务</text>
+<text x="690" y="85" font-size="16" fill="#19374f">容器 HTTP 服务</text>
 <path d="M 206 86 L 307 86" stroke="#476781" stroke-width="1.8" marker-end="url(#arrow)" fill="none"/>
-<text x="256.5" y="24" font-size="14" fill="#37536c">桥内互通</text>
+<text x="256.5" y="24" font-size="14" fill="#37536c">127.0.0.1:8080</text>
 <path d="M 495 86 L 596 86" stroke="#476781" stroke-width="1.8" marker-end="url(#arrow)" fill="none"/>
-<text x="545.5" y="24" font-size="14" fill="#37536c">按出口策略转发</text>
+<text x="545.5" y="24" font-size="14" fill="#37536c">TCP 8080</text>
 </g>
 </svg>
