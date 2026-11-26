@@ -2,6 +2,8 @@
 
 本手册适用于 VortexROS `v0.1.0-dev` 开发版。覆盖离线安装、设备配置、运行检查、签名镜像升级、回退与救援。
 
+[在线手册](https://opennw-rui.github.io/vortexros-doc/)
+
 - [安装、升级与救援](docs/installation/README.md)
 - [操作手册](docs/operator/README.md)
 - [全命令参考](docs/operator/reference/commands.md)
