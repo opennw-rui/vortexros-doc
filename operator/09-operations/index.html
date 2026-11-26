@@ -1,0 +1,244 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>诊断、清理、健康与服务恢复 &mdash; VortexROS 用户手册</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
+
+  
+    <link rel="canonical" href="https://opennw-rui.github.io/vortexros-doc/operator/09-operations/" />
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=c7b72b5c"></script>
+      <script src="../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../_static/translations.js?v=beaddf03"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="索引" href="../../genindex/" />
+    <link rel="search" title="搜索" href="../../search/" />
+    <link rel="next" title="日志中心" href="../operations/logs/" />
+    <link rel="prev" title="DHCP 与 LLDP" href="../08-network-services/" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../" class="icon icon-home">
+            VortexROS 用户手册
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search/" method="get">
+    <input type="text" name="q" placeholder="搜索文档" aria-label="搜索文档" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="导航菜单">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../installation/">安装、升级与救援</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../installation/00-planning/">部署规划</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../installation/01-management-safety/">管理通道与控制台</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../installation/02-backends/">系统与数据面组件</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../installation/03-install-vortexros/">从 Live ISO 安装</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../installation/04-system-services/">系统服务与状态</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../installation/05-vpp-startup/">配置和激活数据面</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../installation/06-first-start/">首次启动与管理接入</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../installation/07-upgrade-uninstall/">验签、升级、回退与救援</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../installation/07-upgrade-uninstall/#id2">试启动新镜像</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../installation/07-upgrade-uninstall/#id3">回退与删除</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../installation/07-upgrade-uninstall/#id4">救援</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../installation/08-hardware-acceptance/">真机验收</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="reference internal" href="../">VortexROS 操作手册</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../#id1">配置指南</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../01-cli/">CLI、Candidate、commit 与 save</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../02-system-services/">系统、访问与服务</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../03-interfaces-l2/">物理接口、聚合、VLAN、BD 与邻居</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../04-ip-routing/">IPv4/IPv6、VPN、静态路由与路由组</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../05-dynamic-routing/">路由策略、OSPF、BGP、IS-IS、RIP、BFD 与 VRRP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../06-tunnels/">GRE、VXLAN/NVE、WireGuard 与 AmneziaWG</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../07-policy/">ACL、QoS、MQC、MSS 与 nat-policy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../08-network-services/">DHCP 与 LLDP</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">诊断、清理、健康与服务恢复</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../operations/logs/">日志中心</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../10-mpls-l3vpn/">MPLS、LDP 与 L3VPN</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../11-applications/">受管应用与隔离网络</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../reference/commands/">VortexROS 全命令参考</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../#id2">通用阅读约定</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../#id3">推荐的操作顺序</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="移动版导航菜单" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../">VortexROS 用户手册</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="页面导航">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../">VortexROS 操作手册</a></li>
+      <li class="breadcrumb-item active">诊断、清理、健康与服务恢复</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="id1">
+<h1>诊断、清理、健康与服务恢复<a class="headerlink" href="#id1" title="Link to this heading"></a></h1>
+<section id="pingtracertmtr">
+<h2>Ping、tracert与mtr<a class="headerlink" href="#pingtracertmtr" title="Link to this heading"></a></h2>
+<div class="highlight-vortexros-cli notranslate"><div class="highlight"><pre><span></span>ping 192.0.2.1
+ping -vpn-instance BLUE 10.0.0.1
+tracert 198.51.100.1
+mtr -vpn-instance BLUE 10.0.0.1
+</pre></div>
+</div>
+<p>普通和带VPN的命令都会边执行边显示结果。Ctrl+C只中止当前诊断命令，并尽量显示已经产生的统计信息，不会关闭SSH会话。错误消息保留诊断含义，但不会暴露系统中的程序路径。</p>
+<p><code class="docutils literal notranslate"><span class="pre">mtr</span></code>在CLI中保持交互式刷新和按键控制，但用户不能借此进入Linux shell。</p>
+</section>
+<section id="display">
+<h2>Display<a class="headerlink" href="#display" title="Link to this heading"></a></h2>
+<p>推荐从摘要逐级深入：</p>
+<div class="highlight-vortexros-cli notranslate"><div class="highlight"><pre><span></span>display service verbose
+display health verbose
+display alarm active
+display interface brief
+display ip routing-table
+display current-configuration
+</pre></div>
+</div>
+<p>命令错误只显示一次错误位置和原因，不重复回显整条命令，也不会附加与用户无关的内部读取错误。</p>
+<p>自动化安装、升级和发布验收必须使用严格健康检查，而不是把 systemd
+<code class="docutils literal notranslate"><span class="pre">READY=1</span></code> 或 <code class="docutils literal notranslate"><span class="pre">display</span> <span class="pre">health</span></code> 的可读输出当作已经收敛：</p>
+<div class="highlight-vortexros-cli notranslate"><div class="highlight"><pre><span></span>health check --wait --timeout 2m --json
+</pre></div>
+</div>
+<p>该命令仅在 Running/Actual generation一致、reconcile为<code class="docutils literal notranslate"><span class="pre">in-sync</span></code>、没有活动告警且所有必需VPP API组可用时返回0。<code class="docutils literal notranslate"><span class="pre">--timeout</span></code>会自动启用等待；超时或未收敛返回非零。<code class="docutils literal notranslate"><span class="pre">--json</span></code>只输出一次最终快照，适合作为安装程序的稳定接口。</p>
+</section>
+<section id="clearreset">
+<h2>Clear与Reset<a class="headerlink" href="#clearreset" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">clear</span></code>清理计数、动态表项或当前Candidate；</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">reset</span></code>执行服务重启、远端列表刷新或协议会话重置；</p></li>
+<li><p>二者都是即时运维命令，不进入配置；</p></li>
+<li><p>对外部连接、路由邻居或转发有影响的操作需要管理员权限和明确确认。</p></li>
+</ul>
+<p>示例：</p>
+<div class="highlight-vortexros-cli notranslate"><div class="highlight"><pre><span></span>reset mac-address
+clear nat-policy counters
+reset service vpp
+reset service bgp
+reset route-static group name CDN
+</pre></div>
+</div>
+</section>
+<section id="vpp">
+<h2>VPP恢复<a class="headerlink" href="#vpp" title="Link to this heading"></a></h2>
+<div class="highlight-vortexros-cli notranslate"><div class="highlight"><pre><span></span>display vpp api compatibility verbose
+display vpp interface-ownership verbose
+display vpp takeover transaction
+reset service vpp
+</pre></div>
+</div>
+<p>VPP接管阶段只检查核心API、startup中的全部预期物理接口及对应LCP。该门槛未通过时会恢复全部Linux接口；门槛通过后，FRR、策略或隧道等后续收敛失败只进入degraded并重试，不再回绑驱动。</p>
+</section>
+<section id="id2">
+<h2>动态路由服务恢复<a class="headerlink" href="#id2" title="Link to this heading"></a></h2>
+<p>动态路由服务异常时，先检查具体协议的邻居和路由，再重启最小范围的服务。重启协议服务不会修改已保存配置，服务恢复后设备会重新应用已经提交的协议配置。</p>
+<div class="highlight-vortexros-cli notranslate"><div class="highlight"><pre><span></span>display service verbose
+display ip routing-table
+display ospf peer brief
+display bgp peer
+display bfd
+</pre></div>
+</div>
+</section>
+<section id="id3">
+<h2>告警与日志<a class="headerlink" href="#id3" title="Link to this heading"></a></h2>
+<p>告警显示严重度、功能模块、错误码、受影响对象、首次/最近发生时间、累计次数以及当前是否已恢复。相同故障会合并计数，避免重复信息淹没有效日志。</p>
+<div class="highlight-vortexros-cli notranslate"><div class="highlight"><pre><span></span>display alarm active
+display alarm history last 100
+display logbuffer last 100
+</pre></div>
+</div>
+<p>需要关联多个日期或引导周期时，管理员可在系统诊断环境查询原始 journal。</p>
+</section>
+<section id="id4">
+<h2>配置恢复与电源操作<a class="headerlink" href="#id4" title="Link to this heading"></a></h2>
+<p>在独立 Console 上确认恢复对象。<code class="docutils literal notranslate"><span class="pre">reset</span> <span class="pre">saved-configuration</span></code> 把当前启动文件替换为出厂配置，指定文件名时仅替换该文件。<code class="docutils literal notranslate"><span class="pre">display</span> <span class="pre">startup</span></code> 用于核对下次启动选择。已运行的业务配置会继续使用到重启或执行整机恢复。</p>
+<p><code class="docutils literal notranslate"><span class="pre">restore</span> <span class="pre">factory-configuration</span></code> 在确认后重置运行与启动配置，清理受管账号和服务状态，并归还数据面接口。用 Console 完成默认管理员首次改密，再重新配置管理通道。需要保存当前业务时，先导出并检查配置文件可读。</p>
+<p>系统管理员从用户视图执行 <code class="docutils literal notranslate"><span class="pre">reboot</span></code> 或 <code class="docutils literal notranslate"><span class="pre">poweroff</span></code>，确认前安排业务窗口。软件升级和回退按<a class="reference internal" href="../../installation/07-upgrade-uninstall/"><span class="std std-doc">签名镜像流程</span></a>操作。</p>
+</section>
+<section id="id5">
+<h2>故障处理顺序<a class="headerlink" href="#id5" title="Link to this heading"></a></h2>
+<ol class="arabic simple">
+<li><p>保住管理连接和当前会话；</p></li>
+<li><p>记录 <code class="docutils literal notranslate"><span class="pre">display</span> <span class="pre">health/service/alarm</span></code>；</p></li>
+<li><p>判断是配置错误、接口/路由依赖缺失，还是相关服务未就绪；</p></li>
+<li><p>先等待当前自动恢复动作完成；</p></li>
+<li><p>再执行最小范围reset；</p></li>
+<li><p>修复待提交配置后重新commit并检查状态；</p></li>
+<li><p>业务验证通过后save。</p></li>
+</ol>
+<p>不要直接删除 <code class="docutils literal notranslate"><span class="pre">/var/lib/vortexros</span></code>、<code class="docutils literal notranslate"><span class="pre">/run/vortexros</span></code> 或服务运行目录来“清错”，否则可能破坏自动恢复所需的信息。无法恢复时先保存display和日志信息，再按安装手册中的恢复流程处理。</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="页脚">
+        <a href="../08-network-services/" class="btn btn-neutral float-left" title="DHCP 与 LLDP" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> 上一页</a>
+        <a href="../operations/logs/" class="btn btn-neutral float-right" title="日志中心" accesskey="n" rel="next">下一页 <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 。</p>
+  </div>
+
+  利用 <a href="https://www.sphinx-doc.org/">Sphinx</a> 构建，使用的 
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">主题</a>
+    由 <a href="https://readthedocs.org">Read the Docs</a> 开发.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

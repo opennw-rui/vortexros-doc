@@ -1,0 +1,219 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>系统、访问与服务 &mdash; VortexROS 用户手册</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
+
+  
+    <link rel="canonical" href="https://opennw-rui.github.io/vortexros-doc/operator/02-system-services/" />
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=c7b72b5c"></script>
+      <script src="../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../_static/translations.js?v=beaddf03"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="索引" href="../../genindex/" />
+    <link rel="search" title="搜索" href="../../search/" />
+    <link rel="next" title="物理接口、聚合、VLAN、BD 与邻居" href="../03-interfaces-l2/" />
+    <link rel="prev" title="CLI、Candidate、commit 与 save" href="../01-cli/" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../" class="icon icon-home">
+            VortexROS 用户手册
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search/" method="get">
+    <input type="text" name="q" placeholder="搜索文档" aria-label="搜索文档" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="导航菜单">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../installation/">安装、升级与救援</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../installation/00-planning/">部署规划</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../installation/01-management-safety/">管理通道与控制台</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../installation/02-backends/">系统与数据面组件</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../installation/03-install-vortexros/">从 Live ISO 安装</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../installation/04-system-services/">系统服务与状态</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../installation/05-vpp-startup/">配置和激活数据面</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../installation/06-first-start/">首次启动与管理接入</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../installation/07-upgrade-uninstall/">验签、升级、回退与救援</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../installation/07-upgrade-uninstall/#id2">试启动新镜像</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../installation/07-upgrade-uninstall/#id3">回退与删除</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../installation/07-upgrade-uninstall/#id4">救援</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../installation/08-hardware-acceptance/">真机验收</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="reference internal" href="../">VortexROS 操作手册</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../#id1">配置指南</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../01-cli/">CLI、Candidate、commit 与 save</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">系统、访问与服务</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../03-interfaces-l2/">物理接口、聚合、VLAN、BD 与邻居</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../04-ip-routing/">IPv4/IPv6、VPN、静态路由与路由组</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../05-dynamic-routing/">路由策略、OSPF、BGP、IS-IS、RIP、BFD 与 VRRP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../06-tunnels/">GRE、VXLAN/NVE、WireGuard 与 AmneziaWG</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../07-policy/">ACL、QoS、MQC、MSS 与 nat-policy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../08-network-services/">DHCP 与 LLDP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../09-operations/">诊断、清理、健康与服务恢复</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../operations/logs/">日志中心</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../10-mpls-l3vpn/">MPLS、LDP 与 L3VPN</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../11-applications/">受管应用与隔离网络</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../reference/commands/">VortexROS 全命令参考</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../#id2">通用阅读约定</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../#id3">推荐的操作顺序</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="移动版导航菜单" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../">VortexROS 用户手册</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="页面导航">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../">VortexROS 操作手册</a></li>
+      <li class="breadcrumb-item active">系统、访问与服务</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="id1">
+<h1>系统、访问与服务<a class="headerlink" href="#id1" title="Link to this heading"></a></h1>
+<p>Console 和受管 SSH 登录后直接进入产品 CLI。首次安装使用安装时设置的本地管理员密码。恢复出厂或从空配置启动后，先在 Console 完成首次改密。</p>
+<section id="aaassh-vty">
+<h2>本地 AAA、SSH 与 VTY<a class="headerlink" href="#aaassh-vty" title="Link to this heading"></a></h2>
+<p>当前认证域为内建 <code class="docutils literal notranslate"><span class="pre">default</span></code>，使用本地认证。Level 1 为只读，Level 2 为网络管理员，Level 3 为系统管理员。在 AAA 视图配置 <code class="docutils literal notranslate"><span class="pre">local-user</span></code>。可按用户限制终端或 SSH 服务。启用远程登录前，保留可用的 Console 并准备已授权的账户。</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>system-view
+stelnet server enable
+ssh server port 2222
+user-interface maximum-vty 5
+user-interface vty
+idle-timeout 10
+quit
+commit
+return
+display users
+display aaa user vortexros
+</pre></div>
+</div>
+<p>在另一终端以 SSH 实际登录后执行 <code class="docutils literal notranslate"><span class="pre">save</span></code>。<code class="docutils literal notranslate"><span class="pre">display</span> <span class="pre">users</span></code> 显示 Console、VTY、远端地址和会话状态。<code class="docutils literal notranslate"><span class="pre">display</span> <span class="pre">ssh</span> <span class="pre">user</span> <span class="pre">login-info</span> <span class="pre">failed</span></code> 或 <code class="docutils literal notranslate"><span class="pre">display</span> <span class="pre">ssh</span> <span class="pre">user</span> <span class="pre">vortexros</span> <span class="pre">login-info</span> <span class="pre">succeeded</span></code> 可按结果和用户查询。</p>
+</section>
+<section id="ssh">
+<h2>导入 SSH 公钥<a class="headerlink" href="#ssh" title="Link to this heading"></a></h2>
+<p>在系统视图输入 <code class="docutils literal notranslate"><span class="pre">rsa</span> <span class="pre">peer-public-key</span> <span class="pre">workstation</span> <span class="pre">encoding-type</span> <span class="pre">openssh</span></code>。进入命名视图后执行 <code class="docutils literal notranslate"><span class="pre">public-key-code</span> <span class="pre">begin</span></code>，在下一行粘贴本机的 OpenSSH 公钥整行或 Base64 数据。执行 <code class="docutils literal notranslate"><span class="pre">public-key-code</span> <span class="pre">end</span></code> 完成录入，<code class="docutils literal notranslate"><span class="pre">peer-public-key</span> <span class="pre">end</span></code> 返回系统视图。</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>ssh user vortexros assign rsa-key workstation
+commit
+return
+display aaa user vortexros
+</pre></div>
+</div>
+<p>Ed25519 使用 <code class="docutils literal notranslate"><span class="pre">ed25519</span> <span class="pre">peer-public-key</span></code> 和 <code class="docutils literal notranslate"><span class="pre">assign</span> <span class="pre">ed25519-key</span></code>。撤销时用 <code class="docutils literal notranslate"><span class="pre">undo</span> <span class="pre">ssh</span> <span class="pre">user</span> <span class="pre">vortexros</span> <span class="pre">assign</span> <span class="pre">rsa-key</span> <span class="pre">workstation</span></code>，提交后从独立会话验证相应密钥已经失效。</p>
+<p>Level 3 可通过 <code class="docutils literal notranslate"><span class="pre">display</span> <span class="pre">current-configuration</span> <span class="pre">configuration</span> <span class="pre">aaa</span></code> 查看已提交的 AAA 配置。已设口令以 <code class="docutils literal notranslate"><span class="pre">password</span> <span class="pre">irreversible-cipher</span></code> 对应的不可逆校验值显示。包含该字段的配置备份需按凭据材料保管。</p>
+</section>
+<section id="dns-ntp">
+<h2>DNS、时区与 NTP<a class="headerlink" href="#dns-ntp" title="Link to this heading"></a></h2>
+<p>本机 DNS 查询使用默认路由表。配置 DNS 时先确认服务器在默认表可达。时区使用 IANA 名称，可用 <code class="docutils literal notranslate"><span class="pre">clock</span> <span class="pre">timezone</span> <span class="pre">?</span></code> 选择。系统视图配置后执行 <code class="docutils literal notranslate"><span class="pre">commit</span></code>，用户视图的时区更改会立即提交。执行 <code class="docutils literal notranslate"><span class="pre">save</span></code> 使更改随启动配置回放。用 <code class="docutils literal notranslate"><span class="pre">display</span> <span class="pre">clock</span></code> 核对本地时间，<code class="docutils literal notranslate"><span class="pre">undo</span> <span class="pre">clock</span> <span class="pre">timezone</span></code> 恢复 UTC。</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>system-view
+dns resolve
+dns server 192.0.2.53
+clock timezone Asia/Shanghai
+commit
+return
+display dns server
+</pre></div>
+</div>
+<p>将示例地址换成环境中的 DNS 服务器。<code class="docutils literal notranslate"><span class="pre">undo</span> <span class="pre">dns</span> <span class="pre">server</span> <span class="pre">192.0.2.53</span></code> 撤销此地址，<code class="docutils literal notranslate"><span class="pre">undo</span> <span class="pre">dns</span> <span class="pre">resolve</span></code> 关闭动态解析。</p>
+<p>在系统视图用 <code class="docutils literal notranslate"><span class="pre">ntp-service</span> <span class="pre">unicast-server</span></code> 配置 IPv4，IPv6 使用 <code class="docutils literal notranslate"><span class="pre">ntp-service</span> <span class="pre">ipv6</span> <span class="pre">unicast-server</span></code>。可指定 <code class="docutils literal notranslate"><span class="pre">vpn-instance</span></code>、<code class="docutils literal notranslate"><span class="pre">version</span> <span class="pre">3</span></code> 或 <code class="docutils literal notranslate"><span class="pre">version</span> <span class="pre">4</span></code>，以及 <code class="docutils literal notranslate"><span class="pre">preference</span></code>。未指定 VPN 时使用默认路由表，指定时先配置对应的 VPN 并确认服务器可达。</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>system-view
+ntp-service unicast-server 192.0.2.123 version 4
+ntp-service ipv6 unicast-server 2001:db8::123 vpn-instance MGMT version 4
+commit
+return
+display ntp-service status
+display ntp-service sessions
+</pre></div>
+</div>
+<p>设备配置只有管理实例 <code class="docutils literal notranslate"><span class="pre">MGMT</span></code> 已存在时，才可使用示例中的 VPN 参数。<code class="docutils literal notranslate"><span class="pre">display</span> <span class="pre">ntp-service</span> <span class="pre">sessions</span></code> 可核对地址、VPN、可达性和选源。用含相同地址和 VPN 的 <code class="docutils literal notranslate"><span class="pre">undo</span></code> 命令删除时间源。用 <code class="docutils literal notranslate"><span class="pre">ntp-service</span> <span class="pre">disable</span></code> 暂停同步，已设置的时间源会保留。用 <code class="docutils literal notranslate"><span class="pre">ntp-service</span> <span class="pre">enable</span></code> 恢复。</p>
+</section>
+<section id="id2">
+<h2>状态查询、监听端口与日志<a class="headerlink" href="#id2" title="Link to this heading"></a></h2>
+<div class="highlight-vortexros-cli notranslate"><div class="highlight"><pre><span></span>display service
+display health
+display alarm active
+display process listen
+display process tcp listen
+display process udp listen
+display logbuffer
+display logbuffer service frr last 30
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">display</span> <span class="pre">logbuffer</span></code> 可查询受管服务和协议状态，包括接口、Vlanif、Vbdif、动态路由邻居、BFD 与 VRRP。每条输出包含一份本地时间。跨日期或系统启动追溯时，使用带日期的系统 journal。</p>
+<p>Console 默认显示实时日志，SSH 默认关闭。用户视图的 <code class="docutils literal notranslate"><span class="pre">terminal</span> <span class="pre">monitor</span></code> 或 <code class="docutils literal notranslate"><span class="pre">undo</span> <span class="pre">terminal</span> <span class="pre">monitor</span></code> 只影响当前终端。系统视图执行 <code class="docutils literal notranslate"><span class="pre">undo</span> <span class="pre">info-center</span> <span class="pre">enable</span></code> 并提交后，所有终端暂停实时显示。历史日志仍可查询。恢复全局显示用 <code class="docutils literal notranslate"><span class="pre">info-center</span> <span class="pre">enable</span></code> 并提交。</p>
+<p><a class="reference internal" href="../../installation/06-first-start/"><span class="std std-doc">首次启动</span></a> · <a class="reference internal" href="../09-operations/"><span class="std std-doc">故障处理</span></a></p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="页脚">
+        <a href="../01-cli/" class="btn btn-neutral float-left" title="CLI、Candidate、commit 与 save" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> 上一页</a>
+        <a href="../03-interfaces-l2/" class="btn btn-neutral float-right" title="物理接口、聚合、VLAN、BD 与邻居" accesskey="n" rel="next">下一页 <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 。</p>
+  </div>
+
+  利用 <a href="https://www.sphinx-doc.org/">Sphinx</a> 构建，使用的 
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">主题</a>
+    由 <a href="https://readthedocs.org">Read the Docs</a> 开发.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

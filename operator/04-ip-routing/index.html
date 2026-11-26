@@ -1,0 +1,323 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>IPv4/IPv6、VPN、静态路由与路由组 &mdash; VortexROS 用户手册</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
+
+  
+    <link rel="canonical" href="https://opennw-rui.github.io/vortexros-doc/operator/04-ip-routing/" />
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=c7b72b5c"></script>
+      <script src="../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../_static/translations.js?v=beaddf03"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="索引" href="../../genindex/" />
+    <link rel="search" title="搜索" href="../../search/" />
+    <link rel="next" title="路由策略、OSPF、BGP、IS-IS、RIP、BFD 与 VRRP" href="../05-dynamic-routing/" />
+    <link rel="prev" title="物理接口、聚合、VLAN、BD 与邻居" href="../03-interfaces-l2/" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../" class="icon icon-home">
+            VortexROS 用户手册
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search/" method="get">
+    <input type="text" name="q" placeholder="搜索文档" aria-label="搜索文档" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="导航菜单">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../installation/">安装、升级与救援</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../installation/00-planning/">部署规划</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../installation/01-management-safety/">管理通道与控制台</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../installation/02-backends/">系统与数据面组件</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../installation/03-install-vortexros/">从 Live ISO 安装</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../installation/04-system-services/">系统服务与状态</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../installation/05-vpp-startup/">配置和激活数据面</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../installation/06-first-start/">首次启动与管理接入</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../installation/07-upgrade-uninstall/">验签、升级、回退与救援</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../installation/07-upgrade-uninstall/#id2">试启动新镜像</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../installation/07-upgrade-uninstall/#id3">回退与删除</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../installation/07-upgrade-uninstall/#id4">救援</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../installation/08-hardware-acceptance/">真机验收</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="reference internal" href="../">VortexROS 操作手册</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../#id1">配置指南</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../01-cli/">CLI、Candidate、commit 与 save</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../02-system-services/">系统、访问与服务</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../03-interfaces-l2/">物理接口、聚合、VLAN、BD 与邻居</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">IPv4/IPv6、VPN、静态路由与路由组</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../05-dynamic-routing/">路由策略、OSPF、BGP、IS-IS、RIP、BFD 与 VRRP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../06-tunnels/">GRE、VXLAN/NVE、WireGuard 与 AmneziaWG</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../07-policy/">ACL、QoS、MQC、MSS 与 nat-policy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../08-network-services/">DHCP 与 LLDP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../09-operations/">诊断、清理、健康与服务恢复</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../operations/logs/">日志中心</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../10-mpls-l3vpn/">MPLS、LDP 与 L3VPN</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../11-applications/">受管应用与隔离网络</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../reference/commands/">VortexROS 全命令参考</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../#id2">通用阅读约定</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../#id3">推荐的操作顺序</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="移动版导航菜单" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../">VortexROS 用户手册</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="页面导航">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../">VortexROS 操作手册</a></li>
+      <li class="breadcrumb-item active">IPv4/IPv6、VPN、静态路由与路由组</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="ipv4-ipv6vpn">
+<h1>IPv4/IPv6、VPN、静态路由与路由组<a class="headerlink" href="#ipv4-ipv6vpn" title="Link to this heading"></a></h1>
+<section id="vpn-instance">
+<h2>VPN-instance<a class="headerlink" href="#vpn-instance" title="Link to this heading"></a></h2>
+<p>VortexROS 为VPN实例分配1024～2048范围内的后端表号，可同时创建1025个
+VPN实例。日常配置不会显示容量警告；只有实际超过该数量时，<code class="docutils literal notranslate"><span class="pre">commit</span></code>才会
+拒绝配置并显示已配置数量和可用范围。</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>ip vpn-instance BLUE
+ ipv4-family
+  route-distinguisher 65000:100
+  vpn-target 65000:100 both
+ ipv6-family
+</pre></div>
+</div>
+<p>接口、路由和动态路由协议可以引用VPN实例。仍有配置引用时不能删除VPN。RD/RT只需在VPN实例下配置，在BGP VPN地址族中无需重复输入。</p>
+</section>
+<section id="id1">
+<h2>普通静态路由<a class="headerlink" href="#id1" title="Link to this heading"></a></h2>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>ip route-static 203.0.113.0 255.255.255.0 192.0.2.1 preference 60 tag 100 description TO-WAN
+ip route-static vpn-instance BLUE 10.0.0.0 8 vpn-instance default 192.0.2.1 Tunnel 1
+ipv6 route-static 2001:db8:100:: 64 2001:db8::1
+</pre></div>
+</div>
+<p>多条静态路由在配置中连续显示，不用无意义的<code class="docutils literal notranslate"><span class="pre">#</span></code>逐条分隔。跨VPN下一跳要同时显示目标VPN和下一跳VPN。</p>
+<div class="highlight-vortexros-cli notranslate"><div class="highlight"><pre><span></span>display ip routing-table protocol static
+display ip routing-table vpn-instance BLUE
+display ipv6 routing-table protocol static
+display ip fib
+display ip fib vpn-instance BLUE
+display ipv6 fib
+display ipv6 fib vpn-instance BLUE
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">display</span> <span class="pre">ip</span> <span class="pre">routing-table</span></code>和<code class="docutils literal notranslate"><span class="pre">display</span> <span class="pre">ipv6</span> <span class="pre">routing-table</span></code>读取路由控制面的优选结果，并可通过<code class="docutils literal notranslate"><span class="pre">verbose</span></code>或<code class="docutils literal notranslate"><span class="pre">inactive</span></code>查看详细候选。<code class="docutils literal notranslate"><span class="pre">display</span> <span class="pre">ip</span> <span class="pre">fib</span></code>和<code class="docutils literal notranslate"><span class="pre">display</span> <span class="pre">ipv6</span> <span class="pre">fib</span></code>直接读取VPP Binary API返回的实际转发项，不会用控制面路由冒充已生效FIB。两条FIB命令不带参数时查看default表，指定<code class="docutils literal notranslate"><span class="pre">vpn-instance</span></code>时按大小写敏感的VPP表名查看对应VPN；标题显示表名及表ID，<code class="docutils literal notranslate"><span class="pre">Lookup-Table</span></code>显示VPP路径实际使用的递归查表ID，包括default表的<code class="docutils literal notranslate"><span class="pre">0</span></code>。IPv6 FIB采用与IPv6路由表一致的逐路径块状布局；每个块只显示VPP能够证明的目的地址、前缀长度、下一跳、Preference、权重、路径类型、出接口、路径标志和递归查表ID。ECMP的每条有效路径各显示一个块。</p>
+</section>
+<section id="ipv6">
+<h2>IPv6运行状态命令<a class="headerlink" href="#ipv6" title="Link to this heading"></a></h2>
+<p>在<code class="docutils literal notranslate"><span class="pre">display</span> <span class="pre">ipv6</span> <span class="pre">?</span></code>下会列出当前具有实际数据源的命令。未实现的数据采集能力不会显示成可用命令：</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>fib                  Display IPv6 FIB information
+interface            Display IPv6 interface information
+nd                   Display IPv6 neighbor discovery information
+neighbors            Display IPv6 neighbor information
+pathmtu              Display IPv6 path MTU information
+pool                 Display IPv6 pool information
+prefix               Display IPv6 prefix-list information
+routing-table        Display IPv6 routing table
+urpf                 Display IPv6 URPF information
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">display</span> <span class="pre">ipv6</span> <span class="pre">nd</span></code>读取VPP的IPv6邻居容量、老化时间与回收策略。容量和回收策略可分别通过<code class="docutils literal notranslate"><span class="pre">ipv6</span> <span class="pre">nd</span> <span class="pre">max-number</span></code>与<code class="docutils literal notranslate"><span class="pre">ipv6</span> <span class="pre">nd</span> <span class="pre">recycle</span></code>配置；两项<code class="docutils literal notranslate"><span class="pre">undo</span></code>恢复配套VPP 26.06的产品默认值（50000条、关闭回收）。<code class="docutils literal notranslate"><span class="pre">display</span> <span class="pre">ipv6</span> <span class="pre">pathmtu</span></code>读取VPP实际路径MTU数据库，可按VPN实例过滤；数据量较大时CLI按VPP游标连续读取全部分页，不会把正常的继续信号显示成错误。<code class="docutils literal notranslate"><span class="pre">display</span> <span class="pre">ipv6</span> <span class="pre">pool</span></code>和<code class="docutils literal notranslate"><span class="pre">display</span> <span class="pre">ipv6</span> <span class="pre">prefix</span></code>分别显示已提交的DHCPv6地址池和IPv6前缀列表；原有的DHCPv6客户端、中继以及IPv6路由组命令保持不变。</p>
+<p>IPv6邻居表直接读取VPP实际ND条目，可按接口、VPN实例或动态/静态类型过滤：</p>
+<div class="highlight-vortexros-cli notranslate"><div class="highlight"><pre><span></span>display ipv6 neighbors
+display ipv6 neighbors Vlanif 10
+display ipv6 neighbors interface Ethernet 1
+display ipv6 neighbors vpn-instance BLUE
+display ipv6 neighbors dynamic
+display ipv6 neighbors static
+</pre></div>
+</div>
+<p>静态邻居使用<code class="docutils literal notranslate"><span class="pre">ipv6</span> <span class="pre">neighbor</span> <span class="pre">IPV6</span> <span class="pre">MAC</span> <span class="pre">interface</span> <span class="pre">IF</span></code>配置并随Candidate、commit和save持久化；删除时使用对应的完整<code class="docutils literal notranslate"><span class="pre">undo</span> <span class="pre">ipv6</span> <span class="pre">neighbor</span> <span class="pre">...</span></code>命令。<code class="docutils literal notranslate"><span class="pre">undo</span></code>中的接口、IPv6地址和MAC必须与Candidate中的条目完全匹配，避免输错MAC时误删另一条配置。承载接口被删除并重建后，即使静态邻居配置本身未变化，控制面也会重新下发该条目。commit会以VPP静态邻居表为权威读回，不能把动态学习条目误认为已配置静态条目。</p>
+<p>每个邻居使用独立的信息块，<code class="docutils literal notranslate"><span class="pre">IPv6</span> <span class="pre">Address</span></code>独占一行；其余字段固定按<code class="docutils literal notranslate"><span class="pre">Link-layer/State</span></code>、<code class="docutils literal notranslate"><span class="pre">Interface/Age</span></code>、<code class="docutils literal notranslate"><span class="pre">VLAN/CEVLAN</span></code>、<code class="docutils literal notranslate"><span class="pre">VPN</span> <span class="pre">name/Is</span> <span class="pre">Router</span></code>两列显示，<code class="docutils literal notranslate"><span class="pre">Secure</span> <span class="pre">FLAG</span></code>单列显示。动态和静态类型只在汇总中计数，不增加无后端字段的明细行。VLAN信息只来自已提交模型，不根据接口名称猜测：Vlanif使用其VLAN，子接口使用外层/内层VLAN，Vbdif只有在业务桥域明确绑定VLAN时才显示该VLAN；桥域ID不会冒充VLAN ID。当前VPP Binary API不提供完整ND状态、Router标志和SEND安全状态，这些字段显示<code class="docutils literal notranslate"><span class="pre">-</span></code>，不会伪造为REACH、Router或安全邻居。命令也不会根据接口地址伪造本机邻居项。</p>
+</section>
+<section id="id2">
+<h2>静态路由组<a class="headerlink" href="#id2" title="Link to this heading"></a></h2>
+<p>静态路由组用于让大量前缀共用相同的下一跳、出接口、VPN、Preference和Tag。配置中只保留路由组及其绑定关系，不会把十万条成员展开成同样数量的普通静态路由命令。</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>route-static group name CDN
+ description CDN-PREFIXES
+ route 198.18.0.0/24
+ route 198.18.1.1
+#
+ip route-static group CDN 192.0.2.1 preference 60 tag 100
+</pre></div>
+</div>
+<p>裸IPv4规范为<code class="docutils literal notranslate"><span class="pre">/32</span></code>，裸IPv6规范为<code class="docutils literal notranslate"><span class="pre">/128</span></code>，输入掩码后配置统一显示CIDR。手工成员自动去重。</p>
+<section id="url">
+<h3>文件成员与URL成员<a class="headerlink" href="#url" title="Link to this heading"></a></h3>
+<p>路由组的外部列表统一存放在：</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>/vortexros/route-static-groupd
+</pre></div>
+</div>
+<p>管理员可先把每行一个CIDR的文件放到该目录，再在路由组视图中选择。<code class="docutils literal notranslate"><span class="pre">?</span></code>和Tab只列出目录顶层的普通文件，不接受子目录、符号链接或包含路径分隔符的名称：</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>route-static group name CDN
+ source file cdn-v4.txt
+</pre></div>
+</div>
+<p>首次<code class="docutils literal notranslate"><span class="pre">commit</span></code>会解析、规范化并生成不可变运行快照。之后直接修改原文件不会绕过配置事务改变现网；执行下面的命令才会重新读取、显示进度并增量更新路由：</p>
+<div class="highlight-vortexros-cli notranslate"><div class="highlight"><pre><span></span>reset route-static group name CDN
+</pre></div>
+</div>
+<p>URL与本地文件互斥。URL下载后的原始物化结果和元数据也由系统存放在同一目录的受管子目录中：</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>route-static group name CDN
+ source url https://lists.example.net/cdn-v4.txt vpn-instance BLUE
+ auto-refresh enable
+ auto-refresh interval 4320
+</pre></div>
+</div>
+<p>URL默认必须使用HTTPS。只有明确接受明文传输的受控环境才可配置
+<code class="docutils literal notranslate"><span class="pre">source</span> <span class="pre">url</span> <span class="pre">http://192.0.2.10/routes.txt</span> <span class="pre">insecure</span></code>；HTTPS来源不允许经重定向降级为HTTP。</p>
+<p>两种来源的内容均为每行一个CIDR，空行和整行<code class="docutils literal notranslate"><span class="pre">#</span></code>注释跳过；任一非法行使新版本整体失效。手工与外部成员取并集。本地文件不支持<code class="docutils literal notranslate"><span class="pre">auto-refresh</span></code>；URL可按配置定时刷新。</p>
+<p>首次配置URL后，执行全局 <code class="docutils literal notranslate"><span class="pre">commit</span></code> 会显示连接、下载、检查、应用和完成等进度；只有文件下载并检查成功后配置才会生效。后续普通commit不会重复下载：</p>
+<div class="highlight-vortexros-cli notranslate"><div class="highlight"><pre><span></span>reset route-static group name CDN
+display route-static group name CDN verbose
+display ip routing-table group name CDN verbose
+</pre></div>
+</div>
+<p>Ctrl+C只停止当前终端的进度显示，不取消设备正在执行的更新，也不关闭SSH。</p>
+</section>
+</section>
+<section id="id3">
+<h2>路由组增量修改<a class="headerlink" href="#id3" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>一个成员变化只影响“该前缀×引用该组的绑定”；</p></li>
+<li><p>一个绑定变化只处理该组成员；</p></li>
+<li><p>普通静态路由和多个路由组产生完全相同的路径和属性时，设备只保留一条有效路由；</p></li>
+<li><p>路径相同但Preference、Tag等不同会报告冲突；</p></li>
+<li><p>增加或删除单个成员时，只更新该成员所影响的路由，不重新加载整个路由组。</p></li>
+</ul>
+</section>
+<section id="urpf">
+<h2>uRPF与路由表<a class="headerlink" href="#urpf" title="Link to this heading"></a></h2>
+<p>接口可以启用严格或宽松的反向路径检查：</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>interface Vlanif 100
+ ip urpf strict
+ ipv6 urpf strict
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">strict</span></code>：源地址的最佳返回路径必须从收到报文的接口到达；</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">loose</span></code>：源地址只需在路由表中可达；</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">disable</span></code>或对应的<code class="docutils literal notranslate"><span class="pre">undo</span> <span class="pre">ip</span> <span class="pre">urpf</span></code>、<code class="docutils literal notranslate"><span class="pre">undo</span> <span class="pre">ipv6</span> <span class="pre">urpf</span></code>：关闭该地址族检查。</p></li>
+</ul>
+<p>IPv4和IPv6 uRPF是两个独立配置对象，修改或撤销其中一个不会覆盖另一个。使用 <code class="docutils literal notranslate"><span class="pre">display</span> <span class="pre">urpf</span></code> 查看全部地址族，使用<code class="docutils literal notranslate"><span class="pre">display</span> <span class="pre">ipv6</span> <span class="pre">urpf</span></code>只查看IPv6接口模式；通过<code class="docutils literal notranslate"><span class="pre">display</span> <span class="pre">ip</span> <span class="pre">routing-table</span> <span class="pre">...</span> <span class="pre">verbose</span></code>或<code class="docutils literal notranslate"><span class="pre">display</span> <span class="pre">ipv6</span> <span class="pre">routing-table</span> <span class="pre">...</span> <span class="pre">verbose</span></code>检查作为判断依据的路由。</p>
+</section>
+<section id="id4">
+<h2>功能验证表<a class="headerlink" href="#id4" title="Link to this heading"></a></h2>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>场景</p></th>
+<th class="head"><p>配置</p></th>
+<th class="head"><p>数据面效果</p></th>
+<th class="head"><p>验证</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>直连下一跳</p></td>
+<td><p>普通静态路由</p></td>
+<td><p>安装到目标VRF</p></td>
+<td><p>ping和routing-table</p></td>
+</tr>
+<tr class="row-odd"><td><p>递归下一跳</p></td>
+<td><p>先建递归可达路由</p></td>
+<td><p>解析成功后安装</p></td>
+<td><p>verbose中的NextHop/Interface</p></td>
+</tr>
+<tr class="row-even"><td><p>ECMP</p></td>
+<td><p>同前缀不同下一跳</p></td>
+<td><p>多路径进入RIB/FIB</p></td>
+<td><p>route verbose和流量</p></td>
+</tr>
+<tr class="row-odd"><td><p>跨VPN</p></td>
+<td><p>目标VPN+下一跳VPN</p></td>
+<td><p>在目标表安装、去指定表解析下一跳</p></td>
+<td><p>两个VPN路由表</p></td>
+</tr>
+<tr class="row-even"><td><p>默认路由</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">/0</span></code></p></td>
+<td><p>无更长匹配时使用</p></td>
+<td><p>特定目的ping/tracert</p></td>
+</tr>
+<tr class="row-odd"><td><p>精确undo</p></td>
+<td><p>完整路径参数</p></td>
+<td><p>只删除一个所有者/路径</p></td>
+<td><p>其他所有者仍保留</p></td>
+</tr>
+</tbody>
+</table>
+<p>最后用 <code class="docutils literal notranslate"><span class="pre">display</span> <span class="pre">current-configuration</span></code> 核对路由组定义和 <code class="docutils literal notranslate"><span class="pre">ip</span> <span class="pre">route-static</span> <span class="pre">group</span></code> 绑定。IPv6 绑定使用 <code class="docutils literal notranslate"><span class="pre">ipv6</span> <span class="pre">route-static</span> <span class="pre">group</span></code>。</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="页脚">
+        <a href="../03-interfaces-l2/" class="btn btn-neutral float-left" title="物理接口、聚合、VLAN、BD 与邻居" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> 上一页</a>
+        <a href="../05-dynamic-routing/" class="btn btn-neutral float-right" title="路由策略、OSPF、BGP、IS-IS、RIP、BFD 与 VRRP" accesskey="n" rel="next">下一页 <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 。</p>
+  </div>
+
+  利用 <a href="https://www.sphinx-doc.org/">Sphinx</a> 构建，使用的 
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">主题</a>
+    由 <a href="https://readthedocs.org">Read the Docs</a> 开发.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

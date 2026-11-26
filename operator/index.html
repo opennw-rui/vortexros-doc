@@ -1,0 +1,190 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>VortexROS 操作手册 &mdash; VortexROS 用户手册</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+
+  
+    <link rel="canonical" href="https://opennw-rui.github.io/vortexros-doc/operator/" />
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=c7b72b5c"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../_static/translations.js?v=beaddf03"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="索引" href="../genindex/" />
+    <link rel="search" title="搜索" href="../search/" />
+    <link rel="next" title="CLI、Candidate、commit 与 save" href="01-cli/" />
+    <link rel="prev" title="真机验收" href="../installation/08-hardware-acceptance/" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../" class="icon icon-home">
+            VortexROS 用户手册
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search/" method="get">
+    <input type="text" name="q" placeholder="搜索文档" aria-label="搜索文档" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="导航菜单">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../installation/">安装、升级与救援</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../installation/00-planning/">部署规划</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/01-management-safety/">管理通道与控制台</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/02-backends/">系统与数据面组件</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/03-install-vortexros/">从 Live ISO 安装</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/04-system-services/">系统服务与状态</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/05-vpp-startup/">配置和激活数据面</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/06-first-start/">首次启动与管理接入</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/07-upgrade-uninstall/">验签、升级、回退与救援</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../installation/07-upgrade-uninstall/#id2">试启动新镜像</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../installation/07-upgrade-uninstall/#id3">回退与删除</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../installation/07-upgrade-uninstall/#id4">救援</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/08-hardware-acceptance/">真机验收</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">VortexROS 操作手册</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id1">配置指南</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="01-cli/">CLI、Candidate、commit 与 save</a></li>
+<li class="toctree-l3"><a class="reference internal" href="02-system-services/">系统、访问与服务</a></li>
+<li class="toctree-l3"><a class="reference internal" href="03-interfaces-l2/">物理接口、聚合、VLAN、BD 与邻居</a></li>
+<li class="toctree-l3"><a class="reference internal" href="04-ip-routing/">IPv4/IPv6、VPN、静态路由与路由组</a></li>
+<li class="toctree-l3"><a class="reference internal" href="05-dynamic-routing/">路由策略、OSPF、BGP、IS-IS、RIP、BFD 与 VRRP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="06-tunnels/">GRE、VXLAN/NVE、WireGuard 与 AmneziaWG</a></li>
+<li class="toctree-l3"><a class="reference internal" href="07-policy/">ACL、QoS、MQC、MSS 与 nat-policy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="08-network-services/">DHCP 与 LLDP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="09-operations/">诊断、清理、健康与服务恢复</a></li>
+<li class="toctree-l3"><a class="reference internal" href="operations/logs/">日志中心</a></li>
+<li class="toctree-l3"><a class="reference internal" href="10-mpls-l3vpn/">MPLS、LDP 与 L3VPN</a></li>
+<li class="toctree-l3"><a class="reference internal" href="11-applications/">受管应用与隔离网络</a></li>
+<li class="toctree-l3"><a class="reference internal" href="reference/commands/">VortexROS 全命令参考</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id2">通用阅读约定</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id3">推荐的操作顺序</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="移动版导航菜单" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../">VortexROS 用户手册</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="页面导航">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">VortexROS 操作手册</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="vortexros">
+<h1>VortexROS 操作手册<a class="headerlink" href="#vortexros" title="Link to this heading"></a></h1>
+<p>本手册面向 <code class="docutils literal notranslate"><span class="pre">v0.1.0-dev</span></code> 管理员，涵盖配置、验证和撤销。新装设备从<a class="reference internal" href="../installation/"><span class="std std-doc">安装、升级与救援</span></a>开始。</p>
+<section id="id1">
+<h2>配置指南<a class="headerlink" href="#id1" title="Link to this heading"></a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="01-cli/">CLI、Candidate、commit 与 save</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02-system-services/">系统、访问与服务</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03-interfaces-l2/">物理接口、聚合、VLAN、BD 与邻居</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04-ip-routing/">IPv4/IPv6、VPN、静态路由与路由组</a></li>
+<li class="toctree-l1"><a class="reference internal" href="05-dynamic-routing/">路由策略、OSPF、BGP、IS-IS、RIP、BFD 与 VRRP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="06-tunnels/">GRE、VXLAN/NVE、WireGuard 与 AmneziaWG</a></li>
+<li class="toctree-l1"><a class="reference internal" href="07-policy/">ACL、QoS、MQC、MSS 与 nat-policy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="08-network-services/">DHCP 与 LLDP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="09-operations/">诊断、清理、健康与服务恢复</a></li>
+<li class="toctree-l1"><a class="reference internal" href="operations/logs/">日志中心</a></li>
+<li class="toctree-l1"><a class="reference internal" href="10-mpls-l3vpn/">MPLS、LDP 与 L3VPN</a></li>
+<li class="toctree-l1"><a class="reference internal" href="11-applications/">受管应用与隔离网络</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reference/commands/">VortexROS 全命令参考</a></li>
+</ul>
+</div>
+<p>首次在新硬件上部署时，还必须完成<a class="reference internal" href="../installation/08-hardware-acceptance/"><span class="std std-doc">真机首次验收</span></a>。
+该检查用于确认驱动接管、LCP、重启恢复和管理连接，不以实验室结果代替设备实测。</p>
+</section>
+<section id="id2">
+<h2>通用阅读约定<a class="headerlink" href="#id2" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[*VortexROS]</span></code>表示当前会话 Candidate 已修改；<code class="docutils literal notranslate"><span class="pre">[~VortexROS]</span></code>表示无未提交修改。</p></li>
+<li><p>配置命令先保存在当前登录会话中，输入 <code class="docutils literal notranslate"><span class="pre">commit</span></code> 后才正式生效。</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">save</span></code>只保存全局 Running；不保存任何会话私有 Candidate。</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">undo</span></code>应按对象精确撤销。被引用对象通常必须先解除引用。</p></li>
+<li><p>配置片段按缩进表示视图。交互输入时，进入下一同级视图前先用 <code class="docutils literal notranslate"><span class="pre">quit</span></code> 退出当前视图。带 <code class="docutils literal notranslate"><span class="pre">#</span></code> 分节和结尾 <code class="docutils literal notranslate"><span class="pre">return</span></code> 的片段可用来核对或回放配置。</p></li>
+<li><p>示例名称、地址和输出均已脱敏；计时、计数器、接口索引等运行值以设备实测为准。</p></li>
+</ul>
+</section>
+<section id="id3">
+<h2>推荐的操作顺序<a class="headerlink" href="#id3" title="Link to this heading"></a></h2>
+<p>配置业务时建议按以下顺序操作：</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>配置 -&gt; display configuration candidate -&gt; commit -&gt; display this
+     -&gt; display 运行状态 -&gt; 转发/邻居验证 -&gt; 精确 undo -&gt; commit
+     -&gt; save -&gt; 设备重启 -&gt; 再次验证
+</pre></div>
+</div>
+<p>完整命令语法和可用视图请查看<a class="reference internal" href="reference/commands/"><span class="std std-doc">全命令参考</span></a>。</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="页脚">
+        <a href="../installation/08-hardware-acceptance/" class="btn btn-neutral float-left" title="真机验收" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> 上一页</a>
+        <a href="01-cli/" class="btn btn-neutral float-right" title="CLI、Candidate、commit 与 save" accesskey="n" rel="next">下一页 <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 。</p>
+  </div>
+
+  利用 <a href="https://www.sphinx-doc.org/">Sphinx</a> 构建，使用的 
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">主题</a>
+    由 <a href="https://readthedocs.org">Read the Docs</a> 开发.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

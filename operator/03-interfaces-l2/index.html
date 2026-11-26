@@ -1,0 +1,394 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>物理接口、聚合、VLAN、BD 与邻居 &mdash; VortexROS 用户手册</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
+
+  
+    <link rel="canonical" href="https://opennw-rui.github.io/vortexros-doc/operator/03-interfaces-l2/" />
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=c7b72b5c"></script>
+      <script src="../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../_static/translations.js?v=beaddf03"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="索引" href="../../genindex/" />
+    <link rel="search" title="搜索" href="../../search/" />
+    <link rel="next" title="IPv4/IPv6、VPN、静态路由与路由组" href="../04-ip-routing/" />
+    <link rel="prev" title="系统、访问与服务" href="../02-system-services/" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../" class="icon icon-home">
+            VortexROS 用户手册
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search/" method="get">
+    <input type="text" name="q" placeholder="搜索文档" aria-label="搜索文档" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="导航菜单">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../installation/">安装、升级与救援</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../installation/00-planning/">部署规划</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../installation/01-management-safety/">管理通道与控制台</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../installation/02-backends/">系统与数据面组件</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../installation/03-install-vortexros/">从 Live ISO 安装</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../installation/04-system-services/">系统服务与状态</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../installation/05-vpp-startup/">配置和激活数据面</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../installation/06-first-start/">首次启动与管理接入</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../installation/07-upgrade-uninstall/">验签、升级、回退与救援</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../installation/07-upgrade-uninstall/#id2">试启动新镜像</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../installation/07-upgrade-uninstall/#id3">回退与删除</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../installation/07-upgrade-uninstall/#id4">救援</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../installation/08-hardware-acceptance/">真机验收</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="reference internal" href="../">VortexROS 操作手册</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../#id1">配置指南</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../01-cli/">CLI、Candidate、commit 与 save</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../02-system-services/">系统、访问与服务</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">物理接口、聚合、VLAN、BD 与邻居</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../04-ip-routing/">IPv4/IPv6、VPN、静态路由与路由组</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../05-dynamic-routing/">路由策略、OSPF、BGP、IS-IS、RIP、BFD 与 VRRP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../06-tunnels/">GRE、VXLAN/NVE、WireGuard 与 AmneziaWG</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../07-policy/">ACL、QoS、MQC、MSS 与 nat-policy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../08-network-services/">DHCP 与 LLDP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../09-operations/">诊断、清理、健康与服务恢复</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../operations/logs/">日志中心</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../10-mpls-l3vpn/">MPLS、LDP 与 L3VPN</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../11-applications/">受管应用与隔离网络</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../reference/commands/">VortexROS 全命令参考</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../#id2">通用阅读约定</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../#id3">推荐的操作顺序</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="移动版导航菜单" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../">VortexROS 用户手册</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="页面导航">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../">VortexROS 操作手册</a></li>
+      <li class="breadcrumb-item active">物理接口、聚合、VLAN、BD 与邻居</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="vlanbd">
+<h1>物理接口、聚合、VLAN、BD 与邻居<a class="headerlink" href="#vlanbd" title="Link to this heading"></a></h1>
+<section id="id1">
+<h2>接口所有权<a class="headerlink" href="#id1" title="Link to this heading"></a></h2>
+<p>设备只允许一个转发平面管理物理接口。VPP未启用时，可在CLI中配置Linux能够识别的物理口；VPP接管完成后，只允许配置设备已经识别的业务接口。接管过程中接口配置暂时只读，避免同一接口同时由两套转发平面管理。</p>
+<div class="highlight-vortexros-cli notranslate"><div class="highlight"><pre><span></span>display vpp interface-ownership verbose
+display interface brief
+display ip interface brief
+display ipv6 interface brief
+</pre></div>
+</div>
+<p>状态含义：<code class="docutils literal notranslate"><span class="pre">^down</span></code>表示配置对象已创建但尚不满足底层数据面创建条件；普通<code class="docutils literal notranslate"><span class="pre">down</span></code>表示底层对象存在但链路或协议条件未满足。接口无IP不应因此down。</p>
+<p><code class="docutils literal notranslate"><span class="pre">display</span> <span class="pre">interface</span> <span class="pre">brief</span></code>中的<code class="docutils literal notranslate"><span class="pre">CRC</span></code>只显示网卡驱动提供的硬件CRC/FCS坏帧计数；驱动或虚拟接口不支持该计数时显示<code class="docutils literal notranslate"><span class="pre">--</span></code>。它不会把接口down期间的发送尝试、转发丢弃或其他软件错误混入CRC。使用<code class="docutils literal notranslate"><span class="pre">display</span> <span class="pre">interface</span> <span class="pre">&lt;接口&gt;</span></code>查看CRC/FCS、丢弃、punt以及收发方向的软件错误明细。</p>
+<p><code class="docutils literal notranslate"><span class="pre">InUti/OutUti</span></code>由daemon复用一条VPP统计连接，每秒读取标准字节计数，并使用最近300秒的成熟窗口按接口链路速率换算为一位小数的利用率。daemon启动、VPP重连、同名接口重建、计数器清零或尚未形成完整300秒窗口时显示<code class="docutils literal notranslate"><span class="pre">0.0%</span></code>；执行display命令本身不会临时采样或等待。统计读取连续超过3秒未成功时旧速率立即失效，不会把故障前的数值继续显示成当前状态。NVE和尚未创建数据面对象的隧道没有独立计数器，显示<code class="docutils literal notranslate"><span class="pre">--</span></code>而不是虚构零流量。CRC/FCS属于低频诊断计数，不进入每秒采样。</p>
+<p><code class="docutils literal notranslate"><span class="pre">display</span> <span class="pre">interface</span> <span class="pre">&lt;接口&gt;</span></code>同时显示当前1秒速率和最近300秒平均速率。daemon启动或VPP重连后的前两个有效样本之间，当前速率显示<code class="docutils literal notranslate"><span class="pre">--</span></code>；连续采样尚未达到300秒时，300秒平均值显示<code class="docutils literal notranslate"><span class="pre">--</span></code>。计数器清零、接口运行索引变化或VPP会话变化会废弃该接口的旧窗口，不会把两个对象的累计计数相减。</p>
+<p>IP简表合并VPP与LCP地址。LCP接口正在删除或重建而无法完成地址观察时，该行地址与协议状态显示<code class="docutils literal notranslate"><span class="pre">unavailable</span></code>/<code class="docutils literal notranslate"><span class="pre">unknown</span></code>，且不计入协议UP或DOWN数量；这表示当前证据不足，不表示接口已经确认协议Down。其他接口仍正常显示。</p>
+</section>
+<section id="offload">
+<h2>物理接口与offload<a class="headerlink" href="#offload" title="Link to this heading"></a></h2>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>interface Ethernet 1
+ description uplink
+ mtu 9000
+ ip address 192.0.2.2 255.255.255.0
+ undo hardware offload tso tx-checksum rx-checksum
+</pre></div>
+</div>
+<p>先用 <code class="docutils literal notranslate"><span class="pre">display</span> <span class="pre">interface</span> <span class="pre">hardware</span> <span class="pre">offload</span> <span class="pre">Ethernet1</span></code> 查看设备支持的能力。示例同时关闭 TSO 与其依赖的收发校验和卸载。用 <code class="docutils literal notranslate"><span class="pre">hardware</span> <span class="pre">offload</span></code> 撤销禁用项，具体项以设备实际能力为准。</p>
+<p>IPv4继续使用主地址与<code class="docutils literal notranslate"><span class="pre">sub</span></code>从地址语义；IPv6地址为累加列表，不使用<code class="docutils literal notranslate"><span class="pre">sub</span></code>：</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>interface LoopBack 0
+ ipv6 address 2001:db8:100::1 64
+ ipv6 address 2001:db8:200::1 64
+</pre></div>
+</div>
+<p>同一接口最多配置16个IPv6全局单播地址。同一VPN实例内，同一IPv6前缀只允许归属一个接口；
+未指定、多播、链路本地、IPv4映射地址以及物理接口上的回环地址在进入Candidate时拒绝。前缀长度
+小于127时，前缀本身的全零接口标识保留为子网路由器任播地址，不能作为普通接口地址。</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>步骤</p></th>
+<th class="head"><p>Candidate变化</p></th>
+<th class="head"><p>commit后效果</p></th>
+<th class="head"><p>验证</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>创建/进入接口</p></td>
+<td><p>无或创建配置对象</p></td>
+<td><p>不一定创建数据面</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">display</span> <span class="pre">this</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>配置MTU/IP</p></td>
+<td><p>保存本会话修改</p></td>
+<td><p>提交后更新接口MTU和地址</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">display</span> <span class="pre">interface</span> <span class="pre">Ethernet</span> <span class="pre">1</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>关闭offload</p></td>
+<td><p>保存关闭项</p></td>
+<td><p>提交后关闭硬件支持的指定能力</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">display</span> <span class="pre">interface</span> <span class="pre">hardware</span> <span class="pre">offload</span> <span class="pre">Ethernet</span> <span class="pre">1</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>精确undo</p></td>
+<td><p>删除对应叶</p></td>
+<td><p>恢复默认/撤销地址</p></td>
+<td><p>display及转发验证</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="eth-trunk">
+<h2>Eth-Trunk<a class="headerlink" href="#eth-trunk" title="Link to this heading"></a></h2>
+<p>聚合接口默认L3，支持static和LACP；成员必须是物理接口并满足兼容属性。加入后，成员不再允许独立配置L2/L3参数，聚合无关的ACL/QoS绑定按能力保留。</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>interface Eth-Trunk 10
+ mode lacp-static
+ trunkport Ethernet 1 to Ethernet 2
+ mtu 9000
+ ip address 198.51.100.1 255.255.255.0
+</pre></div>
+</div>
+<div class="highlight-vortexros-cli notranslate"><div class="highlight"><pre><span></span>display eth-trunk 10
+display interface Eth-Trunk 10
+</pre></div>
+</div>
+<p>反复增删成员时只变更相关成员，不重建无变化的聚合接口。</p>
+<p>删除单个成员或整个聚合接口：</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>interface Eth-Trunk 10
+ undo trunkport Ethernet 2
+undo interface Eth-Trunk 10
+commit
+</pre></div>
+</div>
+<p>成员口退出聚合后，才可重新配置其独立的二层/三层属性。</p>
+</section>
+<section id="id2">
+<h2>三层子接口<a class="headerlink" href="#id2" title="Link to this heading"></a></h2>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>interface Ethernet 1.100
+ encapsulation dot1q vid 100
+ ip address 10.100.0.1 255.255.255.0
+</pre></div>
+</div>
+<p>QinQ示例：</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>interface Ethernet 1.200
+ encapsulation qinq vid 200 ce-vid 20
+ ip address 10.200.20.1 255.255.255.0
+</pre></div>
+</div>
+<p>提交后，只有标签匹配的报文进入对应子接口。父接口down时子接口随之down；父接口恢复后自动恢复。使用以下命令验证：</p>
+<div class="highlight-vortexros-cli notranslate"><div class="highlight"><pre><span></span>display interface Ethernet 1.100
+display ip interface brief
+display ip routing-table protocol direct
+</pre></div>
+</div>
+</section>
+<section id="vlanvlanif">
+<h2>VLAN、子接口与Vlanif<a class="headerlink" href="#vlanvlanif" title="Link to this heading"></a></h2>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>vlan batch 100 200
+interface Ethernet 1
+ portswitch
+ port link-type trunk
+ port trunk allow-pass vlan 100 200
+interface Vlanif 100
+ ip address 10.100.0.1 255.255.255.0
+</pre></div>
+</div>
+<p>配置在二层物理接口或VLAN上的策略会作用于对应的trunk业务流量。Vlanif只有在VLAN中至少存在一个可用成员端口时才能正常up；没有可用成员时显示普通down，并撤销相关直连路由。</p>
+<p><code class="docutils literal notranslate"><span class="pre">display</span> <span class="pre">vlan</span></code>使用一张表同时显示状态、MAC学习、描述和端口成员，端口状态中的<code class="docutils literal notranslate"><span class="pre">U/D</span></code>表示up/down，<code class="docutils literal notranslate"><span class="pre">TG/UT</span></code>表示tagged/untagged。表格宽度根据实际内容调整；端口之间间隔两个字符，每行最多显示四个端口，更多端口在下一行按首个接口位置继续显示：</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>-----------------------------------------------------------------
+U: Up;         D: Down;         TG: Tagged;         UT: Untagged;
+-----------------------------------------------------------------
+
+VID  Type    Status  MAC-LRN  Description    Ports
+-----------------------------------------------------------------
+1    common  enable  enable   VLAN 1         UT:eth2(D)  eth3(D)
+10   common  enable  enable   To_CTC_ISP     UT:eth0(U)
+20   common  enable  enable   To_LAN_Client  UT:eth1(U)
+-----------------------------------------------------------------
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">display</span> <span class="pre">ip</span> <span class="pre">interface</span> <span class="pre">brief</span></code>和<code class="docutils literal notranslate"><span class="pre">display</span> <span class="pre">ipv6</span> <span class="pre">interface</span> <span class="pre">brief</span></code>保持相同的状态列布局，便于同时核对Physical、Protocol和VPN-Instance。</p>
+<p>隐式默认MAC不进入 <code class="docutils literal notranslate"><span class="pre">display</span> <span class="pre">current-configuration</span></code> 或 <code class="docutils literal notranslate"><span class="pre">display</span> <span class="pre">this</span></code>。</p>
+<p>启用交换功能后，每个VLAN对应的转发域默认采用以下行为：</p>
+<ul class="simple">
+<li><p>动态MAC学习：开启；</p></li>
+<li><p>广播和组播泛洪：开启；</p></li>
+<li><p>未知单播泛洪：开启；</p></li>
+<li><p>二层转发：开启；</p></li>
+<li><p>动态MAC老化时间：300秒。</p></li>
+</ul>
+<p>动态MAC老化时间是全局参数。需要修改时，在系统视图执行：</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>mac-address aging-time 600
+commit
+</pre></div>
+</div>
+<p>提交后，所有VLAN对应转发域的动态MAC老化时间变为600秒。恢复默认值：</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>undo mac-address aging-time
+commit
+</pre></div>
+</div>
+<p>默认值不显示在配置中；只有非默认值才进入 <code class="docutils literal notranslate"><span class="pre">display</span> <span class="pre">current-configuration</span></code>。VPP以整分钟保存该参数，因此配置值必须是60秒的整数倍。</p>
+</section>
+<section id="bdvbdif">
+<h2>BD与Vbdif<a class="headerlink" href="#bdvbdif" title="Link to this heading"></a></h2>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>bridge-domain 11
+ l2 binding vlan 100
+ vxlan vni 1011
+interface Vbdif 11
+ ip address 10.11.0.1 255.255.255.0
+</pre></div>
+</div>
+<p>验证BD、VNI、MAC学习和L3网关：</p>
+<div class="highlight-vortexros-cli notranslate"><div class="highlight"><pre><span></span>display bridge-domain 11
+display mac-address
+display interface Vbdif 11
+</pre></div>
+</div>
+<p>删除前先解除Vbdif、VNI和VLAN绑定，避免业务仍在引用BD。</p>
+<section id="bridge-domain">
+<h3>高位 Bridge Domain<a class="headerlink" href="#bridge-domain" title="Link to this heading"></a></h3>
+<p>普通 VLAN 业务 VID 为 1–4094，4095 保留。需要扩展域编号的服务可显式使用 4096–4294967294 的高位 BD。高位编号独立于普通 VLAN 和 VXLAN VNI。常规 STP、RSTP 和 MSTP 沿用普通端口或 VLAN 范围。</p>
+<p>先为 NVE 准备可达的 VTEP 源和 EVPN 邻居。同一 VNI 的两端使用匹配的 RT，每台设备使用自己的 RD。以下示例将 Ethernet0 接入高位域 65536，把它关联到 VNI 65010。</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>system-view
+evpn-overlay enable
+bridge-domain 65536
+vxlan vni 65010
+evpn
+route-distinguisher 65000:1101
+vpn-target 65000:65010 import-extcommunity
+vpn-target 65000:65010 export-extcommunity
+quit
+quit
+interface Ethernet0
+bridge-domain 65536
+quit
+interface Nve1
+vni 65010 head-end peer-list protocol bgp
+quit
+commit
+</pre></div>
+</div>
+<p>部署高位 EVPN 时，用 <code class="docutils literal notranslate"><span class="pre">display</span> <span class="pre">bridge-domain</span></code> 和 <code class="docutils literal notranslate"><span class="pre">display</span> <span class="pre">mac-address</span></code> 核对域归属和 MAC 学习，再检查 VNI、远端 VTEP 和 EVPN 路由。迁移网关或成员后，确认旧位置的远端 MAC/IP 已撤销并在新位置重新学习。可以在不同域使用同一客户 VID 或 MAC，验证时应检查域间隔离和域内连通。</p>
+<p>撤销该 VNI 的动态通告时，在对应 NVE 视图执行 <code class="docutils literal notranslate"><span class="pre">undo</span> <span class="pre">vni</span> <span class="pre">65010</span> <span class="pre">head-end</span> <span class="pre">peer-list</span> <span class="pre">protocol</span> <span class="pre">bgp</span></code> 并提交。随后核对受影响域的远端状态和其余域的转发。</p>
+</section>
+</section>
+<section id="arparp">
+<h2>ARP与代理ARP<a class="headerlink" href="#arparp" title="Link to this heading"></a></h2>
+<p>IPv4 ARP和IPv6 ND邻居老化是VPP进程级参数，不依赖VLAN或bridge-domain。纯三层接口同样使用这些参数。默认值均为1200秒，并在VPP每次启动或重新连接后优先恢复，再下发接口、地址和业务配置。</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>arp timeout 900
+ipv6 nd stale-timeout 1800
+ipv6 nd max-number 65536
+ipv6 nd recycle enable
+commit
+</pre></div>
+</div>
+<p>恢复默认值：</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>undo arp timeout
+undo ipv6 nd stale-timeout
+undo ipv6 nd max-number
+undo ipv6 nd recycle
+commit
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">max-number</span></code>限制VPP IPv6邻居表容量；<code class="docutils literal notranslate"><span class="pre">recycle</span> <span class="pre">enable</span></code>在容量已满时回收最老的动态条目，静态邻居不参与动态回收。回收策略必须显式配置，<code class="docutils literal notranslate"><span class="pre">undo</span></code>恢复VPP启动时的默认策略。上述命令只管理VPP邻居表，不修改Linux内核的ARP/ND参数。默认值不显示在配置中，非默认值通过 <code class="docutils literal notranslate"><span class="pre">display</span> <span class="pre">current-configuration</span></code> 和 <code class="docutils literal notranslate"><span class="pre">display</span> <span class="pre">ipv6</span> <span class="pre">nd</span></code> 回读验证。</p>
+<p>静态IPv6邻居绑定在三层数据面接口上，地址与MAC均以规范格式保存：</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>ipv6 neighbor 2001:db8:10::2 02:11:22:33:44:55 interface Vlanif10
+commit
+display ipv6 neighbors static
+undo ipv6 neighbor 2001:db8:10::2 02:11:22:33:44:55 interface Vlanif10
+commit
+</pre></div>
+</div>
+<p>多播、未指定IPv6地址，多播或全零MAC，以及二层或控制型接口都会在提交前被拒绝。动态邻居只属于运行态，不会写入配置。</p>
+<p>静态ARP和单IP/范围代理ARP必须绑定一个真实、具备MAC且能发送ARP的L3接口；LoopBack和NVE不出现在补全中。</p>
+<p>静态ARP只接受可用IPv4单播地址和六字节单播MAC；全零、组播或广播映射会在提交前拒绝。静态MAC
+表项的出口必须实际属于该表项的桥域；trunk与业务桥域先转换为最终数据面子接口和桥域后再校验，
+不能把其他桥域的端口写入当前桥域。</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>arp proxy 10.10.10.12 10.10.10.14 interface Vlanif 100
+display arp proxy
+undo arp proxy 10.10.10.12 10.10.10.14 interface Vlanif 100
+</pre></div>
+</div>
+<p>提交后，指定地址范围的ARP请求从所选三层接口代理响应。接口down/up或重新创建后，设备会自动恢复已经提交的代理配置。</p>
+</section>
+<section id="id3">
+<h2>接口状态时间<a class="headerlink" href="#id3" title="Link to this heading"></a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">display</span> <span class="pre">interface</span></code>中的最近up/down时间来自接口实际状态变化，不会因为执行display而重置。控制服务重启后无法确认的历史时间显示 <code class="docutils literal notranslate"><span class="pre">-</span></code>；修改时区只会改变时间的显示方式。</p>
+</section>
+<section id="id4">
+<h2>删除顺序<a class="headerlink" href="#id4" title="Link to this heading"></a></h2>
+<p>先解除路由、隧道、VRRP/BFD、策略和VPN引用，再删除IP、成员、Vlanif/BD/VLAN/聚合对象。校验器会在进入Candidate前拒绝明显的悬空引用。</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="页脚">
+        <a href="../02-system-services/" class="btn btn-neutral float-left" title="系统、访问与服务" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> 上一页</a>
+        <a href="../04-ip-routing/" class="btn btn-neutral float-right" title="IPv4/IPv6、VPN、静态路由与路由组" accesskey="n" rel="next">下一页 <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 。</p>
+  </div>
+
+  利用 <a href="https://www.sphinx-doc.org/">Sphinx</a> 构建，使用的 
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">主题</a>
+    由 <a href="https://readthedocs.org">Read the Docs</a> 开发.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
