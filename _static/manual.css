@@ -1,0 +1,90 @@
+.wy-nav-side {
+    background: #172434;
+}
+
+.wy-side-scroll {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    overflow: hidden;
+}
+
+.wy-side-nav-search {
+    flex: none;
+    width: 100%;
+    margin-bottom: 0;
+    padding: 1rem;
+    background: #174f82;
+}
+
+.wy-side-nav-search .manual-brand {
+    color: #fff;
+    font-size: 1.125rem;
+}
+
+.manual-release {
+    color: #e2effc;
+    margin-bottom: 0.65rem;
+    font-size: 0.875rem;
+}
+
+.wy-menu-vertical {
+    flex: 1;
+    width: 100%;
+    overflow-y: auto;
+    padding-block: 0.7rem;
+}
+
+.wy-menu-vertical a {
+    color: #dbe4ee;
+    line-height: 1.45;
+}
+
+.wy-menu-vertical li.toctree-l1.current > a {
+    border-top-color: #d7e2ee;
+    border-bottom-color: #d7e2ee;
+    background: #e9f1fa;
+}
+
+.wy-nav-top {
+    background: #174f82;
+}
+
+.wy-nav-content {
+    max-width: 1000px;
+}
+
+.manual-resources {
+    flex: none;
+    color: #e9f1fa;
+    background: #101b28;
+    border-top: 1px solid #3e5369;
+    font-size: 0.9rem;
+}
+
+.manual-resources summary {
+    cursor: pointer;
+    padding: 0.7rem 1rem;
+}
+
+.manual-resources summary span {
+    float: right;
+    color: #bce2f6;
+}
+
+.manual-resources ul {
+    margin: 0;
+    padding: 0 1rem 0.7rem;
+}
+
+.manual-resources a {
+    display: inline-block;
+    padding-block: 0.25rem;
+    color: #c1e5ff;
+}
+
+@media (max-width: 768px) {
+    .wy-side-scroll {
+        height: 100%;
+    }
+}

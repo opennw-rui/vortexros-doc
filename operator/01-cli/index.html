@@ -6,9 +6,10 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>CLI、Candidate、commit 与 save &mdash; VortexROS 用户手册</title>
+  <title>命令行与配置管理 &mdash; VortexROS 用户手册</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../../_static/manual.css?v=1ca257e5" />
 
   
     <link rel="canonical" href="https://opennw-rui.github.io/vortexros-doc/operator/01-cli/" />
@@ -21,8 +22,8 @@
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="索引" href="../../genindex/" />
     <link rel="search" title="搜索" href="../../search/" />
-    <link rel="next" title="系统、访问与服务" href="../02-system-services/" />
-    <link rel="prev" title="VortexROS 操作手册" href="../" /> 
+    <link rel="next" title="命令行视图、帮助与过滤" href="navigation/" />
+    <link rel="prev" title="真机验收" href="../../installation/08-hardware-acceptance/" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -30,12 +31,9 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
+<a class="manual-brand" href="../../">VortexROS 用户手册</a>
+<div class="manual-release">v0.1.0-dev</div>
 
-          
-          
-          <a href="../../" class="icon icon-home">
-            VortexROS 用户手册
-          </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search/" method="get">
     <input type="text" name="q" placeholder="搜索文档" aria-label="搜索文档" />
@@ -43,7 +41,9 @@
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="导航菜单">
+
+        </div>
+<div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="导航菜单">
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../../installation/">安装、升级与救援</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../installation/00-planning/">部署规划</a></li>
@@ -52,40 +52,131 @@
 <li class="toctree-l2"><a class="reference internal" href="../../installation/03-install-vortexros/">从 Live ISO 安装</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../installation/04-system-services/">系统服务与状态</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../installation/05-vpp-startup/">配置和激活数据面</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../installation/06-first-start/">首次启动与管理接入</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../installation/06-first-start/">快速入门：首次启动与管理接入</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../installation/07-upgrade-uninstall/">验签、升级、回退与救援</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../installation/07-upgrade-uninstall/#id2">试启动新镜像</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../installation/07-upgrade-uninstall/#id3">回退与删除</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../installation/07-upgrade-uninstall/#id4">救援</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../installation/software-upgrade/">签名镜像升级</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../installation/software-rollback/">回退与删除系统镜像</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../installation/system-recovery/">通过控制台进入救援</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../installation/08-hardware-acceptance/">真机验收</a></li>
 </ul>
 </li>
-<li class="toctree-l1 current"><a class="reference internal" href="../">VortexROS 操作手册</a><ul class="current">
-<li class="toctree-l2 current"><a class="reference internal" href="../#id1">配置指南</a><ul class="current">
-<li class="toctree-l3 current"><a class="current reference internal" href="#">CLI、Candidate、commit 与 save</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../02-system-services/">系统、访问与服务</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../03-interfaces-l2/">物理接口、聚合、VLAN、BD 与邻居</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../04-ip-routing/">IPv4/IPv6、VPN、静态路由与路由组</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../05-dynamic-routing/">路由策略、OSPF、BGP、IS-IS、RIP、BFD 与 VRRP</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../06-tunnels/">GRE、VXLAN/NVE、WireGuard 与 AmneziaWG</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../07-policy/">ACL、QoS、MQC、MSS 与 nat-policy</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../08-network-services/">DHCP 与 LLDP</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../09-operations/">诊断、清理、健康与服务恢复</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../operations/logs/">日志中心</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../10-mpls-l3vpn/">MPLS、LDP 与 L3VPN</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../11-applications/">受管应用与隔离网络</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../reference/commands/">VortexROS 全命令参考</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">命令行与配置管理</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="navigation/">命令行视图、帮助与过滤</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configuration/">提交与保存配置</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configuration-files/">配置备份、导入与启动文件</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../#id2">通用阅读约定</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../#id3">推荐的操作顺序</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../02-system-services/">系统设置与远程管理</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../02-system-services/identity/">设备名称与登录提示</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-system-services/local-aaa/">本地 AAA 与用户权限</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-system-services/stelnet/">STelnet 与 VTY</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-system-services/ssh-public-key/">SSH 公钥认证</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-system-services/dns/">本机 DNS 解析</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-system-services/timezone/">系统时区</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-system-services/ntp/">NTP 时间同步</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-system-services/licensing/">离线设备授权</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="../03-interfaces-l2/">接口与二层交换</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../03-interfaces-l2/physical-interfaces/">物理接口与硬件卸载</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03-interfaces-l2/eth-trunk/">Eth-Trunk 链路聚合</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03-interfaces-l2/subinterfaces/">802.1Q 与 QinQ 三层子接口</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03-interfaces-l2/vlan/">VLAN 二层交换</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03-interfaces-l2/vlanif/">Vlanif 三层网关</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03-interfaces-l2/mac-table/">MAC 地址表</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03-interfaces-l2/bridge-domain/">Bridge Domain 与高位桥域</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03-interfaces-l2/vbdif/">Vbdif 三层网关</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03-interfaces-l2/arp/">ARP 与代理 ARP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03-interfaces-l2/ipv6-neighbor-discovery/">IPv6 邻居发现与静态邻居</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../04-ip-routing/">IP 接入与静态路由</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../04-ip-routing/ipv6-path-mtu/">IPv6 路径 MTU</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04-ip-routing/ip-addresses/">IPv4 与 IPv6 接口地址</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04-ip-routing/vpn-instance/">VPN 实例与路由隔离</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04-ip-routing/static-routes/">IPv4 与 IPv6 静态路由</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04-ip-routing/static-route-groups/">静态路由组</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04-ip-routing/urpf/">uRPF 反向路径检查</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04-ip-routing/ipv6-router-advertisement/">IPv6 路由通告与 SLAAC</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../05-dynamic-routing/">动态路由与高可用</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../05-dynamic-routing/route-policy/">前缀列表与路由策略</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05-dynamic-routing/ospf/">OSPF（IPv4）</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05-dynamic-routing/ospfv3/">OSPFv3（IPv6）</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05-dynamic-routing/bgp/">BGP 与 MP-BGP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05-dynamic-routing/isis/">IS-IS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05-dynamic-routing/bfd/">BFD 快速故障检测</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05-dynamic-routing/vrrp/">VRRP 与 VRRP6 网关冗余</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05-dynamic-routing/rip/">RIP（IPv4）</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05-dynamic-routing/ripng/">RIPng（IPv6）</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../06-tunnels/">隧道与覆盖网络</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../06-tunnels/gre/">GRE 隧道</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../06-tunnels/ip-in-ip/">IP-in-IP 隧道</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../06-tunnels/vxlan-static/">静态 VXLAN 与 NVE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../06-tunnels/vxlan-evpn/">BGP EVPN 与动态 VXLAN</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../06-tunnels/wireguard/">WireGuard 隧道</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../06-tunnels/amneziawg/">AmneziaWG 隧道</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../07-policy/">访问控制、QoS 与 NAT</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../07-policy/acl/">ACL 访问控制</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../07-policy/interface-qos/">接口 QoS 限速</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../07-policy/mqc/">MQC 分类、流量策略与重定向</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../07-policy/tcp-mss/">TCP MSS 调整</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../07-policy/nat/">NAT 地址与端口转换</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../08-network-services/">DHCP 与网络管理服务</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../08-network-services/dhcpv4-server/">DHCPv4 服务器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../08-network-services/dhcpv4-client/">DHCPv4 客户端</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../08-network-services/dhcpv4-relay/">DHCPv4 中继</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../08-network-services/dhcpv6-server/">DHCPv6 服务器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../08-network-services/dhcpv6-client/">DHCPv6 客户端与前缀委派</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../08-network-services/dhcpv6-relay/">DHCPv6 中继</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../08-network-services/lldp/">LLDP 邻居发现</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../08-network-services/snmp/">SNMP 监控</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../09-operations/">运行监控与故障处理</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../operations/logs/">日志中心</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../09-operations/connectivity/">Ping、Tracert 与 MTR 连通性诊断</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../09-operations/service-health/">服务状态与监听端口</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../09-operations/resource-usage/">CPU、内存与数据面资源</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../09-operations/operational-reset/">清理运行状态与服务恢复</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../09-operations/factory-reset/">配置恢复与出厂重置</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../09-operations/power/">重启与关机</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../10-mpls-l3vpn/">MPLS 与 L3VPN</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../10-mpls-l3vpn/mpls/">MPLS 核心转发</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../10-mpls-l3vpn/ldp/">LDP 标签分发</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../10-mpls-l3vpn/l3vpn/">MPLS L3VPN、VPNv4 与 VPNv6</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../11-applications/">应用部署与网络</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../11-applications/installed-apps/">离线安装与管理应用</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../11-applications/application-network/">应用桥、出口与端口发布</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../reference/commands/">VortexROS 全命令参考</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../">配置指南</a></li>
 </ul>
 
         </div>
+<details class="manual-resources">
+  <summary>版本与资源 <span>v0.1.0-dev</span></summary>
+  <ul>
+    <li><a href="../../">当前手册（简体中文）</a></li>
+    <li><a href="../../installation/">安装与升级</a></li>
+    <li><a href="../reference/commands/">全命令参考</a></li>
+  </ul>
+</details>
+
       </div>
     </nav>
 
@@ -99,8 +190,7 @@
           <div role="navigation" aria-label="页面导航">
   <ul class="wy-breadcrumbs">
       <li><a href="../../" class="icon icon-home" aria-label="Home"></a></li>
-          <li class="breadcrumb-item"><a href="../">VortexROS 操作手册</a></li>
-      <li class="breadcrumb-item active">CLI、Candidate、commit 与 save</li>
+      <li class="breadcrumb-item active">命令行与配置管理</li>
       <li class="wy-breadcrumbs-aside">
       </li>
   </ul>
@@ -109,155 +199,23 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="clicandidatecommit-save">
-<h1>CLI、Candidate、commit 与 save<a class="headerlink" href="#clicandidatecommit-save" title="Link to this heading"></a></h1>
-<section id="id1">
-<h2>视图与帮助<a class="headerlink" href="#id1" title="Link to this heading"></a></h2>
-<p>登录后处于用户视图：</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>&lt;VortexROS&gt; system-view
-[~VortexROS] interface Vlanif 100
-[~VortexROS-Vlanif100] return
-&lt;VortexROS&gt;
-</pre></div>
-</div>
-<p><code class="docutils literal notranslate"><span class="pre">?</span></code> 显示当前位置的关键字、参数范围或已有对象。Tab 在唯一匹配时补齐词并进入下一词位。命令关键字可以缩写到当前上下文中的唯一前缀。接口视图的二层和三层命令随当前候选配置变化，例如切到 <code class="docutils literal notranslate"><span class="pre">portswitch</span></code> 后，帮助不列出三层地址和 DHCP 命令。</p>
-<p>分页默认每 30 行显示 <code class="docutils literal notranslate"><span class="pre">---more---</span></code>：空格下一页、Enter下一行、<code class="docutils literal notranslate"><span class="pre">q</span></code>或 Ctrl+C结束显示。结束分页不会关闭会话，也不会产生多余空行。</p>
-<p>输出过滤：</p>
-<div class="highlight-vortexros-cli notranslate"><div class="highlight"><pre><span></span>display current-configuration | include ospf
-display interface brief | include eth
-</pre></div>
-</div>
-<p>表格过滤保留必要的标题、分隔线和汇总行。</p>
-</section>
-<section id="id2">
-<h2>每个会话独立的待提交配置<a class="headerlink" href="#id2" title="Link to this heading"></a></h2>
-<p>每个登录会话都有独立的待提交配置。另一个会话提交配置后，本会话中互不相关的修改仍可继续提交；如果两个会话修改同一参数、同时删除和修改同一对象，设备会拒绝提交并指出冲突位置。</p>
-<table class="docutils align-default">
-<thead>
-<tr class="row-odd"><th class="head"><p>步骤</p></th>
-<th class="head"><p>输入命令</p></th>
-<th class="head"><p>Candidate变化</p></th>
-<th class="head"><p>commit后效果</p></th>
-<th class="head"><p>验证命令</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p>1</p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">system-view</span></code></p></td>
-<td><p>进入系统视图并取得当前配置副本</p></td>
-<td><p>无</p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">display</span> <span class="pre">configuration</span> <span class="pre">candidate</span></code></p></td>
-</tr>
-<tr class="row-odd"><td><p>2</p></td>
-<td><p>输入任意配置</p></td>
-<td><p>只改当前会话，提示符出现 <code class="docutils literal notranslate"><span class="pre">*</span></code></p></td>
-<td><p>无</p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">display</span> <span class="pre">configuration</span> <span class="pre">candidate</span></code></p></td>
-</tr>
-<tr class="row-even"><td><p>3</p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">commit</span></code></p></td>
-<td><p>检查并应用本会话修改</p></td>
-<td><p>配置正式生效；失败时不会接受未完成的配置</p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">display</span> <span class="pre">health</span></code></p></td>
-</tr>
-<tr class="row-odd"><td><p>4</p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">save</span></code></p></td>
-<td><p>不改 Candidate</p></td>
-<td><p>原子写入启动配置</p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">display</span> <span class="pre">configuration</span> <span class="pre">storage</span></code></p></td>
-</tr>
-<tr class="row-even"><td><p>5</p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">clear</span> <span class="pre">configuration</span> <span class="pre">candidate</span></code></p></td>
-<td><p>丢弃本会话未提交修改</p></td>
-<td><p>不影响 Running</p></td>
-<td><p>再次显示 Candidate</p></td>
-</tr>
-</tbody>
-</table>
-<p>退出到用户视图时若有未提交配置：</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Warning: Uncommitted configurations found, commit them before exiting? [Y(yes)/N(no)/C(cancel)]:
-</pre></div>
-</div>
-<p><code class="docutils literal notranslate"><span class="pre">Y</span></code>提交，<code class="docutils literal notranslate"><span class="pre">N</span></code>丢弃本会话尚未提交的修改后退出，<code class="docutils literal notranslate"><span class="pre">C</span></code>取消退出。断线或CLI异常退出也只丢弃当前会话的修改，不影响其他用户。</p>
-</section>
-<section id="id3">
-<h2>提交失败<a class="headerlink" href="#id3" title="Link to this heading"></a></h2>
-<p>执行 <code class="docutils literal notranslate"><span class="pre">commit</span></code> 时，设备先检查命令之间的依赖关系，再应用配置并确认运行状态。失败时：</p>
+  <section id="id1">
+<h1>命令行与配置管理<a class="headerlink" href="#id1" title="Link to this heading"></a></h1>
 <ul class="simple">
-<li><p>Candidate保留，便于修改；</p></li>
-<li><p>已经生效的配置不会被未完成的结果覆盖；</p></li>
-<li><p>设备会尽量恢复到提交前状态；</p></li>
-<li><p>无法自动恢复时会产生告警，并在健康状态中指出受影响的功能。</p></li>
+<li><p><a class="reference internal" href="navigation/"><span class="std std-doc">命令行视图、帮助与过滤</span></a>。设备 CLI 区分用户视图、系统视图和各功能视图。可用问号查询命令或已有对象，用 Tab 补齐唯一匹配项。</p></li>
+<li><p><a class="reference internal" href="configuration/"><span class="std std-doc">提交与保存配置</span></a>。编辑会话中的配置后，使用 commit 应用，使用 save 保存已生效的配置供下次启动。</p></li>
+<li><p><a class="reference internal" href="configuration-files/"><span class="std std-doc">配置备份、导入与启动文件</span></a>。可以把当前配置导出备份，也可以载入另一份配置到当前会话，或指定设备下次启动时使用的文件。</p></li>
 </ul>
-<p>不要反复敲 <code class="docutils literal notranslate"><span class="pre">commit</span></code>掩盖同一错误；先查看：</p>
-<div class="highlight-vortexros-cli notranslate"><div class="highlight"><pre><span></span>display health verbose
-display alarm active
-display service verbose
-</pre></div>
+<div class="toctree-wrapper compound">
 </div>
-</section>
-<section id="id4">
-<h2>保存与重启<a class="headerlink" href="#id4" title="Link to this heading"></a></h2>
-<p>已执行 <code class="docutils literal notranslate"><span class="pre">commit</span></code> 但尚未 <code class="docutils literal notranslate"><span class="pre">save</span></code> 的配置，在控制服务或设备重启后不会自动保留。建议先验证业务，再执行 <code class="docutils literal notranslate"><span class="pre">save</span></code>。</p>
-<p>可用 <code class="docutils literal notranslate"><span class="pre">save</span> <span class="pre">maintenance.cfg</span></code> 写入指定配置文件。使用 <code class="docutils literal notranslate"><span class="pre">startup</span> <span class="pre">saved-configuration</span> <span class="pre">?</span></code> 查看配置目录中可用的 <code class="docutils literal notranslate"><span class="pre">.cfg</span></code>，选定后以 <code class="docutils literal notranslate"><span class="pre">display</span> <span class="pre">startup</span></code> 核对下一次启动所用文件。授权管理员可用 <code class="docutils literal notranslate"><span class="pre">display</span> <span class="pre">saved-configuration</span></code> 读取保存文件的原文。普通 <code class="docutils literal notranslate"><span class="pre">save</span></code> 不保存其他会话的修改。</p>
-</section>
-<section id="id5">
-<h2>常见错误<a class="headerlink" href="#id5" title="Link to this heading"></a></h2>
-<table class="docutils align-default">
-<thead>
-<tr class="row-odd"><th class="head"><p>现象</p></th>
-<th class="head"><p>原因</p></th>
-<th class="head"><p>处理</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p>输入后提示符仍为 <code class="docutils literal notranslate"><span class="pre">~</span></code></p></td>
-<td><p>命令幂等或被拒绝进入 Candidate</p></td>
-<td><p>查看错误和 <code class="docutils literal notranslate"><span class="pre">display</span> <span class="pre">configuration</span> <span class="pre">candidate</span></code></p></td>
-</tr>
-<tr class="row-odd"><td><p>commit报告规范路径冲突</p></td>
-<td><p>其他会话提交了同一对象</p></td>
-<td><p>使用 <code class="docutils literal notranslate"><span class="pre">refresh</span> <span class="pre">configuration</span> <span class="pre">candidate</span></code>后处理冲突</p></td>
-</tr>
-<tr class="row-even"><td><p>quit后仍有空行/会话不退出</p></td>
-<td><p>Linux终端或CLI退出路径异常</p></td>
-<td><p>保存<code class="docutils literal notranslate"><span class="pre">vortexrosd</span></code>日志和终端类型信息后进行故障处理</p></td>
-</tr>
-<tr class="row-odd"><td><p>display输出较慢</p></td>
-<td><p>查询对象很多或输出量很大</p></td>
-<td><p>优先使用摘要、对象名和管道过滤缩小范围</p></td>
-</tr>
-</tbody>
-</table>
-</section>
-<section id="id6">
-<h2>最小配置示例<a class="headerlink" href="#id6" title="Link to this heading"></a></h2>
-<p>下面的配置修改设备名称。输入后先查看待提交内容，再提交并保存。</p>
-<div class="highlight-vortexros-config notranslate"><div class="highlight"><pre><span></span>#
-sysname Manual-Test
-#
-return
-</pre></div>
-</div>
-<div class="highlight-vortexros-cli notranslate"><div class="highlight"><pre><span></span>display configuration candidate
-display this
-commit
-display current-configuration
-save
-</pre></div>
-</div>
-<p><code class="docutils literal notranslate"><span class="pre">display</span> <span class="pre">this</span></code>和<code class="docutils literal notranslate"><span class="pre">display</span> <span class="pre">current-configuration</span></code>只显示已经提交的Running。
-未提交内容只在<code class="docutils literal notranslate"><span class="pre">display</span> <span class="pre">configuration</span> <span class="pre">candidate</span></code>中显示；使用<code class="docutils literal notranslate"><span class="pre">merge</span></code>可查看把当前
-Candidate合并到Running后的完整预览。</p>
-</section>
 </section>
 
 
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="页脚">
-        <a href="../" class="btn btn-neutral float-left" title="VortexROS 操作手册" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> 上一页</a>
-        <a href="../02-system-services/" class="btn btn-neutral float-right" title="系统、访问与服务" accesskey="n" rel="next">下一页 <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="../../installation/08-hardware-acceptance/" class="btn btn-neutral float-left" title="真机验收" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> 上一页</a>
+        <a href="navigation/" class="btn btn-neutral float-right" title="命令行视图、帮助与过滤" accesskey="n" rel="next">下一页 <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

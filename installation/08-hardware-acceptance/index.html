@@ -9,6 +9,7 @@
   <title>真机验收 &mdash; VortexROS 用户手册</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../../_static/manual.css?v=1ca257e5" />
 
   
     <link rel="canonical" href="https://opennw-rui.github.io/vortexros-doc/installation/08-hardware-acceptance/" />
@@ -21,8 +22,8 @@
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="索引" href="../../genindex/" />
     <link rel="search" title="搜索" href="../../search/" />
-    <link rel="next" title="VortexROS 操作手册" href="../../operator/" />
-    <link rel="prev" title="验签、升级、回退与救援" href="../07-upgrade-uninstall/" /> 
+    <link rel="next" title="命令行与配置管理" href="../../operator/01-cli/" />
+    <link rel="prev" title="通过控制台进入救援" href="../system-recovery/" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -30,12 +31,9 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
+<a class="manual-brand" href="../../">VortexROS 用户手册</a>
+<div class="manual-release">v0.1.0-dev</div>
 
-          
-          
-          <a href="../../" class="icon icon-home">
-            VortexROS 用户手册
-          </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search/" method="get">
     <input type="text" name="q" placeholder="搜索文档" aria-label="搜索文档" />
@@ -43,7 +41,9 @@
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="导航菜单">
+
+        </div>
+<div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="导航菜单">
               <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="../">安装、升级与救援</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../00-planning/">部署规划</a></li>
@@ -52,40 +52,131 @@
 <li class="toctree-l2"><a class="reference internal" href="../03-install-vortexros/">从 Live ISO 安装</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../04-system-services/">系统服务与状态</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../05-vpp-startup/">配置和激活数据面</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../06-first-start/">首次启动与管理接入</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../06-first-start/">快速入门：首次启动与管理接入</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../07-upgrade-uninstall/">验签、升级、回退与救援</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../07-upgrade-uninstall/#id2">试启动新镜像</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../07-upgrade-uninstall/#id3">回退与删除</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../07-upgrade-uninstall/#id4">救援</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../software-upgrade/">签名镜像升级</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../software-rollback/">回退与删除系统镜像</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../system-recovery/">通过控制台进入救援</a></li>
 </ul>
 </li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">真机验收</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../../operator/">VortexROS 操作手册</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../operator/#id1">配置指南</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../operator/01-cli/">CLI、Candidate、commit 与 save</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../operator/02-system-services/">系统、访问与服务</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../operator/03-interfaces-l2/">物理接口、聚合、VLAN、BD 与邻居</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../operator/04-ip-routing/">IPv4/IPv6、VPN、静态路由与路由组</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../operator/05-dynamic-routing/">路由策略、OSPF、BGP、IS-IS、RIP、BFD 与 VRRP</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../operator/06-tunnels/">GRE、VXLAN/NVE、WireGuard 与 AmneziaWG</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../operator/07-policy/">ACL、QoS、MQC、MSS 与 nat-policy</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../operator/08-network-services/">DHCP 与 LLDP</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../operator/09-operations/">诊断、清理、健康与服务恢复</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../operator/operations/logs/">日志中心</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../operator/10-mpls-l3vpn/">MPLS、LDP 与 L3VPN</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../operator/11-applications/">受管应用与隔离网络</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../operator/reference/commands/">VortexROS 全命令参考</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../operator/01-cli/">命令行与配置管理</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../operator/01-cli/navigation/">命令行视图、帮助与过滤</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../operator/01-cli/configuration/">提交与保存配置</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../operator/01-cli/configuration-files/">配置备份、导入与启动文件</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../../operator/#id2">通用阅读约定</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../operator/#id3">推荐的操作顺序</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../operator/02-system-services/">系统设置与远程管理</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../operator/02-system-services/identity/">设备名称与登录提示</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../operator/02-system-services/local-aaa/">本地 AAA 与用户权限</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../operator/02-system-services/stelnet/">STelnet 与 VTY</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../operator/02-system-services/ssh-public-key/">SSH 公钥认证</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../operator/02-system-services/dns/">本机 DNS 解析</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../operator/02-system-services/timezone/">系统时区</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../operator/02-system-services/ntp/">NTP 时间同步</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../operator/02-system-services/licensing/">离线设备授权</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="../../operator/03-interfaces-l2/">接口与二层交换</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../operator/03-interfaces-l2/physical-interfaces/">物理接口与硬件卸载</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../operator/03-interfaces-l2/eth-trunk/">Eth-Trunk 链路聚合</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../operator/03-interfaces-l2/subinterfaces/">802.1Q 与 QinQ 三层子接口</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../operator/03-interfaces-l2/vlan/">VLAN 二层交换</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../operator/03-interfaces-l2/vlanif/">Vlanif 三层网关</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../operator/03-interfaces-l2/mac-table/">MAC 地址表</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../operator/03-interfaces-l2/bridge-domain/">Bridge Domain 与高位桥域</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../operator/03-interfaces-l2/vbdif/">Vbdif 三层网关</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../operator/03-interfaces-l2/arp/">ARP 与代理 ARP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../operator/03-interfaces-l2/ipv6-neighbor-discovery/">IPv6 邻居发现与静态邻居</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../operator/04-ip-routing/">IP 接入与静态路由</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../operator/04-ip-routing/ipv6-path-mtu/">IPv6 路径 MTU</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../operator/04-ip-routing/ip-addresses/">IPv4 与 IPv6 接口地址</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../operator/04-ip-routing/vpn-instance/">VPN 实例与路由隔离</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../operator/04-ip-routing/static-routes/">IPv4 与 IPv6 静态路由</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../operator/04-ip-routing/static-route-groups/">静态路由组</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../operator/04-ip-routing/urpf/">uRPF 反向路径检查</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../operator/04-ip-routing/ipv6-router-advertisement/">IPv6 路由通告与 SLAAC</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../operator/05-dynamic-routing/">动态路由与高可用</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../operator/05-dynamic-routing/route-policy/">前缀列表与路由策略</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../operator/05-dynamic-routing/ospf/">OSPF（IPv4）</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../operator/05-dynamic-routing/ospfv3/">OSPFv3（IPv6）</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../operator/05-dynamic-routing/bgp/">BGP 与 MP-BGP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../operator/05-dynamic-routing/isis/">IS-IS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../operator/05-dynamic-routing/bfd/">BFD 快速故障检测</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../operator/05-dynamic-routing/vrrp/">VRRP 与 VRRP6 网关冗余</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../operator/05-dynamic-routing/rip/">RIP（IPv4）</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../operator/05-dynamic-routing/ripng/">RIPng（IPv6）</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../operator/06-tunnels/">隧道与覆盖网络</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../operator/06-tunnels/gre/">GRE 隧道</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../operator/06-tunnels/ip-in-ip/">IP-in-IP 隧道</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../operator/06-tunnels/vxlan-static/">静态 VXLAN 与 NVE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../operator/06-tunnels/vxlan-evpn/">BGP EVPN 与动态 VXLAN</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../operator/06-tunnels/wireguard/">WireGuard 隧道</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../operator/06-tunnels/amneziawg/">AmneziaWG 隧道</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../operator/07-policy/">访问控制、QoS 与 NAT</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../operator/07-policy/acl/">ACL 访问控制</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../operator/07-policy/interface-qos/">接口 QoS 限速</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../operator/07-policy/mqc/">MQC 分类、流量策略与重定向</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../operator/07-policy/tcp-mss/">TCP MSS 调整</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../operator/07-policy/nat/">NAT 地址与端口转换</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../operator/08-network-services/">DHCP 与网络管理服务</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../operator/08-network-services/dhcpv4-server/">DHCPv4 服务器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../operator/08-network-services/dhcpv4-client/">DHCPv4 客户端</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../operator/08-network-services/dhcpv4-relay/">DHCPv4 中继</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../operator/08-network-services/dhcpv6-server/">DHCPv6 服务器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../operator/08-network-services/dhcpv6-client/">DHCPv6 客户端与前缀委派</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../operator/08-network-services/dhcpv6-relay/">DHCPv6 中继</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../operator/08-network-services/lldp/">LLDP 邻居发现</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../operator/08-network-services/snmp/">SNMP 监控</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../operator/09-operations/">运行监控与故障处理</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../operator/operations/logs/">日志中心</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../operator/09-operations/connectivity/">Ping、Tracert 与 MTR 连通性诊断</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../operator/09-operations/service-health/">服务状态与监听端口</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../operator/09-operations/resource-usage/">CPU、内存与数据面资源</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../operator/09-operations/operational-reset/">清理运行状态与服务恢复</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../operator/09-operations/factory-reset/">配置恢复与出厂重置</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../operator/09-operations/power/">重启与关机</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../operator/10-mpls-l3vpn/">MPLS 与 L3VPN</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../operator/10-mpls-l3vpn/mpls/">MPLS 核心转发</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../operator/10-mpls-l3vpn/ldp/">LDP 标签分发</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../operator/10-mpls-l3vpn/l3vpn/">MPLS L3VPN、VPNv4 与 VPNv6</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../operator/11-applications/">应用部署与网络</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../operator/11-applications/installed-apps/">离线安装与管理应用</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../operator/11-applications/application-network/">应用桥、出口与端口发布</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../operator/reference/commands/">VortexROS 全命令参考</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../operator/">配置指南</a></li>
 </ul>
 
         </div>
+<details class="manual-resources">
+  <summary>版本与资源 <span>v0.1.0-dev</span></summary>
+  <ul>
+    <li><a href="../../">当前手册（简体中文）</a></li>
+    <li><a href="../">安装与升级</a></li>
+    <li><a href="../../operator/reference/commands/">全命令参考</a></li>
+  </ul>
+</details>
+
       </div>
     </nav>
 
@@ -148,8 +239,8 @@
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="页脚">
-        <a href="../07-upgrade-uninstall/" class="btn btn-neutral float-left" title="验签、升级、回退与救援" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> 上一页</a>
-        <a href="../../operator/" class="btn btn-neutral float-right" title="VortexROS 操作手册" accesskey="n" rel="next">下一页 <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="../system-recovery/" class="btn btn-neutral float-left" title="通过控制台进入救援" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> 上一页</a>
+        <a href="../../operator/01-cli/" class="btn btn-neutral float-right" title="命令行与配置管理" accesskey="n" rel="next">下一页 <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
