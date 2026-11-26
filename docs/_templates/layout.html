@@ -1,0 +1,19 @@
+{% extends "!layout.html" %}
+
+{% block sidebartitle %}
+<a class="manual-brand" href="{{ pathto(root_doc) }}">{{ project }}</a>
+<div class="manual-release">{{ release }}</div>
+{% include "searchbox.html" %}
+{% endblock %}
+
+{% block navigation %}
+{{ super() }}
+<details class="manual-resources">
+  <summary>版本与资源 <span>{{ release }}</span></summary>
+  <ul>
+    <li><a href="{{ pathto(root_doc) }}">当前手册（简体中文）</a></li>
+    <li><a href="{{ pathto('installation/index') }}">安装与升级</a></li>
+    <li><a href="{{ pathto('operator/reference/commands') }}">全命令参考</a></li>
+  </ul>
+</details>
+{% endblock %}

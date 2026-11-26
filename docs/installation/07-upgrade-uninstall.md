@@ -33,3 +33,11 @@
 从已安装系统的 GRUB 选择本地显示或串口救援。使用与救援提示一致的入口确认配置和镜像。安装、重启和恢复出厂属于不同操作。需要保留业务配置时，应先导出并在隔离环境验证备份。
 
 [配置恢复与运行检查](../operator/09-operations.md)
+
+```{toctree}
+:maxdepth: 1
+
+software-upgrade
+software-rollback
+system-recovery
+```
