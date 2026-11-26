@@ -1,17 +1,17 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 802 170" role="img" aria-labelledby="label">
-<title id="label">设备或业务源 → 所选 VPN 与下一跳 → 目标端。发起诊断，响应与路径</title>
+<title id="label">独立 Console 与备份 → 启动文件或出厂重置 → 重新接入管理。确认维护对象，核对恢复状态</title>
 <defs><marker id="arrow" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto"><path d="M 0 0 L 7 3.5 L 0 7 Z" fill="#476781"/></marker></defs>
 <rect x="1" y="1" width="800" height="168" rx="10" fill="#fcfdff" stroke="#cedbe7"/>
 <g font-family="Arial, Microsoft YaHei, PingFang SC, sans-serif" text-anchor="middle" dominant-baseline="middle">
 <rect x="18" y="42" width="188" height="86" rx="9" fill="#e9f3fc" stroke="#457aa5"/>
-<text x="112" y="85" font-size="16" fill="#19374f">设备或业务源</text>
+<text x="112" y="85" font-size="16" fill="#19374f">独立 Console 与备份</text>
 <rect x="307" y="42" width="188" height="86" rx="9" fill="#e9f3fc" stroke="#457aa5"/>
-<text x="401" y="85" font-size="16" fill="#19374f">所选 VPN 与下一跳</text>
+<text x="401" y="85" font-size="16" fill="#19374f">启动文件或出厂重置</text>
 <rect x="596" y="42" width="188" height="86" rx="9" fill="#e9f3fc" stroke="#457aa5"/>
-<text x="690" y="85" font-size="16" fill="#19374f">目标端</text>
+<text x="690" y="85" font-size="16" fill="#19374f">重新接入管理</text>
 <path d="M 206 86 L 307 86" stroke="#476781" stroke-width="1.8" marker-end="url(#arrow)" fill="none"/>
-<text x="256.5" y="24" font-size="14" fill="#37536c">发起诊断</text>
+<text x="256.5" y="24" font-size="14" fill="#37536c">确认维护对象</text>
 <path d="M 495 86 L 596 86" stroke="#476781" stroke-width="1.8" marker-end="url(#arrow)" fill="none"/>
-<text x="545.5" y="24" font-size="14" fill="#37536c">响应与路径</text>
+<text x="545.5" y="24" font-size="14" fill="#37536c">核对恢复状态</text>
 </g>
 </svg>

@@ -1,17 +1,17 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 802 170" role="img" aria-labelledby="label">
-<title id="label">Live ISO 介质 → 安装器与目标盘 → 拔除介质并启动。验签及选择目标，首次登录验证</title>
+<title id="label">已启动设备 → CLI 查询服务 → 管理端点验证。查状态和日志，测试实际连接</title>
 <defs><marker id="arrow" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto"><path d="M 0 0 L 7 3.5 L 0 7 Z" fill="#476781"/></marker></defs>
 <rect x="1" y="1" width="800" height="168" rx="10" fill="#fcfdff" stroke="#cedbe7"/>
 <g font-family="Arial, Microsoft YaHei, PingFang SC, sans-serif" text-anchor="middle" dominant-baseline="middle">
 <rect x="18" y="42" width="188" height="86" rx="9" fill="#e9f3fc" stroke="#457aa5"/>
-<text x="112" y="85" font-size="16" fill="#19374f">Live ISO 介质</text>
+<text x="112" y="85" font-size="16" fill="#19374f">已启动设备</text>
 <rect x="307" y="42" width="188" height="86" rx="9" fill="#e9f3fc" stroke="#457aa5"/>
-<text x="401" y="85" font-size="16" fill="#19374f">安装器与目标盘</text>
+<text x="401" y="85" font-size="16" fill="#19374f">CLI 查询服务</text>
 <rect x="596" y="42" width="188" height="86" rx="9" fill="#e9f3fc" stroke="#457aa5"/>
-<text x="690" y="85" font-size="16" fill="#19374f">拔除介质并启动</text>
+<text x="690" y="85" font-size="16" fill="#19374f">管理端点验证</text>
 <path d="M 206 86 L 307 86" stroke="#476781" stroke-width="1.8" marker-end="url(#arrow)" fill="none"/>
-<text x="256.5" y="24" font-size="14" fill="#37536c">验签及选择目标</text>
+<text x="256.5" y="24" font-size="14" fill="#37536c">查状态和日志</text>
 <path d="M 495 86 L 596 86" stroke="#476781" stroke-width="1.8" marker-end="url(#arrow)" fill="none"/>
-<text x="545.5" y="24" font-size="14" fill="#37536c">首次登录验证</text>
+<text x="545.5" y="24" font-size="14" fill="#37536c">测试实际连接</text>
 </g>
 </svg>

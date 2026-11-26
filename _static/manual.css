@@ -64,8 +64,8 @@
     font-size: 0.875rem;
 }
 
-.manual-children .manual-children .manual-children {
-    border-inline-start: 1px solid #605b5b;
+.manual-subtopic > a {
+    font-weight: 700;
 }
 
 .manual-previous-section:not(:target) {
@@ -79,7 +79,7 @@
     background: #4e4a4a;
 }
 
-.manual-menu [aria-current="page"] {
+.manual-menu [aria-current] {
     color: #343131;
     background: #e3e3e3;
     font-weight: 700;
