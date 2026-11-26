@@ -2,41 +2,50 @@
 nav_title: 配置案例
 ---
 
-
-# 离线安装与管理应用 配置案例
+# 用 Compose 离线启动容器
 
 ## 操作流程
 
-![签名离线应用包 → 应用运行时与独立卷 → 应用状态和日志](cases.svg)
+![离线镜像归档 → 原生 Docker 导入 → Compose 启动与检查](cases.svg)
 
 (case-conditions-11-applications-installed-apps)=
 ## 配置条件
 
-使用系统管理员的本机维护 shell，准备 VROS-APPS 数据卷和有效的签名包。
+使用系统管理员的 Linux 维护终端。准备与设备架构一致、用 `docker save` 导出的 `busybox.tar`，归档中包含示例标签 `busybox:1.37`。
 
 ## 配置步骤
 
-具备受管应用组件、应用公钥及独立数据卷的系统，可在本机维护环境安装签名的离线应用包。准备独立的 VROS-APPS 数据卷后，由系统管理员显式启用运行时。
-
 ```sh
-sudo vortexros-image docker-enable
-sudo vortexros-image app install /path/app-bundle.tar
-sudo vortexros-image app list
-sudo vortexros-image app start app-name
-sudo vortexros-image app status app-name
-sudo vortexros-image app logs app-name
+sudo systemctl start docker
+sudo docker load -i /path/busybox.tar
+sudo docker compose version
 ```
 
-把示例路径与应用名换成实际值。安装会验证签名、镜像架构和载荷完整性，然后创建应用。容器需显式启动。用 `app stop` 停止应用，确认已停后可用 `app remove` 删除容器。同名应用重新安装时会使用原有的应用数据卷。
+在项目目录保存以下 `compose.yaml`。需要在系统镜像切换后使用同一份 Compose 文件时，将项目放到共享持久区。
+
+```yaml
+services:
+  example:
+    image: busybox:1.37
+    pull_policy: never
+    command: ["sh", "-c", "echo ready; exec sleep 86400"]
+    restart: unless-stopped
+    volumes:
+      - data:/data
+volumes:
+  data:
+```
+
+```sh
+sudo docker compose up -d
+```
 
 (case-verification-11-applications-installed-apps)=
 ## 验证方法
 
-对照以下命令和预期结果核对设备状态。
-
-```vortexros-cli
-display service
-display health
+```sh
+sudo docker compose ps
+sudo docker compose logs --no-log-prefix example
 ```
 
-在维护 shell 使用 `sudo vortexros-image app list` 和 `sudo vortexros-image app status app-name` 核对应用实际状态。用 app logs 查看应用日志。
+`ps` 的 `STATUS` 应显示 `Up`，日志应含 `ready`。执行 `sudo docker compose down` 可停止并移除本项目的容器，命名卷继续保留。

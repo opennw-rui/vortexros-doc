@@ -1,12 +1,12 @@
 ---
-nav_title: 离线安装与管理应用
+nav_title: Docker 与 Compose
 nav_overview: 介绍
 ---
 
 
-# 离线安装与管理应用
+# Docker 与 Compose
 
-可从签名离线包安装应用，并单独启动、停止、查看和删除。应用数据存放在独立应用卷。
+系统管理员在 Linux 维护终端使用原生 `docker` 和 `docker compose` 管理容器。可通过镜像仓库拉取镜像，也可导入离线镜像归档。
 
 ```{toctree}
 :maxdepth: 1

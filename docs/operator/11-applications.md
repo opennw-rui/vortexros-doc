@@ -1,7 +1,7 @@
 # 应用部署与网络
 
-- [离线安装与管理应用](11-applications/installed-apps.md)。可从签名离线包安装应用，并单独启动、停止、查看和删除。应用数据存放在独立应用卷。
-- [应用桥、出口与端口发布](11-applications/application-network.md)。应用可通过隔离的双栈桥互通。需要访问外部服务或向指定来源发布端口时，可单独配置受管出口策略。
+- [Docker 与 Compose](11-applications/installed-apps.md)。在 Linux 维护终端导入镜像，部署和查看 Compose 项目。
+- [Docker 网络与端口发布](11-applications/application-network.md)。为应用配置内部双栈网络，或按部署需要发布服务端口。
 
 ```{toctree}
 :maxdepth: 1
