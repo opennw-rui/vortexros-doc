@@ -75,6 +75,53 @@ ping -vpn-instance BLUE 10.255.0.2
 
 除接口状态外，还应从对端确认握手、收发计数和业务路由。只有Tunnel地址可达而业务前缀没有路由时，WireGuard不会自动补充路由。
 
+### 主动连接端与漫游应答端
+
+两台设备以 192.0.2.0/24 互联，R2 的外层地址为 192.0.2.2，底层也可改为经路由器可达。R1 主动发送，R2 固定监听 UDP 51820，从经过认证的流量学习 R1 端点。隧道地址分别为 10.44.0.1/30 和 .2/30。
+
+两端先创建 Tunnel10，指定 `tunnel-protocol wireguard`，执行 `privatekey auto` 并提交一次。用 `display current-configuration` 查看本机公钥，只交换公钥。把以下公钥占位符换成对端公钥，录入其余配置并提交。
+
+**R1**
+
+```text
+wireguard profile WG
+ peer R2
+  publickey R2-PUBLIC-KEY
+  allowd-ip 10.44.0.2 32
+  destination 192.0.2.2 port 51820
+  keepalive 15
+#
+interface Tunnel 10
+ tunnel-protocol wireguard
+ source vpn-instance default
+ wireguard-profile WG
+ ip address 10.44.0.1 255.255.255.252
+```
+
+**R2**
+
+```text
+wireguard profile WG
+ peer R1
+  publickey R1-PUBLIC-KEY
+  allowd-ip 10.44.0.1 32
+#
+interface Tunnel 10
+ tunnel-protocol wireguard
+ source vpn-instance default
+ source-port 51820
+ wireguard-profile WG
+ ip address 10.44.0.2 255.255.255.252
+```
+
+```vortexros-cli
+display wireguard interface
+display interface Tunnel 10
+display ip routing-table
+```
+
+R1 发起到 10.44.0.2 的 ping 后，两端应能看到握手时间更新与收发计数增长。再从 R2 测试回程。外层通过静态路由到达 R2 时，撤销并恢复该路由，确认外层可达后隧道重新握手。
+
 ## 验证配置
 
 ```vortexros-cli

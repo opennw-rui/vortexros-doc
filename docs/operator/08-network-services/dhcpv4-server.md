@@ -94,6 +94,45 @@ display ip pool interface Vlanif20 used
 
 `used`只显示仍有效的已分配地址；`all`显示Kea仍保留的全部租约状态，包括已过期或被拒绝的记录。输出包含地址池或接口、客户端IP、MAC、Client-ID、剩余租期、状态、主机名和VPN实例。若租约查询报错，检查 DHCP 服务和接口状态。
 
+### 使用一台 VortexROS 作为租约客户端
+
+DHCP 服务器与客户端以 Ethernet0 直连。服务器静态地址 192.0.2.1/24，客户端从 OFFICE 获取 .100–.200 中的一个地址。两端分别录入并提交。
+
+**本端设备**
+
+```vortexros-config
+enable dhcp server
+#
+ip pool OFFICE
+ network 192.0.2.0 mask 255.255.255.0
+ gateway-list 192.0.2.1
+ section 0 192.0.2.100 192.0.2.200
+ lease day 1
+#
+interface Ethernet 0
+ ip address 192.0.2.1 255.255.255.0
+ dhcp select global
+#
+return
+```
+
+**对端设备**
+
+```vortexros-config
+interface Ethernet 0
+ ip address dhcp-alloc
+#
+return
+```
+
+```vortexros-cli
+display ip pool name OFFICE used
+display dhcp client
+display ip interface brief
+```
+
+服务器执行第一条，应看到客户端 MAC 的有效租约。客户端执行后两条，应看到同一个 IPv4 地址及 Ethernet0 的 up 状态，并能 ping 192.0.2.1。
+
 ## 验证配置
 
 ```vortexros-cli

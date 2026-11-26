@@ -51,7 +51,7 @@ bgp 64512
 
 BFD 计时器按字段继承。成员单独配置的计时字段覆盖组值，其余字段继续继承。`peer ADDRESS bfd disable` 停用该成员继承的 BFD，`undo peer ADDRESS bfd disable` 恢复继承。
 
-密码认证使用BGP TCP MD5。当前只提供`simple`形式，密码以明文进入配置并按明文下发到FRR，`display current-configuration`也会显示原值；应限制配置文件、命令输出和运维会话的访问权限。密码长度为1至80个不含空格的可打印字符，不支持`cipher`输入形式。
+BGP 使用 TCP MD5，两端应配置同一共享密钥。交互配置使用 `password simple`，保存的 CFG 使用设备密钥加密。跨设备迁移时在目标设备重新录入共享密钥。密码长度为 1–80 个非空格可打印字符。
 
 邻居组不能在仍有成员引用时删除。可按以下顺序撤销：
 
@@ -118,6 +118,60 @@ bgp 64512
 undo bgp 64512
 commit
 ```
+
+### 直连 eBGP 双向发布环回地址
+
+R1 AS 64512 和 R2 AS 64513 通过 Ethernet0 的 192.0.2.0/24 直连。各自只发布本机 LoopBack0 的 /32。
+
+两台设备分别在系统视图录入各自的配置片段，退出功能视图后提交。
+
+**R1**
+
+```vortexros-config
+interface Ethernet 0
+ ip address 192.0.2.1 255.255.255.0
+#
+interface LoopBack 0
+ ip address 198.51.100.1 255.255.255.255
+#
+bgp 64512
+ router-id 198.51.100.1
+ peer 192.0.2.2 as-number 64513
+ ipv4-family unicast
+  peer 192.0.2.2 enable
+  network 198.51.100.1 255.255.255.255
+#
+return
+```
+
+**R2**
+
+```vortexros-config
+interface Ethernet 0
+ ip address 192.0.2.2 255.255.255.0
+#
+interface LoopBack 0
+ ip address 198.51.100.2 255.255.255.255
+#
+bgp 64513
+ router-id 198.51.100.2
+ peer 192.0.2.1 as-number 64512
+ ipv4-family unicast
+  peer 192.0.2.1 enable
+  network 198.51.100.2 255.255.255.255
+#
+return
+```
+
+分别查看状态。
+
+```vortexros-cli
+display bgp peer
+display bgp routing-table
+display ip routing-table protocol bgp
+```
+
+两端邻居均为 Established。R1 的远端 198.51.100.2/32 下一跳应为 192.0.2.2，AS 路径应含 64513。R2 可观察反向结果。各自从环回发起对端测试。
 
 ## 验证配置
 

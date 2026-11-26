@@ -24,6 +24,23 @@ undo lldp enable
 commit
 ```
 
+### 两端对照管理口接线
+
+用一根网线把 R1 的 Ethernet0 接到 R2 的 Ethernet2。两端在系统视图都执行以下配置并提交。
+
+```text
+enable lldp
+commit
+```
+
+```vortexros-cli
+display lldp local
+display lldp neighbor brief
+display lldp neighbor interface Ethernet0
+```
+
+R1 应看到远端的设备名及 Ethernet2，R2 应在 Ethernet2 看到 R1 的 Ethernet0。更换接线后，等待旧条目过期并检查新条目。
+
 ## 验证配置
 
 ```vortexros-cli

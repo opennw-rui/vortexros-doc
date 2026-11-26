@@ -40,6 +40,58 @@ commit
 
 如需移除 IPv4 RIP 进程，请参见 [RIP（IPv4）](rip.md)。
 
+### RIPng 两端交换 IPv6 环回
+
+R1 与 R2 的 Ethernet0 接入 2001:db8:12::/64。各自通告 LoopBack0 的 /128。
+
+两台设备分别在系统视图录入各自的配置片段，退出功能视图后提交。
+
+**R1**
+
+```vortexros-config
+interface Ethernet 0
+ ipv6 enable
+ ipv6 address 2001:db8:12::1 64
+#
+interface LoopBack 0
+ ipv6 enable
+ ipv6 address 2001:db8:1::1 128
+#
+ripng 2
+ network 2001:db8:12::/64
+ network 2001:db8:1::1/128
+#
+return
+```
+
+**R2**
+
+```vortexros-config
+interface Ethernet 0
+ ipv6 enable
+ ipv6 address 2001:db8:12::2 64
+#
+interface LoopBack 0
+ ipv6 enable
+ ipv6 address 2001:db8:2::1 128
+#
+ripng 2
+ network 2001:db8:12::/64
+ network 2001:db8:2::1/128
+#
+return
+```
+
+分别查看状态。
+
+```vortexros-cli
+display ripng 2 interface
+display ripng 2 route
+display ipv6 routing-table protocol ripng
+```
+
+R1 应学到 2001:db8:2::1/128，下一跳为 R2 的链路本地地址，R2 可看到相反方向的路由。若撤销其中一个 network，等待更新后确认相应路由消失。
+
 ## 验证配置
 
 ```vortexros-cli

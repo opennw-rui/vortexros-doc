@@ -23,6 +23,25 @@ return
 
 录入后提交。对端使用同一链路的另一地址及独立 LSR ID。要自动分发标签，在两端启用 LDP。
 
+### 比较 Uniform 与 Pipe TTL 行为
+
+沿用 [LDP 标签路径](ldp.md) 的核心，若需观察核心跳数，在两个 PE 之间接入至少一台转发标签的 P 节点。业务端持续 ping 远端。默认传播 TTL；要改成 Pipe，在两台入口 PE 的 MPLS 视图执行以下操作。
+
+```text
+system-view
+mpls
+undo ttl propagate
+quit
+commit
+```
+
+```vortexros-cli
+display current-configuration
+display mpls forwarding-table
+```
+
+配置应显示 `undo ttl propagate`，适用的标签路径以 Pipe 转发。从业务端核对核心跳数不向内层继续传播，业务仍应可达。恢复时用 `ttl propagate` 并提交，路径恢复 Uniform。
+
 ## 验证配置
 
 ```vortexros-cli

@@ -1,5 +1,6 @@
 .wy-nav-side {
-    background: #172434;
+    background: #f5f8fc;
+    border-right: 1px solid #d9e4ee;
 }
 
 .wy-side-scroll {
@@ -9,45 +10,67 @@
     overflow: hidden;
 }
 
+.wy-side-nav-search,
+.wy-nav-top {
+    background: #e1effb;
+    color: #173451;
+}
+
+.wy-nav-top a,
+.wy-side-nav-search .manual-brand {
+    color: #173451;
+}
+
 .wy-side-nav-search {
     flex: none;
     width: 100%;
     margin-bottom: 0;
     padding: 1rem;
-    background: #174f82;
 }
 
 .wy-side-nav-search .manual-brand {
-    color: #fff;
     font-size: 1.125rem;
 }
 
 .manual-release {
-    color: #e2effc;
+    color: #405c76;
     margin-bottom: 0.65rem;
     font-size: 0.875rem;
 }
 
-.wy-menu-vertical {
+.manual-menu {
     flex: 1;
     width: 100%;
     overflow-y: auto;
-    padding-block: 0.7rem;
+    padding: 0.45rem 0.65rem 0.75rem;
+    scrollbar-width: thin;
 }
 
-.wy-menu-vertical a {
-    color: #dbe4ee;
-    line-height: 1.45;
+.manual-category {
+    padding: 1rem 0.6rem 0.25rem;
+    color: #51677c;
+    font-size: 0.8125rem;
+    font-weight: 700;
 }
 
-.wy-menu-vertical li.toctree-l1.current > a {
-    border-top-color: #d7e2ee;
-    border-bottom-color: #d7e2ee;
-    background: #e9f1fa;
+.manual-menu a {
+    display: block;
+    padding: 0.32rem 0.6rem;
+    border-radius: 0.25rem;
+    color: #263f57;
+    font-size: 0.9375rem;
+    line-height: 1.4;
 }
 
-.wy-nav-top {
-    background: #174f82;
+.manual-menu a:hover,
+.manual-menu a:focus-visible {
+    background: #e6eff8;
+}
+
+.manual-menu a[aria-current="page"] {
+    color: #153e67;
+    background: #dbeafa;
+    font-weight: 700;
 }
 
 .wy-nav-content {
@@ -56,9 +79,9 @@
 
 .manual-resources {
     flex: none;
-    color: #e9f1fa;
-    background: #101b28;
-    border-top: 1px solid #3e5369;
+    color: #263f57;
+    background: #eaf2fa;
+    border-top: 1px solid #d9e4ee;
     font-size: 0.9rem;
 }
 
@@ -69,7 +92,7 @@
 
 .manual-resources summary span {
     float: right;
-    color: #bce2f6;
+    color: #315a7e;
 }
 
 .manual-resources ul {
@@ -80,7 +103,7 @@
 .manual-resources a {
     display: inline-block;
     padding-block: 0.25rem;
-    color: #c1e5ff;
+    color: #174d78;
 }
 
 @media (max-width: 768px) {

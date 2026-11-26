@@ -19,6 +19,20 @@ return
 
 在系统视图录入后提交。撤销时用 `undo dns server 192.0.2.53` 删除该服务地址，用 `undo dns resolve` 关闭动态解析，随后提交。
 
+### 使用管理域名及搜索后缀
+
+设备的管理口应能经默认路由到达 192.0.2.53。DNS 服务器预先为 router1.example.test 设置 A 或 AAAA 记录。
+
+```vortexros-config
+dns resolve
+dns server 192.0.2.53
+dns domain example.test
+#
+return
+```
+
+提交后查看 `display dns server` 和 `display dns domain`。服务器表应有 192.0.2.53，搜索域表应有 example.test。从设备使用完整域名和短主机名访问目标，正常时应解析为同一地址。
+
 ## 验证配置
 
 ```vortexros-cli

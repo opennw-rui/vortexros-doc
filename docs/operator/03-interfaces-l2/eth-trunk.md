@@ -37,6 +37,40 @@ commit
 
 成员口退出聚合后，才可重新配置其独立的二层/三层属性。
 
+### 两台设备双链路 LACP
+
+两端 Ethernet1 对接 Ethernet1、Ethernet2 对接 Ethernet2。清空成员口独立地址与交换配置。两端均用 Eth-Trunk10，管理地址为 192.0.2.1/24 和 .2/24。
+
+**本端设备**
+
+```vortexros-config
+interface Eth-Trunk 10
+ mode lacp-static
+ trunkport Ethernet 1 to Ethernet 2
+ ip address 192.0.2.1 255.255.255.0
+#
+return
+```
+
+**对端设备**
+
+```vortexros-config
+interface Eth-Trunk 10
+ mode lacp-static
+ trunkport Ethernet 1 to Ethernet 2
+ ip address 192.0.2.2 255.255.255.0
+#
+return
+```
+
+```vortexros-cli
+display eth-trunk 10
+display interface brief
+display ip interface brief
+```
+
+配置提交后，两端应看到 Eth-Trunk10 up，两个成员均被选中，接口简表里成员位于聚合项下方。持续 ping 对端后断开一根成员链路，聚合仍 up 并由另一根链路转发。接回后复查两成员。
+
 ## 验证配置
 
 ```vortexros-cli

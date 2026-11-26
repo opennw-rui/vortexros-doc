@@ -23,6 +23,20 @@ display nat-policy statistics
 reset service bgp
 ```
 
+### 恢复 VPP 与核对接口状态
+
+在独立 Console 上操作。记录当前接口归属、管理接入和可达的业务目的。确认计划重启数据面的影响范围后执行。
+
+```vortexros-cli
+display vpp api compatibility verbose
+display vpp interface-ownership verbose
+display vpp takeover transaction
+display service verbose
+reset service vpp
+```
+
+恢复后重新查看 VPP 服务、接口和最近一次接管状态。正常时原有 DPDK 接口应恢复归属，接口地址和转发表应恢复。最后从隔离对端验证双向转发。需要重新学习 MAC 时，可在维护窗口用 `reset mac-address` 清理动态表项，随后用 `display mac-address` 核对重新学习。
+
 ## 验证配置
 
 ```vortexros-cli

@@ -7,7 +7,15 @@
 {% endblock %}
 
 {% block navigation %}
-{{ super() }}
+<div class="manual-menu" role="navigation" aria-label="功能目录">
+  <a href="{{ pathto(root_doc) }}"{% if pagename == root_doc %} aria-current="page"{% endif %}>首页</a>
+  {% for category, entries in feature_navigation %}
+  {% if category %}<div class="manual-category">{{ category }}</div>{% endif %}
+  {% for doc, title in entries %}
+  <a href="{{ pathto(doc) }}"{% if pagename == doc %} aria-current="page"{% endif %}>{{ title }}</a>
+  {% endfor %}
+  {% endfor %}
+</div>
 <details class="manual-resources">
   <summary>版本与资源 <span>{{ release }}</span></summary>
   <ul>
@@ -16,4 +24,14 @@
     <li><a href="{{ pathto('operator/reference/commands') }}">全命令参考</a></li>
   </ul>
 </details>
+{% endblock %}
+
+{% block footer %}
+{{ super() }}
+<script>
+  const currentFeature = document.querySelector('.manual-menu [aria-current="page"]');
+  if (currentFeature) {
+    currentFeature.scrollIntoView({ block: 'nearest' });
+  }
+</script>
 {% endblock %}

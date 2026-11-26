@@ -24,6 +24,28 @@ display ntp-service sessions
 
 设备配置只有管理实例 `MGMT` 已存在时，才可使用示例中的 VPN 参数。`display ntp-service sessions` 可核对地址、VPN、可达性和选源。用含相同地址和 VPN 的 `undo` 命令删除时间源。用 `ntp-service disable` 暂停同步，已设置的时间源会保留。用 `ntp-service enable` 恢复。
 
+### 在不同 VPN 使用相同时间源地址
+
+默认表与 MGMT 各自可到达 192.0.2.123，两个时间源位于隔离的管理网络。管理员先配置 MGMT 上联与路由；两台时间服务器均允许设备的 UDP 123 请求。
+
+```vortexros-config
+ip vpn-instance MGMT
+ ipv4-family
+#
+ntp-service unicast-server 192.0.2.123 version 4
+ntp-service unicast-server 192.0.2.123 vpn-instance MGMT version 4 preference
+#
+return
+```
+
+```vortexros-cli
+display current-configuration configuration ntp
+display ntp-service sessions
+display ntp-service status
+```
+
+两条会话应按默认表和 MGMT 分开显示。等待采样后应至少有一条可达时间源，并在 status 看到同步后的参考源和偏移。若 MGMT 路径中断，复查其可达性和当前选源，再恢复上联。
+
 ## 验证配置
 
 ```vortexros-cli

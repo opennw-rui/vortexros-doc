@@ -28,6 +28,44 @@ interface Ethernet 1
 
 如需在同一接口通过 RA 接受默认路由，可在接口配置 `ipv6 nd ra default-route enable`。用对应的 undo 命令撤销地址获取、前缀委派或 RA 设置。
 
+### 联动服务器的前缀委派
+
+服务器与客户端 Ethernet0 直连，传输网段使用 2001:db8:20::/64。服务器把 2001:db8:100::/56 划分成 /64 委派给客户端。两台设备分别录入并提交。
+
+**本端设备**
+
+```vortexros-config
+enable dhcp server
+#
+dhcpv6 pool PD
+ prefix-delegation 2001:db8:100::/56 64 life-time 3600 1800
+#
+interface Ethernet 0
+ ipv6 enable
+ ipv6 address 2001:db8:20::1 64
+ dhcpv6 server PD
+#
+return
+```
+
+**对端设备**
+
+```vortexros-config
+interface Ethernet 0
+ ipv6 enable
+ ipv6 address 2001:db8:20::2 64
+ dhcpv6 client pd CPE-PREFIX
+#
+return
+```
+
+```vortexros-cli
+display dhcpv6 pool name PD used
+display dhcpv6 client prefix name CPE-PREFIX
+```
+
+第一条在服务器查询，第二条在客户端查询。服务器应有 IA_PD 记录，客户端所获前缀与服务器相同，长度为 /64。撤销客户端的 PD 后复查该接口不再使用委派前缀。
+
 ## 验证配置
 
 ```vortexros-cli

@@ -43,7 +43,7 @@ display ospfv3 1 lsdb
 display ospfv3 1 routing
 ```
 
-`peer brief`中的邻居状态来自FRR OSPFv3运行态，`routing`中的路由数量只统计协议为`ospf6`的IPv6路由。配置已提交但尚未形成邻接时不会伪造Full状态；验收时应同时确认邻居Full、IPv6路由存在和业务地址可达。
+`peer brief` 显示当前邻接，`routing` 显示 OSPFv3 学到的路由。正常时应同时确认邻居为 Full、目标 IPv6 路由存在并可达。
 
 撤销示例：
 
@@ -57,6 +57,60 @@ ospfv3 1
 undo ospfv3 1
 commit
 ```
+
+### 双节点 OSPFv3 发布 IPv6 环回
+
+R1 和 R2 以 Ethernet0 直连，分别使用 2001:db8:12::1/64 和 ::2/64。两端在同一区域发布不同的 IPv6 环回。
+
+两台设备分别在系统视图录入各自的配置片段，退出功能视图后提交。
+
+**R1**
+
+```vortexros-config
+ospfv3 1 router-id 198.51.100.1
+ area 0.0.0.0
+#
+interface Ethernet 0
+ ipv6 enable
+ ipv6 address 2001:db8:12::1 64
+ ospfv3 1 area 0.0.0.0
+#
+interface LoopBack 0
+ ipv6 enable
+ ipv6 address 2001:db8:1::1 128
+ ospfv3 1 area 0.0.0.0
+#
+return
+```
+
+**R2**
+
+```vortexros-config
+ospfv3 1 router-id 198.51.100.2
+ area 0.0.0.0
+#
+interface Ethernet 0
+ ipv6 enable
+ ipv6 address 2001:db8:12::2 64
+ ospfv3 1 area 0.0.0.0
+#
+interface LoopBack 0
+ ipv6 enable
+ ipv6 address 2001:db8:2::1 128
+ ospfv3 1 area 0.0.0.0
+#
+return
+```
+
+分别查看状态。
+
+```vortexros-cli
+display ospfv3 1 peer brief
+display ospfv3 1 routing
+display ipv6 routing-table
+```
+
+两端均看到对方 Router ID，邻接为 Full。R1 应学到 2001:db8:2::1/128，下一跳通常为对端链路本地地址。用 IPv6 ping 验证远端环回。
 
 ## 验证配置
 

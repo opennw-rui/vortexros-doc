@@ -25,6 +25,18 @@ commit
 return
 ```
 
+### 用接口变更核对日志与告警
+
+准备一个隔离测试端口，避免影响管理链路。在 Console 观察实时事件，通过另一台设备短时断开该端口再恢复。
+
+```vortexros-cli
+display interface brief
+display logbuffer last 100
+display alarm history last 100
+```
+
+接口简表应先显示 Down、再恢复 Up。日志应包含同一接口的两次状态变化，各事件显示一次本地时间。只有实际触发告警的事件才出现在告警历史中。
+
 ## 验证配置
 
 ```vortexros-cli

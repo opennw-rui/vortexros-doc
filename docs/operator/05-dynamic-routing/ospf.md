@@ -78,6 +78,119 @@ commit
 
 撤销接口激活只影响该接口；删除进程会撤销该进程的全部邻居和路由。
 
+### 两台设备建立 Area 0 邻接
+
+R1 Ethernet0 192.0.2.1/24 直连 R2 Ethernet0 192.0.2.2/24。两端通告各自 LoopBack0 的 198.51.100.1/32 和 198.51.100.2/32。
+
+两台设备分别在系统视图录入各自的配置片段，退出功能视图后提交。
+
+**R1**
+
+```vortexros-config
+ospf 1 router-id 198.51.100.1
+ area 0.0.0.0
+#
+interface Ethernet 0
+ ip address 192.0.2.1 255.255.255.0
+ ospf enable 1 area 0.0.0.0
+ ospf network-type p2p
+#
+interface LoopBack 0
+ ip address 198.51.100.1 255.255.255.255
+ ospf enable 1 area 0.0.0.0
+#
+return
+```
+
+**R2**
+
+```vortexros-config
+ospf 1 router-id 198.51.100.2
+ area 0.0.0.0
+#
+interface Ethernet 0
+ ip address 192.0.2.2 255.255.255.0
+ ospf enable 1 area 0.0.0.0
+ ospf network-type p2p
+#
+interface LoopBack 0
+ ip address 198.51.100.2 255.255.255.255
+ ospf enable 1 area 0.0.0.0
+#
+return
+```
+
+分别查看状态。
+
+```vortexros-cli
+display ospf 1 peer brief
+display ospf 1 interface
+display ip routing-table protocol ospf
+```
+
+两端 Area 均为 0.0.0.0，邻居为 Full。R1 应看到 198.51.100.2/32 的 OSPF 路由，下一跳为 192.0.2.2。R2 应看到相反方向的路由。从 R1 ping 198.51.100.2 核对转发。
+
+### 在管理 VPN 内建立独立 OSPF 邻居
+
+沿用上面的物理连线。在另一套配置中把两个接口都放入 BLUE，进程改为 2，区域改为 0.0.0.200。
+
+两台设备分别在系统视图录入各自的配置片段，退出功能视图后提交。
+
+**R1**
+
+```vortexros-config
+ip vpn-instance BLUE
+ ipv4-family
+#
+ospf 2 router-id 198.51.100.1 vpn-instance BLUE
+ area 0.0.0.200
+#
+interface Ethernet 0
+ ip binding vpn-instance BLUE
+ ip address 192.0.2.1 255.255.255.0
+ ospf enable 2 area 0.0.0.200
+ ospf network-type p2p
+#
+interface LoopBack 0
+ ip binding vpn-instance BLUE
+ ip address 198.51.100.1 255.255.255.255
+ ospf enable 2 area 0.0.0.200
+#
+return
+```
+
+**R2**
+
+```vortexros-config
+ip vpn-instance BLUE
+ ipv4-family
+#
+ospf 2 router-id 198.51.100.2 vpn-instance BLUE
+ area 0.0.0.200
+#
+interface Ethernet 0
+ ip binding vpn-instance BLUE
+ ip address 192.0.2.2 255.255.255.0
+ ospf enable 2 area 0.0.0.200
+ ospf network-type p2p
+#
+interface LoopBack 0
+ ip binding vpn-instance BLUE
+ ip address 198.51.100.2 255.255.255.255
+ ospf enable 2 area 0.0.0.200
+#
+return
+```
+
+分别查看状态。
+
+```vortexros-cli
+display ospf 2 peer brief
+display ip routing-table vpn-instance BLUE protocol ospf
+```
+
+进程 2 中邻居达到 Full。远端环回应出现在 BLUE 路由表。从 R1 执行 `ping -vpn-instance BLUE 198.51.100.2` 检查。
+
 ## 验证配置
 
 ```vortexros-cli

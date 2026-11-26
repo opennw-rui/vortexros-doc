@@ -1,5 +1,8 @@
 # 隧道与覆盖网络
 
+- [EVPN Vbdif 网关通告](06-tunnels/evpn-gateway.md)。Vbdif 可向远端 VTEP 通告双栈网关的 MAC/IP。
+- [EVPN All-Active 多归属](06-tunnels/evpn-multihoming.md)。All-Active 允许一个客户以太网段同时通过两台 PE 转发。
+- [EVPN Type-5 租户路由](06-tunnels/evpn-type5.md)。EVPN Type-5 在 VTEP 之间通告租户的 IPv4 和 IPv6 前缀。
 - [GRE 隧道](06-tunnels/gre.md)。GRE 用于在可达的三层网络上承载另一条三层逻辑链路。隧道本身不提供加密。
 - [IP-in-IP 隧道](06-tunnels/ip-in-ip.md)。IP-in-IP 用 IP 包封装另一个 IP 包，连接跨底层网络的三层网段。按需搭配 IPv4 或 IPv6 内外层。
 - [静态 VXLAN 与 NVE](06-tunnels/vxlan-static.md)。VXLAN 在 IP 网络上延伸二层业务。静态模式从 NVE 手动指定远端 VTEP，适用于远端固定的部署。
@@ -17,4 +20,7 @@
 06-tunnels/vxlan-evpn
 06-tunnels/wireguard
 06-tunnels/amneziawg
+06-tunnels/evpn-type5
+06-tunnels/evpn-multihoming
+06-tunnels/evpn-gateway
 ```
