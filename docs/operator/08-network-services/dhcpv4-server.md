@@ -51,6 +51,8 @@ display ip pool used
 
 <span id="observed"></span>
 
+实测节选中的物理接口按文档端口编号记为 EthernetX。其他表项保留原始验证值。
+
 (recorded-result-08-network-services-dhcpv4-server)=
 (result-operator-08-network-services-dhcpv4-server)=
 ### 直连、中继和独立 VPN 的实测结果
@@ -64,7 +66,7 @@ display ip pool used
 
 ```text
 Interface   Address-Family  Role    Pool/Servers  VPN-Instance  State    Address           Delegated-Prefix
-host-p3d23  IPv4            client  -             ALL           running  10.253.10.105/24  -
+Ethernet2   IPv4            client  -             ALL           running  10.253.10.105/24  -
 ```
 
 <span id="precautions"></span>

@@ -7,7 +7,7 @@ nav_title: 接收 RA 并取得 SLAAC 地址
 
 ## 拓扑
 
-![上联路由器 → 指定三层链路 → IPv6 主机](example-1.svg)
+![R1、R2 的设备互联](example-1.svg)
 
 ## 配置条件
 

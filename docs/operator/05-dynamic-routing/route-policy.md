@@ -29,7 +29,7 @@ nav_feature: true
 (section-operator-05-dynamic-routing-route-policy-4)=
 ### 操作流程
 
-![收到的路由前缀 → 前缀列表与策略节点 → 路由选用或通告](route-policy/cases.svg)
+![R1、R2、R3 的设备互联](route-policy/cases.svg)
 
 (case-conditions-05-dynamic-routing-route-policy)=
 ### 配置条件

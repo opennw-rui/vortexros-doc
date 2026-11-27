@@ -29,7 +29,7 @@ Vlanif 提供 VLAN 网关并生成相应的直连路由。最后一个可用成�
 (section-operator-03-interfaces-l2-vlanif-4)=
 ### 拓扑
 
-![终端 → VLAN 100 通路 → Vlanif100](vlanif/cases.svg)
+![终端接入 R1 的 VLAN 100，网关为 Vlanif100](vlanif/cases.svg)
 
 (case-conditions-03-interfaces-l2-vlanif)=
 ### 配置条件

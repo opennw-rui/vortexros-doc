@@ -27,7 +27,7 @@ nav_feature: true
 (section-operator-09-operations-service-health-4)=
 ### 拓扑
 
-![管理终端 → 设备管理监听 → 受管服务](service-health/cases.svg)
+![管理终端、R1 的设备互联](service-health/cases.svg)
 
 (case-conditions-09-operations-service-health)=
 ### 配置条件

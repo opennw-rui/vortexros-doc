@@ -29,7 +29,7 @@ IPv6 转发节点遇到报文大于出口 MTU 时通过 Packet Too Big 通知发
 (section-operator-04-ip-routing-ipv6-path-mtu-4)=
 ### 拓扑
 
-![探测发起端 → 实际 IPv6 路径 → 目的主机](ipv6-path-mtu/cases.svg)
+![R1、R2、目的主机 的设备互联](ipv6-path-mtu/cases.svg)
 
 (case-conditions-04-ip-routing-ipv6-path-mtu)=
 ### 配置条件

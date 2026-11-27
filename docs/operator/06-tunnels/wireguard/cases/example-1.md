@@ -7,7 +7,7 @@ nav_title: 使用固定对端和业务前缀
 
 ## 拓扑
 
-![R1 Tunnel10 → 外层 UDP 路径 → R2 Tunnel10](example-1.svg)
+![R1、R2 的设备互联](example-1.svg)
 
 ## 配置条件
 

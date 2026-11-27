@@ -7,7 +7,7 @@ nav_title: 使用接口命令激活
 
 ## 拓扑
 
-![R1 OSPF → 共同区域内的链路 → R2 OSPF](example-2.svg)
+![R1、R2 的设备互联](example-2.svg)
 
 ## 配置条件
 

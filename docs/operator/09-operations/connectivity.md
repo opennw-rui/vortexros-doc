@@ -27,7 +27,7 @@ Ping 检查端到端可达性，Tracert 查看逐跳路径，MTR 持续观察丢
 (section-operator-09-operations-connectivity-4)=
 ### 拓扑
 
-![设备或业务源 → 所选 VPN 与下一跳 → 目标端](connectivity/cases.svg)
+![R1、R2、目标端 的设备互联](connectivity/cases.svg)
 
 (case-conditions-09-operations-connectivity)=
 ### 配置条件

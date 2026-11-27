@@ -43,15 +43,18 @@ vxlan-evpn/cases/example-3
 ### 通用验证
 
 ```vortexros-cli
-display bgp peer
+display bgp evpn peer
+display bgp evpn all routing-table mac-route
 display bridge-domain 65536
 display vxlan tunnel
-display mac-address
+display mac-address bridge-domain 65536
 ```
 
 先确认 BGP 邻居已建立，再检查远端 VTEP 和 MAC。移动终端后，确认旧位置的表项撤销且新位置学习正常。
 
 <span id="observed"></span>
+
+实测节选中的物理接口按文档端口编号记为 EthernetX。其他表项保留原始验证值。
 
 (recorded-result-06-tunnels-vxlan-evpn)=
 ### 运行查询实测节选
@@ -86,7 +89,7 @@ BGP local router ID : 10.255.0.1
 (section-operator-06-tunnels-vxlan-evpn-4)=
 ### 动态 VXLAN 隧道和实际 MAC 学习
 
-r4 的同一拓扑中，从 10.255.0.1 到 10.255.0.3 的两条二层动态隧道均为 up。MAC 表最后两列可核对 MAC 从哪个接入口学到，VLAN/VSI/BD 列显示具体桥域。
+r4 的同一拓扑中，从 10.255.0.1 到 10.255.0.3 的两条二层动态隧道均为 up。下方 MAC 表记录了 Ethernet6 在 BD 101 和 BD 102 中的本地学习结果。
 
 ```text
 <VortexROS> display vxlan tunnel
@@ -104,11 +107,13 @@ Tunnel ID   Source                                    Destination               
 -------------------------------------------------------------------------------
 MAC Address       VLAN/VSI/BD                    Learned-From        Type
 -------------------------------------------------------------------------------
-ae5a-2c16-9902    -/-/101                        host-p1h1           dynamic
-0200-0000-0102    -/-/102                        host-p1h1           dynamic
+ae5a-2c16-9902    -/-/101                        Ethernet6           dynamic
+0200-0000-0102    -/-/102                        Ethernet6           dynamic
 -------------------------------------------------------------------------------
 Total items displayed = 2
 ```
+
+`VLAN/VSI/BD` 中的 `-/-/101` 表示业务桥域 101。对单归属站点，`Learned-From` 对本地动态 MAC 显示接入口，对 EVPN 学到的远端动态 MAC 显示远端 VTEP 地址。可在[双 VTEP 案例](vxlan-evpn/cases/example-2.md)对照同一个桥域中的两种表项。
 
 <span id="precautions"></span>
 

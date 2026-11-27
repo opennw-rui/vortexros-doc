@@ -7,7 +7,7 @@ nav_title: 路由协议调用BFD
 
 ## 拓扑
 
-![R1 BFD → 三层链路 → R2 BFD](example-2.svg)
+![R1、R2 的设备互联](example-2.svg)
 
 ## 配置条件
 

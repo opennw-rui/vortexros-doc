@@ -7,7 +7,7 @@ nav_title: 建立核心 MPLS 和 LDP
 
 ## 拓扑
 
-![R1 LSR → 核心链路 → R2 LSR](example-1.svg)
+![PE1、PE2 的设备互联](example-1.svg)
 
 ## 配置条件
 

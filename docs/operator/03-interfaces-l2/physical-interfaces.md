@@ -29,7 +29,7 @@ nav_feature: true
 (section-operator-03-interfaces-l2-physical-interfaces-4)=
 ### 拓扑
 
-![本地 Ethernet 接口 → 物理链路 → 对端网卡](physical-interfaces/cases.svg)
+![R1、R2 的设备互联](physical-interfaces/cases.svg)
 
 (case-conditions-03-interfaces-l2-physical-interfaces)=
 ### 配置条件

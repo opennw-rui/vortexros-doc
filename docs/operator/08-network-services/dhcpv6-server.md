@@ -29,7 +29,7 @@ DHCPv6 服务器可向客户端分配 IPv6 地址，也可在支持的地址池�
 (section-operator-08-network-services-dhcpv6-server-4)=
 ### 拓扑
 
-![IPv6 客户端 → 服务接口 → DHCPv6 地址池](dhcpv6-server/cases.svg)
+![客户端在 VLAN 100向 VortexROS 请求 IPv6 地址](dhcpv6-server/cases.svg)
 
 (case-conditions-08-network-services-dhcpv6-server)=
 ### 配置条件

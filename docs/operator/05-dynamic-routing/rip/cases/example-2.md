@@ -7,7 +7,7 @@ nav_title: RIPv2 两端交换 IPv4 前缀
 
 ## 拓扑
 
-![R1 RIPv2 → IPv4 互联链路 → R2 RIPv2](example-2.svg)
+![R1、R2 的设备互联](example-2.svg)
 
 ## 配置条件
 

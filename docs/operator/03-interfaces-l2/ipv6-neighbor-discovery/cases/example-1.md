@@ -7,7 +7,7 @@ nav_title: 设置静态 IPv6 邻居与老化
 
 ## 拓扑
 
-![本机 IPv6 三层口 → 同一二层链路 → IPv6 邻居](example-1.svg)
+![终端连接 R1 的 VLAN 10，R1 配置固定 IPv6 邻居](example-1.svg)
 
 ## 配置条件
 

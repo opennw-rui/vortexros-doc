@@ -50,17 +50,19 @@ display current-configuration | include aging-time
 
 <span id="observed"></span>
 
+实测节选中的物理接口按文档端口编号记为 EthernetX。其他表项保留原始验证值。
+
 (recorded-result-03-interfaces-l2-mac-table)=
 ### 精确查询的实测回显
 
-测试设备在 VLAN 200 配置静态 MAC 后执行精确查询。表中保留了实际接口名。命中时只有一项，查询未配置的地址时总数为 0。
+测试设备在 VLAN 200 配置静态 MAC 后执行精确查询。命中时只有一项，查询未配置的地址时总数为 0。
 
 ```text
 <VortexROS> display mac-address 0200-0011-0402
 -------------------------------------------------------------------------------
 MAC Address       VLAN/VSI/BD                    Learned-From        Type
 -------------------------------------------------------------------------------
-0200-0011-0402    200/-/-                        host-p1q13          static
+0200-0011-0402    200/-/-                        Ethernet3           static
 -------------------------------------------------------------------------------
 Total items displayed = 1
 ```

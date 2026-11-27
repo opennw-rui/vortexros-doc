@@ -27,7 +27,7 @@ STelnet 提供 SSH 登录和 CLI 会话。监听端口、VTY 会话数、超时�
 (section-operator-02-system-services-stelnet-4)=
 ### 拓扑
 
-![SSH 客户端 → 设备管理接口 → 本地 AAA 与 VTY](stelnet/cases.svg)
+![管理终端、R1 的设备互联](stelnet/cases.svg)
 
 (case-conditions-02-system-services-stelnet)=
 ### 配置条件

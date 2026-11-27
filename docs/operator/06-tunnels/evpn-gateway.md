@@ -29,7 +29,7 @@ Vbdif 可在 EVPN 中通告网关 MAC/IP。配置分布式网关时，提供该�
 (section-operator-06-tunnels-evpn-gateway-4)=
 ### 拓扑
 
-![PE1 Vbdif65536 → EVPN，VNI 65010 → PE2 接入终端](evpn-gateway/cases.svg)
+![PE1、PE2、业务终端 的设备互联](evpn-gateway/cases.svg)
 
 (case-conditions-06-tunnels-evpn-gateway)=
 ### 配置条件

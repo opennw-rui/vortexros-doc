@@ -7,7 +7,7 @@ nav_title: 用地址池做出方向 PAT
 
 ## 拓扑
 
-![客户端 192.0.2.10 → VortexROS，PAT 203.0.113.10 → HTTPS 198.51.100.2](outbound-pat.svg)
+![客户端、R1、HTTPS 服务器 的设备互联](outbound-pat.svg)
 
 ## 配置条件
 

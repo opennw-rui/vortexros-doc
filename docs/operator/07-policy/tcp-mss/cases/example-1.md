@@ -7,7 +7,7 @@ nav_title: 选择自动或固定 MSS
 
 ## 拓扑
 
-![TCP 客户端 → 启用 MSS 调整的三层口 → TCP 对端](example-1.svg)
+![客户端、R1、R2、TCP 服务器 的设备互联](example-1.svg)
 
 ## 配置条件
 

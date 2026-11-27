@@ -51,6 +51,8 @@ display ip routing-table
 
 <span id="observed"></span>
 
+实测节选中的物理接口按文档端口编号记为 EthernetX。其他表项保留原始验证值。
+
 (recorded-result-05-dynamic-routing-isis)=
 ### 运行查询实测节选
 
@@ -61,8 +63,8 @@ display ip routing-table
 Peer information for ISIS(20)
                           ------------------------------
  System Id        Interface       Circuit Id   State HoldTime Type PRI
- VortexROS        host-p2e12      2020.2020.2020 Up    28s      2    -
- VortexROS        host-p2e23      2020.2020.2020 Up    29s      2    -
+ VortexROS        Ethernet0       2020.2020.2020 Up    28s      2    -
+ VortexROS        Ethernet1       2020.2020.2020 Up    29s      2    -
  Total Peer(s): 2
 ```
 

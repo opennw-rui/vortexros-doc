@@ -6,7 +6,7 @@ nav_title: 创建内部双栈网络
 
 ## 拓扑
 
-![容器 box-a 与 box-b 经 Docker 内部双栈网络互通](example-1.svg)
+![两个容器接入同一台 VortexROS 的内部双栈网桥](example-1.svg)
 
 ## 配置条件
 

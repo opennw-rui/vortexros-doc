@@ -51,16 +51,18 @@ display ipv6 routing-table
 
 <span id="observed"></span>
 
+实测节选中的物理接口按文档端口编号记为 EthernetX。其他表项保留原始验证值。
+
 (recorded-result-05-dynamic-routing-ospfv3)=
 ### 邻接建成、断开和恢复的实测结果
 
 测试中在主路径上制造邻接故障，再恢复链路。看同一个 Router ID 与接口的状态转换，最后一条 `Full` 表示邻接重新同步完成。以下为实际协议事件节选。
 
 ```text
-2026/11/26 06:15:32 OSPF6: [GHN28-AMRE7] AdjChg: Nbr 2.2.2.2(default) on 2.2.2.2%host-p1e12: Loading -> Full (LoadingDone)
-2026/11/26 06:15:45 OSPF6: [GHN28-AMRE7] AdjChg: Nbr 2.2.2.2(default) on 2.2.2.2%host-p1e12: Loading -> Full (LoadingDone)
-2026/11/26 06:15:57 OSPF6: [GHN28-AMRE7] AdjChg: Nbr 2.2.2.2(default) on 2.2.2.2%host-p1e12: Loading -> Full (LoadingDone)
-2026/11/26 06:15:45 OSPF6: [GHN28-AMRE7] AdjChg: Nbr 2.2.2.2(default) on 2.2.2.2%host-p1e12: Full -> Down (InactivityTimer)
+2026/11/26 06:15:32 OSPF6: [GHN28-AMRE7] AdjChg: Nbr 2.2.2.2(default) on 2.2.2.2%Ethernet0: Loading -> Full (LoadingDone)
+2026/11/26 06:15:45 OSPF6: [GHN28-AMRE7] AdjChg: Nbr 2.2.2.2(default) on 2.2.2.2%Ethernet0: Loading -> Full (LoadingDone)
+2026/11/26 06:15:57 OSPF6: [GHN28-AMRE7] AdjChg: Nbr 2.2.2.2(default) on 2.2.2.2%Ethernet0: Loading -> Full (LoadingDone)
+2026/11/26 06:15:45 OSPF6: [GHN28-AMRE7] AdjChg: Nbr 2.2.2.2(default) on 2.2.2.2%Ethernet0: Full -> Down (InactivityTimer)
 ```
 
 (section-operator-05-dynamic-routing-ospfv3-4)=
@@ -73,8 +75,8 @@ display ipv6 routing-table
 OSPFv3 Process (1)
 
 Neighbor ID     Pri  State          Dead Time  Interface
-1.1.1.1         0    Full/PointToPoint 00:00:10   host-p2e12
-3.3.3.3         0    Full/PointToPoint 00:00:11   host-p2e23
+1.1.1.1         0    Full/PointToPoint 00:00:10   Ethernet0
+3.3.3.3         0    Full/PointToPoint 00:00:11   Ethernet1
 ```
 
 <span id="precautions"></span>

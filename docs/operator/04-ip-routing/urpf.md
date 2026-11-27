@@ -29,7 +29,7 @@ uRPF 用源地址做反向路由查询。宽松模式判断源地址是否可达
 (section-operator-04-ip-routing-urpf-4)=
 ### 拓扑
 
-![入站源地址 → 接口 uRPF 检查 → 目标网络](urpf/cases.svg)
+![源终端、R1、目的终端 的设备互联](urpf/cases.svg)
 
 (case-conditions-04-ip-routing-urpf)=
 ### 配置条件

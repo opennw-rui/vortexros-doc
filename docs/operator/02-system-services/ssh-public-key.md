@@ -27,7 +27,7 @@ nav_feature: true
 (section-operator-02-system-services-ssh-public-key-4)=
 ### 拓扑
 
-![管理终端与私钥 → 管理网络 → 设备上的用户公钥](ssh-public-key/cases.svg)
+![管理终端、R1 的设备互联](ssh-public-key/cases.svg)
 
 (case-conditions-02-system-services-ssh-public-key)=
 ### 配置条件

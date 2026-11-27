@@ -7,7 +7,7 @@ nav_title: 在管理 VPN 内建立独立 OSPF 邻居
 
 ## 拓扑
 
-![R1 OSPF 2，VPN BLUE → Ethernet0 互联，Area 0.0.0.200 → R2 OSPF 2，VPN BLUE](vpn-adjacency.svg)
+![R1、R2 的设备互联](vpn-adjacency.svg)
 
 ## 配置条件
 

@@ -52,6 +52,8 @@ display ip routing-table protocol direct
 
 <span id="observed"></span>
 
+实测节选中的物理接口按文档端口编号记为 EthernetX。其他表项保留原始验证值。
+
 (recorded-result-03-interfaces-l2-subinterfaces)=
 ### 运行查询实测节选
 
@@ -60,9 +62,9 @@ r4 同一物理链路上的三个子接口。前两项的协议已就绪，第�
 ```text
 <VortexROS> display interface brief
 Interface               PHY    Proto   InUti  OutUti  CRC    Type          MTU
-host-p1r12.310          up     up       0.0%    0.0%   --    SubInterface  9000
-host-p1r12.320          up     up       0.0%    0.0%   --    SubInterface  1500
-host-p1r12.321          up     down     0.0%    0.0%   --    SubInterface  1500
+Ethernet1.310           up     up       0.0%    0.0%   --    SubInterface  9000
+Ethernet1.320           up     up       0.0%    0.0%   --    SubInterface  1500
+Ethernet1.321           up     down     0.0%    0.0%   --    SubInterface  1500
 ```
 
 <span id="precautions"></span>

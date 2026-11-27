@@ -7,7 +7,7 @@ nav_title: 获取 IPv6 地址并续租
 
 ## 拓扑
 
-![IPv6 上联客户端 → 接入网段 → DHCPv6 服务端](example-1.svg)
+![R1、DHCPv6 服务器 的设备互联](example-1.svg)
 
 ## 配置条件
 

@@ -7,7 +7,7 @@ nav_title: 比较 Uniform 与 Pipe TTL 行为
 
 ## 拓扑
 
-![入口 PE → 发送 MPLS 标签的核心链路 → 出口 PE](example-2.svg)
+![PE1、P1、PE2 的设备互联](example-2.svg)
 
 ## 配置条件
 

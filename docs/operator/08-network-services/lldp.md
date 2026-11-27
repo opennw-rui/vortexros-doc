@@ -50,6 +50,8 @@ display lldp neighbor interface Ethernet0
 
 <span id="observed"></span>
 
+实测节选中的物理接口按文档端口编号记为 EthernetX。其他表项保留原始验证值。
+
 (recorded-result-08-network-services-lldp)=
 (lab-result-operator-08-network-services-lldp)=
 ### 两台设备交换邻居信息的实测回显
@@ -60,8 +62,8 @@ display lldp neighbor interface Ethernet0
 <P1> display lldp neighbor brief
 Local Intf  Neighbor Dev    Neighbor Intf  Exptime (sec)
 -------------------------------------------------------------------------------
-host-p1a12  02fe-7b01-5196  host-p2a12     115
-host-p1b12  02fe-e803-861b  host-p2b12     115
+Ethernet4   02fe-7b01-5196  Ethernet4      115
+Ethernet5   02fe-e803-861b  Ethernet5      115
 ```
 
 <span id="precautions"></span>

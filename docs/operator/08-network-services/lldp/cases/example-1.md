@@ -7,7 +7,7 @@ nav_title: 启用与关闭 LLDP
 
 ## 拓扑
 
-![R1 物理端口 → 以太网链路 → R2 物理端口](example-1.svg)
+![R1、R2 的设备互联](example-1.svg)
 
 ## 配置条件
 

@@ -7,7 +7,7 @@ nav_title: 两端建立标签路径
 
 ## 拓扑
 
-![R1 · 198.51.100.1 → 核心 Ethernet0 → R2 · 198.51.100.2](example-2.svg)
+![R1、R2 的设备互联](example-2.svg)
 
 ## 配置条件
 

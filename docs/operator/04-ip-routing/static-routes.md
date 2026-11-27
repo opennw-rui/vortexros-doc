@@ -53,6 +53,8 @@ display ipv6 fib
 
 <span id="observed"></span>
 
+实测节选中的物理接口按文档端口编号记为 EthernetX。其他表项保留原始验证值。
+
 (recorded-result-04-ip-routing-static-routes)=
 ### 运行查询实测节选
 
@@ -70,7 +72,7 @@ Static routing table status : <Active>
 
 Destination/Mask   Proto   Pre  Cost    Flags  NextHop          Interface       VPN-Instance
 
-  10.201.23.0/24   Static  60   0         D    10.201.12.2      host-p1e12      default
+  10.201.23.0/24   Static  60   0         D    10.201.12.2      Ethernet0       default
 ```
 
 <span id="precautions"></span>

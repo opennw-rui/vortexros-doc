@@ -7,7 +7,7 @@ nav_title: 清除 NAT 计数并恢复 BGP
 
 ## 操作流程
 
-![独立 Console → 清理计数或重启服务 → 对端验证](example-1.svg)
+![R1、R2 的设备互联](example-1.svg)
 
 ## 配置条件
 

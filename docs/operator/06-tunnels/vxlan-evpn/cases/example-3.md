@@ -7,7 +7,7 @@ nav_title: 高位域隔离、组播订阅与 MAC/IP 迁移
 
 ## 拓扑
 
-![R1 VTEP，BD 65536 与 65537 → R2 VTEP，BD 65536 与 65537](example-3.svg)
+![两台 VTEP 各用 Ethernet1 接入 BD 65536、Ethernet2 接入 BD 65537](example-3.svg)
 
 ## 配置条件
 

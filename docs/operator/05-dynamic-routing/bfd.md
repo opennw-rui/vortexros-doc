@@ -55,15 +55,17 @@ display bfd statistics
 
 <span id="observed"></span>
 
+实测节选中的物理接口按文档端口编号记为 EthernetX。其他表项保留原始验证值。
+
 (recorded-result-05-dynamic-routing-bfd)=
 ### 动态 BFD 检测故障的实测结果
 
 在 OSPFv3 主路径使用动态单跳 BFD。会话建立后，超时的原因显示 `control-expired`。此时业务走备路径，恢复主链路后会话重新进入 up。实际协议事件节选如下。
 
 ```text
-2026/11/26 06:15:33 BFD: [NQM5A-CJBHQ] Session-Change: [mhop:no peer:fe80::ff:fe02:1202 local:fe80::ff:fe01:1201 vrf:default ifname:host-p1e12] init -> up
-2026/11/26 06:15:53 BFD: [NQM5A-CJBHQ] Session-Change: [mhop:no peer:fe80::ff:fe02:1202 local:fe80::ff:fe01:1201 vrf:default ifname:host-p1e12] down -> up
-2026/11/26 06:15:45 BFD: [STTY2-28ZPH] Session-Change: [mhop:no peer:fe80::ff:fe02:1202 local:fe80::ff:fe01:1201 vrf:default ifname:host-p1e12] up -> down reason:control-expired
+2026/11/26 06:15:33 BFD: [NQM5A-CJBHQ] Session-Change: [mhop:no peer:fe80::ff:fe02:1202 local:fe80::ff:fe01:1201 vrf:default ifname:Ethernet0] init -> up
+2026/11/26 06:15:53 BFD: [NQM5A-CJBHQ] Session-Change: [mhop:no peer:fe80::ff:fe02:1202 local:fe80::ff:fe01:1201 vrf:default ifname:Ethernet0] down -> up
+2026/11/26 06:15:45 BFD: [STTY2-28ZPH] Session-Change: [mhop:no peer:fe80::ff:fe02:1202 local:fe80::ff:fe01:1201 vrf:default ifname:Ethernet0] up -> down reason:control-expired
 ```
 
 (section-operator-05-dynamic-routing-bfd-4)=
@@ -76,7 +78,7 @@ display bfd statistics
 BFD Session Brief Information
 -------------------------------------------------------------------------------------------
 Name     Peer                Local      Remote     VPN      Interface   Mode        State
-dynamic  fe80::ff:fe02:1202  259268339  148741797  default  host-p1e12  Single-hop  Up
+dynamic  fe80::ff:fe02:1202  259268339  148741797  default  Ethernet0   Single-hop  Up
 -------------------------------------------------------------------------------------------
 Total session(s): 1
 ```

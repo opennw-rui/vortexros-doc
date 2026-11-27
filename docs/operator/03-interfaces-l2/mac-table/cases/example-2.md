@@ -7,7 +7,7 @@ nav_title: 配置静态 MAC 表项
 
 ## 拓扑
 
-![源终端与 MAC → VLAN 或 BD → 出接口和目标终端](example-2.svg)
+![固定 MAC 终端直接接入 R1 的 Ethernet0，归属 BD 11](example-2.svg)
 
 ## 配置条件
 

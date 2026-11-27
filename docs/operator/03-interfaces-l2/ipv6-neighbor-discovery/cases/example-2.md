@@ -7,7 +7,7 @@ nav_title: 按 VPN 或接口定位邻居
 
 ## 拓扑
 
-![本机 IPv6 三层口 → 同一二层链路 → IPv6 邻居](example-2.svg)
+![R1、R2 的设备互联](example-2.svg)
 
 ## 配置条件
 

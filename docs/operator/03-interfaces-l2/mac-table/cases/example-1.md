@@ -7,7 +7,7 @@ nav_title: 调整动态 MAC 老化时间
 
 ## 拓扑
 
-![源终端与 MAC → VLAN 或 BD → 出接口和目标终端](example-1.svg)
+![终端 A、SW1、终端 B 的设备互联](example-1.svg)
 
 ## 配置条件
 

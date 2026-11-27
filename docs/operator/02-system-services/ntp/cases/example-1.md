@@ -7,7 +7,7 @@ nav_title: 设置 IPv4 与 IPv6 时间源
 
 ## 拓扑
 
-![VortexROS → 默认表或管理 VPN → 时间服务器](example-1.svg)
+![IPv4 时间服务器、R1、IPv6 时间服务器 的设备互联](example-1.svg)
 
 ## 配置条件
 

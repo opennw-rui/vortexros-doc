@@ -7,7 +7,7 @@ nav_title: 两台设备建立 Area 0 邻接
 
 ## 拓扑
 
-![R1 · 198.51.100.1 → Area 0，192.0.2.0/24 → R2 · 198.51.100.2](area-zero-adjacency.svg)
+![R1、R2 的设备互联](area-zero-adjacency.svg)
 
 ## 配置条件
 

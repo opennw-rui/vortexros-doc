@@ -7,7 +7,7 @@ nav_title: 使用指定握手参数的对端
 
 ## 拓扑
 
-![R1 Tunnel20 → 外层 UDP 路径 → R2 Tunnel20](example-1.svg)
+![R1、R2 的设备互联](example-1.svg)
 
 ## 配置条件
 

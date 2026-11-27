@@ -7,7 +7,7 @@ nav_title: 高位 BD 动态 EVPN 配置
 
 ## 拓扑
 
-![本地接入口 → Bridge Domain → 远端 VTEP](example-2.svg)
+![高位 BD 的两台 VTEP 和两个客户侧端口](example-2.svg)
 
 ## 配置条件
 

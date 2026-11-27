@@ -7,7 +7,7 @@ nav_title: 桥域静态 ARP 与超时撤销
 
 ## 拓扑
 
-![同链路终端 → Vlanif 或 Vbdif → 同网段或代理目标](example-2.svg)
+![终端的固定 IPv4 和 MAC 绑定在 R1 的 BD 11](example-2.svg)
 
 ## 配置条件
 

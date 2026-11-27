@@ -7,7 +7,7 @@ nav_title: 直连双端独立 BFD 会话
 
 ## 拓扑
 
-![R1 BFD → 三层链路 → R2 BFD](example-3.svg)
+![R1、R2 的设备互联](example-3.svg)
 
 ## 配置条件
 

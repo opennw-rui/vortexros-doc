@@ -29,7 +29,7 @@ VPN 实例为各租户提供独立路由表，可使用重叠地址规划。RD �
 (section-operator-04-ip-routing-vpn-instance-4)=
 ### 拓扑
 
-![租户接入接口 → VPN BLUE 路由表 → 租户对端](vpn-instance/cases.svg)
+![R1、R2 的设备互联](vpn-instance/cases.svg)
 
 (case-conditions-04-ip-routing-vpn-instance)=
 ### 配置条件

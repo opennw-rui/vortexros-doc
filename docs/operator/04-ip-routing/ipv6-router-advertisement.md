@@ -53,6 +53,8 @@ display ipv6 routing-table
 
 <span id="observed"></span>
 
+实测节选中的物理接口按文档端口编号记为 EthernetX。其他表项保留原始验证值。
+
 (recorded-result-04-ip-routing-ipv6-router-advertisement)=
 (r4-ra-slaac-result)=
 ### RA、SLAAC 和缺省路由的实测回显
@@ -62,7 +64,7 @@ r4 三节点中，第一台从专用三层链路发布 `2001:db8:20::/64`。第�
 ```text
 <VortexROS> display ipv6 interface brief
 Interface               IPv6 Address/Mask                      Physical  Protocol  VPN-Instance
-host-p2a12              2001:db8:20:0:fe:b5ff:fe44:9b03/64     up        up        default
+Ethernet4               2001:db8:20:0:fe:b5ff:fe44:9b03/64     up        up        default
 ```
 
 ```text
@@ -72,7 +74,7 @@ Destination  : ::                                      PrefixLength : 0
 NextHop      : fe80::fe:2cff:fe2d:b091                 Preference   : 0
 Cost         : 1024                                    Protocol     : Kernel
 RelayNextHop : fe80::fe:2cff:fe2d:b091                 Flags        : D
-Interface    : host-p2a12                              VPN-Instance : default
+Interface    : Ethernet4                               VPN-Instance : default
 ```
 
 <span id="precautions"></span>

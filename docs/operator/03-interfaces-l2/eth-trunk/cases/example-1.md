@@ -7,7 +7,7 @@ nav_title: 配置聚合与增删成员
 
 ## 拓扑
 
-![R1 Eth-Trunk10 → 两根成员链路 → R2 Eth-Trunk10](example-1.svg)
+![R1 和 R2 的 Ethernet1、Ethernet2 分别直连，加入两端 Eth-Trunk10](example-1.svg)
 
 ## 配置条件
 

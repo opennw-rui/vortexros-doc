@@ -29,7 +29,7 @@ nav_feature: true
 (section-operator-10-mpls-l3vpn-6pe-4)=
 ### 拓扑
 
-![PE1 IPv6 环回 → IPv4 MPLS 核心 → PE2 IPv6 环回](6pe/cases.svg)
+![PE1、PE2 的设备互联](6pe/cases.svg)
 
 (case-conditions-10-mpls-l3vpn-6pe)=
 ### 配置条件

@@ -7,7 +7,7 @@ nav_title: RIPng 两端交换 IPv6 环回
 
 ## 拓扑
 
-![R1 RIPng → IPv6 互联链路 → R2 RIPng](example-2.svg)
+![R1、R2 的设备互联](example-2.svg)
 
 ## 配置条件
 

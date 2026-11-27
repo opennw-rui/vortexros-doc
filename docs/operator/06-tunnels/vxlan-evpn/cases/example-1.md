@@ -7,7 +7,7 @@ nav_title: 配置 VNI、桥域与 EVPN 对端
 
 ## 拓扑
 
-![左端站点与接入口 → 本地 BD，VTEP → 远端 VTEP，BD → 右端站点与接入口](example-1.svg)
+![两台 VTEP 建立 EVPN 对等关系并延伸二层业务](example-1.svg)
 
 ## 配置条件
 

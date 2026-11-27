@@ -50,6 +50,8 @@ display interface brief
 
 <span id="observed"></span>
 
+实测节选中的物理接口按文档端口编号记为 EthernetX。其他表项保留原始验证值。
+
 (recorded-result-03-interfaces-l2-eth-trunk)=
 (r4-result-operator-03-interfaces-l2-eth-trunk)=
 ### 成员加入、迁移和退出时的实测回显
@@ -60,8 +62,8 @@ display interface brief
 <VortexROS> display interface brief
 Interface               PHY    Proto   InUti  OutUti  CRC    Type          MTU
 Eth-Trunk10             down   down     0.0%    0.0%   --    bond          1500
-  host-p1a12            up     up       0.0%    0.0%   --    AF-Packet     1500
-  host-p1b12            up     up       0.0%    0.0%   --    AF-Packet     1500
+  Ethernet4             up     up       0.0%    0.0%   --    AF-Packet     1500
+  Ethernet5             up     up       0.0%    0.0%   --    AF-Packet     1500
 ```
 
 (lab-result-operator-03-interfaces-l2-eth-trunk)=
@@ -78,8 +80,8 @@ System Priority: 65535      System ID: 02fe-c51c-ad7d
 Operate status: up          Number Of Up Port In Trunk: 2
 --------------------------------------------------------------------------------
 ActorPortName          Status   PortPri PortNo PortKey PortState Weight
-host-p1a12             Selected 255     1      31      00111111  1
-host-p1b12             Selected 255     2      31      00111111  1
+Ethernet4              Selected 255     1      31      00111111  1
+Ethernet5              Selected 255     2      31      00111111  1
 ```
 
 <span id="precautions"></span>

@@ -7,7 +7,7 @@ nav_title: 在核心端口启用 MPLS
 
 ## 拓扑
 
-![入口 PE → 发送 MPLS 标签的核心链路 → 出口 PE](example-1.svg)
+![PE1、PE2 的设备互联](example-1.svg)
 
 ## 配置条件
 

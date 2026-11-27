@@ -7,7 +7,7 @@ nav_title: 增加备用核心链路并验证切换
 
 ## 拓扑
 
-![PE1，VPN BLUE → PE2，VPN BLUE](example-3.svg)
+![两台 PE 分别用 Ethernet0 和 Ethernet2 建立主备 MPLS 核心链路](example-3.svg)
 
 ## 配置条件
 

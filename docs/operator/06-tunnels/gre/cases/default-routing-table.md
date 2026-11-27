@@ -7,7 +7,7 @@ nav_title: 默认路由表中的双端 GRE
 
 ## 拓扑
 
-![R1 Ethernet0，192.0.2.1，Tunnel1 10.0.12.1 → R2 Ethernet0，192.0.2.2，Tunnel1 10.0.12.2](default-routing-table.svg)
+![R1、R2 的设备互联](default-routing-table.svg)
 
 ## 配置条件
 

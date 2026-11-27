@@ -7,7 +7,7 @@ nav_title: 指定单播中继目标
 
 ## 拓扑
 
-![IPv4 客户端 → 三层中继 → DHCPv4 服务器](example-1.svg)
+![DHCPv4 客户端、R1、DHCPv4 服务器 的设备互联](example-1.svg)
 
 ## 配置条件
 

@@ -29,7 +29,7 @@ Type-5 为租户发布 IPv4、IPv6 IP 前缀，并按 L3VNI 与 RT 区分业务�
 (section-operator-06-tunnels-evpn-type5-4)=
 ### 拓扑
 
-![PE1 VPN BLUE → VTEP 与 L3VNI 50000 → PE2 VPN BLUE](evpn-type5/cases.svg)
+![PE1、PE2 的设备互联](evpn-type5/cases.svg)
 
 (case-conditions-06-tunnels-evpn-type5)=
 ### 配置条件

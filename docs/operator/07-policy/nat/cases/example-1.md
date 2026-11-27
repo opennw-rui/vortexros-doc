@@ -7,7 +7,7 @@ nav_title: 使用接口地址进行 PAT
 
 ## 拓扑
 
-![内部客户端 → VortexROS NAT → 外部目标](example-1.svg)
+![内部客户端、R1、外部目标 的设备互联](example-1.svg)
 
 ## 配置条件
 

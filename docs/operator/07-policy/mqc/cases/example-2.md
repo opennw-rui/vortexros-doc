@@ -7,7 +7,7 @@ nav_title: 按 TCP 端口选择 VPN 的出口
 
 ## 拓扑
 
-![客户端 192.0.2.10 → Ethernet0 入站，策略 WEB-POLICY → BLUE 的 Ethernet1，服务器 198.51.100.2](example-2.svg)
+![客户端、R1、服务器 的设备互联](example-2.svg)
 
 ## 配置条件
 

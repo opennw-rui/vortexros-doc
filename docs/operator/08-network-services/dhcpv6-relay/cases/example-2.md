@@ -7,7 +7,7 @@ nav_title: 上联接口模式与三节点租约
 
 ## 拓扑
 
-![DHCPv6 客户端 → VortexROS 中继，Eth1 2001:db8:10::1，Eth0 2001:db8:20::2 → DHCPv6 服务器，2001:db8:20::10](example-2.svg)
+![客户端、中继、服务器 的设备互联](example-2.svg)
 
 ## 配置条件
 

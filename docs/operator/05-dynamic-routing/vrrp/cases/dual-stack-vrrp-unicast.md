@@ -7,7 +7,7 @@ nav_title: 双栈 VRRPv3 单播网关
 
 ## 拓扑
 
-![接入终端 → 共享 VLAN，虚拟网关 → R1 · 192.0.2.1 → R2 · 192.0.2.2](dual-stack-vrrp-unicast.svg)
+![两台网关和终端通过同一接入交换机互联](dual-stack-vrrp-unicast.svg)
 
 ## 配置条件
 

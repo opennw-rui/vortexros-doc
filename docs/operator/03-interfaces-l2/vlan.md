@@ -29,7 +29,7 @@ Access 端口连接无标签终端，Trunk 端口承载多个 VLAN。相同 VLAN
 (section-operator-03-interfaces-l2-vlan-4)=
 ### 拓扑
 
-![无标签终端 → 设备 VLAN 100 → 对端交换机](vlan/cases.svg)
+![终端 A、SW1、SW2 的设备互联](vlan/cases.svg)
 
 (case-conditions-03-interfaces-l2-vlan)=
 ### 配置条件
@@ -68,7 +68,7 @@ display vlan
 display mac-address
 ```
 
-`display vlan`使用一张表同时显示状态、MAC学习、描述和端口成员，端口状态中的`U/D`表示up/down，`TG/UT`表示tagged/untagged。表格宽度根据实际内容调整；端口之间间隔两个字符，每行最多显示四个端口，更多端口在下一行按首个接口位置继续显示：
+`display vlan` 同时显示 VLAN 状态、MAC 学习状态、描述和端口成员。`U/D` 表示端口 up/down，`TG/UT` 表示出端带标签/不带标签。两条链路均 up 时，本案例的预期回显中应包含以下两行。
 
 ```text
 -----------------------------------------------------------------
@@ -77,9 +77,8 @@ U: Up;         D: Down;         TG: Tagged;         UT: Untagged;
 
 VID  Type    Status  MAC-LRN  Description    Ports
 -----------------------------------------------------------------
-1    common  enable  enable   VLAN 1         UT:eth2(D)  eth3(D)
-10   common  enable  enable   To_CTC_ISP     UT:eth0(U)
-20   common  enable  enable   To_LAN_Client  UT:eth1(U)
+100  common  enable  enable   VLAN 100       TG:Ethernet1(U)  UT:Ethernet2(U)
+200  common  enable  enable   VLAN 200       TG:Ethernet1(U)
 -----------------------------------------------------------------
 ```
 
@@ -87,10 +86,12 @@ VID  Type    Status  MAC-LRN  Description    Ports
 
 <span id="observed"></span>
 
+实测节选中的物理接口按文档端口编号记为 EthernetX。其他表项保留原始验证值。
+
 (section-operator-03-interfaces-l2-vlan-6)=
 ### 运行查询实测节选
 
-r4 接入口划入 VLAN 200 后，查询显示该 VLAN 的状态及出端标签方式。测试拓扑的接入口保留 `host-p1q*` 名称。
+r4 接入口划入 VLAN 200 后，查询显示该 VLAN 的状态及出端标签方式。
 
 ```text
 <VortexROS> display vlan 200
@@ -100,7 +101,7 @@ U: Up;         D: Down;         TG: Tagged;         UT: Untagged;
 
 VID    Type      Status    MAC-LRN    Description      Ports
 --------------------------------------------------------------------------------------
-200    common    enable    enable     VLAN 200         UT:host-p1q12(U)  host-p1q13(U)
+200    common    enable    enable     VLAN 200         UT:Ethernet2(U)  Ethernet3(U)
 --------------------------------------------------------------------------------------
 ```
 

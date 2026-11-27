@@ -7,7 +7,7 @@ nav_title: 使用管理域名及搜索后缀
 
 ## 拓扑
 
-![VortexROS → 默认路由表 → DNS 服务](example-2.svg)
+![R1、DNS 服务器 的设备互联](example-2.svg)
 
 ## 配置条件
 

@@ -7,7 +7,7 @@ nav_title: 双节点 OSPFv3 发布 IPv6 环回
 
 ## 拓扑
 
-![R1 OSPFv3 → 共同区域的 IPv6 链路 → R2 OSPFv3](example-2.svg)
+![R1、R2 的设备互联](example-2.svg)
 
 ## 配置条件
 

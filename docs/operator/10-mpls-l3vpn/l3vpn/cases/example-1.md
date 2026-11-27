@@ -7,7 +7,7 @@ nav_title: 配置双栈客户侧 VPN 接口
 
 ## 拓扑
 
-![CE1 → PE1 VPN BLUE → IPv4 MPLS 核心 → PE2 与 CE2](example-1.svg)
+![CE1、PE1 的设备互联](example-1.svg)
 
 ## 配置条件
 

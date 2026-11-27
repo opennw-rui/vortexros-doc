@@ -7,7 +7,7 @@ nav_title: 配置进程、区域及接口
 
 ## 拓扑
 
-![R1 OSPFv3 → 共同区域的 IPv6 链路 → R2 OSPFv3](example-1.svg)
+![R1、R2 的设备互联](example-1.svg)
 
 ## 配置条件
 

@@ -7,7 +7,7 @@ nav_title: 灵活 QinQ 二层接入
 
 ## 拓扑
 
-![R1 Ethernet1 → 带标签的以太网链路 → R2 Ethernet1](example-3.svg)
+![客户交换机、R1、业务终端 的设备互联](example-3.svg)
 
 ## 配置条件
 

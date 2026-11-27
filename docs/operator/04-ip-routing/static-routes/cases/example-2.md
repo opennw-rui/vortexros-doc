@@ -7,7 +7,7 @@ nav_title: 双栈主机路由与回程
 
 ## 拓扑
 
-![R1 LoopBack0 → IPv4 与 IPv6 互联链路 → R2 LoopBack0](example-2.svg)
+![R1、R2 的设备互联](example-2.svg)
 
 ## 配置条件
 

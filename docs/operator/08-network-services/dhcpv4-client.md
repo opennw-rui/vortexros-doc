@@ -29,7 +29,7 @@ nav_feature: true
 (section-operator-08-network-services-dhcpv4-client-4)=
 ### 拓扑
 
-![三层 DHCPv4 客户口 → 同网段 → 上游 DHCPv4 服务器](dhcpv4-client/cases.svg)
+![R1、DHCPv4 服务器 的设备互联](dhcpv4-client/cases.svg)
 
 (case-conditions-08-network-services-dhcpv4-client)=
 ### 配置条件

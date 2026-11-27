@@ -6,7 +6,7 @@ nav_title: 用 Compose 发布容器端口
 
 ## 拓扑
 
-![本机客户端访问 127.0.0.1:8080，Docker 将请求转给容器 HTTP 服务](example-2.svg)
+![本机客户端通过回环发布端口访问同设备上的容器](example-2.svg)
 
 ## 配置条件
 

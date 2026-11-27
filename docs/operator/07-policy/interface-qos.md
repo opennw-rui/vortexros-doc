@@ -29,7 +29,7 @@ nav_feature: true
 (section-operator-07-policy-interface-qos-4)=
 ### 拓扑
 
-![流量源 → 设备受限接口 → 接收端](interface-qos/cases.svg)
+![发送端、R1、接收端 的设备互联](interface-qos/cases.svg)
 
 (case-conditions-07-policy-interface-qos)=
 ### 配置条件

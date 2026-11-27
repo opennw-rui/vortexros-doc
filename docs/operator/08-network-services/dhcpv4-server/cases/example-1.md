@@ -7,7 +7,7 @@ nav_title: 使用全局或接口地址池
 
 ## 拓扑
 
-![DHCPv4 客户端 → 同网段三层网关 → VortexROS 地址池](example-1.svg)
+![客户端在 VLAN 100 向侧接路由器申请 IPv4 租约](example-1.svg)
 
 ## 配置条件
 

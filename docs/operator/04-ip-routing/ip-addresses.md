@@ -29,7 +29,7 @@ nav_feature: true
 (section-operator-04-ip-routing-ip-addresses-4)=
 ### 拓扑
 
-![本机三层接口 → IPv4 或 IPv6 网段 → 同网段对端](ip-addresses/cases.svg)
+![R1、R2 的设备互联](ip-addresses/cases.svg)
 
 (case-conditions-04-ip-routing-ip-addresses)=
 ### 配置条件

@@ -7,7 +7,7 @@ nav_title: Level-2 双栈邻接与路由
 
 ## 拓扑
 
-![R1 IS-IS → 启用 IS-IS 的互联口 → R2 IS-IS](example-2.svg)
+![R1、R2 的设备互联](example-2.svg)
 
 ## 配置条件
 

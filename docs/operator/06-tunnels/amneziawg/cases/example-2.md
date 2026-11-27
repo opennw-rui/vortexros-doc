@@ -7,7 +7,7 @@ nav_title: 主动连接端与漫游应答端
 
 ## 拓扑
 
-![R1 Tunnel20 → 外层 UDP 路径 → R2 Tunnel20](example-2.svg)
+![R1、R2 的设备互联](example-2.svg)
 
 ## 配置条件
 

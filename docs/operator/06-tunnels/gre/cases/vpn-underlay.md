@@ -7,7 +7,7 @@ nav_title: 使用 VPN 实例作为底层
 
 ## 拓扑
 
-![R1 Ethernet0，192.0.2.1，Tunnel1 10.0.12.1 → R2 Ethernet0，192.0.2.2，Tunnel1 10.0.12.2](vpn-underlay.svg)
+![R1、R2 的设备互联](vpn-underlay.svg)
 
 ## 配置条件
 

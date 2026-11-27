@@ -7,7 +7,7 @@ nav_title: 管理 VPN 内的 SNMPv3 轮询
 
 ## 拓扑
 
-![管理站 → 默认表或管理 VPN → VortexROS UDP 161](example-2.svg)
+![管理站、R1 的设备互联](example-2.svg)
 
 ## 配置条件
 

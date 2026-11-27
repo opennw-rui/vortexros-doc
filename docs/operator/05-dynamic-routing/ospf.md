@@ -85,6 +85,8 @@ commit
 
 <span id="observed"></span>
 
+实测节选中的物理接口按文档端口编号记为 EthernetX。其他表项保留原始验证值。
+
 (recorded-result-05-dynamic-routing-ospf)=
 ### 运行查询实测节选
 
@@ -97,8 +99,8 @@ OSPF Process 1 with Router ID 2.2.2.2
  ---------------------------------------------------------------------------------------------
  Area Id    Pri   Up Time        Dead Time       Interface         Neighbor id      State
 
- 0.0.0.0    110   5.748s         9.239s          host-p2e12        1.1.1.1          Full
- 0.0.0.0    110   2.830s         10.855s         host-p2e23        3.3.3.3          Full
+ 0.0.0.0    110   5.748s         9.239s          Ethernet0         1.1.1.1          Full
+ 0.0.0.0    110   2.830s         10.855s         Ethernet1         3.3.3.3          Full
  ---------------------------------------------------------------------------------------------
  Total Peer(s):     2
 ```

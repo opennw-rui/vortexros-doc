@@ -7,7 +7,7 @@ nav_title: VPN与IPv6地址族
 
 ## 拓扑
 
-![R1 BGP → 邻居可达路径 → R2 BGP](example-3.svg)
+![R1、R2 的设备互联](example-3.svg)
 
 ## 配置条件
 

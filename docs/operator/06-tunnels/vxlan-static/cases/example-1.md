@@ -7,7 +7,7 @@ nav_title: 为已有桥域添加一个静态对端
 
 ## 拓扑
 
-![左端终端 → R1 VTEP → R2 VTEP → 右端终端](example-1.svg)
+![终端通过两台路由器上的静态 VTEP 互通](example-1.svg)
 
 ## 配置条件
 

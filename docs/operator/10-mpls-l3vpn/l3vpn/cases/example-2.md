@@ -7,7 +7,7 @@ nav_title: IPv4 核心同时承载 VPNv4 和 VPNv6
 
 ## 拓扑
 
-![CE1 → PE1 VPN BLUE → IPv4 MPLS 核心 → PE2 与 CE2](example-2.svg)
+![CE1、PE1、PE2、CE2 的设备互联](example-2.svg)
 
 ## 配置条件
 

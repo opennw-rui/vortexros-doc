@@ -7,7 +7,7 @@ nav_title: 在指定 VPN 启用双栈 IS-IS
 
 ## 拓扑
 
-![R1 IS-IS → 启用 IS-IS 的互联口 → R2 IS-IS](example-1.svg)
+![R1、R2 的设备互联](example-1.svg)
 
 ## 配置条件
 

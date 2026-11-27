@@ -7,7 +7,7 @@ nav_title: 配置本机 DNS 服务器
 
 ## 拓扑
 
-![VortexROS → 默认路由表 → DNS 服务](example-1.svg)
+![R1、DNS 服务器 的设备互联](example-1.svg)
 
 ## 配置条件
 

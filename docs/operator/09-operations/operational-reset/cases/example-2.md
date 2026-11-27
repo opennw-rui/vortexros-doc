@@ -7,7 +7,7 @@ nav_title: 恢复 VPP 与核对接口状态
 
 ## 操作流程
 
-![独立 Console → 清理计数或重启服务 → 对端验证](example-2.svg)
+![R1、R2 的设备互联](example-2.svg)
 
 ## 配置条件
 

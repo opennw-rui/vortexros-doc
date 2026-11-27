@@ -51,6 +51,8 @@ display arp interface Vlanif 100
 
 <span id="observed"></span>
 
+实测节选中的物理接口按文档端口编号记为 EthernetX。其他表项保留原始验证值。
+
 (recorded-result-03-interfaces-l2-arp)=
 ### 三层邻居和桥域条目的实测回显
 
@@ -63,7 +65,7 @@ AGE: Time since last update VLAN: VLAN or Bridge Domain
 
 IP ADDRESS      MAC ADDRESS    AGE(M)   TYPE/VLAN    INTERFACE        VPN-INSTANCE
 ----------------------------------------------------------------------------------------
-10.201.12.2     0200-0002-1202          D/-          host-p1e12       default
+10.201.12.2     0200-0002-1202          D/-          Ethernet0        default
 ----------------------------------------------------------------------------------------
 Total:1         Dynamic:1        Static:0     Interface:0
 Redirect:0

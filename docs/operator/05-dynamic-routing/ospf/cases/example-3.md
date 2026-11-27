@@ -7,7 +7,7 @@ nav_title: Stub、NSSA与区域汇总
 
 ## 拓扑
 
-![R1 OSPF → 共同区域内的链路 → R2 OSPF](example-3.svg)
+![R1、R2、R3 的设备互联](example-3.svg)
 
 ## 配置条件
 

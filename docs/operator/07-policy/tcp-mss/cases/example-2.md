@@ -7,7 +7,7 @@ nav_title: 两端 GRE 上的双向 MSS 调整
 
 ## 拓扑
 
-![TCP 客户端 → 启用 MSS 调整的三层口 → TCP 对端](example-2.svg)
+![客户端、R1、R2、TCP 服务器 的设备互联](example-2.svg)
 
 ## 配置条件
 

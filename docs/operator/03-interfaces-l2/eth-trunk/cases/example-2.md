@@ -7,7 +7,7 @@ nav_title: 两台设备双链路 LACP
 
 ## 拓扑
 
-![R1 Eth-Trunk10 → 两根成员链路 → R2 Eth-Trunk10](example-2.svg)
+![R1 和 R2 的 Ethernet1、Ethernet2 分别直连，加入两端 Eth-Trunk10](example-2.svg)
 
 ## 配置条件
 

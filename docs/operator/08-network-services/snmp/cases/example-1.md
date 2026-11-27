@@ -7,7 +7,7 @@ nav_title: 用 SNMPv2c 核对监听
 
 ## 拓扑
 
-![管理站 → 默认表或管理 VPN → VortexROS UDP 161](example-1.svg)
+![管理站、R1 的设备互联](example-1.svg)
 
 ## 配置条件
 

@@ -7,7 +7,7 @@ nav_title: 向下游发布 IPv6 前缀
 
 ## 拓扑
 
-![VortexROS，Ethernet2 → 2001:db8:20::/64 → 下游 IPv6 主机](example-2.svg)
+![R1 从 Ethernet2 向直连终端发布 IPv6 前缀](example-2.svg)
 
 ## 配置条件
 

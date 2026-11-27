@@ -7,7 +7,7 @@ nav_title: 在不同 VPN 使用相同时间源地址
 
 ## 拓扑
 
-![VortexROS → 默认表或管理 VPN → 时间服务器](example-2.svg)
+![默认表时间服务器、R1、管理网时间服务器 的设备互联](example-2.svg)
 
 ## 配置条件
 

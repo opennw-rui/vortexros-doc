@@ -1,10 +1,9 @@
-# MPLS 与 L3VPN
+# MPLS
 
-先建立 MPLS 核心的标签转发路径，再配置租户 VPN 或跨 IPv4 核心的 IPv6 标签业务。
+当前的标签转发、LDP、VPNv4、6VPE 和 6PE 配置都从 L3VPN 专题进入。
 
 ```{toctree}
 :maxdepth: 1
 
-/operator/topics/mpls-core
 /operator/topics/mpls-services
 ```

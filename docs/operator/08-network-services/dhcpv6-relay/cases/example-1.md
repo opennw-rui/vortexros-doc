@@ -7,7 +7,7 @@ nav_title: 指定 DHCPv6 中继地址
 
 ## 拓扑
 
-![IPv6 客户端 → 三层 DHCPv6 中继 → DHCPv6 服务器](example-1.svg)
+![DHCPv6 客户端、R1、DHCPv6 服务器 的设备互联](example-1.svg)
 
 ## 配置条件
 

@@ -7,7 +7,7 @@ nav_title: 使用一台 VortexROS 作为租约客户端
 
 ## 拓扑
 
-![DHCPv4 客户端 → Ethernet0 直连 → 服务器 192.0.2.1，OFFICE 地址池](example-2.svg)
+![客户端、服务器 的设备互联](example-2.svg)
 
 ## 配置条件
 

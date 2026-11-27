@@ -7,7 +7,7 @@ nav_title: IPv4 业务经 IPv6 底层
 
 ## 拓扑
 
-![R1 Ethernet0，2001:db8:12::1，Tunnel2 → R2 Ethernet0，2001:db8:12::2，Tunnel2](ipv4-over-ipv6.svg)
+![R1、R2 的设备互联](ipv4-over-ipv6.svg)
 
 ## 配置条件
 

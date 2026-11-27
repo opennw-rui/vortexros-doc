@@ -7,7 +7,7 @@ nav_title: 两端的 802.1Q 三层子接口
 
 ## 拓扑
 
-![R1 Ethernet1 → 带标签的以太网链路 → R2 Ethernet1](example-2.svg)
+![R1、R2 的设备互联](example-2.svg)
 
 ## 配置条件
 

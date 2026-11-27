@@ -29,7 +29,7 @@ All-Active 允许多个 PE 承载同一 Ethernet Segment。DF 和不同路径的
 (section-operator-06-tunnels-evpn-multihoming-4)=
 ### 拓扑
 
-![CE1 双活聚合 → PE1 与 PE2 → PE3 → CE2](evpn-multihoming/cases.svg)
+![CE1 双归 PE1 和 PE2，CE2 单归 PE3，三台 PE 通过底层交换机互联](evpn-multihoming/cases.svg)
 
 (case-conditions-06-tunnels-evpn-multihoming)=
 ### 配置条件

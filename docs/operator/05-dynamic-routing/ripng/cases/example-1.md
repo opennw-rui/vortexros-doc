@@ -7,7 +7,7 @@ nav_title: 配置 VPN 实例的 RIPng
 
 ## 拓扑
 
-![R1 RIPng → IPv6 互联链路 → R2 RIPng](example-1.svg)
+![R1、R2 的设备互联](example-1.svg)
 
 ## 配置条件
 

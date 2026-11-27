@@ -1,17 +1,15 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 802 170" role="img" aria-labelledby="label">
-<title id="label">业务终端 → 桥域 BD 11 → Vbdif11 网关。本地接入，三层终结</title>
-<defs><marker id="arrow" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto"><path d="M 0 0 L 7 3.5 L 0 7 Z" fill="#476781"/></marker></defs>
-<rect x="1" y="1" width="800" height="168" rx="10" fill="#fcfdff" stroke="#cedbe7"/>
-<g font-family="Arial, Microsoft YaHei, PingFang SC, sans-serif" text-anchor="middle" dominant-baseline="middle">
-<rect x="18" y="42" width="188" height="86" rx="9" fill="#e9f3fc" stroke="#457aa5"/>
-<text x="112" y="85" font-size="16" fill="#19374f">业务终端</text>
-<rect x="307" y="42" width="188" height="86" rx="9" fill="#e9f3fc" stroke="#457aa5"/>
-<text x="401" y="85" font-size="16" fill="#19374f">桥域 BD 11</text>
-<rect x="596" y="42" width="188" height="86" rx="9" fill="#e9f3fc" stroke="#457aa5"/>
-<text x="690" y="85" font-size="16" fill="#19374f">Vbdif11 网关</text>
-<path d="M 206 86 L 307 86" stroke="#476781" stroke-width="1.8" marker-end="url(#arrow)" fill="none"/>
-<text x="256.5" y="24" font-size="14" fill="#37536c">本地接入</text>
-<path d="M 495 86 L 596 86" stroke="#476781" stroke-width="1.8" marker-end="url(#arrow)" fill="none"/>
-<text x="545.5" y="24" font-size="14" fill="#37536c">三层终结</text>
-</g>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 840 185" role="img" aria-labelledby="label">
+<title id="label">终端通过 R1 的桥域 11 接入 Vbdif11 网关</title>
+<style>text{font:14px Arial,'Microsoft YaHei','PingFang SC',sans-serif;fill:#183148}.name{font-size:17px;font-weight:700}.port{font:13px Consolas,monospace;fill:#15517f}.note{font-size:13px;fill:#415971}.device{fill:#e9f4fd;stroke:#28628e;stroke-width:2}.symbol{fill:none;stroke:#28628e;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}.wire{fill:none;stroke:#476781;stroke-width:2}.logical{stroke:#30768f;stroke-dasharray:7 5}</style>
+<rect x="1" y="1" width="838" height="183" rx="12" fill="#fcfdff" stroke="#cedbe7"/>
+<path class="wire" d="M147 76 L693 76"/>
+<text x="420" y="67" text-anchor="middle" class="note">BD 11</text>
+<text x="685" y="95" text-anchor="end" class="port">Ethernet1</text>
+<g transform="translate(120 76)"><rect class="device" x="-27" y="-19" width="54" height="33" rx="4"/><path class="symbol" d="M0 14v7m-14 0h28M-20 7h40"/></g>
+<text x="120" y="117" text-anchor="middle" class="name">终端 A</text>
+<text x="120" y="137" text-anchor="middle" class="note">10.11.0.2/24</text>
+<g transform="translate(720 76)"><ellipse class="device" cx="0" cy="0" rx="32" ry="21"/><path class="symbol" d="M-17 -8h12m-12 0 4-4m-4 4 4 4M17 -8H5m12 0-4-4m4 4-4 4M-5 9h-12m12 0-4-4m4 4-4 4M5 9h12m-12 0 4-4m-4 4 4 4"/></g>
+<text x="720" y="117" text-anchor="middle" class="name">R1</text>
+<text x="720" y="137" text-anchor="middle" class="note">Vbdif11</text>
+<text x="720" y="154" text-anchor="middle" class="note">10.11.0.1/24</text>
 </svg>

@@ -50,6 +50,8 @@ display ipv6 routing-table vpn-instance BLUE
 
 <span id="observed"></span>
 
+实测节选中的物理接口按文档端口编号记为 EthernetX。其他表项保留原始验证值。
+
 (recorded-result-05-dynamic-routing-ripng)=
 ### 运行查询实测节选
 
@@ -59,8 +61,8 @@ display ipv6 routing-table vpn-instance BLUE
 <VortexROS> display ripng 11 route
 RIPng Process 11 Routing Table
 Destination/Mask                            Cost  NextHop                                  Interface/Source       Tag  TimeLeft
-2001:db8:ffff::1/128                        2     fe80::ff:fe01:1201                       host-p2e12             0    00:22
-2001:db8:ffff::3/128                        2     fe80::ff:fe03:2303                       host-p2e23             0    00:19
+2001:db8:ffff::1/128                        2     fe80::ff:fe01:1201                       Ethernet0              0    00:22
+2001:db8:ffff::3/128                        2     fe80::ff:fe03:2303                       Ethernet1              0    00:19
 Total Routes: 2
 ```
 

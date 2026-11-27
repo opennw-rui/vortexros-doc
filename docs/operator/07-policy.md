@@ -1,12 +1,9 @@
-# 访问控制、QoS 与 NAT
+---
+orphan: true
+---
 
-按目标选择报文过滤、流量控制、地址转换或 TCP MSS 调整。
+# 流量功能索引
 
-```{toctree}
-:maxdepth: 1
-
-/operator/topics/traffic-access
-/operator/topics/traffic-qos
-/operator/07-policy/nat
-/operator/07-policy/tcp-mss
-```
+- [访问控制列表](topics/traffic-access.md)
+- [QoS](topics/traffic-qos.md)
+- [NAT](nat.md)

@@ -29,7 +29,7 @@ ACL 规则按顺序匹配。绑定至接口方向或给其它策略引用后才�
 (section-operator-07-policy-acl-4)=
 ### 拓扑
 
-![来源终端 → 绑定 ACL 的设备接口 → 目标终端](acl/cases.svg)
+![源终端、R1、目的终端 的设备互联](acl/cases.svg)
 
 (case-conditions-07-policy-acl)=
 ### 配置条件

@@ -1,20 +1,17 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 802 170" role="img" aria-labelledby="label">
-<title id="label">DHCPv6 客户端 / 2001:db8:20::2 → Ethernet0 直连 / 2001:db8:20::/64 → 服务器 / 2001:db8:20::1。请求 IA_PD，委派 /64</title>
-<defs><marker id="arrow" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto"><path d="M 0 0 L 7 3.5 L 0 7 Z" fill="#476781"/></marker></defs>
-<rect x="1" y="1" width="800" height="168" rx="10" fill="#fcfdff" stroke="#cedbe7"/>
-<g font-family="Arial, Microsoft YaHei, PingFang SC, sans-serif" text-anchor="middle" dominant-baseline="middle">
-<rect x="18" y="42" width="188" height="86" rx="9" fill="#e9f3fc" stroke="#457aa5"/>
-<text x="112" y="74.5" font-size="16" fill="#19374f">DHCPv6 客户端</text>
-<text x="112" y="95.5" font-size="16" fill="#19374f">2001:db8:20::2</text>
-<rect x="307" y="42" width="188" height="86" rx="9" fill="#e9f3fc" stroke="#457aa5"/>
-<text x="401" y="74.5" font-size="16" fill="#19374f">Ethernet0 直连</text>
-<text x="401" y="95.5" font-size="16" fill="#19374f">2001:db8:20::/64</text>
-<rect x="596" y="42" width="188" height="86" rx="9" fill="#e9f3fc" stroke="#457aa5"/>
-<text x="690" y="74.5" font-size="16" fill="#19374f">服务器</text>
-<text x="690" y="95.5" font-size="16" fill="#19374f">2001:db8:20::1</text>
-<path d="M 206 86 L 307 86" stroke="#476781" stroke-width="1.8" marker-end="url(#arrow)" fill="none"/>
-<text x="256.5" y="24" font-size="14" fill="#37536c">请求 IA_PD</text>
-<path d="M 495 86 L 596 86" stroke="#476781" stroke-width="1.8" marker-end="url(#arrow)" fill="none"/>
-<text x="545.5" y="24" font-size="14" fill="#37536c">委派 /64</text>
-</g>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 840 185" role="img" aria-labelledby="label">
+<title id="label">客户端、服务器 的设备互联</title>
+<style>text{font:14px Arial,'Microsoft YaHei','PingFang SC',sans-serif;fill:#183148}.name{font-size:17px;font-weight:700}.port{font:13px Consolas,monospace;fill:#15517f}.note{font-size:13px;fill:#415971}.device{fill:#e9f4fd;stroke:#28628e;stroke-width:2}.symbol{fill:none;stroke:#28628e;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}.wire{fill:none;stroke:#476781;stroke-width:2}.logical{stroke:#30768f;stroke-dasharray:7 5}</style>
+<rect x="1" y="1" width="838" height="183" rx="12" fill="#fcfdff" stroke="#cedbe7"/>
+<path class="wire" d="M147 76 L693 76"/>
+<text x="420" y="67" text-anchor="middle" class="note">2001:db8:20::/64</text>
+<text x="155" y="95" text-anchor="start" class="port">Ethernet0</text>
+<text x="685" y="95" text-anchor="end" class="port">Ethernet0</text>
+<g transform="translate(120 76)"><ellipse class="device" cx="0" cy="0" rx="32" ry="21"/><path class="symbol" d="M-17 -8h12m-12 0 4-4m-4 4 4 4M17 -8H5m12 0-4-4m4 4-4 4M-5 9h-12m12 0-4-4m4 4-4 4M5 9h12m-12 0 4-4m-4 4 4 4"/></g>
+<text x="120" y="117" text-anchor="middle" class="name">客户端</text>
+<text x="120" y="137" text-anchor="middle" class="note">2001:db8:20::2/64</text>
+<text x="120" y="154" text-anchor="middle" class="note">请求委派 /64</text>
+<g transform="translate(720 76)"><ellipse class="device" cx="0" cy="0" rx="32" ry="21"/><path class="symbol" d="M-17 -8h12m-12 0 4-4m-4 4 4 4M17 -8H5m12 0-4-4m4 4-4 4M-5 9h-12m12 0-4-4m4 4-4 4M5 9h12m-12 0 4-4m-4 4 4 4"/></g>
+<text x="720" y="117" text-anchor="middle" class="name">服务器</text>
+<text x="720" y="137" text-anchor="middle" class="note">2001:db8:20::1/64</text>
+<text x="720" y="154" text-anchor="middle" class="note">委派池 2001:db8:100::/56</text>
 </svg>

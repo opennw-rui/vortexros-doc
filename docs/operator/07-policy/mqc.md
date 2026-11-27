@@ -52,6 +52,8 @@ display traffic policy user-defined WEB-POLICY
 
 <span id="observed"></span>
 
+实测节选中的物理接口按文档端口编号记为 EthernetX。其他表项保留原始验证值。
+
 (recorded-result-07-policy-mqc)=
 ### 运行查询实测节选
 
@@ -67,7 +69,7 @@ User Defined Traffic Policy Information:
       Classifier: P123-PBR Precedence: 10
         Behavior: P123-PBR
         Redirecting:
-          redirect ip-nexthop 10.201.12.2 interface host-p1e12
+          redirect ip-nexthop 10.201.12.2 interface Ethernet0
 
       Classifier: default-class Precedence: 65535
         Behavior: be

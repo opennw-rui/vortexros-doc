@@ -7,7 +7,7 @@ nav_title: 配置网络与更新计时
 
 ## 拓扑
 
-![R1 RIPv2 → IPv4 互联链路 → R2 RIPv2](example-1.svg)
+![R1、R2 的设备互联](example-1.svg)
 
 ## 配置条件
 

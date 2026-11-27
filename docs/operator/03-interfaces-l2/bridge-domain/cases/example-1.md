@@ -7,7 +7,7 @@ nav_title: 将 VLAN 和 VXLAN 加入普通 BD
 
 ## 拓扑
 
-![本地接入口 → Bridge Domain → 远端 VTEP](example-1.svg)
+![普通桥域以 VLAN 接入并跨 VXLAN 延伸](example-1.svg)
 
 ## 配置条件
 

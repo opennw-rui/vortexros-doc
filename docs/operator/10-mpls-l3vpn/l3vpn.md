@@ -54,6 +54,8 @@ display mpls forwarding-table
 
 <span id="observed"></span>
 
+实测节选中的物理接口按文档端口编号记为 EthernetX。其他表项保留原始验证值。
+
 (recorded-result-10-mpls-l3vpn-l3vpn)=
 ### VPNv4 和 6VPE 的实测结果
 
@@ -69,7 +71,7 @@ display mpls forwarding-table
 Destination  : 2001:db8:4::             PrefixLength : 64
 NextHop      : ::ffff:4.4.4.4            Preference   : 254
 Protocol     : BGP                       Flags        : DT
-Interface    : host-p1p2                 VPN-Instance : default
+Interface    : Ethernet0                 VPN-Instance : default
 ```
 
 <span id="precautions"></span>

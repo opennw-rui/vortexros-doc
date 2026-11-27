@@ -7,7 +7,7 @@ nav_title: 三节点中继和服务端回程
 
 ## 拓扑
 
-![DHCPv4 客户端 → VortexROS 中继，Eth1 192.0.2.1，Eth0 198.51.100.2 → DHCP 服务器，198.51.100.10](example-2.svg)
+![客户端、中继、服务器 的设备互联](example-2.svg)
 
 ## 配置条件
 

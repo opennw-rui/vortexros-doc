@@ -7,7 +7,7 @@ nav_title: 配置代理 ARP 地址范围
 
 ## 拓扑
 
-![同链路终端 → Vlanif 或 Vbdif → 同网段或代理目标](example-1.svg)
+![终端接入 R1 的 VLAN 100，R1 为指定地址应答代理 ARP](example-1.svg)
 
 ## 配置条件
 
