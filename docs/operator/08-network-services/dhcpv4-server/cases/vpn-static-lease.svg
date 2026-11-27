@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 180" role="img" aria-labelledby="title">
+  <title id="title">P2 和 P3 分别通过 Ethernet2 接入同一租约链路</title>
+  <style>text{font:15px Arial,'Microsoft YaHei',sans-serif;fill:#183148;text-anchor:middle}.node{fill:#e9f4fd;stroke:#28628e;stroke-width:2}.port{font:13px Consolas,monospace;fill:#15517f}</style>
+  <rect x="1" y="1" width="698" height="178" rx="12" fill="#fcfdff" stroke="#cedbe7"/>
+  <path d="M244 87H456" stroke="#476781" stroke-width="2"/>
+  <rect class="node" x="45" y="53" width="199" height="68" rx="8"/>
+  <rect class="node" x="456" y="53" width="199" height="68" rx="8"/>
+  <text x="144" y="80">P2 · DHCP 服务器</text><text x="144" y="103">10.253.10.1/24</text>
+  <text x="555" y="80">P3 · DHCP 客户端</text><text x="555" y="103">10.253.10.105/24</text>
+  <text class="port" x="286" y="74">Ethernet2</text><text class="port" x="414" y="74">Ethernet2</text>
+  <text x="350" y="112">VPN 实例 ALL</text>
+</svg>

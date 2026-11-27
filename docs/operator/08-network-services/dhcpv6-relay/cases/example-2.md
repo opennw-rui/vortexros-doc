@@ -78,3 +78,21 @@ display dhcpv6 client interface Ethernet0
 ```
 
 分别查询中继、服务端和客户端。正常时在各自设备看到运行中继、IA_NA 和分配的同一地址。
+
+### 双栈三节点实测
+
+另一组实测用同样的服务器—中继—客户端接线，并在两个网段独立验证 IPv4 与 IPv6。P1 提供服务，P2 的服务器侧口使用 `10.252.10.0/24`、`2001:db8:252:10::/64`。P2 的客户端侧口使用 `10.252.23.0/24`、`2001:db8:252:23::/64`。先从 P2 测直连租约，撤销直连客户端后，再让 P2 对接入 P3 的三层口启用中继。
+
+| 检查位置 | IPv4 租约 | IPv6 租约 |
+| --- | --- | --- |
+| P2 直连客户端 | `10.252.10.21/24` | `2001:db8:252:10::3/128` |
+| P3 中继客户端 | `10.252.23.21/24` | `2001:db8:252:23::3/128` |
+
+P3 实测 `display dhcpv6 client interface Ethernet0` 节选，端口名按案例整理。
+
+```text
+Interface  Address-Family  Role    Pool/Servers  VPN-Instance  State    Address                 Delegated-Prefix
+Ethernet0  IPv6            client                default       running  2001:db8:252:23::3/128  -
+```
+
+续租后租约保持有效，撤销中继后接入侧的中继状态消失。

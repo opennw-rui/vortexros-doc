@@ -86,6 +86,15 @@ Vlanif200 的双栈单播验收覆盖初次选举、故障切换和恢复，稳�
 07:46:49.107364 IP6 fe80::537e:a562:429d:ee73 > ff02::12: VRRPv3, Advertisement, vrid 10, prio 120, intvl 100cs, length 40
 ```
 
+三节点同 VLAN 的非单播场景也分别查了 IPv4 VRID 10 和 IPv6 VRID 11。主机故障后，备用设备的两族状态分别转为 `Master`。以下是主机状态下各族的行节选。
+
+```text
+10    Master  Vlanif200  Normal  198.51.100.254
+11    Master  Vlanif200  Normal  fe80::fe,2001:db8:200::fe
+```
+
+必须从处于同一 VLAN 的第三台设备实际探测虚拟地址，再对照选举状态。
+
 (section-operator-05-dynamic-routing-vrrp-5)=
 ### 双栈单播对端实测回显
 

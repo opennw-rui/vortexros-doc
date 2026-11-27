@@ -36,6 +36,7 @@ nav_feature: true
 
 dhcpv4-server/cases/example-1
 dhcpv4-server/cases/example-2
+dhcpv4-server/cases/vpn-static-lease
 ```
 
 (case-verification-08-network-services-dhcpv4-server)=

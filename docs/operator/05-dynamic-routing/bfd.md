@@ -83,6 +83,17 @@ dynamic  fe80::ff:fe02:1202  259268339  148741797  default  Ethernet0   Single-h
 Total session(s): 1
 ```
 
+### 三节点链路与 VRRP 对照
+
+在同一组 P1–P2–P3 接线上，P2 的 IPv4 邻居是 `10.201.12.1` 和 `10.201.23.3`。两条链路分别建立 BFD；同组另配置 VLAN 200 的双栈 VRRP。改变链路或成员状态时，分别检查路由邻居与虚拟网关角色。以下为 P2 会话的实测字段节选。
+
+```text
+10.201.12.1      Up          3000        1000    1000    3
+10.201.23.3      Up          1200        400     400     3
+```
+
+实测的 Vlanif200 网关在故障和恢复后重新完成主备选举。网关状态与业务转发的检查见 [VRRP](vrrp.md)。
+
 <span id="precautions"></span>
 
 (section-operator-05-dynamic-routing-bfd-5)=

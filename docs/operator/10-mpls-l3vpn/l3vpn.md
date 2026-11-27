@@ -37,6 +37,7 @@ MP-BGP 通告 VPN 前缀、Route Target 及业务标签，核心转发表用传�
 l3vpn/cases/example-1
 l3vpn/cases/example-2
 l3vpn/cases/example-3
+l3vpn/cases/ipv4-core-ring
 ```
 
 (case-verification-10-mpls-l3vpn-l3vpn)=

@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 940 275" role="img" aria-labelledby="title">
+  <title id="title">P1 和 P3 承载两个高位 BD，P2 另接 BD 65536 的组播接收端</title>
+  <style>text{font:15px Arial,'Microsoft YaHei',sans-serif;fill:#183148;text-anchor:middle}.node{fill:#e9f4fd;stroke:#28628e;stroke-width:2}.port{font:12px Consolas,monospace;fill:#15517f}.wire{fill:none;stroke:#476781;stroke-width:2}.overlay{fill:none;stroke:#30768f;stroke-dasharray:7 5;stroke-width:2}</style>
+  <rect x="1" y="1" width="938" height="273" rx="12" fill="#fcfdff" stroke="#cedbe7"/>
+  <path class="wire" d="M145 117H245 M145 143H245 M325 130H430 M510 130H615 M695 117H795 M695 143H795 M470 153V213"/>
+  <path class="overlay" d="M285 102V59H655V102 M470 59V102"/>
+  <rect class="node" x="35" y="100" width="110" height="60" rx="7"/>
+  <rect class="node" x="245" y="102" width="80" height="52" rx="7"/>
+  <rect class="node" x="430" y="102" width="80" height="52" rx="7"/>
+  <rect class="node" x="615" y="102" width="80" height="52" rx="7"/>
+  <rect class="node" x="795" y="100" width="110" height="60" rx="7"/>
+  <rect class="node" x="399" y="213" width="142" height="41" rx="7"/>
+  <text x="90" y="126">左侧终端</text><text x="90" y="145">两个业务域</text>
+  <text x="285" y="134">P1</text><text x="470" y="134">P2</text><text x="655" y="134">P3</text>
+  <text x="850" y="126">右侧终端</text><text x="850" y="145">两个业务域</text>
+  <text x="470" y="238">组播接收端</text>
+  <text class="port" x="195" y="110">Ethernet7</text><text class="port" x="195" y="160">Ethernet8</text>
+  <text class="port" x="745" y="110">Ethernet7</text><text class="port" x="745" y="160">Ethernet8</text>
+  <text class="port" x="377" y="117">Ethernet0</text><text class="port" x="377" y="150">Ethernet0</text>
+  <text class="port" x="562" y="117">Ethernet1</text><text class="port" x="562" y="150">Ethernet0</text>
+  <text class="port" x="515" y="181">Ethernet7</text>
+  <text x="470" y="44">VNI 65010 延伸至 P1、P2、P3 · VNI 65020 仅连接 P1 和 P3</text>
+</svg>

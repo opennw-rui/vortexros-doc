@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 980 250" role="img" aria-labelledby="title">
+  <title id="title">CE1 经 P1、P2、P3、P4 到 CE2，P1 与 P4 另接备用物理链路</title>
+  <style>
+    text{font:14px Arial,'Microsoft YaHei',sans-serif;fill:#183148;text-anchor:middle}
+    .node{fill:#e9f4fd;stroke:#28628e;stroke-width:2}
+    .wire{fill:none;stroke:#476781;stroke-width:2}
+    .port{font:12px Consolas,monospace;fill:#15517f}
+  </style>
+  <rect x="1" y="1" width="978" height="248" rx="12" fill="#fcfdff" stroke="#cedbe7"/>
+  <path class="wire" d="M110 121H205 M270 121H365 M430 121H525 M590 121H685 M750 121H845 M237 147V208H717V147"/>
+  <rect class="node" x="45" y="95" width="65" height="52" rx="7"/>
+  <rect class="node" x="205" y="95" width="65" height="52" rx="7"/>
+  <rect class="node" x="365" y="95" width="65" height="52" rx="7"/>
+  <rect class="node" x="525" y="95" width="65" height="52" rx="7"/>
+  <rect class="node" x="685" y="95" width="65" height="52" rx="7"/>
+  <rect class="node" x="845" y="95" width="65" height="52" rx="7"/>
+  <text x="77" y="127">CE1</text><text x="237" y="127">P1 / PE1</text>
+  <text x="397" y="127">P2</text><text x="557" y="127">P3</text>
+  <text x="717" y="127">P4 / PE2</text><text x="877" y="127">CE2</text>
+  <text class="port" x="157" y="103">Ethernet0</text><text class="port" x="157" y="142">Ethernet1</text>
+  <text class="port" x="317" y="103">Ethernet0</text><text class="port" x="317" y="142">Ethernet0</text>
+  <text class="port" x="477" y="103">Ethernet1</text><text class="port" x="477" y="142">Ethernet0</text>
+  <text class="port" x="637" y="103">Ethernet1</text><text class="port" x="637" y="142">Ethernet0</text>
+  <text class="port" x="797" y="103">Ethernet1</text><text class="port" x="797" y="142">Ethernet0</text>
+  <text class="port" x="284" y="183">Ethernet2</text><text class="port" x="670" y="183">Ethernet2</text>
+  <text x="477" y="231">备用链路 10.0.14.0/30</text>
+  <text x="477" y="51">IPv4 MPLS 主路径</text>
+</svg>

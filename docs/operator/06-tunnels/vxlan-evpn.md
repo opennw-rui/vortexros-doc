@@ -37,6 +37,7 @@ EVPN Type-3 让同一 VNI 的 VTEP 发现彼此。Type-2 通告客户 MAC，携�
 vxlan-evpn/cases/example-1
 vxlan-evpn/cases/example-2
 vxlan-evpn/cases/example-3
+vxlan-evpn/cases/two-bridge-domains
 ```
 
 (case-verification-06-tunnels-vxlan-evpn)=
@@ -114,6 +115,12 @@ Total items displayed = 2
 ```
 
 `VLAN/VSI/BD` 中的 `-/-/101` 表示业务桥域 101。对单归属站点，`Learned-From` 对本地动态 MAC 显示接入口，对 EVPN 学到的远端动态 MAC 显示远端 VTEP 地址。可在[双 VTEP 案例](vxlan-evpn/cases/example-2.md)对照同一个桥域中的两种表项。
+
+### 两个二层 VNI 的独立撤销
+
+站点 H1 接入 VTEP P1，站点 H3 接入 VTEP P3，P2 只转发底层 IPv4。两个接入口都承载 VLAN 101 和 VLAN 102。两端可按 [双 VTEP 的两个二层业务域](vxlan-evpn/cases/two-bridge-domains.md)配置桥域，分别核对 VLAN、VNI 和 RT。
+
+在 P1 的 `Nve1` 执行 `undo vni 5010 head-end peer-list protocol bgp` 并提交。实测第一组转为不可达，第二组仍然通过。恢复该 VNI 后，两组流量恢复。对 P1 执行数据面恢复后，两组各 3 次 IPv4 探测全部通过，`Vbdif101` 的 IPv4、IPv6 网关重新可达，远端双栈 Type-2 MAC/IP 路由重新出现。
 
 <span id="precautions"></span>
 

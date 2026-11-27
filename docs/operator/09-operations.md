@@ -8,4 +8,5 @@
 /operator/topics/observe-device
 /operator/09-operations/connectivity
 /operator/topics/device-recovery
+/operator/09-operations/network-scenarios
 ```

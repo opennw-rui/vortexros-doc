@@ -105,6 +105,8 @@ PE1 应在全局 IPv6 表中看到 2001:db8:2::1/128，BGP 下一跳对应 PE2 I
 
 在四节点 IPv4 MPLS 网络上通过 6PE 建立公网 IPv6 可达性。实包验证了 IPv6 转发及环网故障恢复。检查入口 PE 的 IPv6 路由及 MPLS 标签时，应同时核对输送路径和目标 IPv6 前缀。
 
+[四节点 IPv4 骨干上的 6PE 与 6VPE 切换](l3vpn/cases/ipv4-core-ring.md)给出了骨干口关闭 IPv6 时的接线、两类业务配置和双向切换结果。
+
 (query-result-10-mpls-l3vpn-6pe)=
 ### 命令回显实测节选
 

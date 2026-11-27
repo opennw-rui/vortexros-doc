@@ -92,6 +92,19 @@ Routing recovery          : ready
 Services recovery         : ready
 ```
 
+所有网卡选用 Linux 模式的空盘安装，首次启动实测如下。此时接口仍归 Linux，设备已就绪，VPP API 显示 `disconnected`。部署 DPDK 的设备应继续按实际设置检查接管状态。
+
+```text
+<VortexROS> display health
+Health state              : ready
+Running/Actual generation : 1/1
+Reconcile state           : in-sync
+VPP API state             : disconnected
+Interface dataplane owner : linux
+Takeover phase            : ready
+Active alarms             : 0
+```
+
 <span id="precautions"></span>
 
 (section-installation-06-first-start-7)=

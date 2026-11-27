@@ -87,6 +87,18 @@ VLAN 200 的二层成员口参与转发。在 VLAN 上配置入方向限速、�
 VLAN200 pure L2 shared qos-lr inbound 10M: 10820910 bps
 ```
 
+### 二层绕送与 Vlanif 路由的对照
+
+用三台设备分别作为发送端、施加策略的节点以及接收端。二层测试把两个转发成员加入 VLAN 200。路由测试在 `Vlanif200` 上分别应用入向接口限速和出向 MQC 策略，每次只启用一种。以下为配置速率 10 Mbps 时测得的线路速率。
+
+```text
+VLAN200 pure L2 shared qos-lr inbound 10M: 10641970 bps
+Vlanif200 L3 traffic-policy outbound 10M: 10818241 bps
+Vlanif200 L3 qos-lr inbound 10M: 10811061 bps
+```
+
+撤销策略并提交，重复同一方向的高于 10 Mbps 的发送，核对不再按该速率限流。恢复策略后确认同一限速再次生效。重启数据面后的操作和复查见 [恢复 VPP 与核对接口状态](../09-operations/operational-reset/cases/example-2.md)。
+
 <span id="precautions"></span>
 
 (section-operator-07-policy-interface-qos-7)=

@@ -56,6 +56,24 @@ display alarm active
 
 对三节点拓扑清理 Running 后数据面重启。继续加载已经保存的 CFG 并提交时，VPP 无须再次重启，BGP 进程仍保持原实例，启动文件也保留。最终检查到 Running 和 Actual 同步，并重新查询业务对象。
 
+实测中，P2 和 P3 的 `Vlanif200` 位于 VPN 实例 `ALL`。在 P3 加载保存的 CFG 并提交后，`display bgp vpnv4 vpn-instance ALL routing-table 172.31.255.2 32` 再次显示 P2 的 `172.31.255.2/32`。P3 在实例 `ALL` 对该地址的探测收到 3/3。
+
+```vortexros-cli
+display startup
+display bgp vpnv4 vpn-instance ALL routing-table 172.31.255.2 32
+display health
+ping -vpn-instance ALL -n -c 3 -t 1000 172.31.255.2
+```
+
+`display configuration storage` 回显节选如下。两项数值随设备配置变化，恢复完成时应一致。
+
+```text
+Running generation     : 22
+Actual generation      : 22
+```
+
+远程维护前请保留独立 Console，并确认保存文件中包含恢复管理连接所需的接口和路由。
+
 <span id="precautions"></span>
 
 (section-operator-09-operations-operational-reset-4)=
