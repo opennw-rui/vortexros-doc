@@ -17,7 +17,7 @@ nav_feature: true
 (section-operator-09-operations-operational-reset-2)=
 ## 工作原理
 
-可以清理选定的动态表项、计数，或重新启动受管服务。
+清除计数后可用同一组流量复测，观察计数是否重新递增。清理动态表项会触发重新学习，服务恢复操作则可能重建协议邻接或数据面接口。先用查询命令确认故障对象，再选择最小范围的清理或恢复操作。
 
 <span id="examples"></span>
 

@@ -47,7 +47,7 @@ display snmp-agent community
 display process udp listen
 ```
 
-检查 UDP 161 和绑定的接口，再从实际管理站发起只读轮询。使用管理 VPN 时，检查网管路径经过正确的 VPN。
+预期 UDP 161 监听在所配置的管理地址或接口。再从实际管理站发起只读查询，确认返回设备的 `sysName.0`。使用管理 VPN 时，从该 VPN 内的管理站验证请求和应答。配置通知时同时在接收端确认收到了对应事件。
 
 <span id="observed"></span>
 

@@ -588,7 +588,7 @@
 - 合法语法：
 
   ```text
-  license request export FILE
+  license request export [FILE]
   ```
 
 ### `local-user`

@@ -21,6 +21,8 @@ nav_feature: true
 
 切换系统镜像时保留原生 Docker 和 containerd 配置、容器、镜像和命名卷，适用于使用相同容器运行时版本和存储后端的系统镜像。
 
+默认使用共享持久区保存 `/var/lib/docker`、`/var/lib/containerd`、`/etc/docker` 和 `/etc/containerd`。应用数据宜使用命名卷。Compose 文件和宿主机绑定挂载目录需要放在另行选定的共享存储或数据盘上。
+
 <span id="examples"></span>
 
 (section-operator-11-applications-installed-apps-3)=
@@ -89,6 +91,8 @@ sudo docker compose logs --no-log-prefix example
 Docker 安装后默认停用。在需要自动启动 Docker 的系统镜像上执行 `sudo systemctl enable --now docker`。系统切换会重启设备，应用按各容器的重启策略恢复。
 
 共享数据目录保留本机最新写入。将 Compose 项目及绑定到容器的宿主目录放在共享持久区或独立数据盘。
+
+切换系统镜像后，可在 Compose 项目目录执行 `sudo docker compose ps`，确认容器已按预期启动，再从应用内读取切换前的持久数据。Docker 服务是否随启动开启按系统镜像分别设置。
 
 <p data-legacy-id="id2" class="manual-previous-section" data-section-moved><a href="#overview">介绍</a></p>
 <p data-legacy-id="id3" class="manual-previous-section" data-section-moved><a href="#case-conditions-11-applications-installed-apps">配置准备</a></p>

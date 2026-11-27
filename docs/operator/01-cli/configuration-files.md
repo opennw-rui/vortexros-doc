@@ -83,6 +83,8 @@ Selected startup CFG   : /vortexros/config/config.cfg
 
 在切换启动文件前检查文件名和内容。保存含密钥或本地用户校验值的配置时，按凭据材料管理。
 
+需要把启动配置与设备身份一并备份时，使用{ref}`加密设备备份 <encrypted-device-backup>`。
+
 <p data-legacy-id="id2" class="manual-previous-section" data-section-moved><a href="#overview">介绍</a></p>
 <p data-legacy-id="id3" class="manual-previous-section" data-section-moved><a href="#case-conditions-01-cli-configuration-files">配置准备</a></p>
 <p data-legacy-id="id4" class="manual-previous-section" data-section-moved><a href="#examples">配置案例</a></p>

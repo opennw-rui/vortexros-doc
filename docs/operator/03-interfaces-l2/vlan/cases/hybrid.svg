@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 840 160" role="img" aria-labelledby="label">
+<title id="label">SW1 两端使用不同 PVID 和出端标签方式</title>
+<style>text{font:14px Arial,'Microsoft YaHei',sans-serif;fill:#183148}.name{font-size:16px;font-weight:700}.port{font:13px Consolas,monospace;fill:#15517f}.note{font-size:13px;fill:#415971}.device{fill:#e9f4fd;stroke:#28628e;stroke-width:2}.symbol,.wire{fill:none;stroke:#476781;stroke-width:2;stroke-linejoin:round;stroke-linecap:round}</style>
+<rect x="1" y="1" width="838" height="158" rx="12" fill="#fcfdff" stroke="#cedbe7"/>
+<path class="wire" d="M130 64H390"/>
+<text class="note" x="260" y="54" text-anchor="middle">Hybrid · PVID 681</text>
+<text class="port" x="385" y="85" text-anchor="end">Ethernet0</text>
+<path class="wire" d="M450 64H710"/>
+<text class="note" x="580" y="54" text-anchor="middle">Hybrid · PVID 682</text>
+<text class="port" x="455" y="85">Ethernet1</text>
+<g transform="translate(100 64)">
+<rect class="device" x="-29" y="-17" width="58" height="34" rx="5"/>
+<path class="symbol" d="M-19 8h38M0 17v6m-11 0h22"/>
+</g>
+<text class="name" x="100" y="115" text-anchor="middle">终端 A</text>
+<text class="note" x="100" y="137" text-anchor="middle">收发带标签和无标签帧</text>
+<g transform="translate(420 64)">
+<rect class="device" x="-29" y="-17" width="58" height="34" rx="5"/>
+<path class="symbol" d="M-19 -6H16l-6-5m6 11H-16l6-5m-6 12h35l-6-5"/>
+</g>
+<text class="name" x="420" y="115" text-anchor="middle">SW1</text>
+<text class="note" x="420" y="137" text-anchor="middle">VortexROS</text>
+<g transform="translate(740 64)">
+<rect class="device" x="-29" y="-17" width="58" height="34" rx="5"/>
+<path class="symbol" d="M-19 8h38M0 17v6m-11 0h22"/>
+</g>
+<text class="name" x="740" y="115" text-anchor="middle">终端 B</text>
+<text class="note" x="740" y="137" text-anchor="middle">收发带标签和无标签帧</text>
+</svg>

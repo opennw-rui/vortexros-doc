@@ -39,7 +39,8 @@ nav_feature: true
 
 1. 重启设备并等待 GRUB 出现。保留系统盘，移除安装介质。
 2. 根据连接选择 `VortexROS recovery (local display)` 或 `VortexROS recovery (serial)`。
-3. 按 Console 提示核对镜像与配置。保留要继续使用的配置，确认后再返回正常启动。
+3. 按 Console 提示核对镜像与配置。需要保留当前日志或已选择的启动配置时，参见[脱敏支持包与加密备份](../operator/09-operations/backup-support.md)中的救援命令。
+4. 确认镜像与配置选项后返回正常启动。
 
 (case-verification-installation-system-recovery)=
 ### 验证方法

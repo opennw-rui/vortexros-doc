@@ -38,13 +38,15 @@ nav_feature: true
 ### 配置步骤
 
 ```vortexros-cli
-license request export /tmp/device-request.bin
+license request export
 ```
 
-取得该申请对应的授权文件后，将它放入设备并导入。
+命令会打印 `/vortexros/license/vortexros-<Node ID>.vreq` 的实际路径。Node ID 是设备的授权编号，可以通过 `display license` 核对。也可以指定 `license request export router01.vreq`，或填写有写入权限的绝对路径。省略文件后缀时会补齐 `.vreq`。重复导出时，使用一个新的文件名可保留之前的请求。
+
+取得该申请对应的 `.vlic` 授权文件后，将它放入设备并导入。
 
 ```vortexros-cli
-license import /tmp/device-license.bin
+license import router01.vlic
 ```
 
 (case-verification-02-system-services-licensing)=
@@ -57,6 +59,8 @@ display license
 ```
 
 核对设备当前的授权状态与有效期。申请和授权文件名以实际路径为准。
+
+显式指定无后缀的文件名 `manual-request` 时，实测导出路径以 `manual-request.vreq` 结尾。自动导出的文件名包含本机 `display license` 所示的完整 Node ID。再次执行自动导出会报告文件已存在。
 
 <span id="observed"></span>
 

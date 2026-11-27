@@ -5,9 +5,13 @@
 ```{toctree}
 :maxdepth: 1
 
-/operator/topics/interior-routing
-/operator/05-dynamic-routing/bgp
-/operator/05-dynamic-routing/route-policy
+05-dynamic-routing/ospf
+05-dynamic-routing/ospfv3
+05-dynamic-routing/isis
+05-dynamic-routing/rip
+05-dynamic-routing/ripng
+05-dynamic-routing/bgp
+05-dynamic-routing/route-policy
 ```
 
 快速检测链路或下一跳故障，参见[高可用与故障检测](high-availability.md)。

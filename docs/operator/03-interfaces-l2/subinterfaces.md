@@ -36,8 +36,9 @@ nav_feature: true
 
 subinterfaces/cases/example-1
 subinterfaces/cases/example-2
-subinterfaces/cases/example-3
 ```
+
+按双标签条件做二层桥接时，参见 [QinQ 二层接入](qinq.md)中的灵活 QinQ 案例。
 
 (case-verification-03-interfaces-l2-subinterfaces)=
 ### 通用验证

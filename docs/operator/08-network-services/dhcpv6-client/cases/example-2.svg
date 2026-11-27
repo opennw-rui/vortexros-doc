@@ -1,17 +1,23 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 840 185" role="img" aria-labelledby="label">
-<title id="label">客户端、服务器 的设备互联</title>
+<title id="label">DHCPv6 服务器、前缀委派客户端与下游主机</title>
 <style>text{font:14px Arial,'Microsoft YaHei','PingFang SC',sans-serif;fill:#183148}.name{font-size:17px;font-weight:700}.port{font:13px Consolas,monospace;fill:#15517f}.note{font-size:13px;fill:#415971}.device{fill:#e9f4fd;stroke:#28628e;stroke-width:2}.symbol{fill:none;stroke:#28628e;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}.wire{fill:none;stroke:#476781;stroke-width:2}.logical{stroke:#30768f;stroke-dasharray:7 5}</style>
 <rect x="1" y="1" width="838" height="183" rx="12" fill="#fcfdff" stroke="#cedbe7"/>
-<path class="wire" d="M147 76 L693 76"/>
-<text x="420" y="67" text-anchor="middle" class="note">2001:db8:20::/64</text>
-<text x="155" y="95" text-anchor="start" class="port">Ethernet0</text>
-<text x="685" y="95" text-anchor="end" class="port">Ethernet0</text>
-<g transform="translate(120 76)"><ellipse class="device" cx="0" cy="0" rx="32" ry="21"/><path class="symbol" d="M-17 -8h12m-12 0 4-4m-4 4 4 4M17 -8H5m12 0-4-4m4 4-4 4M-5 9h-12m12 0-4-4m4 4-4 4M5 9h12m-12 0 4-4m-4 4 4 4"/></g>
-<text x="120" y="117" text-anchor="middle" class="name">客户端</text>
-<text x="120" y="137" text-anchor="middle" class="note">2001:db8:20::2/64</text>
-<text x="120" y="154" text-anchor="middle" class="note">请求委派 /64</text>
-<g transform="translate(720 76)"><ellipse class="device" cx="0" cy="0" rx="32" ry="21"/><path class="symbol" d="M-17 -8h12m-12 0 4-4m-4 4 4 4M17 -8H5m12 0-4-4m4 4-4 4M-5 9h-12m12 0-4-4m4 4-4 4M5 9h12m-12 0 4-4m-4 4 4 4"/></g>
-<text x="720" y="117" text-anchor="middle" class="name">服务器</text>
-<text x="720" y="137" text-anchor="middle" class="note">2001:db8:20::1/64</text>
-<text x="720" y="154" text-anchor="middle" class="note">委派池 2001:db8:100::/56</text>
+<path class="wire" d="M142 76H388 M452 76H700"/>
+<text x="265" y="62" text-anchor="middle" class="note">2001:db8:20::/64</text>
+<text x="575" y="62" text-anchor="middle" class="note">获配的 /64</text>
+<text x="151" y="95" class="port">Ethernet0</text>
+<text x="378" y="95" text-anchor="end" class="port">Ethernet0</text>
+<text x="462" y="95" class="port">Ethernet1</text>
+<g transform="translate(110 76)"><ellipse class="device" cx="0" cy="0" rx="32" ry="21"/><path class="symbol" d="M-17 -8h12m-12 0 4-4m-4 4 4 4M17 -8H5m12 0-4-4m4 4-4 4M-5 9h-12m12 0-4-4m4 4-4 4M5 9h12m-12 0 4-4m-4 4 4 4"/></g>
+<text x="110" y="117" text-anchor="middle" class="name">R1 服务器</text>
+<text x="110" y="137" text-anchor="middle" class="note">2001:db8:20::1/64</text>
+<text x="110" y="154" text-anchor="middle" class="note">委派池 2001:db8:100::/56</text>
+<g transform="translate(420 76)"><ellipse class="device" cx="0" cy="0" rx="32" ry="21"/><path class="symbol" d="M-17 -8h12m-12 0 4-4m-4 4 4 4M17 -8H5m12 0-4-4m4 4-4 4M-5 9h-12m12 0-4-4m4 4-4 4M5 9h12m-12 0 4-4m-4 4 4 4"/></g>
+<text x="420" y="117" text-anchor="middle" class="name">R2 客户端</text>
+<text x="420" y="137" text-anchor="middle" class="note">上联 2001:db8:20::2/64</text>
+<text x="420" y="154" text-anchor="middle" class="note">下游地址使用后缀 ::1</text>
+<rect class="device" x="700" y="57" width="60" height="38" rx="5"/>
+<path class="symbol" d="M712 82h36 M730 95v8 M717 103h26"/>
+<text x="730" y="126" text-anchor="middle" class="name">下游主机</text>
+<text x="730" y="146" text-anchor="middle" class="note">测试地址使用后缀 ::2</text>
 </svg>

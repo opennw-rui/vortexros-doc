@@ -139,6 +139,7 @@ return
 ```vortexros-cli
 display bgp evpn peer
 display bgp evpn all routing-table prefix-route
+display bgp evpn vpn-instance BLUE vni
 display ip routing-table vpn-instance BLUE
 display ipv6 routing-table vpn-instance BLUE
 ```
@@ -151,6 +152,18 @@ EVPN 邻居应建立，远端 Type-5 的下一跳是对端 VTEP。PE1 的 BLUE �
 ### 两个租户的双栈转发实测结果
 
 两台 PE 通过 EVPN 交换两个租户的 IPv4 和 IPv6 前缀。同一租户内双栈可达，两个租户间保持隔离。撤销一个租户的通告时，其前缀停止可达，另一租户和同设备上的二层业务仍可用。实测还确认了数据面重启后恢复。
+
+双租户拓扑中，在源 VTEP 为 `10.255.0.1` 的 PE 查询 BLUE，实测只返回本租户的 L3 VNI 50000。
+
+```text
+<P1> display bgp evpn vpn-instance BLUE vni
+EVPN VPN Instance VNI Information
+VNI    Type  Route distinguisher  Source VTEP  Local L2 VNI
+-------------------------------------------------------------------------------
+50000  L3    65000:50001          10.255.0.1   -
+-------------------------------------------------------------------------------
+Total: 1
+```
 
 <span id="precautions"></span>
 

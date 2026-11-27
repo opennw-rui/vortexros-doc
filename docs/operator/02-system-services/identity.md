@@ -64,12 +64,17 @@ display version
 (closeout-result-operator-02-system-services-identity)=
 ### 首启时的设备名称回显
 
-r4 空盘安装后默认名称为 VortexROS。用同一条命令核对 CLI 的设备名称与系统主机名。
+空盘安装后默认设备名称为 VortexROS。用 `System name` 核对设备名称。另用 `display startup` 核对本次运行的具体系统镜像。
 
 ```text
 <VortexROS> display version
+VortexROS software, Version 0.1.0-dev
+Copyright (C) 2026 VortexROS Project. All rights reserved.
+
+System
   System name         : VortexROS
-  Hostname            : VortexROS
+  Kernel              : Linux 7.3.6 x86_64
+  Architecture        : amd64
 ```
 
 <span id="precautions"></span>

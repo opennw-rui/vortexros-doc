@@ -5,8 +5,10 @@
 ```{toctree}
 :maxdepth: 1
 
-/operator/topics/ip-tunnels
-/operator/topics/encrypted-tunnels
-/operator/06-tunnels/vxlan-static
-/operator/06-tunnels/evpn
+06-tunnels/gre
+06-tunnels/ip-in-ip
+06-tunnels/wireguard
+06-tunnels/amneziawg
+06-tunnels/vxlan-static
+06-tunnels/evpn
 ```

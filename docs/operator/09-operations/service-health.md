@@ -17,7 +17,7 @@ nav_feature: true
 (section-operator-09-operations-service-health-2)=
 ## 工作原理
 
-可查询运行服务、监听地址、TCP/UDP 端口和告警。
+服务状态判断进程是否运行和就绪。监听端口确定本机在哪个地址、协议及端口接收请求。告警和登录日志用于核对服务报错或认证失败。以 SSH 为例，监听地址正确后再从远端发起新会话，区分路径问题和凭据问题。
 
 <span id="examples"></span>
 
@@ -51,6 +51,7 @@ display ssh user login-info failed
 对照以下命令和预期结果核对设备状态。
 
 ```vortexros-cli
+display service
 display service verbose
 display health
 display process listen
@@ -58,7 +59,7 @@ display process udp listen
 display alarm active
 ```
 
-核对协议、监听地址、端口和主进程。恢复后从远端新建连接，确认业务可用。
+用 `display service` 核对服务是否已启用、运行和就绪。用监听端口查询核对协议、监听地址、端口和对应的进程。恢复后从远端新建连接，确认业务可用。
 
 <span id="observed"></span>
 

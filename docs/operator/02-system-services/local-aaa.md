@@ -17,7 +17,7 @@ nav_feature: true
 (section-operator-02-system-services-local-aaa-2)=
 ## 工作原理
 
-本地 AAA 用 Level 1、2、3 区分用户权限，并可分别限制 Console 和 SSH 服务。
+本地 AAA 用 Level 1、2、3 区分用户权限，并使用 `local-user NAME service-type terminal ssh` 授予接入方式。省略服务列表时只允许 Console。SSH 用户还需在系统视图配置所需的 STelnet 或 SCP 服务。 [STelnet、VTY 和 SCP](stelnet.md)
 
 <span id="examples"></span>
 

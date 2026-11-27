@@ -5,7 +5,8 @@
 ```{toctree}
 :maxdepth: 1
 
-/operator/topics/dhcpv4
-/operator/topics/dhcpv6
-/operator/topics/discovery-monitoring
+topics/dhcpv4
+topics/dhcpv6
+08-network-services/lldp
+08-network-services/snmp
 ```

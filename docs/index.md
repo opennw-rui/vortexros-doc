@@ -31,6 +31,7 @@
 
 - [升级与回退](installation/07-upgrade-uninstall.md)
 - [日志中心](operator/operations/logs.md)
+- [脱敏支持包与加密备份](operator/09-operations/backup-support.md)
 - [全命令参考](operator/reference/commands.md)
 
 ```{toctree}

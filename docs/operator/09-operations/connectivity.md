@@ -17,7 +17,13 @@ Ping 检查端到端可达性，Tracert 查看逐跳路径，MTR 持续观察丢
 (section-operator-09-operations-connectivity-2)=
 ## 工作原理
 
-支持 Ping、Tracert、MTR，并可选择 VPN 发出探测。
+| 工具 | 作用 | 何时使用 |
+| --- | --- | --- |
+| Ping | 发送 ICMP Echo，请求目标返回应答。 | 先确认特定源、目的或 VPN 能否双向通信。 |
+| Tracert | 逐步提高 TTL 或 Hop Limit，收集沿途响应。 | 查看流量可能经过哪几跳，缩小路径排查范围。 |
+| MTR | 重复探测各跳，累计应答、延迟和丢包。 | 短时间内连续观察间歇抖动，尤其是目的端状态。 |
+
+指定 VPN 后，探测使用该实例的路由表。探测经过防火墙或被限速时，可能看到中间跳无应答而目的端仍然可达。若连通性变化与 ICMP 通告有关，参见 [ICMP 发送控制](../04-ip-routing/icmp-send.md)。
 
 <span id="examples"></span>
 

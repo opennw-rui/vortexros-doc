@@ -189,12 +189,15 @@ PE1 和 PE2 应看到同一 Ethernet Segment，其中一台为 DF。PE3 应收�
 (section-operator-06-tunnels-evpn-multihoming-6)=
 ### 同一站点两台 PE 的实测结果
 
-四节点拓扑使用两台 PE 接入同一个站点、第三台 PE 作远端，第四台作路由反射器。两端识别到同一个 ESI。P2 的协议状态如下，LRN 中的 N 表示该节点为非指定转发者。远端为同一个站点 MAC 安装两个可用下一跳。断开一路后验证了业务切换，数据面重启后验证了学习恢复。
+四节点拓扑使用两台 PE 接入同一个站点、第三台 PE 作远端，第四台作路由反射器。两端识别到同一个 ESI。多归属详情用 `Location` 区分本地和远端，`Access state` 表示本地接入状态，`DF role` 给出本地选举角色。远端应为同一个站点 MAC 安装两个可用下一跳。
+
+下面是 P2 接入正常、P1 担任 DF 时的实测回显节选。
 
 ```text
-Type: B bypass, L local, R remote, N non-DF
-ESI                            Type ES-IF                 State VTEPs
-00:00:11:11:22:22:11:11:11:11  LRN  evpn-es1              up    10.255.0.1
+<VortexROS> display bgp evpn ethernet-segment verbose
+EVPN Ethernet Segment Detail Information
+ESI                            Location       Access state  DF role  DF preference  VNI count  Remote VTEPs
+00:00:11:11:22:22:11:11:11:11  local, remote  Up            Non-DF   32767          1          10.255.0.1
 ```
 
 在验证中只断开 CE 到 P1 的一路接入，P2 接任 DF，远端 CE 与双归 CE 间的探测通过。修复 P1 的接入后再检查原有两条下一跳，核对 Type-1 和 Type-4 路由及 P1、P2 的 DF 状态。等待服务恢复后再进行下一次断链，以便区分单成员故障和节点恢复。

@@ -5,8 +5,13 @@
 ```{toctree}
 :maxdepth: 1
 
-/operator/topics/observe-device
-/operator/09-operations/connectivity
-/operator/topics/device-recovery
-/operator/09-operations/network-scenarios
+09-operations/service-health
+operations/logs
+09-operations/resource-usage
+09-operations/connectivity
+09-operations/backup-support
+09-operations/operational-reset
+09-operations/factory-reset
+09-operations/power
+09-operations/network-scenarios
 ```

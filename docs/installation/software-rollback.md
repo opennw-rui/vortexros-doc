@@ -17,7 +17,7 @@ nav_feature: true
 (section-installation-software-rollback-2)=
 ## 工作原理
 
-可从已保留的系统镜像选择后备版本重启，也可以清理闲置镜像。
+系统有一个后备槽。新镜像试启动并确认后，原默认镜像进入后备槽。此前占用后备槽的镜像仍列在 `display system-software`，可显式选择启动，也可在不再使用时手动清理。
 
 <span id="examples"></span>
 

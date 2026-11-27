@@ -10,7 +10,7 @@ nav_feature: true
 
 <span id="overview"></span>
 
-编辑会话中的配置后，使用 commit 应用，使用 save 保存已生效的配置供下次启动。
+编辑会话中的配置后，使用 `commit` 提交，使用 `save` 将当前运行配置写入启动文件。
 
 <span id="principles"></span>
 
@@ -43,7 +43,7 @@ nav_feature: true
 |---|---|---|---|---|
 | 1 | `system-view` | 进入系统视图并取得当前配置副本 | 无 | `display configuration candidate` |
 | 2 | 输入任意配置 | 只改当前会话，提示符出现 `*` | 无 | `display configuration candidate` |
-| 3 | `commit` | 检查并应用本会话修改 | 配置正式生效；失败时不会接受未完成的配置 | `display health` |
+| 3 | `commit` | 检查并提交本会话修改 | 查看提交是否被接受，以及运行状态是否已与配置一致 | `display current-configuration`、`display health` |
 | 4 | `save` | 不改 待提交配置 | 原子写入启动配置 | `display configuration storage` |
 | 5 | `clear configuration candidate` | 丢弃本会话未提交修改 | 不影响 运行配置 | 再次显示 待提交配置 |
 
@@ -55,16 +55,18 @@ Warning: Uncommitted configurations found, commit them before exiting? [Y(yes)/N
 
 `Y`提交，`N`丢弃本会话尚未提交的修改后退出，`C`取消退出。断线或CLI异常退出也只丢弃当前会话的修改，不影响其他用户。
 
-执行 `commit` 时，设备先检查命令之间的依赖关系，再应用配置并确认运行状态。失败时：
+执行 `commit` 后，按提示判断配置和业务分别到了哪一步。
 
-- 待提交配置保留，便于修改；
-- 已经生效的配置不会被未完成的结果覆盖；
-- 设备会尽量恢复到提交前状态；
-- 无法自动恢复时会产生告警，并在健康状态中指出受影响的功能。
+| 提交结果 | 设备状态与处理方式 |
+| --- | --- |
+| 提交被拒绝 | 运行配置保持原状。用 `display configuration candidate` 检查保留的候选修改，按报错修正后重新提交。 |
+| 配置已接受，仍待收敛 | 新配置已进入运行配置，相关服务或转发可能还未按新配置工作。用 `display current-configuration` 核对已接受的配置，等设备完成恢复，再查健康和实际业务。 |
+| 恢复失败或结果待确认 | 用 `display health verbose` 和 `display alarm active` 确认受影响的服务，再按报错检查实际接口、路由或业务。结果待确认时，先核对运行和启动配置，再决定是否重试。 |
 
-不要反复敲 `commit`掩盖同一错误；先查看：
+检查配置和实际运行状态时，可以使用：
 
 ```vortexros-cli
+display current-configuration
 display health verbose
 display alarm active
 display service verbose

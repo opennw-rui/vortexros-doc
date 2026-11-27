@@ -53,6 +53,17 @@ display mac-address bridge-domain 65536
 
 先确认 BGP 邻居已建立，再检查远端 VTEP 和 MAC。移动终端后，确认旧位置的表项撤销且新位置学习正常。
 
+在 `mac-route` 或 `inclusive-route` 后可输入路由表 `Network` 列中的完整值，查询某个目的。若多个 RD 包含同一目的，使用 `route-distinguisher` 限定 RD。下面示例查询通告源为 `10.255.0.3` 的 IMET 路由。替换为现场的 RD 和 `Network` 值。
+
+```vortexros-cli
+display bgp evpn all routing-table inclusive-route 0:32:10.255.0.3
+display bgp evpn route-distinguisher 65000:301 routing-table inclusive-route 0:32:10.255.0.3
+display bgp evpn vni
+display bgp evpn all routing-table statistics
+```
+
+预期第一条显示具有该目的的各个 RD，第二条只显示 RD `65000:301`。统计按路由类型计数。VNI 表的 `Local L2 VNI` 列表示本地二层 VNI 的活动状态。用 `display vxlan tunnel`、MAC 表和双端探测检查实际转发。
+
 <span id="observed"></span>
 
 实测节选中的物理接口按文档端口编号记为 EthernetX。其他表项保留原始验证值。
@@ -121,6 +132,24 @@ Total items displayed = 2
 站点 H1 接入 VTEP P1，站点 H3 接入 VTEP P3，P2 只转发底层 IPv4。两个接入口都承载 VLAN 101 和 VLAN 102。两端可按 [双 VTEP 的两个二层业务域](vxlan-evpn/cases/two-bridge-domains.md)配置桥域，分别核对 VLAN、VNI 和 RT。
 
 在 P1 的 `Nve1` 执行 `undo vni 5010 head-end peer-list protocol bgp` 并提交。实测第一组转为不可达，第二组仍然通过。恢复该 VNI 后，两组流量恢复。对 P1 执行数据面恢复后，两组各 3 次 IPv4 探测全部通过，`Vbdif101` 的 IPv4、IPv6 网关重新可达，远端双栈 Type-2 MAC/IP 路由重新出现。
+
+同一拓扑在 P1 分别用完整的 MAC 路由键和指定 RD 的 IMET 路由键查询。回显节选如下。
+
+```text
+<P1> display bgp evpn all routing-table mac-route 0:48:52e9-bf14-a6ed:0:0.0.0.0
+ Route Distinguisher: 65000:101
+       Network(EthTagId/MacAddrLen/MacAddr/IpAddrLen/IpAddr)          NextHop
+ *>    0:48:52e9-bf14-a6ed:0:0.0.0.0                                  10.255.0.1
+
+ Total Number of MAC Routes: 1
+
+<P1> display bgp evpn route-distinguisher 65000:301 routing-table inclusive-route 0:32:10.255.0.3
+ Route Distinguisher: 65000:301
+       Network                                                        NextHop
+ *>    0:32:10.255.0.3                                                10.255.0.3
+
+ Total Number of Inclusive Routes: 1
+```
 
 <span id="precautions"></span>
 

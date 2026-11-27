@@ -86,6 +86,8 @@ LocalDevice:
 
 升级前保存配置和校验签名，并保留独立 Console。重启后核对运行、默认和后备镜像。
 
+升级到采用显式 SSH 授权的版本后，依赖旧版默认 SSH 行为的设备需从 Console 配置 AAA 的 `ssh` 权限、SSH 用户及 `stelnet server enable`。通过新会话验证后保存配置。 [STelnet 配置与验证](../operator/02-system-services/stelnet.md)
+
 <p data-legacy-id="id2" class="manual-previous-section" data-section-moved><a href="#overview">介绍</a></p>
 <p data-legacy-id="id3" class="manual-previous-section" data-section-moved><a href="#case-conditions-installation-software-upgrade">配置准备</a></p>
 <p data-legacy-id="id4" class="manual-previous-section" data-section-moved><a href="#examples">配置案例</a></p>

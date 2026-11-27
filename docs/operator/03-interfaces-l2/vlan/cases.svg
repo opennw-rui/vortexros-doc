@@ -1,20 +1,39 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 840 185" role="img" aria-labelledby="label">
-<title id="label">终端 A、SW1、SW2 的设备互联</title>
-<style>text{font:14px Arial,'Microsoft YaHei','PingFang SC',sans-serif;fill:#183148}.name{font-size:17px;font-weight:700}.port{font:13px Consolas,monospace;fill:#15517f}.note{font-size:13px;fill:#415971}.device{fill:#e9f4fd;stroke:#28628e;stroke-width:2}.symbol{fill:none;stroke:#28628e;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}.wire{fill:none;stroke:#476781;stroke-width:2}.logical{stroke:#30768f;stroke-dasharray:7 5}</style>
-<rect x="1" y="1" width="838" height="183" rx="12" fill="#fcfdff" stroke="#cedbe7"/>
-<path class="wire" d="M147 76 L393 76"/>
-<text x="270" y="67" text-anchor="middle" class="note">Access</text>
-<text x="385" y="95" text-anchor="end" class="port">Ethernet2</text>
-<path class="wire" d="M447 76 L693 76"/>
-<text x="570" y="67" text-anchor="middle" class="note">Trunk · VLAN 100</text>
-<text x="455" y="95" text-anchor="start" class="port">Ethernet1</text>
-<text x="685" y="95" text-anchor="end" class="port">Ethernet1</text>
-<g transform="translate(120 76)"><rect class="device" x="-27" y="-19" width="54" height="33" rx="4"/><path class="symbol" d="M0 14v7m-14 0h28M-20 7h40"/></g>
-<text x="120" y="117" text-anchor="middle" class="name">终端 A</text>
-<g transform="translate(420 76)"><rect class="device" x="-32" y="-19" width="64" height="38" rx="6"/><path class="symbol" d="M-21 -8h15l-4-4m4 4-4 4m31 12H6l4-4m-4 4 4 4"/><path class="symbol" d="M9 -8h1m5 0h1m5 0h1M-21 8h1m5 0h1m5 0h1"/></g>
-<text x="420" y="117" text-anchor="middle" class="name">SW1</text>
-<text x="420" y="137" text-anchor="middle" class="note">VLAN 100</text>
-<g transform="translate(720 76)"><rect class="device" x="-32" y="-19" width="64" height="38" rx="6"/><path class="symbol" d="M-21 -8h15l-4-4m4 4-4 4m31 12H6l4-4m-4 4 4 4"/><path class="symbol" d="M9 -8h1m5 0h1m5 0h1M-21 8h1m5 0h1m5 0h1"/></g>
-<text x="720" y="117" text-anchor="middle" class="name">SW2</text>
-<text x="720" y="137" text-anchor="middle" class="note">VLAN 100</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 940 160" role="img" aria-labelledby="label">
+<title id="label">SW1 与 SW2 通过 Trunk 承载 VLAN 100 和 200</title>
+<style>text{font:14px Arial,'Microsoft YaHei',sans-serif;fill:#183148}.name{font-size:16px;font-weight:700}.port{font:13px Consolas,monospace;fill:#15517f}.note{font-size:13px;fill:#415971}.device{fill:#e9f4fd;stroke:#28628e;stroke-width:2}.symbol,.wire{fill:none;stroke:#476781;stroke-width:2;stroke-linejoin:round;stroke-linecap:round}</style>
+<rect x="1" y="1" width="938" height="158" rx="12" fill="#fcfdff" stroke="#cedbe7"/>
+<path class="wire" d="M130 64H316.66666666666663"/>
+<text class="note" x="223.33333333333331" y="54" text-anchor="middle">Access · VLAN 100</text>
+<text class="port" x="311.66666666666663" y="85" text-anchor="end">Ethernet2</text>
+<path class="wire" d="M376.66666666666663 64H563.3333333333333"/>
+<text class="note" x="469.99999999999994" y="54" text-anchor="middle">Trunk · VLAN 100 / 200</text>
+<text class="port" x="381.66666666666663" y="85">Ethernet1</text>
+<text class="port" x="558.3333333333333" y="85" text-anchor="end">Ethernet1</text>
+<path class="wire" d="M623.3333333333333 64H810"/>
+<text class="note" x="716.6666666666666" y="54" text-anchor="middle">Access · VLAN 100</text>
+<text class="port" x="628.3333333333333" y="85">Ethernet2</text>
+<g transform="translate(100 64)">
+<rect class="device" x="-29" y="-17" width="58" height="34" rx="5"/>
+<path class="symbol" d="M-19 8h38M0 17v6m-11 0h22"/>
+</g>
+<text class="name" x="100" y="115" text-anchor="middle">终端 A</text>
+<text class="note" x="100" y="137" text-anchor="middle">192.0.2.11/24</text>
+<g transform="translate(346.66666666666663 64)">
+<rect class="device" x="-29" y="-17" width="58" height="34" rx="5"/>
+<path class="symbol" d="M-19 -6H16l-6-5m6 11H-16l6-5m-6 12h35l-6-5"/>
+</g>
+<text class="name" x="346.66666666666663" y="115" text-anchor="middle">SW1</text>
+<text class="note" x="346.66666666666663" y="137" text-anchor="middle">VortexROS</text>
+<g transform="translate(593.3333333333333 64)">
+<rect class="device" x="-29" y="-17" width="58" height="34" rx="5"/>
+<path class="symbol" d="M-19 -6H16l-6-5m6 11H-16l6-5m-6 12h35l-6-5"/>
+</g>
+<text class="name" x="593.3333333333333" y="115" text-anchor="middle">SW2</text>
+<text class="note" x="593.3333333333333" y="137" text-anchor="middle">VortexROS</text>
+<g transform="translate(840 64)">
+<rect class="device" x="-29" y="-17" width="58" height="34" rx="5"/>
+<path class="symbol" d="M-19 8h38M0 17v6m-11 0h22"/>
+</g>
+<text class="name" x="840" y="115" text-anchor="middle">终端 B</text>
+<text class="note" x="840" y="137" text-anchor="middle">192.0.2.12/24</text>
 </svg>

@@ -40,13 +40,14 @@ nav_feature: true
 在系统视图输入 `rsa peer-public-key workstation encoding-type openssh`。进入命名视图后执行 `public-key-code begin`，在下一行粘贴本机的 OpenSSH 公钥整行或 Base64 数据。执行 `public-key-code end` 完成录入，`peer-public-key end` 返回系统视图。
 
 ```text
+ssh user vortexros authentication-type rsa
 ssh user vortexros assign rsa-key workstation
 commit
 return
 display aaa user vortexros
 ```
 
-Ed25519 使用 `ed25519 peer-public-key` 和 `assign ed25519-key`。撤销时用 `undo ssh user vortexros assign rsa-key workstation`，提交后从独立会话验证相应密钥已经失效。
+Ed25519 使用 `ed25519 peer-public-key`、`authentication-type ed25519` 和 `assign ed25519-key`。撤销时用 `undo ssh user vortexros assign rsa-key workstation`，提交后从独立会话验证相应密钥已经失效。
 
 (case-verification-02-system-services-ssh-public-key)=
 ### 验证方法

@@ -5,10 +5,13 @@
 ```{toctree}
 :maxdepth: 1
 
-/operator/topics/ip-addressing
-/operator/topics/ip-neighbors
-/operator/04-ip-routing/vpn-instance
-/operator/04-ip-routing/ipv6-path-mtu
+04-ip-routing/ip-addresses
+04-ip-routing/vpn-instance
+03-interfaces-l2/arp
+03-interfaces-l2/ipv6-neighbor-discovery
+04-ip-routing/ipv6-router-advertisement
+04-ip-routing/ipv6-path-mtu
+04-ip-routing/icmp-send
 ```
 
 需要配置固定下一跳或缺省路由时，参见[静态路由](static-routing.md)。

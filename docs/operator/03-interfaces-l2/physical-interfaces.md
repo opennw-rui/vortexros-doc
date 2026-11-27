@@ -39,19 +39,37 @@ nav_feature: true
 (section-operator-03-interfaces-l2-physical-interfaces-5)=
 ### 配置步骤
 
-```text
+**R1**
+
+```vortexros-config
 interface Ethernet 1
  description uplink
  mtu 9000
  ip address 192.0.2.2 255.255.255.0
  undo hardware offload tso tx-checksum rx-checksum
+#
+return
 ```
 
-先用 `display interface hardware offload Ethernet1` 查看设备支持的能力。示例同时关闭 TSO 与其依赖的收发校验和卸载。用 `hardware offload` 撤销禁用项，具体项以设备实际能力为准。
+录入前在 R1 执行 `display interface hardware offload Ethernet1`，确认支持示例中的卸载项。示例同时关闭 TSO 及收发校验和卸载。只配置链路地址和 MTU 时可省略卸载命令。用 `hardware offload` 加对应选项重新启用卸载。
 
+**R2**
 
+```vortexros-config
+interface Ethernet 1
+ description to-R1
+ mtu 9000
+ ip address 192.0.2.1 255.255.255.0
+#
+return
+```
 
-接口配置片段在系统视图录入，退出接口视图后执行 commit。
+两端从系统视图分别录入并执行 `commit`。从 R1 先测试普通报文，再发送总长 9000 字节的 IPv4 ICMP 报文。`-f` 禁止 IPv4 分片，`-s` 设置负载大小。
+
+```vortexros-cli
+ping 192.0.2.1
+ping -f -s 8972 192.0.2.1
+```
 
 (case-verification-03-interfaces-l2-physical-interfaces)=
 ### 验证方法
@@ -79,9 +97,28 @@ display ipv6 interface brief
 
 如果 IP 简表暂时显示 unavailable 或 unknown，等待接口恢复后重新查看。
 
+本例预期两端 Ethernet1 均为 `up`，`MTU` 为 `9000`。若执行了卸载配置，检查 R1 对应的活动卸载状态。只看到接口 Up 时，从实际对端再确认收发。
+
 `display interface`中的最近up/down时间来自接口实际状态变化，不会因为执行display而重置。设备无法确认的历史时间显示 `-`；修改时区只会改变时间的显示方式。
 
 InUti/OutUti 为最近 300 秒的平均速率占比。完整观察窗口形成前，摘要可能显示 0.0%。
+
+### 批量配置同类端口
+
+下面在同一台设备上为已存在的 Ethernet2 和 Ethernet3 设置公共描述。范围包含两端口。所选接口需要属于同一类型与命令分区，各自不同的配置请进入单个端口设置。
+
+```vortexros-cli
+system-view
+interface range Ethernet2 to Ethernet3
+ description access-row-a
+ quit
+commit
+return
+display interface Ethernet 2
+display interface Ethernet 3
+```
+
+预期两个端口都显示 `Description: access-row-a`。若这两个端口起初没有描述，可在同一范围使用 `undo description` 并提交。端口原有描述不同的，逐个恢复。
 
 <span id="observed"></span>
 

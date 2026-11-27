@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 840 160" role="img" aria-labelledby="label">
+<title id="label">DHCPv6 服务器和客户端通过 Ethernet0 直连</title>
+<style>text{font:14px Arial,'Microsoft YaHei',sans-serif;fill:#183148}.name{font-size:16px;font-weight:700}.port{font:13px Consolas,monospace;fill:#15517f}.note{font-size:13px;fill:#415971}.device{fill:#e9f4fd;stroke:#28628e;stroke-width:2}.symbol,.wire{fill:none;stroke:#476781;stroke-width:2;stroke-linejoin:round;stroke-linecap:round}</style>
+<rect x="1" y="1" width="838" height="158" rx="12" fill="#fcfdff" stroke="#cedbe7"/>
+<path class="wire" d="M230 64H610"/>
+<text class="note" x="420" y="54" text-anchor="middle">2001:db8:252:10::/120</text>
+<text class="port" x="235" y="85">Ethernet0</text>
+<text class="port" x="605" y="85" text-anchor="end">Ethernet0</text>
+<g transform="translate(200 64)">
+<rect class="device" x="-29" y="-17" width="58" height="34" rx="5"/>
+<path class="symbol" d="M-19 -6H16l-6-5m6 11H-16l6-5m-6 12h35l-6-5"/>
+</g>
+<text class="name" x="200" y="115" text-anchor="middle">R1 · DHCPv6 服务器</text>
+<text class="note" x="200" y="137" text-anchor="middle">2001:db8:252:10::1/120</text>
+<g transform="translate(640 64)">
+<rect class="device" x="-29" y="-17" width="58" height="34" rx="5"/>
+<path class="symbol" d="M-19 -6H16l-6-5m6 11H-16l6-5m-6 12h35l-6-5"/>
+</g>
+<text class="name" x="640" y="115" text-anchor="middle">R2 · DHCPv6 客户端</text>
+<text class="note" x="640" y="137" text-anchor="middle">由 R1 分配 IA_NA 地址</text>
+</svg>

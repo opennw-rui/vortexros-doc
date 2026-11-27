@@ -1,10 +1,11 @@
+---
+orphan: true
+nosearch: true
+---
+
 # 链路发现与网管监控
 
 用 LLDP 核对直连对端，用 SNMP 对接网管系统。
 
-```{toctree}
-:maxdepth: 1
-
-/operator/08-network-services/lldp
-/operator/08-network-services/snmp
-```
+- [LLDP 邻居发现](/operator/08-network-services/lldp.md)
+- [SNMP 监控](/operator/08-network-services/snmp.md)
