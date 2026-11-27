@@ -947,6 +947,12 @@
   </div>
   
   
+  
+  
+<a href="../../../../09-operations/network-scenarios/">组网与验证案例索引</a>
+
+  
+  
 
     </div>
   </details>
@@ -1118,6 +1124,35 @@ display vxlan tunnel
 </pre></div>
 </div>
 <p>确认 65536 对应 VNI 65010 和指定接入口。终端发包后应出现对应 BD 的 MAC，两个 VTEP 之间验证实际连通。</p>
+<section id="bd">
+<h3>两个高位 BD 并行的实测<a class="headerlink" href="#bd" title="Link to this heading"></a></h3>
+<p><img alt="三个 VTEP 以及 BD 65536、65537 的客户接线" src="../../../../../_images/dual-bd-multicast.svg" /></p>
+<p>在 P1 与 P3 两个站点各增加一个业务接入口，用同样的步骤配置 BD <code class="docutils literal notranslate"><span class="pre">65537</span></code>、VNI <code class="docutils literal notranslate"><span class="pre">65020</span></code> 和独立的 RT <code class="docutils literal notranslate"><span class="pre">65000:65020</span></code>。两个 BD 可以使用相同的客户 IPv4、IPv6 地址和 MAC，各自只在所在域学习。P1 和 P3 的 VTEP 源分别为 <code class="docutils literal notranslate"><span class="pre">10.255.0.1</span></code> 和 <code class="docutils literal notranslate"><span class="pre">10.255.0.3</span></code>。实测两侧客户 IPv4 为 <code class="docutils literal notranslate"><span class="pre">198.19.43.11</span></code>、<code class="docutils literal notranslate"><span class="pre">198.19.43.33</span></code>，IPv6 为 <code class="docutils literal notranslate"><span class="pre">2001:db8:43::11</span></code>、<code class="docutils literal notranslate"><span class="pre">2001:db8:43::33</span></code>。</p>
+<p>实测中两域各自双向可达，迁移 VNI 65010 内的终端后，相关 IPv4 和 IPv6 的 MAC/IP 在新位置出现，VNI 65020 持续转发。撤销 P1 的 VNI 65010 后，核对 P3 对应远端 MAC/IP 撤销，另一个 VNI 保留。重新挂载后确认双向恢复。</p>
+<p>分别查询两个 BD 的 MAC，核对网关通告和业务邻居。已知的 ARP/ND 由对应域处理，未知请求仍按该域转发。验证组播时，在第三台 VTEP P2 的 <code class="docutils literal notranslate"><span class="pre">Ethernet7</span></code> 接入接收端，将接口绑定到 BD 65536，按前面的相同 RT 将 VNI 65010 加入本机 NVE。用 <code class="docutils literal notranslate"><span class="pre">239.42.42.42</span></code> 和 <code class="docutils literal notranslate"><span class="pre">ff3e::4242</span></code> 分别验证 IPv4 和 IPv6。实测只有对应订阅的 VXLAN 出口获得该流量，撤销监听与重新加入后，转发随之变化。</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>实测步骤</p></th>
+<th class="head"><p>正常业务端口</p></th>
+<th class="head"><p>隔离对照端口</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>迁移同一 MAC</p></td>
+<td><p>新位置收到带客户 VID 101 的报文</p></td>
+<td><p>其他域未收到</p></td>
+</tr>
+<tr class="row-odd"><td><p>撤销其中一个 VNI</p></td>
+<td><p>另一域继续收到带客户 VID 101 的报文</p></td>
+<td><p>已撤销 VNI 无转发</p></td>
+</tr>
+<tr class="row-even"><td><p>协议或数据面重启并收敛</p></td>
+<td><p>既有业务恢复，客户 VID 101 保持</p></td>
+<td><p>域间仍未收到对方报文</p></td>
+</tr>
+</tbody>
+</table>
+</section>
 </section>
 </section>
 

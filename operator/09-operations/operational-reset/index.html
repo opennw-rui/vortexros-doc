@@ -947,6 +947,12 @@
   </div>
   
   
+  
+  
+<a href="../network-scenarios/">组网与验证案例索引</a>
+
+  
+  
 
     </div>
   </details>
@@ -1110,6 +1116,19 @@ display alarm active
 <section id="closeout-result-operator-09-operations-operational-reset">
 <span id="recorded-result-09-operations-operational-reset"></span><span id="id6"></span><h3>清理运行配置并回放的实测结果<a class="headerlink" href="#closeout-result-operator-09-operations-operational-reset" title="Link to this heading"></a></h3>
 <p>对三节点拓扑清理 Running 后数据面重启。继续加载已经保存的 CFG 并提交时，VPP 无须再次重启，BGP 进程仍保持原实例，启动文件也保留。最终检查到 Running 和 Actual 同步，并重新查询业务对象。</p>
+<p>实测中，P2 和 P3 的 <code class="docutils literal notranslate"><span class="pre">Vlanif200</span></code> 位于 VPN 实例 <code class="docutils literal notranslate"><span class="pre">ALL</span></code>。在 P3 加载保存的 CFG 并提交后，<code class="docutils literal notranslate"><span class="pre">display</span> <span class="pre">bgp</span> <span class="pre">vpnv4</span> <span class="pre">vpn-instance</span> <span class="pre">ALL</span> <span class="pre">routing-table</span> <span class="pre">172.31.255.2</span> <span class="pre">32</span></code> 再次显示 P2 的 <code class="docutils literal notranslate"><span class="pre">172.31.255.2/32</span></code>。P3 在实例 <code class="docutils literal notranslate"><span class="pre">ALL</span></code> 对该地址的探测收到 3/3。</p>
+<div class="highlight-vortexros-cli notranslate"><div class="highlight"><pre><span></span>display startup
+display bgp vpnv4 vpn-instance ALL routing-table 172.31.255.2 32
+display health
+ping -vpn-instance ALL -n -c 3 -t 1000 172.31.255.2
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">display</span> <span class="pre">configuration</span> <span class="pre">storage</span></code> 回显节选如下。两项数值随设备配置变化，恢复完成时应一致。</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Running generation     : 22
+Actual generation      : 22
+</pre></div>
+</div>
+<p>远程维护前请保留独立 Console，并确认保存文件中包含恢复管理连接所需的接口和路由。</p>
 <p><span id="precautions"></span></p>
 </section>
 </section>

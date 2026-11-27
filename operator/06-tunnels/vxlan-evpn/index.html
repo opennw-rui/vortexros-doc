@@ -947,6 +947,12 @@
   </div>
   
   
+  
+  
+<a href="../../09-operations/network-scenarios/">组网与验证案例索引</a>
+
+  
+  
 
     </div>
   </details>
@@ -1095,6 +1101,7 @@
 <li class="toctree-l1"><a class="reference internal" href="cases/example-1/">配置 VNI、桥域与 EVPN 对端</a></li>
 <li class="toctree-l1"><a class="reference internal" href="cases/example-2/">两个 VTEP 的高位 BD 与动态学习</a></li>
 <li class="toctree-l1"><a class="reference internal" href="cases/example-3/">高位域隔离、组播订阅与 MAC/IP 迁移</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cases/two-bridge-domains/">两个二层 VNI 的接入与独立撤销</a></li>
 </ul>
 </div>
 </section>
@@ -1161,6 +1168,11 @@ Total items displayed = 2
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">VLAN/VSI/BD</span></code> 中的 <code class="docutils literal notranslate"><span class="pre">-/-/101</span></code> 表示业务桥域 101。对单归属站点，<code class="docutils literal notranslate"><span class="pre">Learned-From</span></code> 对本地动态 MAC 显示接入口，对 EVPN 学到的远端动态 MAC 显示远端 VTEP 地址。可在<a class="reference internal" href="cases/example-2/"><span class="std std-doc">双 VTEP 案例</span></a>对照同一个桥域中的两种表项。</p>
+</section>
+<section id="vni">
+<h3>两个二层 VNI 的独立撤销<a class="headerlink" href="#vni" title="Link to this heading"></a></h3>
+<p>站点 H1 接入 VTEP P1，站点 H3 接入 VTEP P3，P2 只转发底层 IPv4。两个接入口都承载 VLAN 101 和 VLAN 102。两端可按 <a class="reference internal" href="cases/two-bridge-domains/"><span class="std std-doc">双 VTEP 的两个二层业务域</span></a>配置桥域，分别核对 VLAN、VNI 和 RT。</p>
+<p>在 P1 的 <code class="docutils literal notranslate"><span class="pre">Nve1</span></code> 执行 <code class="docutils literal notranslate"><span class="pre">undo</span> <span class="pre">vni</span> <span class="pre">5010</span> <span class="pre">head-end</span> <span class="pre">peer-list</span> <span class="pre">protocol</span> <span class="pre">bgp</span></code> 并提交。实测第一组转为不可达，第二组仍然通过。恢复该 VNI 后，两组流量恢复。对 P1 执行数据面恢复后，两组各 3 次 IPv4 探测全部通过，<code class="docutils literal notranslate"><span class="pre">Vbdif101</span></code> 的 IPv4、IPv6 网关重新可达，远端双栈 Type-2 MAC/IP 路由重新出现。</p>
 <p><span id="precautions"></span></p>
 </section>
 </section>

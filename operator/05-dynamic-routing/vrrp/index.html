@@ -947,6 +947,12 @@
   </div>
   
   
+  
+  
+<a href="../../09-operations/network-scenarios/">组网与验证案例索引</a>
+
+  
+  
 
     </div>
   </details>
@@ -1132,6 +1138,12 @@ display vrrp6 brief
 07:46:49.107364 IP6 fe80::537e:a562:429d:ee73 &gt; ff02::12: VRRPv3, Advertisement, vrid 10, prio 120, intvl 100cs, length 40
 </pre></div>
 </div>
+<p>三节点同 VLAN 的非单播场景也分别查了 IPv4 VRID 10 和 IPv6 VRID 11。主机故障后，备用设备的两族状态分别转为 <code class="docutils literal notranslate"><span class="pre">Master</span></code>。以下是主机状态下各族的行节选。</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>10    Master  Vlanif200  Normal  198.51.100.254
+11    Master  Vlanif200  Normal  fe80::fe,2001:db8:200::fe
+</pre></div>
+</div>
+<p>必须从处于同一 VLAN 的第三台设备实际探测虚拟地址，再对照选举状态。</p>
 </section>
 <section id="section-operator-05-dynamic-routing-vrrp-5">
 <span id="id7"></span><h3>双栈单播对端实测回显<a class="headerlink" href="#section-operator-05-dynamic-routing-vrrp-5" title="Link to this heading"></a></h3>

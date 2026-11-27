@@ -947,6 +947,12 @@
   </div>
   
   
+  
+  
+<a href="../../../../09-operations/network-scenarios/">组网与验证案例索引</a>
+
+  
+  
 
     </div>
   </details>
@@ -1140,6 +1146,34 @@ display dhcpv6 client interface Ethernet0
 </pre></div>
 </div>
 <p>分别查询中继、服务端和客户端。正常时在各自设备看到运行中继、IA_NA 和分配的同一地址。</p>
+<section id="id6">
+<h3>双栈三节点实测<a class="headerlink" href="#id6" title="Link to this heading"></a></h3>
+<p>另一组实测用同样的服务器—中继—客户端接线，并在两个网段独立验证 IPv4 与 IPv6。P1 提供服务，P2 的服务器侧口使用 <code class="docutils literal notranslate"><span class="pre">10.252.10.0/24</span></code>、<code class="docutils literal notranslate"><span class="pre">2001:db8:252:10::/64</span></code>。P2 的客户端侧口使用 <code class="docutils literal notranslate"><span class="pre">10.252.23.0/24</span></code>、<code class="docutils literal notranslate"><span class="pre">2001:db8:252:23::/64</span></code>。先从 P2 测直连租约，撤销直连客户端后，再让 P2 对接入 P3 的三层口启用中继。</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>检查位置</p></th>
+<th class="head"><p>IPv4 租约</p></th>
+<th class="head"><p>IPv6 租约</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>P2 直连客户端</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">10.252.10.21/24</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">2001:db8:252:10::3/128</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>P3 中继客户端</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">10.252.23.21/24</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">2001:db8:252:23::3/128</span></code></p></td>
+</tr>
+</tbody>
+</table>
+<p>P3 实测 <code class="docutils literal notranslate"><span class="pre">display</span> <span class="pre">dhcpv6</span> <span class="pre">client</span> <span class="pre">interface</span> <span class="pre">Ethernet0</span></code> 节选，端口名按案例整理。</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Interface  Address-Family  Role    Pool/Servers  VPN-Instance  State    Address                 Delegated-Prefix
+Ethernet0  IPv6            client                default       running  2001:db8:252:23::3/128  -
+</pre></div>
+</div>
+<p>续租后租约保持有效，撤销中继后接入侧的中继状态消失。</p>
+</section>
 </section>
 </section>
 

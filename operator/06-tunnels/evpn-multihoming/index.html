@@ -947,6 +947,12 @@
   </div>
   
   
+  
+  
+<a href="../../09-operations/network-scenarios/">组网与验证案例索引</a>
+
+  
+  
 
     </div>
   </details>
@@ -1242,6 +1248,7 @@ ESI                            Type ES-IF                 State VTEPs
 00:00:11:11:22:22:11:11:11:11  LRN  evpn-es1              up    10.255.0.1
 </pre></div>
 </div>
+<p>在验证中只断开 CE 到 P1 的一路接入，P2 接任 DF，远端 CE 与双归 CE 间的探测通过。修复 P1 的接入后再检查原有两条下一跳，核对 Type-1 和 Type-4 路由及 P1、P2 的 DF 状态。等待服务恢复后再进行下一次断链，以便区分单成员故障和节点恢复。</p>
 <p><span id="precautions"></span></p>
 </section>
 </section>

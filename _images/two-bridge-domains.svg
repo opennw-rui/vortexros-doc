@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 235" role="img" aria-labelledby="title">
+  <title id="title">H1、P1、P2、P3、H3 逐段接线，两台 VTEP 之间建立两个 VXLAN 二层 VNI</title>
+  <style>text{font:15px Arial,'Microsoft YaHei',sans-serif;fill:#183148;text-anchor:middle}.node{fill:#e9f4fd;stroke:#28628e;stroke-width:2}.port{font:12px Consolas,monospace;fill:#15517f}.wire{fill:none;stroke:#476781;stroke-width:2}.overlay{fill:none;stroke:#30768f;stroke-dasharray:7 5;stroke-width:2}</style>
+  <rect x="1" y="1" width="898" height="233" rx="12" fill="#fcfdff" stroke="#cedbe7"/>
+  <path class="wire" d="M110 131H235 M315 131H410 M490 131H585 M665 131H790"/>
+  <path class="overlay" d="M275 103V60H625V103"/>
+  <rect class="node" x="30" y="104" width="80" height="54" rx="7"/>
+  <rect class="node" x="235" y="104" width="80" height="54" rx="7"/>
+  <rect class="node" x="410" y="104" width="80" height="54" rx="7"/>
+  <rect class="node" x="585" y="104" width="80" height="54" rx="7"/>
+  <rect class="node" x="790" y="104" width="80" height="54" rx="7"/>
+  <text x="70" y="137">H1</text><text x="275" y="137">P1</text><text x="450" y="137">P2</text><text x="625" y="137">P3</text><text x="830" y="137">H3</text>
+  <text x="450" y="45">VXLAN VNI 5010 / 5020</text>
+  <text class="port" x="172" y="117">Ethernet0 → Ethernet6</text>
+  <text class="port" x="366" y="113">Ethernet0</text><text class="port" x="366" y="151">Ethernet0</text>
+  <text class="port" x="540" y="113">Ethernet1</text><text class="port" x="540" y="151">Ethernet0</text>
+  <text class="port" x="728" y="117">Ethernet6 → Ethernet0</text>
+  <text x="172" y="194">未标记 VLAN 101 · 标签 102</text>
+  <text x="728" y="194">未标记 VLAN 101 · 标签 102</text>
+</svg>

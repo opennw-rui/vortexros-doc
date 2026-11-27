@@ -947,6 +947,12 @@
   </div>
   
   
+  
+  
+<a href="../../operator/09-operations/network-scenarios/">组网与验证案例索引</a>
+
+  
+  
 
     </div>
   </details>
@@ -1139,6 +1145,17 @@ Active alarms             : 0
 Foundation recovery       : ready
 Routing recovery          : ready
 Services recovery         : ready
+</pre></div>
+</div>
+<p>所有网卡选用 Linux 模式的空盘安装，首次启动实测如下。此时接口仍归 Linux，设备已就绪，VPP API 显示 <code class="docutils literal notranslate"><span class="pre">disconnected</span></code>。部署 DPDK 的设备应继续按实际设置检查接管状态。</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>&lt;VortexROS&gt; display health
+Health state              : ready
+Running/Actual generation : 1/1
+Reconcile state           : in-sync
+VPP API state             : disconnected
+Interface dataplane owner : linux
+Takeover phase            : ready
+Active alarms             : 0
 </pre></div>
 </div>
 <p><span id="precautions"></span></p>

@@ -947,6 +947,12 @@
   </div>
   
   
+  
+  
+<a href="../../../../09-operations/network-scenarios/">组网与验证案例索引</a>
+
+  
+  
 
     </div>
   </details>
@@ -1122,6 +1128,12 @@ return
 </section>
 <section id="id4">
 <h2>验证方法<a class="headerlink" href="#id4" title="Link to this heading"></a></h2>
+<p>三节点实测中，P1 的内网源地址为 <code class="docutils literal notranslate"><span class="pre">10.201.12.1</span></code>，P2 出口为 <code class="docutils literal notranslate"><span class="pre">10.201.23.2</span></code>，P3 的目标为 <code class="docutils literal notranslate"><span class="pre">10.201.23.3</span></code>。按此组地址配置出站 PAT 时，在 P2 的出接口绑定策略。P3 收到转换后的源地址 <code class="docutils literal notranslate"><span class="pre">10.201.23.2</span></code>，P2 的会话表同时匹配原源地址和转换地址。</p>
+<p>进一步按 UDP 源端口 <code class="docutils literal notranslate"><span class="pre">65016</span></code>、目标端口 <code class="docutils literal notranslate"><span class="pre">65017</span></code> 限定查询，实测回显节选如下。</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Total: 1  TCP:0  UDP:1  ICMP:0  SCTP:0  Other:0
+</pre></div>
+</div>
+<p>修改或撤销规则后，用新连接重新测试并与未匹配流量对照。</p>
 <p>对照<a class="reference internal" href="../../#recorded-result-07-policy-nat"><span class="std std-ref">本功能页的实测结果</span></a>可以核对设备实际显示的字段或业务表现。不同拓扑请按本案例的地址和接口检查。</p>
 <p>对照以下命令和预期结果核对设备状态。</p>
 <div class="highlight-vortexros-cli notranslate"><div class="highlight"><pre><span></span>display nat-policy address-pool PUBLIC
