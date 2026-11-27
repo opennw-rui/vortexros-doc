@@ -703,19 +703,12 @@
   
   
   <details class="manual-category">
-    <summary>访问控制、QoS 与 NAT</summary>
+    <summary>访问控制列表</summary>
     <div class="manual-children">
       
-<a href="../../../../07-policy/">概览</a>
+<a href="../../../../topics/traffic-access/">概览</a>
 
       
-  
-  
-  <div class="manual-subtopic">
-    
-<a href="../../../../topics/traffic-access/">访问控制与源地址检查</a>
-
-    <div class="manual-children">
   
   
   
@@ -729,16 +722,19 @@
 
   
   
-</div>
-  </div>
-  
-  
-  
-  <div class="manual-subtopic">
-    
-<a href="../../../../topics/traffic-qos/">QoS 与流量策略</a>
 
+    </div>
+  </details>
+  
+  
+  
+  <details class="manual-category">
+    <summary>QoS</summary>
     <div class="manual-children">
+      
+<a href="../../../../topics/traffic-qos/">概览</a>
+
+      
   
   
   
@@ -752,19 +748,29 @@
 
   
   
-</div>
-  </div>
   
+  
+<a href="../../../../07-policy/tcp-mss/">TCP MSS 调整</a>
+
+  
+  
+
+    </div>
+  </details>
+  
+  
+  
+  <details class="manual-category">
+    <summary>NAT</summary>
+    <div class="manual-children">
+      
+<a href="../../../../nat/">概览</a>
+
+      
   
   
   
 <a href="../../../../07-policy/nat/">NAT 地址与端口转换</a>
-
-  
-  
-  
-  
-<a href="../../../../07-policy/tcp-mss/">TCP MSS 调整</a>
 
   
   
@@ -948,7 +954,7 @@
   
   
   <details class="manual-category">
-    <summary>MPLS 与 L3VPN</summary>
+    <summary>MPLS</summary>
     <div class="manual-children">
       
 <a href="../../../../10-mpls-l3vpn/">概览</a>
@@ -958,7 +964,7 @@
   
   <div class="manual-subtopic">
     
-<a href="../../../../topics/mpls-core/">核心转发与标签分发</a>
+<a href="../../../../topics/mpls-services/">L3VPN</a>
 
     <div class="manual-children">
   
@@ -973,17 +979,6 @@
 <a href="../../../../10-mpls-l3vpn/ldp/">LDP 标签分发</a>
 
   
-  
-</div>
-  </div>
-  
-  
-  
-  <div class="manual-subtopic">
-    
-<a href="../../../../topics/mpls-services/">租户 VPN 与 IPv6 业务</a>
-
-    <div class="manual-children">
   
   
   
@@ -1084,12 +1079,12 @@
 <h1>两个 VTEP 的高位 BD 与动态学习<a class="headerlink" href="#vtep-bd" title="Link to this heading"></a></h1>
 <section id="id1">
 <h2>拓扑<a class="headerlink" href="#id1" title="Link to this heading"></a></h2>
-<p><img alt="左端站点 → R1 VTEP，BD 65536 → R2 VTEP，BD 65536 → 右端站点" src="../../../../../_images/example-220.svg" /></p>
+<p><img alt="终端 A 和终端 B 经两台 VTEP 及 VNI 65010 二层互联" src="../../../../../_images/example-220.svg" /></p>
 </section>
 <section id="id2">
 <h2>配置条件<a class="headerlink" href="#id2" title="Link to this heading"></a></h2>
 <p>先配置两端底层接口、BGP EVPN 邻居和 VTEP 源。两个站点的 VNI 与 RT 相同，RD 分别配置。</p>
-<p>R1、R2 的 Ethernet0 作为底层相连，使用 192.0.2.1 和 .2。两个客户终端接到两端 Ethernet1，地址为 203.0.113.11/24 和 .12/24。两端同用高位 BD 65536 和 VNI 65010，并选不同 RD。</p>
+<p>R1、R2 通过各自的 Ethernet0 直连，地址分别为 192.0.2.1/24 和 192.0.2.2/24。终端 A 接 R1 的 Ethernet1，地址为 203.0.113.11/24，示例 MAC 为 <code class="docutils literal notranslate"><span class="pre">0200-0001-0011</span></code>。终端 B 接 R2 的 Ethernet1，地址为 203.0.113.12/24，示例 MAC 为 <code class="docutils literal notranslate"><span class="pre">0200-0002-0012</span></code>。两端同用高位 BD 65536 和 VNI 65010，并选不同 RD。</p>
 </section>
 <section id="id3">
 <h2>配置步骤<a class="headerlink" href="#id3" title="Link to this heading"></a></h2>
@@ -1157,13 +1152,27 @@ return
 <h2>验证方法<a class="headerlink" href="#id4" title="Link to this heading"></a></h2>
 <p>对照<a class="reference internal" href="../../#recorded-result-06-tunnels-vxlan-evpn"><span class="std std-ref">本功能页的实测结果</span></a>可以核对设备实际显示的字段或业务表现。不同拓扑请按本案例的地址和接口检查。</p>
 <p>对照以下命令和预期结果核对设备状态。</p>
-<div class="highlight-vortexros-cli notranslate"><div class="highlight"><pre><span></span>display bgp evpn all routing-table
+<div class="highlight-vortexros-cli notranslate"><div class="highlight"><pre><span></span>display bgp evpn all routing-table inclusive-route
+display bgp evpn all routing-table mac-route
 display vxlan tunnel
 display bridge-domain 65536
 display mac-address bridge-domain 65536
 </pre></div>
 </div>
-<p>对端 VTEP 应动态出现。终端收发后可在 EVPN 表看到 Type-3 和站点 MAC 对应的 Type-2。两个终端应互通。撤销 R2 的 NVE 下 VNI 65010 动态对等项后，应看到远端路径撤销，本地网段配置仍保留。重新添加可恢复。</p>
+<p>先检查 Type-3 路由和对端 VTEP。终端 A 向终端 B 发起 ping 并收到响应后，用 Type-2 路由和 MAC 表核对两端的学习结果。</p>
+<p><strong>R1 的预期 MAC 表</strong>（使用本案例的终端 MAC）</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>&lt;VortexROS&gt; display mac-address bridge-domain 65536
+-------------------------------------------------------------------------------
+MAC Address       VLAN/VSI/BD                    Learned-From        Type
+-------------------------------------------------------------------------------
+0200-0001-0011    -/-/65536                      Ethernet1           dynamic
+0200-0002-0012    -/-/65536                      192.0.2.2           dynamic
+-------------------------------------------------------------------------------
+Total items displayed = 2
+</pre></div>
+</div>
+<p>在 R2 上，终端 B 的 MAC 对应本地 <code class="docutils literal notranslate"><span class="pre">Ethernet1</span></code>，终端 A 的 MAC 对应远端 VTEP <code class="docutils literal notranslate"><span class="pre">192.0.2.1</span></code>。本例只做同网段二层互联，可在终端查看对端的 ARP 表项，并在 VTEP 上用 MAC 表验证转发路径。</p>
+<p>撤销 R2 的 NVE 下 VNI 65010 动态对等项，确认远端路径撤销且本地接入配置仍在。重新添加后，确认远端 MAC 和终端互通恢复。</p>
 </section>
 </section>
 

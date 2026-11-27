@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>QoS 与流量策略 &mdash; VortexROS 用户手册</title>
+  <title>QoS &mdash; VortexROS 用户手册</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="../../../_static/manual.css?v=54407de2" />
@@ -702,20 +702,13 @@
   
   
   
-  <details class="manual-category" open>
-    <summary>访问控制、QoS 与 NAT</summary>
+  <details class="manual-category">
+    <summary>访问控制列表</summary>
     <div class="manual-children">
       
-<a href="../../07-policy/">概览</a>
+<a href="../traffic-access/">概览</a>
 
       
-  
-  
-  <div class="manual-subtopic">
-    
-<a href="../traffic-access/">访问控制与源地址检查</a>
-
-    <div class="manual-children">
   
   
   
@@ -729,16 +722,19 @@
 
   
   
-</div>
-  </div>
-  
-  
-  
-  <div class="manual-subtopic">
-    
-<a href="#" aria-current="page">QoS 与流量策略</a>
 
+    </div>
+  </details>
+  
+  
+  
+  <details class="manual-category" open>
+    <summary>QoS</summary>
     <div class="manual-children">
+      
+<a href="#" aria-current="page">概览</a>
+
+      
   
   
   
@@ -752,19 +748,29 @@
 
   
   
-</div>
-  </div>
   
+  
+<a href="../../07-policy/tcp-mss/">TCP MSS 调整</a>
+
+  
+  
+
+    </div>
+  </details>
+  
+  
+  
+  <details class="manual-category">
+    <summary>NAT</summary>
+    <div class="manual-children">
+      
+<a href="../../nat/">概览</a>
+
+      
   
   
   
 <a href="../../07-policy/nat/">NAT 地址与端口转换</a>
-
-  
-  
-  
-  
-<a href="../../07-policy/tcp-mss/">TCP MSS 调整</a>
 
   
   
@@ -948,7 +954,7 @@
   
   
   <details class="manual-category">
-    <summary>MPLS 与 L3VPN</summary>
+    <summary>MPLS</summary>
     <div class="manual-children">
       
 <a href="../../10-mpls-l3vpn/">概览</a>
@@ -958,7 +964,7 @@
   
   <div class="manual-subtopic">
     
-<a href="../mpls-core/">核心转发与标签分发</a>
+<a href="../mpls-services/">L3VPN</a>
 
     <div class="manual-children">
   
@@ -973,17 +979,6 @@
 <a href="../../10-mpls-l3vpn/ldp/">LDP 标签分发</a>
 
   
-  
-</div>
-  </div>
-  
-  
-  
-  <div class="manual-subtopic">
-    
-<a href="../mpls-services/">租户 VPN 与 IPv6 业务</a>
-
-    <div class="manual-children">
   
   
   
@@ -1068,8 +1063,7 @@
           <div role="navigation" aria-label="页面导航">
   <ul class="wy-breadcrumbs">
       <li><a href="../../../" class="icon icon-home" aria-label="Home"></a></li>
-          <li class="breadcrumb-item"><a href="../../07-policy/">访问控制、QoS 与 NAT</a></li>
-      <li class="breadcrumb-item active">QoS 与流量策略</li>
+      <li class="breadcrumb-item active">QoS</li>
       <li class="wy-breadcrumbs-aside">
       </li>
   </ul>
@@ -1079,12 +1073,13 @@
            <div itemprop="articleBody">
              
   <section id="qos">
-<h1>QoS 与流量策略<a class="headerlink" href="#qos" title="Link to this heading"></a></h1>
-<p>设置接口方向限速，或分类后应用限速、重标记与重定向。</p>
+<h1>QoS<a class="headerlink" href="#qos" title="Link to this heading"></a></h1>
+<p>设置接口方向限速，按流量分类应用策略，或根据路径 MTU 调整 TCP MSS。</p>
 <div class="toctree-wrapper compound">
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../07-policy/interface-qos/">接口 QoS 限速</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../07-policy/mqc/">MQC 分类、流量策略与重定向</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../07-policy/tcp-mss/">TCP MSS 调整</a></li>
 </ul>
 </div>
 </section>

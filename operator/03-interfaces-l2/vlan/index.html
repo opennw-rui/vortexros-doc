@@ -703,19 +703,12 @@
   
   
   <details class="manual-category">
-    <summary>访问控制、QoS 与 NAT</summary>
+    <summary>访问控制列表</summary>
     <div class="manual-children">
       
-<a href="../../07-policy/">概览</a>
+<a href="../../topics/traffic-access/">概览</a>
 
       
-  
-  
-  <div class="manual-subtopic">
-    
-<a href="../../topics/traffic-access/">访问控制与源地址检查</a>
-
-    <div class="manual-children">
   
   
   
@@ -729,16 +722,19 @@
 
   
   
-</div>
-  </div>
-  
-  
-  
-  <div class="manual-subtopic">
-    
-<a href="../../topics/traffic-qos/">QoS 与流量策略</a>
 
+    </div>
+  </details>
+  
+  
+  
+  <details class="manual-category">
+    <summary>QoS</summary>
     <div class="manual-children">
+      
+<a href="../../topics/traffic-qos/">概览</a>
+
+      
   
   
   
@@ -752,19 +748,29 @@
 
   
   
-</div>
-  </div>
   
+  
+<a href="../../07-policy/tcp-mss/">TCP MSS 调整</a>
+
+  
+  
+
+    </div>
+  </details>
+  
+  
+  
+  <details class="manual-category">
+    <summary>NAT</summary>
+    <div class="manual-children">
+      
+<a href="../../nat/">概览</a>
+
+      
   
   
   
 <a href="../../07-policy/nat/">NAT 地址与端口转换</a>
-
-  
-  
-  
-  
-<a href="../../07-policy/tcp-mss/">TCP MSS 调整</a>
 
   
   
@@ -948,7 +954,7 @@
   
   
   <details class="manual-category">
-    <summary>MPLS 与 L3VPN</summary>
+    <summary>MPLS</summary>
     <div class="manual-children">
       
 <a href="../../10-mpls-l3vpn/">概览</a>
@@ -958,7 +964,7 @@
   
   <div class="manual-subtopic">
     
-<a href="../../topics/mpls-core/">核心转发与标签分发</a>
+<a href="../../topics/mpls-services/">L3VPN</a>
 
     <div class="manual-children">
   
@@ -973,17 +979,6 @@
 <a href="../../10-mpls-l3vpn/ldp/">LDP 标签分发</a>
 
   
-  
-</div>
-  </div>
-  
-  
-  
-  <div class="manual-subtopic">
-    
-<a href="../../topics/mpls-services/">租户 VPN 与 IPv6 业务</a>
-
-    <div class="manual-children">
   
   
   
@@ -1094,7 +1089,7 @@
 <span id="id2"></span><h2>配置与验证<a class="headerlink" href="#section-operator-03-interfaces-l2-vlan-3" title="Link to this heading"></a></h2>
 <section id="section-operator-03-interfaces-l2-vlan-4">
 <span id="id3"></span><h3>拓扑<a class="headerlink" href="#section-operator-03-interfaces-l2-vlan-4" title="Link to this heading"></a></h3>
-<p><img alt="无标签终端 → 设备 VLAN 100 → 对端交换机" src="../../../_images/cases21.svg" /></p>
+<p><img alt="终端 A、SW1、SW2 的设备互联" src="../../../_images/cases21.svg" /></p>
 </section>
 <section id="case-conditions-03-interfaces-l2-vlan">
 <span id="id4"></span><h3>配置条件<a class="headerlink" href="#case-conditions-03-interfaces-l2-vlan" title="Link to this heading"></a></h3>
@@ -1127,25 +1122,25 @@ return
 display mac-address
 </pre></div>
 </div>
-<p><code class="docutils literal notranslate"><span class="pre">display</span> <span class="pre">vlan</span></code>使用一张表同时显示状态、MAC学习、描述和端口成员，端口状态中的<code class="docutils literal notranslate"><span class="pre">U/D</span></code>表示up/down，<code class="docutils literal notranslate"><span class="pre">TG/UT</span></code>表示tagged/untagged。表格宽度根据实际内容调整；端口之间间隔两个字符，每行最多显示四个端口，更多端口在下一行按首个接口位置继续显示：</p>
+<p><code class="docutils literal notranslate"><span class="pre">display</span> <span class="pre">vlan</span></code> 同时显示 VLAN 状态、MAC 学习状态、描述和端口成员。<code class="docutils literal notranslate"><span class="pre">U/D</span></code> 表示端口 up/down，<code class="docutils literal notranslate"><span class="pre">TG/UT</span></code> 表示出端带标签/不带标签。两条链路均 up 时，本案例的预期回显中应包含以下两行。</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>-----------------------------------------------------------------
 U: Up;         D: Down;         TG: Tagged;         UT: Untagged;
 -----------------------------------------------------------------
 
 VID  Type    Status  MAC-LRN  Description    Ports
 -----------------------------------------------------------------
-1    common  enable  enable   VLAN 1         UT:eth2(D)  eth3(D)
-10   common  enable  enable   To_CTC_ISP     UT:eth0(U)
-20   common  enable  enable   To_LAN_Client  UT:eth1(U)
+100  common  enable  enable   VLAN 100       TG:Ethernet1(U)  UT:Ethernet2(U)
+200  common  enable  enable   VLAN 200       TG:Ethernet1(U)
 -----------------------------------------------------------------
 </pre></div>
 </div>
 <p>核对 VLAN 100 的有标签与无标签成员。同 VLAN 内应能互通，不同 VLAN 间的互通需经三层网关。</p>
 <p><span id="observed"></span></p>
+<p>实测节选中的物理接口按文档端口编号记为 EthernetX。其他表项保留原始验证值。</p>
 </section>
 <section id="section-operator-03-interfaces-l2-vlan-6">
 <span id="id7"></span><h3>运行查询实测节选<a class="headerlink" href="#section-operator-03-interfaces-l2-vlan-6" title="Link to this heading"></a></h3>
-<p>r4 接入口划入 VLAN 200 后，查询显示该 VLAN 的状态及出端标签方式。测试拓扑的接入口保留 <code class="docutils literal notranslate"><span class="pre">host-p1q*</span></code> 名称。</p>
+<p>r4 接入口划入 VLAN 200 后，查询显示该 VLAN 的状态及出端标签方式。</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>&lt;VortexROS&gt; display vlan 200
 --------------------------------------------------------------------------------------
 U: Up;         D: Down;         TG: Tagged;         UT: Untagged;
@@ -1153,7 +1148,7 @@ U: Up;         D: Down;         TG: Tagged;         UT: Untagged;
 
 VID    Type      Status    MAC-LRN    Description      Ports
 --------------------------------------------------------------------------------------
-200    common    enable    enable     VLAN 200         UT:host-p1q12(U)  host-p1q13(U)
+200    common    enable    enable     VLAN 200         UT:Ethernet2(U)  Ethernet3(U)
 --------------------------------------------------------------------------------------
 </pre></div>
 </div>

@@ -23,7 +23,7 @@
     <link rel="index" title="索引" href="../../../genindex/" />
     <link rel="search" title="搜索" href="../../../search/" />
     <link rel="next" title="配置双栈客户侧 VPN 接口" href="cases/example-1/" />
-    <link rel="prev" title="租户 VPN 与 IPv6 业务" href="../../topics/mpls-services/" /> 
+    <link rel="prev" title="两端建立标签路径" href="../ldp/cases/example-2/" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -703,19 +703,12 @@
   
   
   <details class="manual-category">
-    <summary>访问控制、QoS 与 NAT</summary>
+    <summary>访问控制列表</summary>
     <div class="manual-children">
       
-<a href="../../07-policy/">概览</a>
+<a href="../../topics/traffic-access/">概览</a>
 
       
-  
-  
-  <div class="manual-subtopic">
-    
-<a href="../../topics/traffic-access/">访问控制与源地址检查</a>
-
-    <div class="manual-children">
   
   
   
@@ -729,16 +722,19 @@
 
   
   
-</div>
-  </div>
-  
-  
-  
-  <div class="manual-subtopic">
-    
-<a href="../../topics/traffic-qos/">QoS 与流量策略</a>
 
+    </div>
+  </details>
+  
+  
+  
+  <details class="manual-category">
+    <summary>QoS</summary>
     <div class="manual-children">
+      
+<a href="../../topics/traffic-qos/">概览</a>
+
+      
   
   
   
@@ -752,19 +748,29 @@
 
   
   
-</div>
-  </div>
   
+  
+<a href="../../07-policy/tcp-mss/">TCP MSS 调整</a>
+
+  
+  
+
+    </div>
+  </details>
+  
+  
+  
+  <details class="manual-category">
+    <summary>NAT</summary>
+    <div class="manual-children">
+      
+<a href="../../nat/">概览</a>
+
+      
   
   
   
 <a href="../../07-policy/nat/">NAT 地址与端口转换</a>
-
-  
-  
-  
-  
-<a href="../../07-policy/tcp-mss/">TCP MSS 调整</a>
 
   
   
@@ -948,7 +954,7 @@
   
   
   <details class="manual-category" open>
-    <summary>MPLS 与 L3VPN</summary>
+    <summary>MPLS</summary>
     <div class="manual-children">
       
 <a href="../">概览</a>
@@ -958,7 +964,7 @@
   
   <div class="manual-subtopic">
     
-<a href="../../topics/mpls-core/">核心转发与标签分发</a>
+<a href="../../topics/mpls-services/">L3VPN</a>
 
     <div class="manual-children">
   
@@ -973,17 +979,6 @@
 <a href="../ldp/">LDP 标签分发</a>
 
   
-  
-</div>
-  </div>
-  
-  
-  
-  <div class="manual-subtopic">
-    
-<a href="../../topics/mpls-services/">租户 VPN 与 IPv6 业务</a>
-
-    <div class="manual-children">
   
   
   
@@ -1068,8 +1063,8 @@
           <div role="navigation" aria-label="页面导航">
   <ul class="wy-breadcrumbs">
       <li><a href="../../../" class="icon icon-home" aria-label="Home"></a></li>
-          <li class="breadcrumb-item"><a href="../">MPLS 与 L3VPN</a></li>
-          <li class="breadcrumb-item"><a href="../../topics/mpls-services/">租户 VPN 与 IPv6 业务</a></li>
+          <li class="breadcrumb-item"><a href="../">MPLS</a></li>
+          <li class="breadcrumb-item"><a href="../../topics/mpls-services/">L3VPN</a></li>
       <li class="breadcrumb-item active">MPLS L3VPN、VPNv4 与 VPNv6</li>
       <li class="wy-breadcrumbs-aside">
       </li>
@@ -1114,6 +1109,7 @@ display mpls forwarding-table
 </div>
 <p>在 PE 核对远端 VPN 前缀及标签路径。从两端客户设备分别测试 IPv4 与 IPv6 的双向转发。</p>
 <p><span id="observed"></span></p>
+<p>实测节选中的物理接口按文档端口编号记为 EthernetX。其他表项保留原始验证值。</p>
 </section>
 <section id="vpnv4-6vpe">
 <span id="recorded-result-10-mpls-l3vpn-l3vpn"></span><h3>VPNv4 和 6VPE 的实测结果<a class="headerlink" href="#vpnv4-6vpe" title="Link to this heading"></a></h3>
@@ -1126,7 +1122,7 @@ display mpls forwarding-table
 Destination  : 2001:db8:4::             PrefixLength : 64
 NextHop      : ::ffff:4.4.4.4            Preference   : 254
 Protocol     : BGP                       Flags        : DT
-Interface    : host-p1p2                 VPN-Instance : default
+Interface    : Ethernet0                 VPN-Instance : default
 </pre></div>
 </div>
 <p><span id="precautions"></span></p>
@@ -1148,7 +1144,7 @@ Interface    : host-p1p2                 VPN-Instance : default
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="页脚">
-        <a href="../../topics/mpls-services/" class="btn btn-neutral float-left" title="租户 VPN 与 IPv6 业务" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> 上一页</a>
+        <a href="../ldp/cases/example-2/" class="btn btn-neutral float-left" title="两端建立标签路径" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> 上一页</a>
         <a href="cases/example-1/" class="btn btn-neutral float-right" title="配置双栈客户侧 VPN 接口" accesskey="n" rel="next">下一页 <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 

@@ -703,19 +703,12 @@
   
   
   <details class="manual-category">
-    <summary>访问控制、QoS 与 NAT</summary>
+    <summary>访问控制列表</summary>
     <div class="manual-children">
       
-<a href="../../07-policy/">概览</a>
+<a href="../../topics/traffic-access/">概览</a>
 
       
-  
-  
-  <div class="manual-subtopic">
-    
-<a href="../../topics/traffic-access/">访问控制与源地址检查</a>
-
-    <div class="manual-children">
   
   
   
@@ -729,16 +722,19 @@
 
   
   
-</div>
-  </div>
-  
-  
-  
-  <div class="manual-subtopic">
-    
-<a href="../../topics/traffic-qos/">QoS 与流量策略</a>
 
+    </div>
+  </details>
+  
+  
+  
+  <details class="manual-category">
+    <summary>QoS</summary>
     <div class="manual-children">
+      
+<a href="../../topics/traffic-qos/">概览</a>
+
+      
   
   
   
@@ -752,19 +748,29 @@
 
   
   
-</div>
-  </div>
   
+  
+<a href="../../07-policy/tcp-mss/">TCP MSS 调整</a>
+
+  
+  
+
+    </div>
+  </details>
+  
+  
+  
+  <details class="manual-category">
+    <summary>NAT</summary>
+    <div class="manual-children">
+      
+<a href="../../nat/">概览</a>
+
+      
   
   
   
 <a href="../../07-policy/nat/">NAT 地址与端口转换</a>
-
-  
-  
-  
-  
-<a href="../../07-policy/tcp-mss/">TCP MSS 调整</a>
 
   
   
@@ -948,7 +954,7 @@
   
   
   <details class="manual-category">
-    <summary>MPLS 与 L3VPN</summary>
+    <summary>MPLS</summary>
     <div class="manual-children">
       
 <a href="../../10-mpls-l3vpn/">概览</a>
@@ -958,7 +964,7 @@
   
   <div class="manual-subtopic">
     
-<a href="../../topics/mpls-core/">核心转发与标签分发</a>
+<a href="../../topics/mpls-services/">L3VPN</a>
 
     <div class="manual-children">
   
@@ -973,17 +979,6 @@
 <a href="../../10-mpls-l3vpn/ldp/">LDP 标签分发</a>
 
   
-  
-</div>
-  </div>
-  
-  
-  
-  <div class="manual-subtopic">
-    
-<a href="../../topics/mpls-services/">租户 VPN 与 IPv6 业务</a>
-
-    <div class="manual-children">
   
   
   
@@ -1110,6 +1105,7 @@ display interface brief
 </div>
 <p>确认成员状态符合预期。检查 Eth-Trunk10 及其成员，再断开一根链路验证剩余成员是否仍能转发。</p>
 <p><span id="observed"></span></p>
+<p>实测节选中的物理接口按文档端口编号记为 EthernetX。其他表项保留原始验证值。</p>
 </section>
 <section id="r4-result-operator-03-interfaces-l2-eth-trunk">
 <span id="recorded-result-03-interfaces-l2-eth-trunk"></span><span id="id5"></span><h3>成员加入、迁移和退出时的实测回显<a class="headerlink" href="#r4-result-operator-03-interfaces-l2-eth-trunk" title="Link to this heading"></a></h3>
@@ -1117,8 +1113,8 @@ display interface brief
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>&lt;VortexROS&gt; display interface brief
 Interface               PHY    Proto   InUti  OutUti  CRC    Type          MTU
 Eth-Trunk10             down   down     0.0%    0.0%   --    bond          1500
-  host-p1a12            up     up       0.0%    0.0%   --    AF-Packet     1500
-  host-p1b12            up     up       0.0%    0.0%   --    AF-Packet     1500
+  Ethernet4             up     up       0.0%    0.0%   --    AF-Packet     1500
+  Ethernet5             up     up       0.0%    0.0%   --    AF-Packet     1500
 </pre></div>
 </div>
 </section>
@@ -1133,8 +1129,8 @@ System Priority: 65535      System ID: 02fe-c51c-ad7d
 Operate status: up          Number Of Up Port In Trunk: 2
 --------------------------------------------------------------------------------
 ActorPortName          Status   PortPri PortNo PortKey PortState Weight
-host-p1a12             Selected 255     1      31      00111111  1
-host-p1b12             Selected 255     2      31      00111111  1
+Ethernet4              Selected 255     1      31      00111111  1
+Ethernet5              Selected 255     2      31      00111111  1
 </pre></div>
 </div>
 <p><span id="precautions"></span></p>

@@ -703,19 +703,12 @@
   
   
   <details class="manual-category">
-    <summary>访问控制、QoS 与 NAT</summary>
+    <summary>访问控制列表</summary>
     <div class="manual-children">
       
-<a href="../../07-policy/">概览</a>
+<a href="../../topics/traffic-access/">概览</a>
 
       
-  
-  
-  <div class="manual-subtopic">
-    
-<a href="../../topics/traffic-access/">访问控制与源地址检查</a>
-
-    <div class="manual-children">
   
   
   
@@ -729,16 +722,19 @@
 
   
   
-</div>
-  </div>
-  
-  
-  
-  <div class="manual-subtopic">
-    
-<a href="../../topics/traffic-qos/">QoS 与流量策略</a>
 
+    </div>
+  </details>
+  
+  
+  
+  <details class="manual-category">
+    <summary>QoS</summary>
     <div class="manual-children">
+      
+<a href="../../topics/traffic-qos/">概览</a>
+
+      
   
   
   
@@ -752,19 +748,29 @@
 
   
   
-</div>
-  </div>
   
+  
+<a href="../../07-policy/tcp-mss/">TCP MSS 调整</a>
+
+  
+  
+
+    </div>
+  </details>
+  
+  
+  
+  <details class="manual-category">
+    <summary>NAT</summary>
+    <div class="manual-children">
+      
+<a href="../../nat/">概览</a>
+
+      
   
   
   
 <a href="../../07-policy/nat/">NAT 地址与端口转换</a>
-
-  
-  
-  
-  
-<a href="../../07-policy/tcp-mss/">TCP MSS 调整</a>
 
   
   
@@ -948,7 +954,7 @@
   
   
   <details class="manual-category">
-    <summary>MPLS 与 L3VPN</summary>
+    <summary>MPLS</summary>
     <div class="manual-children">
       
 <a href="../../10-mpls-l3vpn/">概览</a>
@@ -958,7 +964,7 @@
   
   <div class="manual-subtopic">
     
-<a href="../../topics/mpls-core/">核心转发与标签分发</a>
+<a href="../../topics/mpls-services/">L3VPN</a>
 
     <div class="manual-children">
   
@@ -973,17 +979,6 @@
 <a href="../../10-mpls-l3vpn/ldp/">LDP 标签分发</a>
 
   
-  
-</div>
-  </div>
-  
-  
-  
-  <div class="manual-subtopic">
-    
-<a href="../../topics/mpls-services/">租户 VPN 与 IPv6 业务</a>
-
-    <div class="manual-children">
   
   
   
@@ -1110,15 +1105,16 @@ display current-configuration | include aging-time
 </div>
 <p>检查动态表项的 VLAN、MAC 和出接口。停止指定终端的流量后，可观察表项何时从列表中移除。</p>
 <p><span id="observed"></span></p>
+<p>实测节选中的物理接口按文档端口编号记为 EthernetX。其他表项保留原始验证值。</p>
 </section>
 <section id="recorded-result-03-interfaces-l2-mac-table">
 <span id="id5"></span><h3>精确查询的实测回显<a class="headerlink" href="#recorded-result-03-interfaces-l2-mac-table" title="Link to this heading"></a></h3>
-<p>测试设备在 VLAN 200 配置静态 MAC 后执行精确查询。表中保留了实际接口名。命中时只有一项，查询未配置的地址时总数为 0。</p>
+<p>测试设备在 VLAN 200 配置静态 MAC 后执行精确查询。命中时只有一项，查询未配置的地址时总数为 0。</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>&lt;VortexROS&gt; display mac-address 0200-0011-0402
 -------------------------------------------------------------------------------
 MAC Address       VLAN/VSI/BD                    Learned-From        Type
 -------------------------------------------------------------------------------
-0200-0011-0402    200/-/-                        host-p1q13          static
+0200-0011-0402    200/-/-                        Ethernet3           static
 -------------------------------------------------------------------------------
 Total items displayed = 1
 </pre></div>

@@ -703,19 +703,12 @@
   
   
   <details class="manual-category">
-    <summary>访问控制、QoS 与 NAT</summary>
+    <summary>访问控制列表</summary>
     <div class="manual-children">
       
-<a href="../../07-policy/">概览</a>
+<a href="../../topics/traffic-access/">概览</a>
 
       
-  
-  
-  <div class="manual-subtopic">
-    
-<a href="../../topics/traffic-access/">访问控制与源地址检查</a>
-
-    <div class="manual-children">
   
   
   
@@ -729,16 +722,19 @@
 
   
   
-</div>
-  </div>
-  
-  
-  
-  <div class="manual-subtopic">
-    
-<a href="../../topics/traffic-qos/">QoS 与流量策略</a>
 
+    </div>
+  </details>
+  
+  
+  
+  <details class="manual-category">
+    <summary>QoS</summary>
     <div class="manual-children">
+      
+<a href="../../topics/traffic-qos/">概览</a>
+
+      
   
   
   
@@ -752,19 +748,29 @@
 
   
   
-</div>
-  </div>
   
+  
+<a href="../../07-policy/tcp-mss/">TCP MSS 调整</a>
+
+  
+  
+
+    </div>
+  </details>
+  
+  
+  
+  <details class="manual-category">
+    <summary>NAT</summary>
+    <div class="manual-children">
+      
+<a href="../../nat/">概览</a>
+
+      
   
   
   
 <a href="../../07-policy/nat/">NAT 地址与端口转换</a>
-
-  
-  
-  
-  
-<a href="../../07-policy/tcp-mss/">TCP MSS 调整</a>
 
   
   
@@ -948,7 +954,7 @@
   
   
   <details class="manual-category">
-    <summary>MPLS 与 L3VPN</summary>
+    <summary>MPLS</summary>
     <div class="manual-children">
       
 <a href="../../10-mpls-l3vpn/">概览</a>
@@ -958,7 +964,7 @@
   
   <div class="manual-subtopic">
     
-<a href="../../topics/mpls-core/">核心转发与标签分发</a>
+<a href="../../topics/mpls-services/">L3VPN</a>
 
     <div class="manual-children">
   
@@ -973,17 +979,6 @@
 <a href="../../10-mpls-l3vpn/ldp/">LDP 标签分发</a>
 
   
-  
-</div>
-  </div>
-  
-  
-  
-  <div class="manual-subtopic">
-    
-<a href="../../topics/mpls-services/">租户 VPN 与 IPv6 业务</a>
-
-    <div class="manual-children">
   
   
   
@@ -1112,13 +1107,14 @@ display ipv6 routing-table
 <p>确认地址与通告前缀匹配，默认路由指向上游路由器的链路本地地址。撤销后检查对应自动学习的地址和路由已消失。</p>
 <p>如果设备在发出 RA，从下游主机检查自动生成的 IPv6 地址和默认路由，并测试网关连通。</p>
 <p><span id="observed"></span></p>
+<p>实测节选中的物理接口按文档端口编号记为 EthernetX。其他表项保留原始验证值。</p>
 </section>
 <section id="raslaac">
 <span id="r4-ra-slaac-result"></span><span id="recorded-result-04-ip-routing-ipv6-router-advertisement"></span><h3>RA、SLAAC 和缺省路由的实测回显<a class="headerlink" href="#raslaac" title="Link to this heading"></a></h3>
 <p>r4 三节点中，第一台从专用三层链路发布 <code class="docutils literal notranslate"><span class="pre">2001:db8:20::/64</span></code>。第二台在对端口自动获得同一前缀的地址，缺省路由从该口指向上游的 IPv6 链路本地地址。直接探测上游地址收到 3/3 回应。撤销自动配置后，自动地址和所学缺省路由均消失。以下保留实际回显中的相关行。</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>&lt;VortexROS&gt; display ipv6 interface brief
 Interface               IPv6 Address/Mask                      Physical  Protocol  VPN-Instance
-host-p2a12              2001:db8:20:0:fe:b5ff:fe44:9b03/64     up        up        default
+Ethernet4               2001:db8:20:0:fe:b5ff:fe44:9b03/64     up        up        default
 </pre></div>
 </div>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>&lt;VortexROS&gt; display ipv6 routing-table
@@ -1127,7 +1123,7 @@ Destination  : ::                                      PrefixLength : 0
 NextHop      : fe80::fe:2cff:fe2d:b091                 Preference   : 0
 Cost         : 1024                                    Protocol     : Kernel
 RelayNextHop : fe80::fe:2cff:fe2d:b091                 Flags        : D
-Interface    : host-p2a12                              VPN-Instance : default
+Interface    : Ethernet4                               VPN-Instance : default
 </pre></div>
 </div>
 <p><span id="precautions"></span></p>

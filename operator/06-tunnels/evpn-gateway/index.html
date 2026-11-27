@@ -22,7 +22,7 @@
     <script src="../../../_static/js/theme.js"></script>
     <link rel="index" title="索引" href="../../../genindex/" />
     <link rel="search" title="搜索" href="../../../search/" />
-    <link rel="next" title="访问控制、QoS 与 NAT" href="../../07-policy/" />
+    <link rel="next" title="访问控制列表" href="../../topics/traffic-access/" />
     <link rel="prev" title="EVPN All-Active 多归属" href="../evpn-multihoming/" /> 
 </head>
 
@@ -703,19 +703,12 @@
   
   
   <details class="manual-category">
-    <summary>访问控制、QoS 与 NAT</summary>
+    <summary>访问控制列表</summary>
     <div class="manual-children">
       
-<a href="../../07-policy/">概览</a>
+<a href="../../topics/traffic-access/">概览</a>
 
       
-  
-  
-  <div class="manual-subtopic">
-    
-<a href="../../topics/traffic-access/">访问控制与源地址检查</a>
-
-    <div class="manual-children">
   
   
   
@@ -729,16 +722,19 @@
 
   
   
-</div>
-  </div>
-  
-  
-  
-  <div class="manual-subtopic">
-    
-<a href="../../topics/traffic-qos/">QoS 与流量策略</a>
 
+    </div>
+  </details>
+  
+  
+  
+  <details class="manual-category">
+    <summary>QoS</summary>
     <div class="manual-children">
+      
+<a href="../../topics/traffic-qos/">概览</a>
+
+      
   
   
   
@@ -752,19 +748,29 @@
 
   
   
-</div>
-  </div>
   
+  
+<a href="../../07-policy/tcp-mss/">TCP MSS 调整</a>
+
+  
+  
+
+    </div>
+  </details>
+  
+  
+  
+  <details class="manual-category">
+    <summary>NAT</summary>
+    <div class="manual-children">
+      
+<a href="../../nat/">概览</a>
+
+      
   
   
   
 <a href="../../07-policy/nat/">NAT 地址与端口转换</a>
-
-  
-  
-  
-  
-<a href="../../07-policy/tcp-mss/">TCP MSS 调整</a>
 
   
   
@@ -948,7 +954,7 @@
   
   
   <details class="manual-category">
-    <summary>MPLS 与 L3VPN</summary>
+    <summary>MPLS</summary>
     <div class="manual-children">
       
 <a href="../../10-mpls-l3vpn/">概览</a>
@@ -958,7 +964,7 @@
   
   <div class="manual-subtopic">
     
-<a href="../../topics/mpls-core/">核心转发与标签分发</a>
+<a href="../../topics/mpls-services/">L3VPN</a>
 
     <div class="manual-children">
   
@@ -973,17 +979,6 @@
 <a href="../../10-mpls-l3vpn/ldp/">LDP 标签分发</a>
 
   
-  
-</div>
-  </div>
-  
-  
-  
-  <div class="manual-subtopic">
-    
-<a href="../../topics/mpls-services/">租户 VPN 与 IPv6 业务</a>
-
-    <div class="manual-children">
   
   
   
@@ -1094,7 +1089,7 @@
 <span id="id2"></span><h2>配置与验证<a class="headerlink" href="#section-operator-06-tunnels-evpn-gateway-3" title="Link to this heading"></a></h2>
 <section id="section-operator-06-tunnels-evpn-gateway-4">
 <span id="id3"></span><h3>拓扑<a class="headerlink" href="#section-operator-06-tunnels-evpn-gateway-4" title="Link to this heading"></a></h3>
-<p><img alt="PE1 Vbdif65536 → EVPN，VNI 65010 → PE2 接入终端" src="../../../_images/cases28.svg" /></p>
+<p><img alt="PE1、PE2、业务终端 的设备互联" src="../../../_images/cases28.svg" /></p>
 </section>
 <section id="case-conditions-06-tunnels-evpn-gateway">
 <span id="id4"></span><h3>配置条件<a class="headerlink" href="#case-conditions-06-tunnels-evpn-gateway" title="Link to this heading"></a></h3>
@@ -1148,7 +1143,7 @@ display mac-address bridge-domain 65536
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="页脚">
         <a href="../evpn-multihoming/" class="btn btn-neutral float-left" title="EVPN All-Active 多归属" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> 上一页</a>
-        <a href="../../07-policy/" class="btn btn-neutral float-right" title="访问控制、QoS 与 NAT" accesskey="n" rel="next">下一页 <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="../../topics/traffic-access/" class="btn btn-neutral float-right" title="访问控制列表" accesskey="n" rel="next">下一页 <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

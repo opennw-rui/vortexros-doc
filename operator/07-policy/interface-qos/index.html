@@ -23,7 +23,7 @@
     <link rel="index" title="索引" href="../../../genindex/" />
     <link rel="search" title="搜索" href="../../../search/" />
     <link rel="next" title="MQC 分类、流量策略与重定向" href="../mqc/" />
-    <link rel="prev" title="QoS 与流量策略" href="../../topics/traffic-qos/" /> 
+    <link rel="prev" title="QoS" href="../../topics/traffic-qos/" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -702,20 +702,13 @@
   
   
   
-  <details class="manual-category" open>
-    <summary>访问控制、QoS 与 NAT</summary>
+  <details class="manual-category">
+    <summary>访问控制列表</summary>
     <div class="manual-children">
       
-<a href="../">概览</a>
+<a href="../../topics/traffic-access/">概览</a>
 
       
-  
-  
-  <div class="manual-subtopic">
-    
-<a href="../../topics/traffic-access/">访问控制与源地址检查</a>
-
-    <div class="manual-children">
   
   
   
@@ -729,16 +722,19 @@
 
   
   
-</div>
-  </div>
-  
-  
-  
-  <div class="manual-subtopic">
-    
-<a href="../../topics/traffic-qos/">QoS 与流量策略</a>
 
+    </div>
+  </details>
+  
+  
+  
+  <details class="manual-category" open>
+    <summary>QoS</summary>
     <div class="manual-children">
+      
+<a href="../../topics/traffic-qos/">概览</a>
+
+      
   
   
   
@@ -752,19 +748,29 @@
 
   
   
-</div>
-  </div>
   
+  
+<a href="../tcp-mss/">TCP MSS 调整</a>
+
+  
+  
+
+    </div>
+  </details>
+  
+  
+  
+  <details class="manual-category">
+    <summary>NAT</summary>
+    <div class="manual-children">
+      
+<a href="../../nat/">概览</a>
+
+      
   
   
   
 <a href="../nat/">NAT 地址与端口转换</a>
-
-  
-  
-  
-  
-<a href="../tcp-mss/">TCP MSS 调整</a>
 
   
   
@@ -948,7 +954,7 @@
   
   
   <details class="manual-category">
-    <summary>MPLS 与 L3VPN</summary>
+    <summary>MPLS</summary>
     <div class="manual-children">
       
 <a href="../../10-mpls-l3vpn/">概览</a>
@@ -958,7 +964,7 @@
   
   <div class="manual-subtopic">
     
-<a href="../../topics/mpls-core/">核心转发与标签分发</a>
+<a href="../../topics/mpls-services/">L3VPN</a>
 
     <div class="manual-children">
   
@@ -973,17 +979,6 @@
 <a href="../../10-mpls-l3vpn/ldp/">LDP 标签分发</a>
 
   
-  
-</div>
-  </div>
-  
-  
-  
-  <div class="manual-subtopic">
-    
-<a href="../../topics/mpls-services/">租户 VPN 与 IPv6 业务</a>
-
-    <div class="manual-children">
   
   
   
@@ -1068,8 +1063,7 @@
           <div role="navigation" aria-label="页面导航">
   <ul class="wy-breadcrumbs">
       <li><a href="../../../" class="icon icon-home" aria-label="Home"></a></li>
-          <li class="breadcrumb-item"><a href="../">访问控制、QoS 与 NAT</a></li>
-          <li class="breadcrumb-item"><a href="../../topics/traffic-qos/">QoS 与流量策略</a></li>
+          <li class="breadcrumb-item"><a href="../../topics/traffic-qos/">QoS</a></li>
       <li class="breadcrumb-item active">接口 QoS 限速</li>
       <li class="wy-breadcrumbs-aside">
       </li>
@@ -1094,7 +1088,7 @@
 <span id="id2"></span><h2>配置与验证<a class="headerlink" href="#section-operator-07-policy-interface-qos-3" title="Link to this heading"></a></h2>
 <section id="section-operator-07-policy-interface-qos-4">
 <span id="id3"></span><h3>拓扑<a class="headerlink" href="#section-operator-07-policy-interface-qos-4" title="Link to this heading"></a></h3>
-<p><img alt="流量源 → 设备受限接口 → 接收端" src="../../../_images/cases32.svg" /></p>
+<p><img alt="发送端、R1、接收端 的设备互联" src="../../../_images/cases32.svg" /></p>
 </section>
 <section id="case-conditions-07-policy-interface-qos">
 <span id="id4"></span><h3>配置条件<a class="headerlink" href="#case-conditions-07-policy-interface-qos" title="Link to this heading"></a></h3>
@@ -1155,7 +1149,7 @@ display interface Ethernet 1
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="页脚">
-        <a href="../../topics/traffic-qos/" class="btn btn-neutral float-left" title="QoS 与流量策略" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> 上一页</a>
+        <a href="../../topics/traffic-qos/" class="btn btn-neutral float-left" title="QoS" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> 上一页</a>
         <a href="../mqc/" class="btn btn-neutral float-right" title="MQC 分类、流量策略与重定向" accesskey="n" rel="next">下一页 <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 

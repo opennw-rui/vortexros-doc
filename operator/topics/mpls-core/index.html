@@ -21,9 +21,7 @@
       <script src="../../../_static/translations.js?v=beaddf03"></script>
     <script src="../../../_static/js/theme.js"></script>
     <link rel="index" title="索引" href="../../../genindex/" />
-    <link rel="search" title="搜索" href="../../../search/" />
-    <link rel="next" title="MPLS 核心转发" href="../../10-mpls-l3vpn/mpls/" />
-    <link rel="prev" title="MPLS 与 L3VPN" href="../../10-mpls-l3vpn/" /> 
+    <link rel="search" title="搜索" href="../../../search/" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -703,19 +701,12 @@
   
   
   <details class="manual-category">
-    <summary>访问控制、QoS 与 NAT</summary>
+    <summary>访问控制列表</summary>
     <div class="manual-children">
       
-<a href="../../07-policy/">概览</a>
+<a href="../traffic-access/">概览</a>
 
       
-  
-  
-  <div class="manual-subtopic">
-    
-<a href="../traffic-access/">访问控制与源地址检查</a>
-
-    <div class="manual-children">
   
   
   
@@ -729,16 +720,19 @@
 
   
   
-</div>
-  </div>
-  
-  
-  
-  <div class="manual-subtopic">
-    
-<a href="../traffic-qos/">QoS 与流量策略</a>
 
+    </div>
+  </details>
+  
+  
+  
+  <details class="manual-category">
+    <summary>QoS</summary>
     <div class="manual-children">
+      
+<a href="../traffic-qos/">概览</a>
+
+      
   
   
   
@@ -752,19 +746,29 @@
 
   
   
-</div>
-  </div>
   
+  
+<a href="../../07-policy/tcp-mss/">TCP MSS 调整</a>
+
+  
+  
+
+    </div>
+  </details>
+  
+  
+  
+  <details class="manual-category">
+    <summary>NAT</summary>
+    <div class="manual-children">
+      
+<a href="../../nat/">概览</a>
+
+      
   
   
   
 <a href="../../07-policy/nat/">NAT 地址与端口转换</a>
-
-  
-  
-  
-  
-<a href="../../07-policy/tcp-mss/">TCP MSS 调整</a>
 
   
   
@@ -947,8 +951,8 @@
   
   
   
-  <details class="manual-category" open>
-    <summary>MPLS 与 L3VPN</summary>
+  <details class="manual-category">
+    <summary>MPLS</summary>
     <div class="manual-children">
       
 <a href="../../10-mpls-l3vpn/">概览</a>
@@ -958,7 +962,7 @@
   
   <div class="manual-subtopic">
     
-<a href="#" aria-current="page">核心转发与标签分发</a>
+<a href="../mpls-services/">L3VPN</a>
 
     <div class="manual-children">
   
@@ -973,17 +977,6 @@
 <a href="../../10-mpls-l3vpn/ldp/">LDP 标签分发</a>
 
   
-  
-</div>
-  </div>
-  
-  
-  
-  <div class="manual-subtopic">
-    
-<a href="../mpls-services/">租户 VPN 与 IPv6 业务</a>
-
-    <div class="manual-children">
   
   
   
@@ -1068,7 +1061,6 @@
           <div role="navigation" aria-label="页面导航">
   <ul class="wy-breadcrumbs">
       <li><a href="../../../" class="icon icon-home" aria-label="Home"></a></li>
-          <li class="breadcrumb-item"><a href="../../10-mpls-l3vpn/">MPLS 与 L3VPN</a></li>
       <li class="breadcrumb-item active">核心转发与标签分发</li>
       <li class="wy-breadcrumbs-aside">
       </li>
@@ -1080,22 +1072,13 @@
              
   <section id="id1">
 <h1>核心转发与标签分发<a class="headerlink" href="#id1" title="Link to this heading"></a></h1>
-<p>启用 MPLS 核心转发，并通过 LDP 在邻居之间交换标签绑定。</p>
-<div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../../10-mpls-l3vpn/mpls/">MPLS 核心转发</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../10-mpls-l3vpn/ldp/">LDP 标签分发</a></li>
-</ul>
-</div>
+<p>在 <a class="reference internal" href="../mpls-services/"><span class="std std-doc">MPLS 的 L3VPN 专题</span></a>中进入<a class="reference internal" href="../../10-mpls-l3vpn/mpls/"><span class="std std-doc">核心标签转发</span></a>与 <a class="reference internal" href="../../10-mpls-l3vpn/ldp/"><span class="std std-doc">LDP 邻居和标签</span></a>。</p>
 </section>
 
 
            </div>
           </div>
-          <footer><div class="rst-footer-buttons" role="navigation" aria-label="页脚">
-        <a href="../../10-mpls-l3vpn/" class="btn btn-neutral float-left" title="MPLS 与 L3VPN" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> 上一页</a>
-        <a href="../../10-mpls-l3vpn/mpls/" class="btn btn-neutral float-right" title="MPLS 核心转发" accesskey="n" rel="next">下一页 <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-    </div>
+          <footer>
 
   <hr/>
 

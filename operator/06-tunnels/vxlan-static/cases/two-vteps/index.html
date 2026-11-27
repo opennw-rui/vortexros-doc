@@ -703,19 +703,12 @@
   
   
   <details class="manual-category">
-    <summary>访问控制、QoS 与 NAT</summary>
+    <summary>访问控制列表</summary>
     <div class="manual-children">
       
-<a href="../../../../07-policy/">概览</a>
+<a href="../../../../topics/traffic-access/">概览</a>
 
       
-  
-  
-  <div class="manual-subtopic">
-    
-<a href="../../../../topics/traffic-access/">访问控制与源地址检查</a>
-
-    <div class="manual-children">
   
   
   
@@ -729,16 +722,19 @@
 
   
   
-</div>
-  </div>
-  
-  
-  
-  <div class="manual-subtopic">
-    
-<a href="../../../../topics/traffic-qos/">QoS 与流量策略</a>
 
+    </div>
+  </details>
+  
+  
+  
+  <details class="manual-category">
+    <summary>QoS</summary>
     <div class="manual-children">
+      
+<a href="../../../../topics/traffic-qos/">概览</a>
+
+      
   
   
   
@@ -752,19 +748,29 @@
 
   
   
-</div>
-  </div>
   
+  
+<a href="../../../../07-policy/tcp-mss/">TCP MSS 调整</a>
+
+  
+  
+
+    </div>
+  </details>
+  
+  
+  
+  <details class="manual-category">
+    <summary>NAT</summary>
+    <div class="manual-children">
+      
+<a href="../../../../nat/">概览</a>
+
+      
   
   
   
 <a href="../../../../07-policy/nat/">NAT 地址与端口转换</a>
-
-  
-  
-  
-  
-<a href="../../../../07-policy/tcp-mss/">TCP MSS 调整</a>
 
   
   
@@ -948,7 +954,7 @@
   
   
   <details class="manual-category">
-    <summary>MPLS 与 L3VPN</summary>
+    <summary>MPLS</summary>
     <div class="manual-children">
       
 <a href="../../../../10-mpls-l3vpn/">概览</a>
@@ -958,7 +964,7 @@
   
   <div class="manual-subtopic">
     
-<a href="../../../../topics/mpls-core/">核心转发与标签分发</a>
+<a href="../../../../topics/mpls-services/">L3VPN</a>
 
     <div class="manual-children">
   
@@ -973,17 +979,6 @@
 <a href="../../../../10-mpls-l3vpn/ldp/">LDP 标签分发</a>
 
   
-  
-</div>
-  </div>
-  
-  
-  
-  <div class="manual-subtopic">
-    
-<a href="../../../../topics/mpls-services/">租户 VPN 与 IPv6 业务</a>
-
-    <div class="manual-children">
   
   
   
@@ -1083,12 +1078,12 @@
 <h1>两个 VTEP 的静态二层互通<a class="headerlink" href="#vtep" title="Link to this heading"></a></h1>
 <section id="id1">
 <h2>拓扑<a class="headerlink" href="#id1" title="Link to this heading"></a></h2>
-<p><img alt="站点 A 终端 → R1 192.0.2.1，BD 11 → R2 192.0.2.2，BD 11 → 站点 B 终端" src="../../../../../_images/two-vteps.svg" /></p>
+<p><img alt="两个站点通过各自 Ethernet1 接入 VLAN 100 并跨 VXLAN 互通" src="../../../../../_images/two-vteps.svg" /></p>
 </section>
 <section id="id2">
 <h2>配置条件<a class="headerlink" href="#id2" title="Link to this heading"></a></h2>
 <p>两端 VTEP 的底层地址彼此可达，启用相应的桥域和数据面。选择相同 VNI，并规划每端本地接入口。</p>
-<p>R1 和 R2 各用 Ethernet0 作为底层，地址为 192.0.2.1 和 .2。两个终端分别接两端 Ethernet1，使用同一个业务网段 203.0.113.0/24。两台设备都使用 VLAN 100、BD 11 和 VNI 1011。</p>
+<p>R1 和 R2 各用 Ethernet0 作为底层，地址分别为 192.0.2.1/24 和 192.0.2.2/24。终端 A、B 分别接 R1、R2 的 Ethernet1，地址分别为 203.0.113.11/24 和 203.0.113.12/24。两台设备都使用 VLAN 100、BD 11 和 VNI 1011。</p>
 </section>
 <section id="id3">
 <h2>配置步骤<a class="headerlink" href="#id3" title="Link to this heading"></a></h2>
