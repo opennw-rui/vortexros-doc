@@ -1,13 +1,19 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 840 185" role="img" aria-labelledby="label">
-<title id="label">管理终端、R1 的设备互联</title>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 840 220" role="img" aria-labelledby="label">
+<title id="label">PE1、PE2 的设备互联</title>
 <style>text{font:14px Arial,'Microsoft YaHei','PingFang SC',sans-serif;fill:#183148}.name{font-size:17px;font-weight:700}.port{font:13px Consolas,monospace;fill:#15517f}.note{font-size:13px;fill:#415971}.device{fill:#e9f4fd;stroke:#28628e;stroke-width:2}.symbol{fill:none;stroke:#28628e;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}.wire{fill:none;stroke:#476781;stroke-width:2}.logical{stroke:#30768f;stroke-dasharray:7 5}</style>
-<rect x="1" y="1" width="838" height="183" rx="12" fill="#fcfdff" stroke="#cedbe7"/>
-<path class="wire" d="M147 76 L693 76"/>
-<text x="420" y="67" text-anchor="middle" class="note">管理网络</text>
-<text x="685" y="95" text-anchor="end" class="port">Ethernet0</text>
-<g transform="translate(120 76)"><rect class="device" x="-27" y="-19" width="54" height="33" rx="4"/><path class="symbol" d="M0 14v7m-14 0h28M-20 7h40"/></g>
-<text x="120" y="117" text-anchor="middle" class="name">管理终端</text>
-<g transform="translate(720 76)"><ellipse class="device" cx="0" cy="0" rx="32" ry="21"/><path class="symbol" d="M-17 -8h12m-12 0 4-4m-4 4 4 4M17 -8H5m12 0-4-4m4 4-4 4M-5 9h-12m12 0-4-4m4 4-4 4M5 9h12m-12 0 4-4m-4 4 4 4"/></g>
-<text x="720" y="117" text-anchor="middle" class="name">R1</text>
-<text x="720" y="137" text-anchor="middle" class="note">监听端口及受管服务</text>
+<rect x="1" y="1" width="838" height="218" rx="12" fill="#fcfdff" stroke="#cedbe7"/>
+<path class="wire" d="M147 106 L693 106"/>
+<text x="420" y="97" text-anchor="middle" class="note">192.0.2.0/30 · IPv4 MPLS 核心</text>
+<text x="155" y="125" text-anchor="start" class="port">Ethernet0</text>
+<text x="685" y="125" text-anchor="end" class="port">Ethernet0</text>
+<path class="wire logical" d="M120 84 V48 H720 V84"/>
+<text x="420" y="39" text-anchor="middle" class="note">6PE · 全局 IPv6 标签路由</text>
+<g transform="translate(120 106)"><ellipse class="device" cx="0" cy="0" rx="32" ry="21"/><path class="symbol" d="M-17 -8h12m-12 0 4-4m-4 4 4 4M17 -8H5m12 0-4-4m4 4-4 4M-5 9h-12m12 0-4-4m4 4-4 4M5 9h12m-12 0 4-4m-4 4 4 4"/></g>
+<text x="120" y="147" text-anchor="middle" class="name">PE1</text>
+<text x="120" y="167" text-anchor="middle" class="note">198.51.100.1/32</text>
+<text x="120" y="184" text-anchor="middle" class="note">2001:db8:1::1/128</text>
+<g transform="translate(720 106)"><ellipse class="device" cx="0" cy="0" rx="32" ry="21"/><path class="symbol" d="M-17 -8h12m-12 0 4-4m-4 4 4 4M17 -8H5m12 0-4-4m4 4-4 4M-5 9h-12m12 0-4-4m4 4-4 4M5 9h12m-12 0 4-4m-4 4 4 4"/></g>
+<text x="720" y="147" text-anchor="middle" class="name">PE2</text>
+<text x="720" y="167" text-anchor="middle" class="note">198.51.100.2/32</text>
+<text x="720" y="184" text-anchor="middle" class="note">2001:db8:2::1/128</text>
 </svg>

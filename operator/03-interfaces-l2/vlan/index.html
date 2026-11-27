@@ -22,8 +22,8 @@
     <script src="../../../_static/js/theme.js"></script>
     <link rel="index" title="索引" href="../../../genindex/" />
     <link rel="search" title="搜索" href="../../../search/" />
-    <link rel="next" title="MAC 地址表" href="../mac-table/" />
-    <link rel="prev" title="VLAN 与 MAC 转发" href="../../topics/vlan-switching/" /> 
+    <link rel="next" title="Hybrid 接口同时发送带标签和无标签流量" href="cases/hybrid/" />
+    <link rel="prev" title="二层交换" href="../../layer2-switching/" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -59,13 +59,6 @@
       
   
   
-  <div class="manual-subtopic">
-    
-<a href="../../../installation/preparation/">安装前准备</a>
-
-    <div class="manual-children">
-  
-  
   
 <a href="../../../installation/00-planning/">部署规划</a>
 
@@ -82,17 +75,6 @@
 <a href="../../../installation/02-backends/">系统与数据面组件</a>
 
   
-  
-</div>
-  </div>
-  
-  
-  
-  <div class="manual-subtopic">
-    
-<a href="../../../installation/deployment/">安装与首次启动</a>
-
-    <div class="manual-children">
   
   
   
@@ -117,17 +99,6 @@
 <a href="../../../installation/05-vpp-startup/">配置和激活数据面</a>
 
   
-  
-</div>
-  </div>
-  
-  
-  
-  <div class="manual-subtopic">
-    
-<a href="../../../installation/maintenance/">升级、回退与验收</a>
-
-    <div class="manual-children">
   
   
   <div class="manual-subtopic">
@@ -162,10 +133,6 @@
   
 <a href="../../../installation/08-hardware-acceptance/">真机验收</a>
 
-  
-  
-</div>
-  </div>
   
   
 
@@ -215,67 +182,8 @@
       
   
   
-  <div class="manual-subtopic">
-    
-<a href="../../topics/system-identity/">设备身份与授权</a>
-
-    <div class="manual-children">
-  
-  
   
 <a href="../../02-system-services/identity/">设备名称与登录提示</a>
-
-  
-  
-  
-  
-<a href="../../02-system-services/licensing/">离线设备授权</a>
-
-  
-  
-</div>
-  </div>
-  
-  
-  
-  <div class="manual-subtopic">
-    
-<a href="../../topics/management-access/">登录与认证</a>
-
-    <div class="manual-children">
-  
-  
-  
-<a href="../../02-system-services/local-aaa/">本地 AAA 与用户权限</a>
-
-  
-  
-  
-  
-<a href="../../02-system-services/stelnet/">STelnet 与 VTY</a>
-
-  
-  
-  
-  
-<a href="../../02-system-services/ssh-public-key/">SSH 公钥认证</a>
-
-  
-  
-</div>
-  </div>
-  
-  
-  
-  <div class="manual-subtopic">
-    
-<a href="../../topics/system-network-time/">本机解析与时间</a>
-
-    <div class="manual-children">
-  
-  
-  
-<a href="../../02-system-services/dns/">本机 DNS 解析</a>
 
   
   
@@ -287,12 +195,38 @@
   
   
   
+<a href="../../02-system-services/dns/">本机 DNS 解析</a>
+
+  
+  
+  
+  
 <a href="../../02-system-services/ntp/">NTP 时间同步</a>
 
   
   
-</div>
-  </div>
+  
+  
+<a href="../../02-system-services/local-aaa/">本地 AAA 与用户权限</a>
+
+  
+  
+  
+  
+<a href="../../02-system-services/ssh-public-key/">SSH 公钥认证</a>
+
+  
+  
+  
+  
+<a href="../../02-system-services/stelnet/">STelnet、VTY 与 SCP</a>
+
+  
+  
+  
+  
+<a href="../../02-system-services/licensing/">离线设备授权</a>
+
   
   
 
@@ -310,13 +244,6 @@
       
   
   
-  <div class="manual-subtopic">
-    
-<a href="../../topics/ethernet-interfaces/">以太网接口与聚合</a>
-
-    <div class="manual-children">
-  
-  
   
 <a href="../physical-interfaces/">物理接口与硬件卸载</a>
 
@@ -330,20 +257,15 @@
   
   
   
+<a href="../loopback/">LoopBack 接口</a>
+
+  
+  
+  
+  
 <a href="../subinterfaces/">802.1Q 与 QinQ 三层子接口</a>
 
   
-  
-</div>
-  </div>
-  
-  
-  
-  <div class="manual-subtopic">
-    
-<a href="../../topics/gateway-interfaces/">三层网关接口</a>
-
-    <div class="manual-children">
   
   
   
@@ -355,10 +277,6 @@
   
 <a href="../vbdif/">Vbdif 三层网关</a>
 
-  
-  
-</div>
-  </div>
   
   
 
@@ -376,13 +294,6 @@
       
   
   
-  <div class="manual-subtopic">
-    
-<a href="../../topics/vlan-switching/">VLAN 与 MAC 转发</a>
-
-    <div class="manual-children">
-  
-  
   
 <a href="#" aria-current="page">VLAN 二层交换</a>
 
@@ -390,12 +301,14 @@
   
   
   
-<a href="../mac-table/">MAC 地址表</a>
+<a href="../qinq/">QinQ 二层接入</a>
 
   
   
-</div>
-  </div>
+  
+  
+<a href="../mac-table/">MAC 地址表</a>
+
   
   
   
@@ -419,13 +332,6 @@
       
   
   
-  <div class="manual-subtopic">
-    
-<a href="../../topics/ip-addressing/">地址与自动配置</a>
-
-    <div class="manual-children">
-  
-  
   
 <a href="../../04-ip-routing/ip-addresses/">IPv4 与 IPv6 接口地址</a>
 
@@ -433,20 +339,9 @@
   
   
   
-<a href="../../04-ip-routing/ipv6-router-advertisement/">IPv6 路由通告与 SLAAC</a>
+<a href="../../04-ip-routing/vpn-instance/">VPN 实例与路由隔离</a>
 
   
-  
-</div>
-  </div>
-  
-  
-  
-  <div class="manual-subtopic">
-    
-<a href="../../topics/ip-neighbors/">邻居解析</a>
-
-    <div class="manual-children">
   
   
   
@@ -460,19 +355,21 @@
 
   
   
-</div>
-  </div>
   
   
-  
-  
-<a href="../../04-ip-routing/vpn-instance/">VPN 实例与路由隔离</a>
+<a href="../../04-ip-routing/ipv6-router-advertisement/">IPv6 路由通告与 SLAAC</a>
 
   
   
   
   
 <a href="../../04-ip-routing/ipv6-path-mtu/">IPv6 路径 MTU</a>
+
+  
+  
+  
+  
+<a href="../../04-ip-routing/icmp-send/">IPv4 ICMP 发送控制</a>
 
   
   
@@ -517,13 +414,6 @@
       
   
   
-  <div class="manual-subtopic">
-    
-<a href="../../topics/interior-routing/">域内路由协议</a>
-
-    <div class="manual-children">
-  
-  
   
 <a href="../../05-dynamic-routing/ospf/">OSPF（IPv4）</a>
 
@@ -551,10 +441,6 @@
   
 <a href="../../05-dynamic-routing/ripng/">RIPng（IPv6）</a>
 
-  
-  
-</div>
-  </div>
   
   
   
@@ -610,13 +496,6 @@
       
   
   
-  <div class="manual-subtopic">
-    
-<a href="../../topics/ip-tunnels/">GRE 与 IP-in-IP</a>
-
-    <div class="manual-children">
-  
-  
   
 <a href="../../06-tunnels/gre/">GRE Tunnel</a>
 
@@ -628,17 +507,6 @@
 
   
   
-</div>
-  </div>
-  
-  
-  
-  <div class="manual-subtopic">
-    
-<a href="../../topics/encrypted-tunnels/">加密隧道</a>
-
-    <div class="manual-children">
-  
   
   
 <a href="../../06-tunnels/wireguard/">WireGuard 隧道</a>
@@ -649,10 +517,6 @@
   
 <a href="../../06-tunnels/amneziawg/">AmneziaWG 隧道</a>
 
-  
-  
-</div>
-  </div>
   
   
   
@@ -847,13 +711,6 @@
   
   
   
-  <div class="manual-subtopic">
-    
-<a href="../../topics/discovery-monitoring/">链路发现与网管监控</a>
-
-    <div class="manual-children">
-  
-  
   
 <a href="../../08-network-services/lldp/">LLDP 邻居发现</a>
 
@@ -863,10 +720,6 @@
   
 <a href="../../08-network-services/snmp/">SNMP 监控</a>
 
-  
-  
-</div>
-  </div>
   
   
 
@@ -884,15 +737,14 @@
       
   
   
-  <div class="manual-subtopic">
-    
-<a href="../../topics/observe-device/">状态、资源与日志</a>
-
-    <div class="manual-children">
-  
-  
   
 <a href="../../09-operations/service-health/">服务状态与监听端口</a>
+
+  
+  
+  
+  
+<a href="../../operations/logs/">日志中心</a>
 
   
   
@@ -904,26 +756,15 @@
   
   
   
-<a href="../../operations/logs/">日志中心</a>
-
-  
-  
-</div>
-  </div>
-  
-  
-  
-  
 <a href="../../09-operations/connectivity/">Ping、Tracert 与 MTR 连通性诊断</a>
 
   
   
   
-  <div class="manual-subtopic">
-    
-<a href="../../topics/device-recovery/">清理、恢复与电源操作</a>
+  
+<a href="../../09-operations/backup-support/">脱敏支持包与加密备份</a>
 
-    <div class="manual-children">
+  
   
   
   
@@ -941,10 +782,6 @@
   
 <a href="../../09-operations/power/">重启与关机</a>
 
-  
-  
-</div>
-  </div>
   
   
   
@@ -1070,7 +907,6 @@
   <ul class="wy-breadcrumbs">
       <li><a href="../../../" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="../../layer2-switching/">二层交换</a></li>
-          <li class="breadcrumb-item"><a href="../../topics/vlan-switching/">VLAN 与 MAC 转发</a></li>
       <li class="breadcrumb-item active">VLAN 二层交换</li>
       <li class="wy-breadcrumbs-aside">
       </li>
@@ -1088,44 +924,67 @@
 <section id="section-operator-03-interfaces-l2-vlan-2">
 <span id="id1"></span><h2>工作原理<a class="headerlink" href="#section-operator-03-interfaces-l2-vlan-2" title="Link to this heading"></a></h2>
 <p>未打标签帧在入端按端口默认 VLAN 归类，带标签帧按标签和允许列表归类。转发只在命中的 VLAN 内查表和泛洪，出端再按端口配置决定保留或去除标签。</p>
-<p>Access 端口连接无标签终端，Trunk 端口承载多个 VLAN。相同 VLAN 的端口共享该二层域。</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>端口模式</p></th>
+<th class="head"><p>适用场景</p></th>
+<th class="head"><p>配置重点</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Access</p></td>
+<td><p>接入发送无标签帧的终端。</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">port</span> <span class="pre">default</span> <span class="pre">vlan</span></code> 指定接入的 VLAN。</p></td>
+</tr>
+<tr class="row-odd"><td><p>Trunk</p></td>
+<td><p>交换机之间或与能够收发标签的设备互联。</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">port</span> <span class="pre">trunk</span> <span class="pre">allow-pass</span> <span class="pre">vlan</span></code> 控制放行列表。另核对两端对无标签帧的 PVID 约定。</p></td>
+</tr>
+<tr class="row-even"><td><p>Hybrid</p></td>
+<td><p>同一个端口需要对部分 VLAN 保留标签、对另一部分去标签。</p></td>
+<td><p>分别配置 PVID、Tagged 和 Untagged。</p></td>
+</tr>
+</tbody>
+</table>
+<p>启用交换后默认 VLAN 1 存在。Trunk 默认放行 VLAN 1，可按业务要求显式撤销。低位普通 VLAN 的配置范围为 1–4094。</p>
 <p><span id="examples"></span></p>
 </section>
 <section id="section-operator-03-interfaces-l2-vlan-3">
 <span id="id2"></span><h2>配置与验证<a class="headerlink" href="#section-operator-03-interfaces-l2-vlan-3" title="Link to this heading"></a></h2>
 <section id="section-operator-03-interfaces-l2-vlan-4">
 <span id="id3"></span><h3>拓扑<a class="headerlink" href="#section-operator-03-interfaces-l2-vlan-4" title="Link to this heading"></a></h3>
-<p><img alt="终端 A、SW1、SW2 的设备互联" src="../../../_images/cases21.svg" /></p>
+<p><img alt="两台交换机通过 Trunk 互联，各接一台无标签终端" src="../../../_images/cases21.svg" /></p>
 </section>
 <section id="case-conditions-03-interfaces-l2-vlan">
 <span id="id4"></span><h3>配置条件<a class="headerlink" href="#case-conditions-03-interfaces-l2-vlan" title="Link to this heading"></a></h3>
-<p>准备 Ethernet1 连接交换机，Ethernet2 连接 VLAN 100 的终端。检查对端 Trunk 的允许 VLAN。</p>
+<p>SW1 和 SW2 的 Ethernet1 互联，各自的 Ethernet2 接入一个无标签终端。终端 A 用 <code class="docutils literal notranslate"><span class="pre">192.0.2.11/24</span></code>，终端 B 用 <code class="docutils literal notranslate"><span class="pre">192.0.2.12/24</span></code>。两端都属于 VLAN 100。VLAN 200 在两台设备之间预留。</p>
 </section>
 <section id="section-operator-03-interfaces-l2-vlan-5">
 <span id="id5"></span><h3>配置步骤<a class="headerlink" href="#section-operator-03-interfaces-l2-vlan-5" title="Link to this heading"></a></h3>
-<div class="highlight-vortexros-config notranslate"><div class="highlight"><pre><span></span>enable switch
+<p>在 SW1 和 SW2 分别从用户视图输入同一组命令。</p>
+<div class="highlight-vortexros-cli notranslate"><div class="highlight"><pre><span></span>system-view
+enable switch
 vlan batch 100 200
-#
 interface Ethernet 1
  portswitch
  port link-type trunk
  port trunk allow-pass vlan 100 200
-#
+ quit
 interface Ethernet 2
  portswitch
  port link-type access
  port default vlan 100
-#
+ quit
+commit
 return
 </pre></div>
 </div>
-<p>录入上述配置后执行 commit。</p>
 </section>
 <section id="case-verification-03-interfaces-l2-vlan">
 <span id="id6"></span><h3>验证方法<a class="headerlink" href="#case-verification-03-interfaces-l2-vlan" title="Link to this heading"></a></h3>
-<p>对照以下命令和预期结果核对设备状态。</p>
-<div class="highlight-vortexros-cli notranslate"><div class="highlight"><pre><span></span>display vlan
-display mac-address
+<div class="highlight-vortexros-cli notranslate"><div class="highlight"><pre><span></span>display vlan 100
+display vlan 200
+display mac-address vlan 100
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">display</span> <span class="pre">vlan</span></code> 同时显示 VLAN 状态、MAC 学习状态、描述和端口成员。<code class="docutils literal notranslate"><span class="pre">U/D</span></code> 表示端口 up/down，<code class="docutils literal notranslate"><span class="pre">TG/UT</span></code> 表示出端带标签/不带标签。两条链路均 up 时，本案例的预期回显中应包含以下两行。</p>
@@ -1140,7 +999,7 @@ VID  Type    Status  MAC-LRN  Description    Ports
 -----------------------------------------------------------------
 </pre></div>
 </div>
-<p>核对 VLAN 100 的有标签与无标签成员。同 VLAN 内应能互通，不同 VLAN 间的互通需经三层网关。</p>
+<p>先让终端 A、B 互相 Ping，再在两台设备查询 VLAN 100 的 MAC 表。预期设备从本端 Ethernet2 学到本地终端，从 Ethernet1 学到对端终端。跨 VLAN 通信需经三层网关。</p>
 <p><span id="observed"></span></p>
 <p>实测节选中的物理接口按文档端口编号记为 EthernetX。其他表项保留原始验证值。</p>
 </section>
@@ -1158,12 +1017,21 @@ VID    Type      Status    MAC-LRN    Description      Ports
 --------------------------------------------------------------------------------------
 </pre></div>
 </div>
+</section>
+<section id="id8">
+<h3>其他配置案例<a class="headerlink" href="#id8" title="Link to this heading"></a></h3>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="cases/hybrid/">Hybrid 接口同时发送带标签和无标签流量</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cases/full-trunk/">让两条 Trunk 同时承载 4094 个 VLAN</a></li>
+</ul>
+</div>
 <p><span id="precautions"></span></p>
 </section>
 </section>
 <section id="section-operator-03-interfaces-l2-vlan-7">
-<span id="id8"></span><h2>注意事项<a class="headerlink" href="#section-operator-03-interfaces-l2-vlan-7" title="Link to this heading"></a></h2>
-<p>检查 Trunk 两端的允许列表和本端 PVID。需要跨 VLAN 通信时应配置三层转发。</p>
+<span id="id9"></span><h2>注意事项<a class="headerlink" href="#section-operator-03-interfaces-l2-vlan-7" title="Link to this heading"></a></h2>
+<p>检查 Trunk 两端的允许列表和本端 PVID。退出示例前，先在两端恢复原 Access 成员和 Trunk 放行列表，再移除已无其他引用的 VLAN。若要按外层服务标签承载客户 VLAN，参见 <a class="reference internal" href="../qinq/"><span class="std std-doc">QinQ 二层接入</span></a>。</p>
 <p data-legacy-id="id1" class="manual-previous-section" data-section-moved><a href="#overview">介绍</a></p>
 <p data-legacy-id="id2" class="manual-previous-section" data-section-moved><a href="#case-conditions-03-interfaces-l2-vlan">配置准备</a></p>
 <p data-legacy-id="id3" class="manual-previous-section" data-section-moved><a href="#examples">配置案例</a></p>
@@ -1175,8 +1043,8 @@ VID    Type      Status    MAC-LRN    Description      Ports
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="页脚">
-        <a href="../../topics/vlan-switching/" class="btn btn-neutral float-left" title="VLAN 与 MAC 转发" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> 上一页</a>
-        <a href="../mac-table/" class="btn btn-neutral float-right" title="MAC 地址表" accesskey="n" rel="next">下一页 <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="../../layer2-switching/" class="btn btn-neutral float-left" title="二层交换" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> 上一页</a>
+        <a href="cases/hybrid/" class="btn btn-neutral float-right" title="Hybrid 接口同时发送带标签和无标签流量" accesskey="n" rel="next">下一页 <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

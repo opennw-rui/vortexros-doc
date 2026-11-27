@@ -22,8 +22,8 @@
     <script src="../../../_static/js/theme.js"></script>
     <link rel="index" title="索引" href="../../../genindex/" />
     <link rel="search" title="搜索" href="../../../search/" />
-    <link rel="next" title="IPv6 路由通告与 SLAAC" href="../ipv6-router-advertisement/" />
-    <link rel="prev" title="地址与自动配置" href="../../topics/ip-addressing/" /> 
+    <link rel="next" title="VPN 实例与路由隔离" href="../vpn-instance/" />
+    <link rel="prev" title="IP 接入" href="../../ip-access/" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -59,13 +59,6 @@
       
   
   
-  <div class="manual-subtopic">
-    
-<a href="../../../installation/preparation/">安装前准备</a>
-
-    <div class="manual-children">
-  
-  
   
 <a href="../../../installation/00-planning/">部署规划</a>
 
@@ -82,17 +75,6 @@
 <a href="../../../installation/02-backends/">系统与数据面组件</a>
 
   
-  
-</div>
-  </div>
-  
-  
-  
-  <div class="manual-subtopic">
-    
-<a href="../../../installation/deployment/">安装与首次启动</a>
-
-    <div class="manual-children">
   
   
   
@@ -117,17 +99,6 @@
 <a href="../../../installation/05-vpp-startup/">配置和激活数据面</a>
 
   
-  
-</div>
-  </div>
-  
-  
-  
-  <div class="manual-subtopic">
-    
-<a href="../../../installation/maintenance/">升级、回退与验收</a>
-
-    <div class="manual-children">
   
   
   <div class="manual-subtopic">
@@ -162,10 +133,6 @@
   
 <a href="../../../installation/08-hardware-acceptance/">真机验收</a>
 
-  
-  
-</div>
-  </div>
   
   
 
@@ -215,67 +182,8 @@
       
   
   
-  <div class="manual-subtopic">
-    
-<a href="../../topics/system-identity/">设备身份与授权</a>
-
-    <div class="manual-children">
-  
-  
   
 <a href="../../02-system-services/identity/">设备名称与登录提示</a>
-
-  
-  
-  
-  
-<a href="../../02-system-services/licensing/">离线设备授权</a>
-
-  
-  
-</div>
-  </div>
-  
-  
-  
-  <div class="manual-subtopic">
-    
-<a href="../../topics/management-access/">登录与认证</a>
-
-    <div class="manual-children">
-  
-  
-  
-<a href="../../02-system-services/local-aaa/">本地 AAA 与用户权限</a>
-
-  
-  
-  
-  
-<a href="../../02-system-services/stelnet/">STelnet 与 VTY</a>
-
-  
-  
-  
-  
-<a href="../../02-system-services/ssh-public-key/">SSH 公钥认证</a>
-
-  
-  
-</div>
-  </div>
-  
-  
-  
-  <div class="manual-subtopic">
-    
-<a href="../../topics/system-network-time/">本机解析与时间</a>
-
-    <div class="manual-children">
-  
-  
-  
-<a href="../../02-system-services/dns/">本机 DNS 解析</a>
 
   
   
@@ -287,12 +195,38 @@
   
   
   
+<a href="../../02-system-services/dns/">本机 DNS 解析</a>
+
+  
+  
+  
+  
 <a href="../../02-system-services/ntp/">NTP 时间同步</a>
 
   
   
-</div>
-  </div>
+  
+  
+<a href="../../02-system-services/local-aaa/">本地 AAA 与用户权限</a>
+
+  
+  
+  
+  
+<a href="../../02-system-services/ssh-public-key/">SSH 公钥认证</a>
+
+  
+  
+  
+  
+<a href="../../02-system-services/stelnet/">STelnet、VTY 与 SCP</a>
+
+  
+  
+  
+  
+<a href="../../02-system-services/licensing/">离线设备授权</a>
+
   
   
 
@@ -310,13 +244,6 @@
       
   
   
-  <div class="manual-subtopic">
-    
-<a href="../../topics/ethernet-interfaces/">以太网接口与聚合</a>
-
-    <div class="manual-children">
-  
-  
   
 <a href="../../03-interfaces-l2/physical-interfaces/">物理接口与硬件卸载</a>
 
@@ -330,20 +257,15 @@
   
   
   
+<a href="../../03-interfaces-l2/loopback/">LoopBack 接口</a>
+
+  
+  
+  
+  
 <a href="../../03-interfaces-l2/subinterfaces/">802.1Q 与 QinQ 三层子接口</a>
 
   
-  
-</div>
-  </div>
-  
-  
-  
-  <div class="manual-subtopic">
-    
-<a href="../../topics/gateway-interfaces/">三层网关接口</a>
-
-    <div class="manual-children">
   
   
   
@@ -355,10 +277,6 @@
   
 <a href="../../03-interfaces-l2/vbdif/">Vbdif 三层网关</a>
 
-  
-  
-</div>
-  </div>
   
   
 
@@ -376,13 +294,6 @@
       
   
   
-  <div class="manual-subtopic">
-    
-<a href="../../topics/vlan-switching/">VLAN 与 MAC 转发</a>
-
-    <div class="manual-children">
-  
-  
   
 <a href="../../03-interfaces-l2/vlan/">VLAN 二层交换</a>
 
@@ -390,12 +301,14 @@
   
   
   
-<a href="../../03-interfaces-l2/mac-table/">MAC 地址表</a>
+<a href="../../03-interfaces-l2/qinq/">QinQ 二层接入</a>
 
   
   
-</div>
-  </div>
+  
+  
+<a href="../../03-interfaces-l2/mac-table/">MAC 地址表</a>
+
   
   
   
@@ -419,13 +332,6 @@
       
   
   
-  <div class="manual-subtopic">
-    
-<a href="../../topics/ip-addressing/">地址与自动配置</a>
-
-    <div class="manual-children">
-  
-  
   
 <a href="#" aria-current="page">IPv4 与 IPv6 接口地址</a>
 
@@ -433,20 +339,9 @@
   
   
   
-<a href="../ipv6-router-advertisement/">IPv6 路由通告与 SLAAC</a>
+<a href="../vpn-instance/">VPN 实例与路由隔离</a>
 
   
-  
-</div>
-  </div>
-  
-  
-  
-  <div class="manual-subtopic">
-    
-<a href="../../topics/ip-neighbors/">邻居解析</a>
-
-    <div class="manual-children">
   
   
   
@@ -460,19 +355,21 @@
 
   
   
-</div>
-  </div>
   
   
-  
-  
-<a href="../vpn-instance/">VPN 实例与路由隔离</a>
+<a href="../ipv6-router-advertisement/">IPv6 路由通告与 SLAAC</a>
 
   
   
   
   
 <a href="../ipv6-path-mtu/">IPv6 路径 MTU</a>
+
+  
+  
+  
+  
+<a href="../icmp-send/">IPv4 ICMP 发送控制</a>
 
   
   
@@ -517,13 +414,6 @@
       
   
   
-  <div class="manual-subtopic">
-    
-<a href="../../topics/interior-routing/">域内路由协议</a>
-
-    <div class="manual-children">
-  
-  
   
 <a href="../../05-dynamic-routing/ospf/">OSPF（IPv4）</a>
 
@@ -551,10 +441,6 @@
   
 <a href="../../05-dynamic-routing/ripng/">RIPng（IPv6）</a>
 
-  
-  
-</div>
-  </div>
   
   
   
@@ -610,13 +496,6 @@
       
   
   
-  <div class="manual-subtopic">
-    
-<a href="../../topics/ip-tunnels/">GRE 与 IP-in-IP</a>
-
-    <div class="manual-children">
-  
-  
   
 <a href="../../06-tunnels/gre/">GRE Tunnel</a>
 
@@ -628,17 +507,6 @@
 
   
   
-</div>
-  </div>
-  
-  
-  
-  <div class="manual-subtopic">
-    
-<a href="../../topics/encrypted-tunnels/">加密隧道</a>
-
-    <div class="manual-children">
-  
   
   
 <a href="../../06-tunnels/wireguard/">WireGuard 隧道</a>
@@ -649,10 +517,6 @@
   
 <a href="../../06-tunnels/amneziawg/">AmneziaWG 隧道</a>
 
-  
-  
-</div>
-  </div>
   
   
   
@@ -847,13 +711,6 @@
   
   
   
-  <div class="manual-subtopic">
-    
-<a href="../../topics/discovery-monitoring/">链路发现与网管监控</a>
-
-    <div class="manual-children">
-  
-  
   
 <a href="../../08-network-services/lldp/">LLDP 邻居发现</a>
 
@@ -863,10 +720,6 @@
   
 <a href="../../08-network-services/snmp/">SNMP 监控</a>
 
-  
-  
-</div>
-  </div>
   
   
 
@@ -884,15 +737,14 @@
       
   
   
-  <div class="manual-subtopic">
-    
-<a href="../../topics/observe-device/">状态、资源与日志</a>
-
-    <div class="manual-children">
-  
-  
   
 <a href="../../09-operations/service-health/">服务状态与监听端口</a>
+
+  
+  
+  
+  
+<a href="../../operations/logs/">日志中心</a>
 
   
   
@@ -904,26 +756,15 @@
   
   
   
-<a href="../../operations/logs/">日志中心</a>
-
-  
-  
-</div>
-  </div>
-  
-  
-  
-  
 <a href="../../09-operations/connectivity/">Ping、Tracert 与 MTR 连通性诊断</a>
 
   
   
   
-  <div class="manual-subtopic">
-    
-<a href="../../topics/device-recovery/">清理、恢复与电源操作</a>
+  
+<a href="../../09-operations/backup-support/">脱敏支持包与加密备份</a>
 
-    <div class="manual-children">
+  
   
   
   
@@ -941,10 +782,6 @@
   
 <a href="../../09-operations/power/">重启与关机</a>
 
-  
-  
-</div>
-  </div>
   
   
   
@@ -1070,7 +907,6 @@
   <ul class="wy-breadcrumbs">
       <li><a href="../../../" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="../../ip-access/">IP 接入</a></li>
-          <li class="breadcrumb-item"><a href="../../topics/ip-addressing/">地址与自动配置</a></li>
       <li class="breadcrumb-item active">IPv4 与 IPv6 接口地址</li>
       <li class="wy-breadcrumbs-aside">
       </li>
@@ -1088,7 +924,7 @@
 <section id="section-operator-04-ip-routing-ip-addresses-2">
 <span id="id1"></span><h2>工作原理<a class="headerlink" href="#section-operator-04-ip-routing-ip-addresses-2" title="Link to this heading"></a></h2>
 <p>接口地址决定本地终结的地址及直连网段。对非直连目标，设备仍需在合适的路由表中找到下一跳。验证时区分接口状态、直连前缀和远端应答。</p>
-<p>三层接口支持 IPv4 主从地址与多个 IPv6 地址。IPv6 地址可逐项配置，查询按地址族区分。</p>
+<p>三层接口可以配置一个 IPv4 主地址，使用 <code class="docutils literal notranslate"><span class="pre">ip</span> <span class="pre">address</span> <span class="pre">IP</span> <span class="pre">MASK</span> <span class="pre">sub</span></code> 追加从地址。启用 <code class="docutils literal notranslate"><span class="pre">ipv6</span> <span class="pre">enable</span></code> 后，使用 <code class="docutils literal notranslate"><span class="pre">ipv6</span> <span class="pre">address</span> <span class="pre">IP</span> <span class="pre">PREFIXLEN</span></code> 逐条配置 IPv6 地址。两个地址族的静态配置都没有固定的每接口地址条数上限。地址配置的实际规模受设备资源和提交耗时影响。</p>
 <p><span id="examples"></span></p>
 </section>
 <section id="section-operator-04-ip-routing-ip-addresses-3">
@@ -1100,21 +936,36 @@
 <section id="case-conditions-04-ip-routing-ip-addresses">
 <span id="id4"></span><h3>配置条件<a class="headerlink" href="#case-conditions-04-ip-routing-ip-addresses" title="Link to this heading"></a></h3>
 <p>准备 IPv4 掩码和 IPv6 前缀长度。接口必须处于三层模式。要使用 VPN，先绑定 VPN 再设地址。</p>
+<p>下例将 R1 和 R2 的 Ethernet1 直连。主 IPv4 网段为 <code class="docutils literal notranslate"><span class="pre">192.0.2.0/24</span></code>，从地址使用 <code class="docutils literal notranslate"><span class="pre">198.51.100.0/24</span></code>。同一物理链路同时承载这两个 IPv4 网段和一个 IPv6 网段。</p>
 </section>
 <section id="section-operator-04-ip-routing-ip-addresses-5">
 <span id="id5"></span><h3>配置步骤<a class="headerlink" href="#section-operator-04-ip-routing-ip-addresses-5" title="Link to this heading"></a></h3>
+<p><strong>R1</strong></p>
 <div class="highlight-vortexros-config notranslate"><div class="highlight"><pre><span></span>interface Ethernet 1
  ip address 192.0.2.2 255.255.255.0
+ ip address 198.51.100.2 255.255.255.0 sub
+ ipv6 enable
  ipv6 address 2001:db8:10::2 64
 #
 interface LoopBack 0
+ ipv6 enable
  ipv6 address 2001:db8:100::1 64
  ipv6 address 2001:db8:200::1 64
 #
 return
 </pre></div>
 </div>
-<p>在系统视图录入上述片段并提交。删除地址时用相同地址和掩码的 undo 命令。</p>
+<p><strong>R2</strong></p>
+<div class="highlight-vortexros-config notranslate"><div class="highlight"><pre><span></span>interface Ethernet 1
+ ip address 192.0.2.1 255.255.255.0
+ ip address 198.51.100.1 255.255.255.0 sub
+ ipv6 enable
+ ipv6 address 2001:db8:10::1 64
+#
+return
+</pre></div>
+</div>
+<p>在两台设备的系统视图分别录入并提交。删除从地址时在对应接口视图执行 <code class="docutils literal notranslate"><span class="pre">undo</span> <span class="pre">ip</span> <span class="pre">address</span> <span class="pre">198.51.100.2</span> <span class="pre">255.255.255.0</span></code>，其中地址按该设备的配置替换。</p>
 </section>
 <section id="case-verification-04-ip-routing-ip-addresses">
 <span id="id6"></span><h3>验证方法<a class="headerlink" href="#case-verification-04-ip-routing-ip-addresses" title="Link to this heading"></a></h3>
@@ -1125,7 +976,12 @@ display ip routing-table protocol direct
 display ipv6 routing-table protocol direct
 </pre></div>
 </div>
-<p>核对接口上实际生效的地址和所属 VPN。接口在线时，检查相应的直连路由并从同网段对端测试。</p>
+<p>两端 Ethernet1 在线时，IPv4 直连路由应同时包含 <code class="docutils literal notranslate"><span class="pre">192.0.2.0/24</span></code> 和 <code class="docutils literal notranslate"><span class="pre">198.51.100.0/24</span></code>，IPv6 应有 <code class="docutils literal notranslate"><span class="pre">2001:db8:10::/64</span></code>。从 R1 指定源地址测试各个网段。</p>
+<div class="highlight-vortexros-cli notranslate"><div class="highlight"><pre><span></span>ping -a 192.0.2.2 192.0.2.1
+ping -a 198.51.100.2 198.51.100.1
+ping ipv6 2001:db8:10::1
+</pre></div>
+</div>
 <p><span id="observed"></span></p>
 </section>
 <section id="section-operator-04-ip-routing-ip-addresses-6">
@@ -1165,8 +1021,8 @@ Vbdif310                203.0.113.1/30      up        up        default
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="页脚">
-        <a href="../../topics/ip-addressing/" class="btn btn-neutral float-left" title="地址与自动配置" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> 上一页</a>
-        <a href="../ipv6-router-advertisement/" class="btn btn-neutral float-right" title="IPv6 路由通告与 SLAAC" accesskey="n" rel="next">下一页 <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="../../ip-access/" class="btn btn-neutral float-left" title="IP 接入" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> 上一页</a>
+        <a href="../vpn-instance/" class="btn btn-neutral float-right" title="VPN 实例与路由隔离" accesskey="n" rel="next">下一页 <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

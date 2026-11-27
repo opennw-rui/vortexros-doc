@@ -1,0 +1,1004 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LoopBack 接口 &mdash; VortexROS 用户手册</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/manual.css?v=54407de2" />
+
+  
+    <link rel="canonical" href="https://opennw-rui.github.io/vortexros-doc/operator/03-interfaces-l2/loopback/" />
+      <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../_static/documentation_options.js?v=c7b72b5c"></script>
+      <script src="../../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../../_static/translations.js?v=beaddf03"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="索引" href="../../../genindex/" />
+    <link rel="search" title="搜索" href="../../../search/" />
+    <link rel="next" title="802.1Q 与 QinQ 三层子接口" href="../subinterfaces/" />
+    <link rel="prev" title="两台设备双链路 LACP" href="../eth-trunk/cases/example-2/" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+<a class="manual-brand" href="../../../">VortexROS 用户手册</a>
+<div class="manual-release">v0.1.0-dev</div>
+
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search/" method="get">
+    <input type="text" name="q" placeholder="搜索文档" aria-label="搜索文档" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+        </div>
+<div class="manual-menu" role="navigation" aria-label="功能目录">
+  
+<a href="../../../">首页</a>
+
+  
+  
+  
+  <details class="manual-category">
+    <summary>安装、升级与救援</summary>
+    <div class="manual-children">
+      
+<a href="../../../installation/">概览</a>
+
+      
+  
+  
+  
+<a href="../../../installation/00-planning/">部署规划</a>
+
+  
+  
+  
+  
+<a href="../../../installation/01-management-safety/">管理通道与控制台</a>
+
+  
+  
+  
+  
+<a href="../../../installation/02-backends/">系统与数据面组件</a>
+
+  
+  
+  
+  
+<a href="../../../installation/03-install-vortexros/">从 Live ISO 安装</a>
+
+  
+  
+  
+  
+<a href="../../../installation/06-first-start/">快速入门：首次启动与管理接入</a>
+
+  
+  
+  
+  
+<a href="../../../installation/04-system-services/">系统服务与状态</a>
+
+  
+  
+  
+  
+<a href="../../../installation/05-vpp-startup/">配置和激活数据面</a>
+
+  
+  
+  
+  <div class="manual-subtopic">
+    
+<a href="../../../installation/07-upgrade-uninstall/">验签、升级、回退与救援</a>
+
+    <div class="manual-children">
+  
+  
+  
+<a href="../../../installation/software-upgrade/">签名镜像升级</a>
+
+  
+  
+  
+  
+<a href="../../../installation/software-rollback/">回退与删除系统镜像</a>
+
+  
+  
+  
+  
+<a href="../../../installation/system-recovery/">通过控制台进入救援</a>
+
+  
+  
+</div>
+  </div>
+  
+  
+  
+  
+<a href="../../../installation/08-hardware-acceptance/">真机验收</a>
+
+  
+  
+
+    </div>
+  </details>
+  
+  
+  
+  <details class="manual-category">
+    <summary>命令行与配置管理</summary>
+    <div class="manual-children">
+      
+<a href="../../01-cli/">概览</a>
+
+      
+  
+  
+  
+<a href="../../01-cli/navigation/">命令行视图、帮助与过滤</a>
+
+  
+  
+  
+  
+<a href="../../01-cli/configuration/">提交与保存配置</a>
+
+  
+  
+  
+  
+<a href="../../01-cli/configuration-files/">配置备份、导入与启动文件</a>
+
+  
+  
+
+    </div>
+  </details>
+  
+  
+  
+  <details class="manual-category">
+    <summary>系统设置与远程管理</summary>
+    <div class="manual-children">
+      
+<a href="../../02-system-services/">概览</a>
+
+      
+  
+  
+  
+<a href="../../02-system-services/identity/">设备名称与登录提示</a>
+
+  
+  
+  
+  
+<a href="../../02-system-services/timezone/">系统时区</a>
+
+  
+  
+  
+  
+<a href="../../02-system-services/dns/">本机 DNS 解析</a>
+
+  
+  
+  
+  
+<a href="../../02-system-services/ntp/">NTP 时间同步</a>
+
+  
+  
+  
+  
+<a href="../../02-system-services/local-aaa/">本地 AAA 与用户权限</a>
+
+  
+  
+  
+  
+<a href="../../02-system-services/ssh-public-key/">SSH 公钥认证</a>
+
+  
+  
+  
+  
+<a href="../../02-system-services/stelnet/">STelnet、VTY 与 SCP</a>
+
+  
+  
+  
+  
+<a href="../../02-system-services/licensing/">离线设备授权</a>
+
+  
+  
+
+    </div>
+  </details>
+  
+  
+  
+  <details class="manual-category" open>
+    <summary>接口</summary>
+    <div class="manual-children">
+      
+<a href="../../interfaces/">概览</a>
+
+      
+  
+  
+  
+<a href="../physical-interfaces/">物理接口与硬件卸载</a>
+
+  
+  
+  
+  
+<a href="../eth-trunk/">Eth-Trunk 链路聚合</a>
+
+  
+  
+  
+  
+<a href="#" aria-current="page">LoopBack 接口</a>
+
+  
+  
+  
+  
+<a href="../subinterfaces/">802.1Q 与 QinQ 三层子接口</a>
+
+  
+  
+  
+  
+<a href="../vlanif/">Vlanif 三层网关</a>
+
+  
+  
+  
+  
+<a href="../vbdif/">Vbdif 三层网关</a>
+
+  
+  
+
+    </div>
+  </details>
+  
+  
+  
+  <details class="manual-category">
+    <summary>二层交换</summary>
+    <div class="manual-children">
+      
+<a href="../../layer2-switching/">概览</a>
+
+      
+  
+  
+  
+<a href="../vlan/">VLAN 二层交换</a>
+
+  
+  
+  
+  
+<a href="../qinq/">QinQ 二层接入</a>
+
+  
+  
+  
+  
+<a href="../mac-table/">MAC 地址表</a>
+
+  
+  
+  
+  
+<a href="../bridge-domain/">Bridge Domain 与高位桥域</a>
+
+  
+  
+
+    </div>
+  </details>
+  
+  
+  
+  <details class="manual-category">
+    <summary>IP 接入</summary>
+    <div class="manual-children">
+      
+<a href="../../ip-access/">概览</a>
+
+      
+  
+  
+  
+<a href="../../04-ip-routing/ip-addresses/">IPv4 与 IPv6 接口地址</a>
+
+  
+  
+  
+  
+<a href="../../04-ip-routing/vpn-instance/">VPN 实例与路由隔离</a>
+
+  
+  
+  
+  
+<a href="../arp/">ARP 与代理 ARP</a>
+
+  
+  
+  
+  
+<a href="../ipv6-neighbor-discovery/">IPv6 邻居发现与静态邻居</a>
+
+  
+  
+  
+  
+<a href="../../04-ip-routing/ipv6-router-advertisement/">IPv6 路由通告与 SLAAC</a>
+
+  
+  
+  
+  
+<a href="../../04-ip-routing/ipv6-path-mtu/">IPv6 路径 MTU</a>
+
+  
+  
+  
+  
+<a href="../../04-ip-routing/icmp-send/">IPv4 ICMP 发送控制</a>
+
+  
+  
+
+    </div>
+  </details>
+  
+  
+  
+  <details class="manual-category">
+    <summary>静态路由</summary>
+    <div class="manual-children">
+      
+<a href="../../static-routing/">概览</a>
+
+      
+  
+  
+  
+<a href="../../04-ip-routing/static-routes/">IPv4 与 IPv6 静态路由</a>
+
+  
+  
+  
+  
+<a href="../../04-ip-routing/static-route-groups/">静态路由组</a>
+
+  
+  
+
+    </div>
+  </details>
+  
+  
+  
+  <details class="manual-category">
+    <summary>动态路由</summary>
+    <div class="manual-children">
+      
+<a href="../../05-dynamic-routing/">概览</a>
+
+      
+  
+  
+  
+<a href="../../05-dynamic-routing/ospf/">OSPF（IPv4）</a>
+
+  
+  
+  
+  
+<a href="../../05-dynamic-routing/ospfv3/">OSPFv3（IPv6）</a>
+
+  
+  
+  
+  
+<a href="../../05-dynamic-routing/isis/">IS-IS</a>
+
+  
+  
+  
+  
+<a href="../../05-dynamic-routing/rip/">RIP（IPv4）</a>
+
+  
+  
+  
+  
+<a href="../../05-dynamic-routing/ripng/">RIPng（IPv6）</a>
+
+  
+  
+  
+  
+<a href="../../05-dynamic-routing/bgp/">BGP 与 MP-BGP</a>
+
+  
+  
+  
+  
+<a href="../../05-dynamic-routing/route-policy/">前缀列表与路由策略</a>
+
+  
+  
+
+    </div>
+  </details>
+  
+  
+  
+  <details class="manual-category">
+    <summary>高可用与故障检测</summary>
+    <div class="manual-children">
+      
+<a href="../../high-availability/">概览</a>
+
+      
+  
+  
+  
+<a href="../../05-dynamic-routing/vrrp/">VRRP 与 VRRP6 网关冗余</a>
+
+  
+  
+  
+  
+<a href="../../05-dynamic-routing/bfd/">BFD 快速故障检测</a>
+
+  
+  
+
+    </div>
+  </details>
+  
+  
+  
+  <details class="manual-category">
+    <summary>隧道与 Overlay 网络</summary>
+    <div class="manual-children">
+      
+<a href="../../06-tunnels/">概览</a>
+
+      
+  
+  
+  
+<a href="../../06-tunnels/gre/">GRE Tunnel</a>
+
+  
+  
+  
+  
+<a href="../../06-tunnels/ip-in-ip/">IPIP Tunnel</a>
+
+  
+  
+  
+  
+<a href="../../06-tunnels/wireguard/">WireGuard 隧道</a>
+
+  
+  
+  
+  
+<a href="../../06-tunnels/amneziawg/">AmneziaWG 隧道</a>
+
+  
+  
+  
+  
+<a href="../../06-tunnels/vxlan-static/">静态 VXLAN</a>
+
+  
+  
+  
+  <div class="manual-subtopic">
+    
+<a href="../../06-tunnels/evpn/">EVPN</a>
+
+    <div class="manual-children">
+  
+  
+  
+<a href="../../06-tunnels/vxlan-evpn/">动态 VXLAN 与二层学习</a>
+
+  
+  
+  
+  
+<a href="../../06-tunnels/evpn-type5/">Type-5 租户路由</a>
+
+  
+  
+  
+  
+<a href="../../06-tunnels/evpn-multihoming/">All-Active 多归属</a>
+
+  
+  
+  
+  
+<a href="../../06-tunnels/evpn-gateway/">Vbdif 网关通告</a>
+
+  
+  
+</div>
+  </div>
+  
+  
+
+    </div>
+  </details>
+  
+  
+  
+  <details class="manual-category">
+    <summary>访问控制列表</summary>
+    <div class="manual-children">
+      
+<a href="../../topics/traffic-access/">概览</a>
+
+      
+  
+  
+  
+<a href="../../07-policy/acl/">ACL 访问控制</a>
+
+  
+  
+  
+  
+<a href="../../04-ip-routing/urpf/">uRPF 反向路径检查</a>
+
+  
+  
+
+    </div>
+  </details>
+  
+  
+  
+  <details class="manual-category">
+    <summary>QoS</summary>
+    <div class="manual-children">
+      
+<a href="../../topics/traffic-qos/">概览</a>
+
+      
+  
+  
+  
+<a href="../../07-policy/interface-qos/">接口 QoS 限速</a>
+
+  
+  
+  
+  
+<a href="../../07-policy/mqc/">MQC 分类、流量策略与重定向</a>
+
+  
+  
+  
+  
+<a href="../../07-policy/tcp-mss/">TCP MSS 调整</a>
+
+  
+  
+
+    </div>
+  </details>
+  
+  
+  
+  <details class="manual-category">
+    <summary>NAT</summary>
+    <div class="manual-children">
+      
+<a href="../../nat/">概览</a>
+
+      
+  
+  
+  
+<a href="../../07-policy/nat/">NAT 地址与端口转换</a>
+
+  
+  
+
+    </div>
+  </details>
+  
+  
+  
+  <details class="manual-category">
+    <summary>网络服务与管理协议</summary>
+    <div class="manual-children">
+      
+<a href="../../08-network-services/">概览</a>
+
+      
+  
+  
+  <div class="manual-subtopic">
+    
+<a href="../../topics/dhcpv4/">DHCPv4</a>
+
+    <div class="manual-children">
+  
+  
+  
+<a href="../../08-network-services/dhcpv4-server/">DHCPv4 服务器</a>
+
+  
+  
+  
+  
+<a href="../../08-network-services/dhcpv4-client/">DHCPv4 客户端</a>
+
+  
+  
+  
+  
+<a href="../../08-network-services/dhcpv4-relay/">DHCPv4 中继</a>
+
+  
+  
+</div>
+  </div>
+  
+  
+  
+  <div class="manual-subtopic">
+    
+<a href="../../topics/dhcpv6/">DHCPv6</a>
+
+    <div class="manual-children">
+  
+  
+  
+<a href="../../08-network-services/dhcpv6-server/">DHCPv6 服务器</a>
+
+  
+  
+  
+  
+<a href="../../08-network-services/dhcpv6-client/">DHCPv6 客户端与前缀委派</a>
+
+  
+  
+  
+  
+<a href="../../08-network-services/dhcpv6-relay/">DHCPv6 中继</a>
+
+  
+  
+</div>
+  </div>
+  
+  
+  
+  
+<a href="../../08-network-services/lldp/">LLDP 邻居发现</a>
+
+  
+  
+  
+  
+<a href="../../08-network-services/snmp/">SNMP 监控</a>
+
+  
+  
+
+    </div>
+  </details>
+  
+  
+  
+  <details class="manual-category">
+    <summary>运行监控与故障处理</summary>
+    <div class="manual-children">
+      
+<a href="../../09-operations/">概览</a>
+
+      
+  
+  
+  
+<a href="../../09-operations/service-health/">服务状态与监听端口</a>
+
+  
+  
+  
+  
+<a href="../../operations/logs/">日志中心</a>
+
+  
+  
+  
+  
+<a href="../../09-operations/resource-usage/">CPU、内存与数据面资源</a>
+
+  
+  
+  
+  
+<a href="../../09-operations/connectivity/">Ping、Tracert 与 MTR 连通性诊断</a>
+
+  
+  
+  
+  
+<a href="../../09-operations/backup-support/">脱敏支持包与加密备份</a>
+
+  
+  
+  
+  
+<a href="../../09-operations/operational-reset/">清理运行状态与服务恢复</a>
+
+  
+  
+  
+  
+<a href="../../09-operations/factory-reset/">配置恢复与出厂重置</a>
+
+  
+  
+  
+  
+<a href="../../09-operations/power/">重启与关机</a>
+
+  
+  
+  
+  
+<a href="../../09-operations/network-scenarios/">组网与验证案例索引</a>
+
+  
+  
+
+    </div>
+  </details>
+  
+  
+  
+  <details class="manual-category">
+    <summary>MPLS</summary>
+    <div class="manual-children">
+      
+<a href="../../10-mpls-l3vpn/">概览</a>
+
+      
+  
+  
+  <div class="manual-subtopic">
+    
+<a href="../../topics/mpls-services/">L3VPN</a>
+
+    <div class="manual-children">
+  
+  
+  
+<a href="../../10-mpls-l3vpn/mpls/">MPLS 核心转发</a>
+
+  
+  
+  
+  
+<a href="../../10-mpls-l3vpn/ldp/">LDP 标签分发</a>
+
+  
+  
+  
+  
+<a href="../../10-mpls-l3vpn/l3vpn/">MPLS L3VPN、VPNv4 与 VPNv6</a>
+
+  
+  
+  
+  
+<a href="../../10-mpls-l3vpn/6pe/">6PE IPv6 标签路由</a>
+
+  
+  
+</div>
+  </div>
+  
+  
+
+    </div>
+  </details>
+  
+  
+  
+  <details class="manual-category">
+    <summary>应用部署与网络</summary>
+    <div class="manual-children">
+      
+<a href="../../11-applications/">概览</a>
+
+      
+  
+  
+  
+<a href="../../11-applications/installed-apps/">Docker 与 Compose</a>
+
+  
+  
+  
+  
+<a href="../../11-applications/application-network/">Docker 网络与端口发布</a>
+
+  
+  
+
+    </div>
+  </details>
+  
+  
+  
+  
+<a href="../../reference/commands/">VortexROS 全命令参考</a>
+
+  
+  
+  
+  
+<a href="../../">配置指南</a>
+
+  
+  
+
+</div>
+<details class="manual-resources">
+  <summary>版本与资源 <span>v0.1.0-dev</span></summary>
+  <ul>
+    <li><a href="../../../">当前手册（简体中文）</a></li>
+    <li><a href="../../../installation/">安装与升级</a></li>
+    <li><a href="../../reference/commands/">全命令参考</a></li>
+  </ul>
+</details>
+
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="移动版导航菜单" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../">VortexROS 用户手册</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="页面导航">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../interfaces/">接口</a></li>
+      <li class="breadcrumb-item active">LoopBack 接口</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="loopback">
+<h1>LoopBack 接口<a class="headerlink" href="#loopback" title="Link to this heading"></a></h1>
+<p>LoopBack 是设备自身的逻辑三层接口。它适合为设备提供稳定的管理地址、路由协议源地址或隧道端点。</p>
+<section id="id1">
+<h2>工作原理<a class="headerlink" href="#id1" title="Link to this heading"></a></h2>
+<p>LoopBack 的地址与某条网线的载波独立。远端到达该地址仍需要一条可用的路由。IPv4 常用 /32，IPv6 常用 /128。将接口放入 VPN 实例后，在该实例的路由表中检查它。</p>
+</section>
+<section id="id2">
+<h2>配置与验证<a class="headerlink" href="#id2" title="Link to this heading"></a></h2>
+<section id="id3">
+<h3>配置稳定的双栈地址<a class="headerlink" href="#id3" title="Link to this heading"></a></h3>
+<p>本例给 R1 的 LoopBack0 赋址。若其他设备需要访问这两个地址，在现有路由协议中通告对应前缀，或在对端配置可达的静态路由。先在 R1 的用户视图进入系统视图。</p>
+<div class="highlight-vortexros-cli notranslate"><div class="highlight"><pre><span></span>system-view
+interface LoopBack 0
+ ip address 198.51.100.1 255.255.255.255
+ ipv6 enable
+ ipv6 address 2001:db8:100::1 128
+ quit
+commit
+return
+</pre></div>
+</div>
+<div class="highlight-vortexros-cli notranslate"><div class="highlight"><pre><span></span>display interface LoopBack 0
+display ip routing-table protocol direct
+display ipv6 routing-table protocol direct
+</pre></div>
+</div>
+<p>预期在 IPv4 表中看到 <code class="docutils literal notranslate"><span class="pre">198.51.100.1/32</span></code>、在 IPv6 表中看到 <code class="docutils literal notranslate"><span class="pre">2001:db8:100::1/128</span></code>，两条路由均关联 LoopBack0。若对端已经安装路由，从对端分别对两个地址发起探测。两端的接线、完整路由配置和查询方法见<a class="reference internal" href="../../04-ip-routing/static-routes/cases/example-2/"><span class="std std-doc">双栈静态路由案例</span></a>。</p>
+<p>在已验证的 VPN 场景中，<code class="docutils literal notranslate"><span class="pre">display</span> <span class="pre">ip</span> <span class="pre">routing-table</span> <span class="pre">vpn-instance</span> <span class="pre">ALL</span></code> 显示过以下表项。该场景使用 LoopBack200，与上面使用的地址不同。</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Destination/Mask   Proto   Pre  Cost    Flags  NextHop          Interface       VPN-Instance
+ 172.31.255.1/32   Direct  0    0         D    -                LoopBack200     ALL
+</pre></div>
+</div>
+</section>
+</section>
+<section id="id4">
+<h2>注意事项<a class="headerlink" href="#id4" title="Link to this heading"></a></h2>
+<p>准备停用 LoopBack 前，先检查 BGP 对等体、隧道源地址和管理访问是否引用它。地址或 VPN 归属变更后，从实际对端复查会话，再保存配置。</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="页脚">
+        <a href="../eth-trunk/cases/example-2/" class="btn btn-neutral float-left" title="两台设备双链路 LACP" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> 上一页</a>
+        <a href="../subinterfaces/" class="btn btn-neutral float-right" title="802.1Q 与 QinQ 三层子接口" accesskey="n" rel="next">下一页 <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 。</p>
+  </div>
+
+  利用 <a href="https://www.sphinx-doc.org/">Sphinx</a> 构建，使用的 
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">主题</a>
+    由 <a href="https://readthedocs.org">Read the Docs</a> 开发.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+ 
+<script>
+  const legacySection = Array.from(document.querySelectorAll('[data-section-moved]'))
+    .find(section => (section.dataset.legacyId || section.id) === location.hash.slice(1));
+  if (legacySection) {
+    location.replace(legacySection.querySelector('a').href);
+  }
+  const currentFeature = document.querySelector('.manual-menu [aria-current]');
+  if (currentFeature) {
+    currentFeature.scrollIntoView({ block: 'nearest' });
+  }
+</script>
+
+
+</body>
+</html>

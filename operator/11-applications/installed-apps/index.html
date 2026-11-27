@@ -59,13 +59,6 @@
       
   
   
-  <div class="manual-subtopic">
-    
-<a href="../../../installation/preparation/">安装前准备</a>
-
-    <div class="manual-children">
-  
-  
   
 <a href="../../../installation/00-planning/">部署规划</a>
 
@@ -82,17 +75,6 @@
 <a href="../../../installation/02-backends/">系统与数据面组件</a>
 
   
-  
-</div>
-  </div>
-  
-  
-  
-  <div class="manual-subtopic">
-    
-<a href="../../../installation/deployment/">安装与首次启动</a>
-
-    <div class="manual-children">
   
   
   
@@ -117,17 +99,6 @@
 <a href="../../../installation/05-vpp-startup/">配置和激活数据面</a>
 
   
-  
-</div>
-  </div>
-  
-  
-  
-  <div class="manual-subtopic">
-    
-<a href="../../../installation/maintenance/">升级、回退与验收</a>
-
-    <div class="manual-children">
   
   
   <div class="manual-subtopic">
@@ -162,10 +133,6 @@
   
 <a href="../../../installation/08-hardware-acceptance/">真机验收</a>
 
-  
-  
-</div>
-  </div>
   
   
 
@@ -215,67 +182,8 @@
       
   
   
-  <div class="manual-subtopic">
-    
-<a href="../../topics/system-identity/">设备身份与授权</a>
-
-    <div class="manual-children">
-  
-  
   
 <a href="../../02-system-services/identity/">设备名称与登录提示</a>
-
-  
-  
-  
-  
-<a href="../../02-system-services/licensing/">离线设备授权</a>
-
-  
-  
-</div>
-  </div>
-  
-  
-  
-  <div class="manual-subtopic">
-    
-<a href="../../topics/management-access/">登录与认证</a>
-
-    <div class="manual-children">
-  
-  
-  
-<a href="../../02-system-services/local-aaa/">本地 AAA 与用户权限</a>
-
-  
-  
-  
-  
-<a href="../../02-system-services/stelnet/">STelnet 与 VTY</a>
-
-  
-  
-  
-  
-<a href="../../02-system-services/ssh-public-key/">SSH 公钥认证</a>
-
-  
-  
-</div>
-  </div>
-  
-  
-  
-  <div class="manual-subtopic">
-    
-<a href="../../topics/system-network-time/">本机解析与时间</a>
-
-    <div class="manual-children">
-  
-  
-  
-<a href="../../02-system-services/dns/">本机 DNS 解析</a>
 
   
   
@@ -287,12 +195,38 @@
   
   
   
+<a href="../../02-system-services/dns/">本机 DNS 解析</a>
+
+  
+  
+  
+  
 <a href="../../02-system-services/ntp/">NTP 时间同步</a>
 
   
   
-</div>
-  </div>
+  
+  
+<a href="../../02-system-services/local-aaa/">本地 AAA 与用户权限</a>
+
+  
+  
+  
+  
+<a href="../../02-system-services/ssh-public-key/">SSH 公钥认证</a>
+
+  
+  
+  
+  
+<a href="../../02-system-services/stelnet/">STelnet、VTY 与 SCP</a>
+
+  
+  
+  
+  
+<a href="../../02-system-services/licensing/">离线设备授权</a>
+
   
   
 
@@ -310,13 +244,6 @@
       
   
   
-  <div class="manual-subtopic">
-    
-<a href="../../topics/ethernet-interfaces/">以太网接口与聚合</a>
-
-    <div class="manual-children">
-  
-  
   
 <a href="../../03-interfaces-l2/physical-interfaces/">物理接口与硬件卸载</a>
 
@@ -330,20 +257,15 @@
   
   
   
+<a href="../../03-interfaces-l2/loopback/">LoopBack 接口</a>
+
+  
+  
+  
+  
 <a href="../../03-interfaces-l2/subinterfaces/">802.1Q 与 QinQ 三层子接口</a>
 
   
-  
-</div>
-  </div>
-  
-  
-  
-  <div class="manual-subtopic">
-    
-<a href="../../topics/gateway-interfaces/">三层网关接口</a>
-
-    <div class="manual-children">
   
   
   
@@ -355,10 +277,6 @@
   
 <a href="../../03-interfaces-l2/vbdif/">Vbdif 三层网关</a>
 
-  
-  
-</div>
-  </div>
   
   
 
@@ -376,13 +294,6 @@
       
   
   
-  <div class="manual-subtopic">
-    
-<a href="../../topics/vlan-switching/">VLAN 与 MAC 转发</a>
-
-    <div class="manual-children">
-  
-  
   
 <a href="../../03-interfaces-l2/vlan/">VLAN 二层交换</a>
 
@@ -390,12 +301,14 @@
   
   
   
-<a href="../../03-interfaces-l2/mac-table/">MAC 地址表</a>
+<a href="../../03-interfaces-l2/qinq/">QinQ 二层接入</a>
 
   
   
-</div>
-  </div>
+  
+  
+<a href="../../03-interfaces-l2/mac-table/">MAC 地址表</a>
+
   
   
   
@@ -419,13 +332,6 @@
       
   
   
-  <div class="manual-subtopic">
-    
-<a href="../../topics/ip-addressing/">地址与自动配置</a>
-
-    <div class="manual-children">
-  
-  
   
 <a href="../../04-ip-routing/ip-addresses/">IPv4 与 IPv6 接口地址</a>
 
@@ -433,20 +339,9 @@
   
   
   
-<a href="../../04-ip-routing/ipv6-router-advertisement/">IPv6 路由通告与 SLAAC</a>
+<a href="../../04-ip-routing/vpn-instance/">VPN 实例与路由隔离</a>
 
   
-  
-</div>
-  </div>
-  
-  
-  
-  <div class="manual-subtopic">
-    
-<a href="../../topics/ip-neighbors/">邻居解析</a>
-
-    <div class="manual-children">
   
   
   
@@ -460,19 +355,21 @@
 
   
   
-</div>
-  </div>
   
   
-  
-  
-<a href="../../04-ip-routing/vpn-instance/">VPN 实例与路由隔离</a>
+<a href="../../04-ip-routing/ipv6-router-advertisement/">IPv6 路由通告与 SLAAC</a>
 
   
   
   
   
 <a href="../../04-ip-routing/ipv6-path-mtu/">IPv6 路径 MTU</a>
+
+  
+  
+  
+  
+<a href="../../04-ip-routing/icmp-send/">IPv4 ICMP 发送控制</a>
 
   
   
@@ -517,13 +414,6 @@
       
   
   
-  <div class="manual-subtopic">
-    
-<a href="../../topics/interior-routing/">域内路由协议</a>
-
-    <div class="manual-children">
-  
-  
   
 <a href="../../05-dynamic-routing/ospf/">OSPF（IPv4）</a>
 
@@ -551,10 +441,6 @@
   
 <a href="../../05-dynamic-routing/ripng/">RIPng（IPv6）</a>
 
-  
-  
-</div>
-  </div>
   
   
   
@@ -610,13 +496,6 @@
       
   
   
-  <div class="manual-subtopic">
-    
-<a href="../../topics/ip-tunnels/">GRE 与 IP-in-IP</a>
-
-    <div class="manual-children">
-  
-  
   
 <a href="../../06-tunnels/gre/">GRE Tunnel</a>
 
@@ -628,17 +507,6 @@
 
   
   
-</div>
-  </div>
-  
-  
-  
-  <div class="manual-subtopic">
-    
-<a href="../../topics/encrypted-tunnels/">加密隧道</a>
-
-    <div class="manual-children">
-  
   
   
 <a href="../../06-tunnels/wireguard/">WireGuard 隧道</a>
@@ -649,10 +517,6 @@
   
 <a href="../../06-tunnels/amneziawg/">AmneziaWG 隧道</a>
 
-  
-  
-</div>
-  </div>
   
   
   
@@ -847,13 +711,6 @@
   
   
   
-  <div class="manual-subtopic">
-    
-<a href="../../topics/discovery-monitoring/">链路发现与网管监控</a>
-
-    <div class="manual-children">
-  
-  
   
 <a href="../../08-network-services/lldp/">LLDP 邻居发现</a>
 
@@ -863,10 +720,6 @@
   
 <a href="../../08-network-services/snmp/">SNMP 监控</a>
 
-  
-  
-</div>
-  </div>
   
   
 
@@ -884,15 +737,14 @@
       
   
   
-  <div class="manual-subtopic">
-    
-<a href="../../topics/observe-device/">状态、资源与日志</a>
-
-    <div class="manual-children">
-  
-  
   
 <a href="../../09-operations/service-health/">服务状态与监听端口</a>
+
+  
+  
+  
+  
+<a href="../../operations/logs/">日志中心</a>
 
   
   
@@ -904,26 +756,15 @@
   
   
   
-<a href="../../operations/logs/">日志中心</a>
-
-  
-  
-</div>
-  </div>
-  
-  
-  
-  
 <a href="../../09-operations/connectivity/">Ping、Tracert 与 MTR 连通性诊断</a>
 
   
   
   
-  <div class="manual-subtopic">
-    
-<a href="../../topics/device-recovery/">清理、恢复与电源操作</a>
+  
+<a href="../../09-operations/backup-support/">脱敏支持包与加密备份</a>
 
-    <div class="manual-children">
+  
   
   
   
@@ -941,10 +782,6 @@
   
 <a href="../../09-operations/power/">重启与关机</a>
 
-  
-  
-</div>
-  </div>
   
   
   
@@ -1088,13 +925,14 @@
 <span id="id1"></span><h2>工作原理<a class="headerlink" href="#section-operator-11-applications-installed-apps-2" title="Link to this heading"></a></h2>
 <p>使用原生 Docker 命令管理镜像、容器、网络和卷。使用标准 <code class="docutils literal notranslate"><span class="pre">compose.yaml</span></code> 管理多容器应用。</p>
 <p>切换系统镜像时保留原生 Docker 和 containerd 配置、容器、镜像和命名卷，适用于使用相同容器运行时版本和存储后端的系统镜像。</p>
+<p>默认使用共享持久区保存 <code class="docutils literal notranslate"><span class="pre">/var/lib/docker</span></code>、<code class="docutils literal notranslate"><span class="pre">/var/lib/containerd</span></code>、<code class="docutils literal notranslate"><span class="pre">/etc/docker</span></code> 和 <code class="docutils literal notranslate"><span class="pre">/etc/containerd</span></code>。应用数据宜使用命名卷。Compose 文件和宿主机绑定挂载目录需要放在另行选定的共享存储或数据盘上。</p>
 <p><span id="examples"></span></p>
 </section>
 <section id="section-operator-11-applications-installed-apps-3">
 <span id="id2"></span><h2>配置与验证<a class="headerlink" href="#section-operator-11-applications-installed-apps-3" title="Link to this heading"></a></h2>
 <section id="section-operator-11-applications-installed-apps-4">
 <span id="id3"></span><h3>操作流程<a class="headerlink" href="#section-operator-11-applications-installed-apps-4" title="Link to this heading"></a></h3>
-<p><img alt="离线镜像归档 → 原生 Docker 导入 → Compose 启动与检查" src="../../../_images/cases41.svg" /></p>
+<p><img alt="离线镜像归档 → 原生 Docker 导入 → Compose 启动与检查" src="../../../_images/cases40.svg" /></p>
 </section>
 <section id="case-conditions-11-applications-installed-apps">
 <span id="id4"></span><h3>配置条件<a class="headerlink" href="#case-conditions-11-applications-installed-apps" title="Link to this heading"></a></h3>
@@ -1143,6 +981,7 @@ sudo<span class="w"> </span>docker<span class="w"> </span>compose<span class="w"
 <span id="id8"></span><h2>注意事项<a class="headerlink" href="#section-operator-11-applications-installed-apps-7" title="Link to this heading"></a></h2>
 <p>Docker 安装后默认停用。在需要自动启动 Docker 的系统镜像上执行 <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">systemctl</span> <span class="pre">enable</span> <span class="pre">--now</span> <span class="pre">docker</span></code>。系统切换会重启设备，应用按各容器的重启策略恢复。</p>
 <p>共享数据目录保留本机最新写入。将 Compose 项目及绑定到容器的宿主目录放在共享持久区或独立数据盘。</p>
+<p>切换系统镜像后，可在 Compose 项目目录执行 <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">docker</span> <span class="pre">compose</span> <span class="pre">ps</span></code>，确认容器已按预期启动，再从应用内读取切换前的持久数据。Docker 服务是否随启动开启按系统镜像分别设置。</p>
 <p data-legacy-id="id2" class="manual-previous-section" data-section-moved><a href="#overview">介绍</a></p>
 <p data-legacy-id="id3" class="manual-previous-section" data-section-moved><a href="#case-conditions-11-applications-installed-apps">配置准备</a></p>
 <p data-legacy-id="id4" class="manual-previous-section" data-section-moved><a href="#examples">配置案例</a></p>

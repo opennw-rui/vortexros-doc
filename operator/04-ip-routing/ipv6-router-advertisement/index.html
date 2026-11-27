@@ -23,7 +23,7 @@
     <link rel="index" title="索引" href="../../../genindex/" />
     <link rel="search" title="搜索" href="../../../search/" />
     <link rel="next" title="接收 RA 并取得 SLAAC 地址" href="cases/example-1/" />
-    <link rel="prev" title="IPv4 与 IPv6 接口地址" href="../ip-addresses/" /> 
+    <link rel="prev" title="按 VPN 或接口定位邻居" href="../../03-interfaces-l2/ipv6-neighbor-discovery/cases/example-2/" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -59,13 +59,6 @@
       
   
   
-  <div class="manual-subtopic">
-    
-<a href="../../../installation/preparation/">安装前准备</a>
-
-    <div class="manual-children">
-  
-  
   
 <a href="../../../installation/00-planning/">部署规划</a>
 
@@ -82,17 +75,6 @@
 <a href="../../../installation/02-backends/">系统与数据面组件</a>
 
   
-  
-</div>
-  </div>
-  
-  
-  
-  <div class="manual-subtopic">
-    
-<a href="../../../installation/deployment/">安装与首次启动</a>
-
-    <div class="manual-children">
   
   
   
@@ -117,17 +99,6 @@
 <a href="../../../installation/05-vpp-startup/">配置和激活数据面</a>
 
   
-  
-</div>
-  </div>
-  
-  
-  
-  <div class="manual-subtopic">
-    
-<a href="../../../installation/maintenance/">升级、回退与验收</a>
-
-    <div class="manual-children">
   
   
   <div class="manual-subtopic">
@@ -162,10 +133,6 @@
   
 <a href="../../../installation/08-hardware-acceptance/">真机验收</a>
 
-  
-  
-</div>
-  </div>
   
   
 
@@ -215,67 +182,8 @@
       
   
   
-  <div class="manual-subtopic">
-    
-<a href="../../topics/system-identity/">设备身份与授权</a>
-
-    <div class="manual-children">
-  
-  
   
 <a href="../../02-system-services/identity/">设备名称与登录提示</a>
-
-  
-  
-  
-  
-<a href="../../02-system-services/licensing/">离线设备授权</a>
-
-  
-  
-</div>
-  </div>
-  
-  
-  
-  <div class="manual-subtopic">
-    
-<a href="../../topics/management-access/">登录与认证</a>
-
-    <div class="manual-children">
-  
-  
-  
-<a href="../../02-system-services/local-aaa/">本地 AAA 与用户权限</a>
-
-  
-  
-  
-  
-<a href="../../02-system-services/stelnet/">STelnet 与 VTY</a>
-
-  
-  
-  
-  
-<a href="../../02-system-services/ssh-public-key/">SSH 公钥认证</a>
-
-  
-  
-</div>
-  </div>
-  
-  
-  
-  <div class="manual-subtopic">
-    
-<a href="../../topics/system-network-time/">本机解析与时间</a>
-
-    <div class="manual-children">
-  
-  
-  
-<a href="../../02-system-services/dns/">本机 DNS 解析</a>
 
   
   
@@ -287,12 +195,38 @@
   
   
   
+<a href="../../02-system-services/dns/">本机 DNS 解析</a>
+
+  
+  
+  
+  
 <a href="../../02-system-services/ntp/">NTP 时间同步</a>
 
   
   
-</div>
-  </div>
+  
+  
+<a href="../../02-system-services/local-aaa/">本地 AAA 与用户权限</a>
+
+  
+  
+  
+  
+<a href="../../02-system-services/ssh-public-key/">SSH 公钥认证</a>
+
+  
+  
+  
+  
+<a href="../../02-system-services/stelnet/">STelnet、VTY 与 SCP</a>
+
+  
+  
+  
+  
+<a href="../../02-system-services/licensing/">离线设备授权</a>
+
   
   
 
@@ -310,13 +244,6 @@
       
   
   
-  <div class="manual-subtopic">
-    
-<a href="../../topics/ethernet-interfaces/">以太网接口与聚合</a>
-
-    <div class="manual-children">
-  
-  
   
 <a href="../../03-interfaces-l2/physical-interfaces/">物理接口与硬件卸载</a>
 
@@ -330,20 +257,15 @@
   
   
   
+<a href="../../03-interfaces-l2/loopback/">LoopBack 接口</a>
+
+  
+  
+  
+  
 <a href="../../03-interfaces-l2/subinterfaces/">802.1Q 与 QinQ 三层子接口</a>
 
   
-  
-</div>
-  </div>
-  
-  
-  
-  <div class="manual-subtopic">
-    
-<a href="../../topics/gateway-interfaces/">三层网关接口</a>
-
-    <div class="manual-children">
   
   
   
@@ -355,10 +277,6 @@
   
 <a href="../../03-interfaces-l2/vbdif/">Vbdif 三层网关</a>
 
-  
-  
-</div>
-  </div>
   
   
 
@@ -376,13 +294,6 @@
       
   
   
-  <div class="manual-subtopic">
-    
-<a href="../../topics/vlan-switching/">VLAN 与 MAC 转发</a>
-
-    <div class="manual-children">
-  
-  
   
 <a href="../../03-interfaces-l2/vlan/">VLAN 二层交换</a>
 
@@ -390,12 +301,14 @@
   
   
   
-<a href="../../03-interfaces-l2/mac-table/">MAC 地址表</a>
+<a href="../../03-interfaces-l2/qinq/">QinQ 二层接入</a>
 
   
   
-</div>
-  </div>
+  
+  
+<a href="../../03-interfaces-l2/mac-table/">MAC 地址表</a>
+
   
   
   
@@ -419,13 +332,6 @@
       
   
   
-  <div class="manual-subtopic">
-    
-<a href="../../topics/ip-addressing/">地址与自动配置</a>
-
-    <div class="manual-children">
-  
-  
   
 <a href="../ip-addresses/">IPv4 与 IPv6 接口地址</a>
 
@@ -433,20 +339,9 @@
   
   
   
-<a href="#" aria-current="page">IPv6 路由通告与 SLAAC</a>
+<a href="../vpn-instance/">VPN 实例与路由隔离</a>
 
   
-  
-</div>
-  </div>
-  
-  
-  
-  <div class="manual-subtopic">
-    
-<a href="../../topics/ip-neighbors/">邻居解析</a>
-
-    <div class="manual-children">
   
   
   
@@ -460,19 +355,21 @@
 
   
   
-</div>
-  </div>
   
   
-  
-  
-<a href="../vpn-instance/">VPN 实例与路由隔离</a>
+<a href="#" aria-current="page">IPv6 路由通告与 SLAAC</a>
 
   
   
   
   
 <a href="../ipv6-path-mtu/">IPv6 路径 MTU</a>
+
+  
+  
+  
+  
+<a href="../icmp-send/">IPv4 ICMP 发送控制</a>
 
   
   
@@ -517,13 +414,6 @@
       
   
   
-  <div class="manual-subtopic">
-    
-<a href="../../topics/interior-routing/">域内路由协议</a>
-
-    <div class="manual-children">
-  
-  
   
 <a href="../../05-dynamic-routing/ospf/">OSPF（IPv4）</a>
 
@@ -551,10 +441,6 @@
   
 <a href="../../05-dynamic-routing/ripng/">RIPng（IPv6）</a>
 
-  
-  
-</div>
-  </div>
   
   
   
@@ -610,13 +496,6 @@
       
   
   
-  <div class="manual-subtopic">
-    
-<a href="../../topics/ip-tunnels/">GRE 与 IP-in-IP</a>
-
-    <div class="manual-children">
-  
-  
   
 <a href="../../06-tunnels/gre/">GRE Tunnel</a>
 
@@ -628,17 +507,6 @@
 
   
   
-</div>
-  </div>
-  
-  
-  
-  <div class="manual-subtopic">
-    
-<a href="../../topics/encrypted-tunnels/">加密隧道</a>
-
-    <div class="manual-children">
-  
   
   
 <a href="../../06-tunnels/wireguard/">WireGuard 隧道</a>
@@ -649,10 +517,6 @@
   
 <a href="../../06-tunnels/amneziawg/">AmneziaWG 隧道</a>
 
-  
-  
-</div>
-  </div>
   
   
   
@@ -847,13 +711,6 @@
   
   
   
-  <div class="manual-subtopic">
-    
-<a href="../../topics/discovery-monitoring/">链路发现与网管监控</a>
-
-    <div class="manual-children">
-  
-  
   
 <a href="../../08-network-services/lldp/">LLDP 邻居发现</a>
 
@@ -863,10 +720,6 @@
   
 <a href="../../08-network-services/snmp/">SNMP 监控</a>
 
-  
-  
-</div>
-  </div>
   
   
 
@@ -884,15 +737,14 @@
       
   
   
-  <div class="manual-subtopic">
-    
-<a href="../../topics/observe-device/">状态、资源与日志</a>
-
-    <div class="manual-children">
-  
-  
   
 <a href="../../09-operations/service-health/">服务状态与监听端口</a>
+
+  
+  
+  
+  
+<a href="../../operations/logs/">日志中心</a>
 
   
   
@@ -904,26 +756,15 @@
   
   
   
-<a href="../../operations/logs/">日志中心</a>
-
-  
-  
-</div>
-  </div>
-  
-  
-  
-  
 <a href="../../09-operations/connectivity/">Ping、Tracert 与 MTR 连通性诊断</a>
 
   
   
   
-  <div class="manual-subtopic">
-    
-<a href="../../topics/device-recovery/">清理、恢复与电源操作</a>
+  
+<a href="../../09-operations/backup-support/">脱敏支持包与加密备份</a>
 
-    <div class="manual-children">
+  
   
   
   
@@ -941,10 +782,6 @@
   
 <a href="../../09-operations/power/">重启与关机</a>
 
-  
-  
-</div>
-  </div>
   
   
   
@@ -1070,7 +907,6 @@
   <ul class="wy-breadcrumbs">
       <li><a href="../../../" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="../../ip-access/">IP 接入</a></li>
-          <li class="breadcrumb-item"><a href="../../topics/ip-addressing/">地址与自动配置</a></li>
       <li class="breadcrumb-item active">IPv6 路由通告与 SLAAC</li>
       <li class="wy-breadcrumbs-aside">
       </li>
@@ -1150,7 +986,7 @@ Interface    : Ethernet4                               VPN-Instance : default
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="页脚">
-        <a href="../ip-addresses/" class="btn btn-neutral float-left" title="IPv4 与 IPv6 接口地址" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> 上一页</a>
+        <a href="../../03-interfaces-l2/ipv6-neighbor-discovery/cases/example-2/" class="btn btn-neutral float-left" title="按 VPN 或接口定位邻居" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> 上一页</a>
         <a href="cases/example-1/" class="btn btn-neutral float-right" title="接收 RA 并取得 SLAAC 地址" accesskey="n" rel="next">下一页 <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 

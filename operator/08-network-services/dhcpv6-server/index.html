@@ -59,13 +59,6 @@
       
   
   
-  <div class="manual-subtopic">
-    
-<a href="../../../installation/preparation/">安装前准备</a>
-
-    <div class="manual-children">
-  
-  
   
 <a href="../../../installation/00-planning/">部署规划</a>
 
@@ -82,17 +75,6 @@
 <a href="../../../installation/02-backends/">系统与数据面组件</a>
 
   
-  
-</div>
-  </div>
-  
-  
-  
-  <div class="manual-subtopic">
-    
-<a href="../../../installation/deployment/">安装与首次启动</a>
-
-    <div class="manual-children">
   
   
   
@@ -117,17 +99,6 @@
 <a href="../../../installation/05-vpp-startup/">配置和激活数据面</a>
 
   
-  
-</div>
-  </div>
-  
-  
-  
-  <div class="manual-subtopic">
-    
-<a href="../../../installation/maintenance/">升级、回退与验收</a>
-
-    <div class="manual-children">
   
   
   <div class="manual-subtopic">
@@ -162,10 +133,6 @@
   
 <a href="../../../installation/08-hardware-acceptance/">真机验收</a>
 
-  
-  
-</div>
-  </div>
   
   
 
@@ -215,67 +182,8 @@
       
   
   
-  <div class="manual-subtopic">
-    
-<a href="../../topics/system-identity/">设备身份与授权</a>
-
-    <div class="manual-children">
-  
-  
   
 <a href="../../02-system-services/identity/">设备名称与登录提示</a>
-
-  
-  
-  
-  
-<a href="../../02-system-services/licensing/">离线设备授权</a>
-
-  
-  
-</div>
-  </div>
-  
-  
-  
-  <div class="manual-subtopic">
-    
-<a href="../../topics/management-access/">登录与认证</a>
-
-    <div class="manual-children">
-  
-  
-  
-<a href="../../02-system-services/local-aaa/">本地 AAA 与用户权限</a>
-
-  
-  
-  
-  
-<a href="../../02-system-services/stelnet/">STelnet 与 VTY</a>
-
-  
-  
-  
-  
-<a href="../../02-system-services/ssh-public-key/">SSH 公钥认证</a>
-
-  
-  
-</div>
-  </div>
-  
-  
-  
-  <div class="manual-subtopic">
-    
-<a href="../../topics/system-network-time/">本机解析与时间</a>
-
-    <div class="manual-children">
-  
-  
-  
-<a href="../../02-system-services/dns/">本机 DNS 解析</a>
 
   
   
@@ -287,12 +195,38 @@
   
   
   
+<a href="../../02-system-services/dns/">本机 DNS 解析</a>
+
+  
+  
+  
+  
 <a href="../../02-system-services/ntp/">NTP 时间同步</a>
 
   
   
-</div>
-  </div>
+  
+  
+<a href="../../02-system-services/local-aaa/">本地 AAA 与用户权限</a>
+
+  
+  
+  
+  
+<a href="../../02-system-services/ssh-public-key/">SSH 公钥认证</a>
+
+  
+  
+  
+  
+<a href="../../02-system-services/stelnet/">STelnet、VTY 与 SCP</a>
+
+  
+  
+  
+  
+<a href="../../02-system-services/licensing/">离线设备授权</a>
+
   
   
 
@@ -310,13 +244,6 @@
       
   
   
-  <div class="manual-subtopic">
-    
-<a href="../../topics/ethernet-interfaces/">以太网接口与聚合</a>
-
-    <div class="manual-children">
-  
-  
   
 <a href="../../03-interfaces-l2/physical-interfaces/">物理接口与硬件卸载</a>
 
@@ -330,20 +257,15 @@
   
   
   
+<a href="../../03-interfaces-l2/loopback/">LoopBack 接口</a>
+
+  
+  
+  
+  
 <a href="../../03-interfaces-l2/subinterfaces/">802.1Q 与 QinQ 三层子接口</a>
 
   
-  
-</div>
-  </div>
-  
-  
-  
-  <div class="manual-subtopic">
-    
-<a href="../../topics/gateway-interfaces/">三层网关接口</a>
-
-    <div class="manual-children">
   
   
   
@@ -355,10 +277,6 @@
   
 <a href="../../03-interfaces-l2/vbdif/">Vbdif 三层网关</a>
 
-  
-  
-</div>
-  </div>
   
   
 
@@ -376,13 +294,6 @@
       
   
   
-  <div class="manual-subtopic">
-    
-<a href="../../topics/vlan-switching/">VLAN 与 MAC 转发</a>
-
-    <div class="manual-children">
-  
-  
   
 <a href="../../03-interfaces-l2/vlan/">VLAN 二层交换</a>
 
@@ -390,12 +301,14 @@
   
   
   
-<a href="../../03-interfaces-l2/mac-table/">MAC 地址表</a>
+<a href="../../03-interfaces-l2/qinq/">QinQ 二层接入</a>
 
   
   
-</div>
-  </div>
+  
+  
+<a href="../../03-interfaces-l2/mac-table/">MAC 地址表</a>
+
   
   
   
@@ -419,13 +332,6 @@
       
   
   
-  <div class="manual-subtopic">
-    
-<a href="../../topics/ip-addressing/">地址与自动配置</a>
-
-    <div class="manual-children">
-  
-  
   
 <a href="../../04-ip-routing/ip-addresses/">IPv4 与 IPv6 接口地址</a>
 
@@ -433,20 +339,9 @@
   
   
   
-<a href="../../04-ip-routing/ipv6-router-advertisement/">IPv6 路由通告与 SLAAC</a>
+<a href="../../04-ip-routing/vpn-instance/">VPN 实例与路由隔离</a>
 
   
-  
-</div>
-  </div>
-  
-  
-  
-  <div class="manual-subtopic">
-    
-<a href="../../topics/ip-neighbors/">邻居解析</a>
-
-    <div class="manual-children">
   
   
   
@@ -460,19 +355,21 @@
 
   
   
-</div>
-  </div>
   
   
-  
-  
-<a href="../../04-ip-routing/vpn-instance/">VPN 实例与路由隔离</a>
+<a href="../../04-ip-routing/ipv6-router-advertisement/">IPv6 路由通告与 SLAAC</a>
 
   
   
   
   
 <a href="../../04-ip-routing/ipv6-path-mtu/">IPv6 路径 MTU</a>
+
+  
+  
+  
+  
+<a href="../../04-ip-routing/icmp-send/">IPv4 ICMP 发送控制</a>
 
   
   
@@ -517,13 +414,6 @@
       
   
   
-  <div class="manual-subtopic">
-    
-<a href="../../topics/interior-routing/">域内路由协议</a>
-
-    <div class="manual-children">
-  
-  
   
 <a href="../../05-dynamic-routing/ospf/">OSPF（IPv4）</a>
 
@@ -551,10 +441,6 @@
   
 <a href="../../05-dynamic-routing/ripng/">RIPng（IPv6）</a>
 
-  
-  
-</div>
-  </div>
   
   
   
@@ -610,13 +496,6 @@
       
   
   
-  <div class="manual-subtopic">
-    
-<a href="../../topics/ip-tunnels/">GRE 与 IP-in-IP</a>
-
-    <div class="manual-children">
-  
-  
   
 <a href="../../06-tunnels/gre/">GRE Tunnel</a>
 
@@ -628,17 +507,6 @@
 
   
   
-</div>
-  </div>
-  
-  
-  
-  <div class="manual-subtopic">
-    
-<a href="../../topics/encrypted-tunnels/">加密隧道</a>
-
-    <div class="manual-children">
-  
   
   
 <a href="../../06-tunnels/wireguard/">WireGuard 隧道</a>
@@ -649,10 +517,6 @@
   
 <a href="../../06-tunnels/amneziawg/">AmneziaWG 隧道</a>
 
-  
-  
-</div>
-  </div>
   
   
   
@@ -847,13 +711,6 @@
   
   
   
-  <div class="manual-subtopic">
-    
-<a href="../../topics/discovery-monitoring/">链路发现与网管监控</a>
-
-    <div class="manual-children">
-  
-  
   
 <a href="../lldp/">LLDP 邻居发现</a>
 
@@ -863,10 +720,6 @@
   
 <a href="../snmp/">SNMP 监控</a>
 
-  
-  
-</div>
-  </div>
   
   
 
@@ -884,15 +737,14 @@
       
   
   
-  <div class="manual-subtopic">
-    
-<a href="../../topics/observe-device/">状态、资源与日志</a>
-
-    <div class="manual-children">
-  
-  
   
 <a href="../../09-operations/service-health/">服务状态与监听端口</a>
+
+  
+  
+  
+  
+<a href="../../operations/logs/">日志中心</a>
 
   
   
@@ -904,26 +756,15 @@
   
   
   
-<a href="../../operations/logs/">日志中心</a>
-
-  
-  
-</div>
-  </div>
-  
-  
-  
-  
 <a href="../../09-operations/connectivity/">Ping、Tracert 与 MTR 连通性诊断</a>
 
   
   
   
-  <div class="manual-subtopic">
-    
-<a href="../../topics/device-recovery/">清理、恢复与电源操作</a>
+  
+<a href="../../09-operations/backup-support/">脱敏支持包与加密备份</a>
 
-    <div class="manual-children">
+  
   
   
   
@@ -941,10 +782,6 @@
   
 <a href="../../09-operations/power/">重启与关机</a>
 
-  
-  
-</div>
-  </div>
   
   
   
@@ -1087,64 +924,79 @@
 <p><span id="principles"></span></p>
 <section id="section-operator-08-network-services-dhcpv6-server-2">
 <span id="id1"></span><h2>工作原理<a class="headerlink" href="#section-operator-08-network-services-dhcpv6-server-2" title="Link to this heading"></a></h2>
-<p>服务端根据客户端所在链路选择地址池。经过中继时，使用中继提供的链路信息选择子网。可用地址池、已经分配的租约和客户端实际可用状态需要分别核对。</p>
-<p>可按地址池分配 IPv6 单播地址或委派前缀。租约查询区分地址与前缀。</p>
+<p>服务端根据客户端所在链路选择地址池。经过中继时，按中继提供的链路信息匹配子网。地址分配（IA_NA）用于给客户端自身接口赋址。前缀委派（IA_PD）用于向下游路由器提供可再划分的前缀。租约、客户端地址和默认路由需要分别核对。</p>
 <p><span id="examples"></span></p>
 </section>
 <section id="section-operator-08-network-services-dhcpv6-server-3">
 <span id="id2"></span><h2>配置与验证<a class="headerlink" href="#section-operator-08-network-services-dhcpv6-server-3" title="Link to this heading"></a></h2>
 <section id="section-operator-08-network-services-dhcpv6-server-4">
 <span id="id3"></span><h3>拓扑<a class="headerlink" href="#section-operator-08-network-services-dhcpv6-server-4" title="Link to this heading"></a></h3>
-<p><img alt="客户端在 VLAN 100向 VortexROS 请求 IPv6 地址" src="../../../_images/cases34.svg" /></p>
+<p><img alt="R1 和 R2 通过 Ethernet0 直连，由 R1 分配 IPv6 地址" src="../../../_images/direct.svg" /></p>
 </section>
 <section id="case-conditions-08-network-services-dhcpv6-server">
 <span id="id4"></span><h3>配置条件<a class="headerlink" href="#case-conditions-08-network-services-dhcpv6-server" title="Link to this heading"></a></h3>
-<p>准备三层接口、地址池和 IPv6 前缀。地址与委派前缀应使用统一的有效和首选生命周期。</p>
+<p>R1 和 R2 的 Ethernet0 均为三层口。R1 使用 <code class="docutils literal notranslate"><span class="pre">2001:db8:252:10::1/120</span></code>，R2 从 R1 获得 IA_NA 地址。本例使用静态链路路由验证连通性。实际网络也可通过 <a class="reference internal" href="../../04-ip-routing/ipv6-router-advertisement/"><span class="std std-doc">RA</span></a> 提供链路信息和默认路由。</p>
 </section>
 <section id="section-operator-08-network-services-dhcpv6-server-5">
 <span id="id5"></span><h3>配置步骤<a class="headerlink" href="#section-operator-08-network-services-dhcpv6-server-5" title="Link to this heading"></a></h3>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>dhcpv6 pool LAN6
- address prefix 2001:db8:100::/64
- dns-server 2001:4860:4860::8888
-#
-interface Vlanif 100
+<p>在 R1 创建地址池，并将其绑定到连接客户端的接口。排除 R1 自己使用的地址。<code class="docutils literal notranslate"><span class="pre">life-time</span></code> 的两个数值分别为有效期和首选期，单位为秒。</p>
+<div class="highlight-vortexros-cli notranslate"><div class="highlight"><pre><span></span>system-view
+enable dhcp server
+dhcpv6 pool LAN6
+ address prefix 2001:db8:252:10::/120 life-time 3600 1800
+ excluded-address 2001:db8:252:10::1
+ quit
+interface Ethernet 0
+ ipv6 enable
+ ipv6 address 2001:db8:252:10::1 120
  dhcpv6 server LAN6
-</pre></div>
-</div>
-<p>验证和撤销：</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>display dhcp service verbose
-display ipv6 pool
-interface Vlanif 100
- undo dhcpv6 server
+ quit
 commit
+return
 </pre></div>
 </div>
-<p>录入接口和地址池后提交，再测试租约。</p>
-<div class="highlight-vortexros-cli notranslate"><div class="highlight"><pre><span></span>display dhcpv6 pool name LAN6 used
-display ipv6 pool name LAN6 all
+<p>在 R2 申请租约。DHCPv6 分配的是单个地址，本例加一条到该链路前缀的直连静态路由。</p>
+<div class="highlight-vortexros-cli notranslate"><div class="highlight"><pre><span></span>system-view
+interface Ethernet 0
+ ipv6 enable
+ ipv6 address auto dhcp
+ quit
+ipv6 route-static 2001:db8:252:10:: 120 Ethernet 0
+commit
+return
 </pre></div>
 </div>
 </section>
 <section id="case-verification-08-network-services-dhcpv6-server">
 <span id="id6"></span><h3>验证方法<a class="headerlink" href="#case-verification-08-network-services-dhcpv6-server" title="Link to this heading"></a></h3>
-<p>对照以下命令和预期结果核对设备状态。</p>
+<p>在 R1 核对服务运行和池使用情况。</p>
 <div class="highlight-vortexros-cli notranslate"><div class="highlight"><pre><span></span>display dhcp service verbose
-display ipv6 pool
 display dhcpv6 pool name LAN6 used
+display ipv6 pool name LAN6 all
 </pre></div>
 </div>
-<p>让客户端发起租约请求。确认地址或委派前缀、DUID、IAID 与剩余租期。</p>
+<p>在 R2 核对客户端地址和业务可达性。</p>
+<div class="highlight-vortexros-cli notranslate"><div class="highlight"><pre><span></span>display dhcpv6 client interface Ethernet 0
+display ipv6 interface brief
+ping ipv6 2001:db8:252:10::1
+</pre></div>
+</div>
+<p>预期 R1 的已用租约出现 R2 的 DUID、IAID、分配地址和剩余租期，R2 接口显示同一地址并能到达 R1。签名开发镜像直连用例实测分配到 <code class="docutils literal notranslate"><span class="pre">2001:db8:252:10::3/128</span></code>，具体租约由地址池决定。</p>
+</section>
+<section id="id7">
+<h3>为下游路由器分配前缀<a class="headerlink" href="#id7" title="Link to this heading"></a></h3>
+<p>需要向下游网络委派子网时参见<a class="reference internal" href="../dhcpv6-client/cases/example-2/"><span class="std std-doc">服务器与客户端的前缀委派案例</span></a>。查看 DHCPv6 服务端的 IA_PD 租约，并在下游路由器检查前缀和使用该前缀的接口。</p>
 <p><span id="observed"></span></p>
 </section>
 <section id="result-operator-08-network-services-dhcpv6-server">
-<span id="id7"></span><h3>双端服务与中继的实测结果<a class="headerlink" href="#result-operator-08-network-services-dhcpv6-server" title="Link to this heading"></a></h3>
+<span id="id8"></span><h3>双端服务与中继的实测结果<a class="headerlink" href="#result-operator-08-network-services-dhcpv6-server" title="Link to this heading"></a></h3>
 <p>服务端分别向同一链路的客户端和经另一节点中继的客户端发放 IPv6 地址。中继场景通过三层 Vlanif 上联，客户端的 DHCPv6 Reply 实际承载 IA_NA 地址 2001:db8:81::100，有效租期 600 秒。</p>
 <p><span id="precautions"></span></p>
 </section>
 </section>
 <section id="section-operator-08-network-services-dhcpv6-server-6">
-<span id="id8"></span><h2>注意事项<a class="headerlink" href="#section-operator-08-network-services-dhcpv6-server-6" title="Link to this heading"></a></h2>
-<p>有效期与首选期需要合理设置，首选期不应超过有效期。IPv6 默认网关另用 RA 或静态配置。</p>
+<span id="id9"></span><h2>注意事项<a class="headerlink" href="#section-operator-08-network-services-dhcpv6-server-6" title="Link to this heading"></a></h2>
+<p>首选期不应超过有效期。IPv6 默认网关另用 RA 或静态配置。撤销时先移除接口下的 <code class="docutils literal notranslate"><span class="pre">dhcpv6</span> <span class="pre">server</span> <span class="pre">LAN6</span></code> 绑定，再删除已无其他引用的地址池。在客户端撤销自动地址和本例的静态路由，提交后复查客户端地址。</p>
 <p data-legacy-id="id1" class="manual-previous-section" data-section-moved><a href="#overview">介绍</a></p>
 <p data-legacy-id="id2" class="manual-previous-section" data-section-moved><a href="#case-conditions-08-network-services-dhcpv6-server">配置准备</a></p>
 <p data-legacy-id="id3" class="manual-previous-section" data-section-moved><a href="#examples">配置案例</a></p>

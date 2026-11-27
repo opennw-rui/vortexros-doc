@@ -23,7 +23,7 @@
     <link rel="index" title="索引" href="../../../genindex/" />
     <link rel="search" title="搜索" href="../../../search/" />
     <link rel="next" title="Eth-Trunk 链路聚合" href="../eth-trunk/" />
-    <link rel="prev" title="以太网接口与聚合" href="../../topics/ethernet-interfaces/" /> 
+    <link rel="prev" title="接口" href="../../interfaces/" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -59,13 +59,6 @@
       
   
   
-  <div class="manual-subtopic">
-    
-<a href="../../../installation/preparation/">安装前准备</a>
-
-    <div class="manual-children">
-  
-  
   
 <a href="../../../installation/00-planning/">部署规划</a>
 
@@ -82,17 +75,6 @@
 <a href="../../../installation/02-backends/">系统与数据面组件</a>
 
   
-  
-</div>
-  </div>
-  
-  
-  
-  <div class="manual-subtopic">
-    
-<a href="../../../installation/deployment/">安装与首次启动</a>
-
-    <div class="manual-children">
   
   
   
@@ -117,17 +99,6 @@
 <a href="../../../installation/05-vpp-startup/">配置和激活数据面</a>
 
   
-  
-</div>
-  </div>
-  
-  
-  
-  <div class="manual-subtopic">
-    
-<a href="../../../installation/maintenance/">升级、回退与验收</a>
-
-    <div class="manual-children">
   
   
   <div class="manual-subtopic">
@@ -162,10 +133,6 @@
   
 <a href="../../../installation/08-hardware-acceptance/">真机验收</a>
 
-  
-  
-</div>
-  </div>
   
   
 
@@ -215,67 +182,8 @@
       
   
   
-  <div class="manual-subtopic">
-    
-<a href="../../topics/system-identity/">设备身份与授权</a>
-
-    <div class="manual-children">
-  
-  
   
 <a href="../../02-system-services/identity/">设备名称与登录提示</a>
-
-  
-  
-  
-  
-<a href="../../02-system-services/licensing/">离线设备授权</a>
-
-  
-  
-</div>
-  </div>
-  
-  
-  
-  <div class="manual-subtopic">
-    
-<a href="../../topics/management-access/">登录与认证</a>
-
-    <div class="manual-children">
-  
-  
-  
-<a href="../../02-system-services/local-aaa/">本地 AAA 与用户权限</a>
-
-  
-  
-  
-  
-<a href="../../02-system-services/stelnet/">STelnet 与 VTY</a>
-
-  
-  
-  
-  
-<a href="../../02-system-services/ssh-public-key/">SSH 公钥认证</a>
-
-  
-  
-</div>
-  </div>
-  
-  
-  
-  <div class="manual-subtopic">
-    
-<a href="../../topics/system-network-time/">本机解析与时间</a>
-
-    <div class="manual-children">
-  
-  
-  
-<a href="../../02-system-services/dns/">本机 DNS 解析</a>
 
   
   
@@ -287,12 +195,38 @@
   
   
   
+<a href="../../02-system-services/dns/">本机 DNS 解析</a>
+
+  
+  
+  
+  
 <a href="../../02-system-services/ntp/">NTP 时间同步</a>
 
   
   
-</div>
-  </div>
+  
+  
+<a href="../../02-system-services/local-aaa/">本地 AAA 与用户权限</a>
+
+  
+  
+  
+  
+<a href="../../02-system-services/ssh-public-key/">SSH 公钥认证</a>
+
+  
+  
+  
+  
+<a href="../../02-system-services/stelnet/">STelnet、VTY 与 SCP</a>
+
+  
+  
+  
+  
+<a href="../../02-system-services/licensing/">离线设备授权</a>
+
   
   
 
@@ -310,13 +244,6 @@
       
   
   
-  <div class="manual-subtopic">
-    
-<a href="../../topics/ethernet-interfaces/">以太网接口与聚合</a>
-
-    <div class="manual-children">
-  
-  
   
 <a href="#" aria-current="page">物理接口与硬件卸载</a>
 
@@ -330,20 +257,15 @@
   
   
   
+<a href="../loopback/">LoopBack 接口</a>
+
+  
+  
+  
+  
 <a href="../subinterfaces/">802.1Q 与 QinQ 三层子接口</a>
 
   
-  
-</div>
-  </div>
-  
-  
-  
-  <div class="manual-subtopic">
-    
-<a href="../../topics/gateway-interfaces/">三层网关接口</a>
-
-    <div class="manual-children">
   
   
   
@@ -355,10 +277,6 @@
   
 <a href="../vbdif/">Vbdif 三层网关</a>
 
-  
-  
-</div>
-  </div>
   
   
 
@@ -376,13 +294,6 @@
       
   
   
-  <div class="manual-subtopic">
-    
-<a href="../../topics/vlan-switching/">VLAN 与 MAC 转发</a>
-
-    <div class="manual-children">
-  
-  
   
 <a href="../vlan/">VLAN 二层交换</a>
 
@@ -390,12 +301,14 @@
   
   
   
-<a href="../mac-table/">MAC 地址表</a>
+<a href="../qinq/">QinQ 二层接入</a>
 
   
   
-</div>
-  </div>
+  
+  
+<a href="../mac-table/">MAC 地址表</a>
+
   
   
   
@@ -419,13 +332,6 @@
       
   
   
-  <div class="manual-subtopic">
-    
-<a href="../../topics/ip-addressing/">地址与自动配置</a>
-
-    <div class="manual-children">
-  
-  
   
 <a href="../../04-ip-routing/ip-addresses/">IPv4 与 IPv6 接口地址</a>
 
@@ -433,20 +339,9 @@
   
   
   
-<a href="../../04-ip-routing/ipv6-router-advertisement/">IPv6 路由通告与 SLAAC</a>
+<a href="../../04-ip-routing/vpn-instance/">VPN 实例与路由隔离</a>
 
   
-  
-</div>
-  </div>
-  
-  
-  
-  <div class="manual-subtopic">
-    
-<a href="../../topics/ip-neighbors/">邻居解析</a>
-
-    <div class="manual-children">
   
   
   
@@ -460,19 +355,21 @@
 
   
   
-</div>
-  </div>
   
   
-  
-  
-<a href="../../04-ip-routing/vpn-instance/">VPN 实例与路由隔离</a>
+<a href="../../04-ip-routing/ipv6-router-advertisement/">IPv6 路由通告与 SLAAC</a>
 
   
   
   
   
 <a href="../../04-ip-routing/ipv6-path-mtu/">IPv6 路径 MTU</a>
+
+  
+  
+  
+  
+<a href="../../04-ip-routing/icmp-send/">IPv4 ICMP 发送控制</a>
 
   
   
@@ -517,13 +414,6 @@
       
   
   
-  <div class="manual-subtopic">
-    
-<a href="../../topics/interior-routing/">域内路由协议</a>
-
-    <div class="manual-children">
-  
-  
   
 <a href="../../05-dynamic-routing/ospf/">OSPF（IPv4）</a>
 
@@ -551,10 +441,6 @@
   
 <a href="../../05-dynamic-routing/ripng/">RIPng（IPv6）</a>
 
-  
-  
-</div>
-  </div>
   
   
   
@@ -610,13 +496,6 @@
       
   
   
-  <div class="manual-subtopic">
-    
-<a href="../../topics/ip-tunnels/">GRE 与 IP-in-IP</a>
-
-    <div class="manual-children">
-  
-  
   
 <a href="../../06-tunnels/gre/">GRE Tunnel</a>
 
@@ -628,17 +507,6 @@
 
   
   
-</div>
-  </div>
-  
-  
-  
-  <div class="manual-subtopic">
-    
-<a href="../../topics/encrypted-tunnels/">加密隧道</a>
-
-    <div class="manual-children">
-  
   
   
 <a href="../../06-tunnels/wireguard/">WireGuard 隧道</a>
@@ -649,10 +517,6 @@
   
 <a href="../../06-tunnels/amneziawg/">AmneziaWG 隧道</a>
 
-  
-  
-</div>
-  </div>
   
   
   
@@ -847,13 +711,6 @@
   
   
   
-  <div class="manual-subtopic">
-    
-<a href="../../topics/discovery-monitoring/">链路发现与网管监控</a>
-
-    <div class="manual-children">
-  
-  
   
 <a href="../../08-network-services/lldp/">LLDP 邻居发现</a>
 
@@ -863,10 +720,6 @@
   
 <a href="../../08-network-services/snmp/">SNMP 监控</a>
 
-  
-  
-</div>
-  </div>
   
   
 
@@ -884,15 +737,14 @@
       
   
   
-  <div class="manual-subtopic">
-    
-<a href="../../topics/observe-device/">状态、资源与日志</a>
-
-    <div class="manual-children">
-  
-  
   
 <a href="../../09-operations/service-health/">服务状态与监听端口</a>
+
+  
+  
+  
+  
+<a href="../../operations/logs/">日志中心</a>
 
   
   
@@ -904,26 +756,15 @@
   
   
   
-<a href="../../operations/logs/">日志中心</a>
-
-  
-  
-</div>
-  </div>
-  
-  
-  
-  
 <a href="../../09-operations/connectivity/">Ping、Tracert 与 MTR 连通性诊断</a>
 
   
   
   
-  <div class="manual-subtopic">
-    
-<a href="../../topics/device-recovery/">清理、恢复与电源操作</a>
+  
+<a href="../../09-operations/backup-support/">脱敏支持包与加密备份</a>
 
-    <div class="manual-children">
+  
   
   
   
@@ -941,10 +782,6 @@
   
 <a href="../../09-operations/power/">重启与关机</a>
 
-  
-  
-</div>
-  </div>
   
   
   
@@ -1070,7 +907,6 @@
   <ul class="wy-breadcrumbs">
       <li><a href="../../../" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="../../interfaces/">接口</a></li>
-          <li class="breadcrumb-item"><a href="../../topics/ethernet-interfaces/">以太网接口与聚合</a></li>
       <li class="breadcrumb-item active">物理接口与硬件卸载</li>
       <li class="wy-breadcrumbs-aside">
       </li>
@@ -1103,15 +939,31 @@
 </section>
 <section id="section-operator-03-interfaces-l2-physical-interfaces-5">
 <span id="id6"></span><h3>配置步骤<a class="headerlink" href="#section-operator-03-interfaces-l2-physical-interfaces-5" title="Link to this heading"></a></h3>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>interface Ethernet 1
+<p><strong>R1</strong></p>
+<div class="highlight-vortexros-config notranslate"><div class="highlight"><pre><span></span>interface Ethernet 1
  description uplink
  mtu 9000
  ip address 192.0.2.2 255.255.255.0
  undo hardware offload tso tx-checksum rx-checksum
+#
+return
 </pre></div>
 </div>
-<p>先用 <code class="docutils literal notranslate"><span class="pre">display</span> <span class="pre">interface</span> <span class="pre">hardware</span> <span class="pre">offload</span> <span class="pre">Ethernet1</span></code> 查看设备支持的能力。示例同时关闭 TSO 与其依赖的收发校验和卸载。用 <code class="docutils literal notranslate"><span class="pre">hardware</span> <span class="pre">offload</span></code> 撤销禁用项，具体项以设备实际能力为准。</p>
-<p>接口配置片段在系统视图录入，退出接口视图后执行 commit。</p>
+<p>录入前在 R1 执行 <code class="docutils literal notranslate"><span class="pre">display</span> <span class="pre">interface</span> <span class="pre">hardware</span> <span class="pre">offload</span> <span class="pre">Ethernet1</span></code>，确认支持示例中的卸载项。示例同时关闭 TSO 及收发校验和卸载。只配置链路地址和 MTU 时可省略卸载命令。用 <code class="docutils literal notranslate"><span class="pre">hardware</span> <span class="pre">offload</span></code> 加对应选项重新启用卸载。</p>
+<p><strong>R2</strong></p>
+<div class="highlight-vortexros-config notranslate"><div class="highlight"><pre><span></span>interface Ethernet 1
+ description to-R1
+ mtu 9000
+ ip address 192.0.2.1 255.255.255.0
+#
+return
+</pre></div>
+</div>
+<p>两端从系统视图分别录入并执行 <code class="docutils literal notranslate"><span class="pre">commit</span></code>。从 R1 先测试普通报文，再发送总长 9000 字节的 IPv4 ICMP 报文。<code class="docutils literal notranslate"><span class="pre">-f</span></code> 禁止 IPv4 分片，<code class="docutils literal notranslate"><span class="pre">-s</span></code> 设置负载大小。</p>
+<div class="highlight-vortexros-cli notranslate"><div class="highlight"><pre><span></span>ping 192.0.2.1
+ping -f -s 8972 192.0.2.1
+</pre></div>
+</div>
 </section>
 <section id="case-verification-03-interfaces-l2-physical-interfaces">
 <span id="id7"></span><h3>验证方法<a class="headerlink" href="#case-verification-03-interfaces-l2-physical-interfaces" title="Link to this heading"></a></h3>
@@ -1131,12 +983,28 @@ display ipv6 interface brief
 <p>状态含义：<code class="docutils literal notranslate"><span class="pre">^down</span></code>表示配置对象已创建但尚不满足底层数据面创建条件；普通<code class="docutils literal notranslate"><span class="pre">down</span></code>表示底层对象存在但链路或协议条件未满足。接口无IP不应因此down。</p>
 <p><code class="docutils literal notranslate"><span class="pre">display</span> <span class="pre">interface</span> <span class="pre">brief</span></code>中的<code class="docutils literal notranslate"><span class="pre">CRC</span></code>只显示网卡驱动提供的硬件CRC/FCS坏帧计数；驱动或虚拟接口不支持该计数时显示<code class="docutils literal notranslate"><span class="pre">--</span></code>。它不会把接口down期间的发送尝试、转发丢弃或其他软件错误混入CRC。使用<code class="docutils literal notranslate"><span class="pre">display</span> <span class="pre">interface</span> <span class="pre">&lt;接口&gt;</span></code>查看CRC/FCS、丢弃、punt以及收发方向的软件错误明细。</p>
 <p>如果 IP 简表暂时显示 unavailable 或 unknown，等待接口恢复后重新查看。</p>
+<p>本例预期两端 Ethernet1 均为 <code class="docutils literal notranslate"><span class="pre">up</span></code>，<code class="docutils literal notranslate"><span class="pre">MTU</span></code> 为 <code class="docutils literal notranslate"><span class="pre">9000</span></code>。若执行了卸载配置，检查 R1 对应的活动卸载状态。只看到接口 Up 时，从实际对端再确认收发。</p>
 <p><code class="docutils literal notranslate"><span class="pre">display</span> <span class="pre">interface</span></code>中的最近up/down时间来自接口实际状态变化，不会因为执行display而重置。设备无法确认的历史时间显示 <code class="docutils literal notranslate"><span class="pre">-</span></code>；修改时区只会改变时间的显示方式。</p>
 <p>InUti/OutUti 为最近 300 秒的平均速率占比。完整观察窗口形成前，摘要可能显示 0.0%。</p>
+</section>
+<section id="id8">
+<h3>批量配置同类端口<a class="headerlink" href="#id8" title="Link to this heading"></a></h3>
+<p>下面在同一台设备上为已存在的 Ethernet2 和 Ethernet3 设置公共描述。范围包含两端口。所选接口需要属于同一类型与命令分区，各自不同的配置请进入单个端口设置。</p>
+<div class="highlight-vortexros-cli notranslate"><div class="highlight"><pre><span></span>system-view
+interface range Ethernet2 to Ethernet3
+ description access-row-a
+ quit
+commit
+return
+display interface Ethernet 2
+display interface Ethernet 3
+</pre></div>
+</div>
+<p>预期两个端口都显示 <code class="docutils literal notranslate"><span class="pre">Description:</span> <span class="pre">access-row-a</span></code>。若这两个端口起初没有描述，可在同一范围使用 <code class="docutils literal notranslate"><span class="pre">undo</span> <span class="pre">description</span></code> 并提交。端口原有描述不同的，逐个恢复。</p>
 <p><span id="observed"></span></p>
 </section>
 <section id="section-operator-03-interfaces-l2-physical-interfaces-6">
-<span id="id8"></span><h3>两口已接管的实测回显<a class="headerlink" href="#section-operator-03-interfaces-l2-physical-interfaces-6" title="Link to this heading"></a></h3>
+<span id="id9"></span><h3>两口已接管的实测回显<a class="headerlink" href="#section-operator-03-interfaces-l2-physical-interfaces-6" title="Link to this heading"></a></h3>
 <p>两块 Virtio 口交给 DPDK 后，接口简表的 Type 为 DPDK。链接状态和接口模式应分别核对。</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>&lt;VortexROS&gt; display interface brief
 Interface               PHY    Proto   InUti  OutUti  CRC    Type      MTU
@@ -1148,7 +1016,7 @@ Ethernet1               up     up       0.0%    0.0%   --    DPDK      1500
 </section>
 </section>
 <section id="section-operator-03-interfaces-l2-physical-interfaces-7">
-<span id="id9"></span><h2>注意事项<a class="headerlink" href="#section-operator-03-interfaces-l2-physical-interfaces-7" title="Link to this heading"></a></h2>
+<span id="id10"></span><h2>注意事项<a class="headerlink" href="#section-operator-03-interfaces-l2-physical-interfaces-7" title="Link to this heading"></a></h2>
 <p>卸载选项依网卡和活动驱动而异。调整 MTU、端口模式和硬件卸载前先核对对端及当前管理链路。</p>
 <p data-legacy-id="id2" class="manual-previous-section" data-section-moved><a href="#overview">介绍</a></p>
 <p data-legacy-id="id3" class="manual-previous-section" data-section-moved><a href="#case-conditions-03-interfaces-l2-physical-interfaces">配置准备</a></p>
@@ -1161,7 +1029,7 @@ Ethernet1               up     up       0.0%    0.0%   --    DPDK      1500
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="页脚">
-        <a href="../../topics/ethernet-interfaces/" class="btn btn-neutral float-left" title="以太网接口与聚合" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> 上一页</a>
+        <a href="../../interfaces/" class="btn btn-neutral float-left" title="接口" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> 上一页</a>
         <a href="../eth-trunk/" class="btn btn-neutral float-right" title="Eth-Trunk 链路聚合" accesskey="n" rel="next">下一页 <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 

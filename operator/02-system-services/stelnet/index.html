@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>STelnet 与 VTY &mdash; VortexROS 用户手册</title>
+  <title>STelnet、VTY 与 SCP &mdash; VortexROS 用户手册</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="../../../_static/manual.css?v=54407de2" />
@@ -22,8 +22,8 @@
     <script src="../../../_static/js/theme.js"></script>
     <link rel="index" title="索引" href="../../../genindex/" />
     <link rel="search" title="搜索" href="../../../search/" />
-    <link rel="next" title="SSH 公钥认证" href="../ssh-public-key/" />
-    <link rel="prev" title="本地 AAA 与用户权限" href="../local-aaa/" /> 
+    <link rel="next" title="离线设备授权" href="../licensing/" />
+    <link rel="prev" title="SSH 公钥认证" href="../ssh-public-key/" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -59,13 +59,6 @@
       
   
   
-  <div class="manual-subtopic">
-    
-<a href="../../../installation/preparation/">安装前准备</a>
-
-    <div class="manual-children">
-  
-  
   
 <a href="../../../installation/00-planning/">部署规划</a>
 
@@ -82,17 +75,6 @@
 <a href="../../../installation/02-backends/">系统与数据面组件</a>
 
   
-  
-</div>
-  </div>
-  
-  
-  
-  <div class="manual-subtopic">
-    
-<a href="../../../installation/deployment/">安装与首次启动</a>
-
-    <div class="manual-children">
   
   
   
@@ -117,17 +99,6 @@
 <a href="../../../installation/05-vpp-startup/">配置和激活数据面</a>
 
   
-  
-</div>
-  </div>
-  
-  
-  
-  <div class="manual-subtopic">
-    
-<a href="../../../installation/maintenance/">升级、回退与验收</a>
-
-    <div class="manual-children">
   
   
   <div class="manual-subtopic">
@@ -162,10 +133,6 @@
   
 <a href="../../../installation/08-hardware-acceptance/">真机验收</a>
 
-  
-  
-</div>
-  </div>
   
   
 
@@ -215,67 +182,8 @@
       
   
   
-  <div class="manual-subtopic">
-    
-<a href="../../topics/system-identity/">设备身份与授权</a>
-
-    <div class="manual-children">
-  
-  
   
 <a href="../identity/">设备名称与登录提示</a>
-
-  
-  
-  
-  
-<a href="../licensing/">离线设备授权</a>
-
-  
-  
-</div>
-  </div>
-  
-  
-  
-  <div class="manual-subtopic">
-    
-<a href="../../topics/management-access/">登录与认证</a>
-
-    <div class="manual-children">
-  
-  
-  
-<a href="../local-aaa/">本地 AAA 与用户权限</a>
-
-  
-  
-  
-  
-<a href="#" aria-current="page">STelnet 与 VTY</a>
-
-  
-  
-  
-  
-<a href="../ssh-public-key/">SSH 公钥认证</a>
-
-  
-  
-</div>
-  </div>
-  
-  
-  
-  <div class="manual-subtopic">
-    
-<a href="../../topics/system-network-time/">本机解析与时间</a>
-
-    <div class="manual-children">
-  
-  
-  
-<a href="../dns/">本机 DNS 解析</a>
 
   
   
@@ -287,12 +195,38 @@
   
   
   
+<a href="../dns/">本机 DNS 解析</a>
+
+  
+  
+  
+  
 <a href="../ntp/">NTP 时间同步</a>
 
   
   
-</div>
-  </div>
+  
+  
+<a href="../local-aaa/">本地 AAA 与用户权限</a>
+
+  
+  
+  
+  
+<a href="../ssh-public-key/">SSH 公钥认证</a>
+
+  
+  
+  
+  
+<a href="#" aria-current="page">STelnet、VTY 与 SCP</a>
+
+  
+  
+  
+  
+<a href="../licensing/">离线设备授权</a>
+
   
   
 
@@ -310,13 +244,6 @@
       
   
   
-  <div class="manual-subtopic">
-    
-<a href="../../topics/ethernet-interfaces/">以太网接口与聚合</a>
-
-    <div class="manual-children">
-  
-  
   
 <a href="../../03-interfaces-l2/physical-interfaces/">物理接口与硬件卸载</a>
 
@@ -330,20 +257,15 @@
   
   
   
+<a href="../../03-interfaces-l2/loopback/">LoopBack 接口</a>
+
+  
+  
+  
+  
 <a href="../../03-interfaces-l2/subinterfaces/">802.1Q 与 QinQ 三层子接口</a>
 
   
-  
-</div>
-  </div>
-  
-  
-  
-  <div class="manual-subtopic">
-    
-<a href="../../topics/gateway-interfaces/">三层网关接口</a>
-
-    <div class="manual-children">
   
   
   
@@ -355,10 +277,6 @@
   
 <a href="../../03-interfaces-l2/vbdif/">Vbdif 三层网关</a>
 
-  
-  
-</div>
-  </div>
   
   
 
@@ -376,13 +294,6 @@
       
   
   
-  <div class="manual-subtopic">
-    
-<a href="../../topics/vlan-switching/">VLAN 与 MAC 转发</a>
-
-    <div class="manual-children">
-  
-  
   
 <a href="../../03-interfaces-l2/vlan/">VLAN 二层交换</a>
 
@@ -390,12 +301,14 @@
   
   
   
-<a href="../../03-interfaces-l2/mac-table/">MAC 地址表</a>
+<a href="../../03-interfaces-l2/qinq/">QinQ 二层接入</a>
 
   
   
-</div>
-  </div>
+  
+  
+<a href="../../03-interfaces-l2/mac-table/">MAC 地址表</a>
+
   
   
   
@@ -419,13 +332,6 @@
       
   
   
-  <div class="manual-subtopic">
-    
-<a href="../../topics/ip-addressing/">地址与自动配置</a>
-
-    <div class="manual-children">
-  
-  
   
 <a href="../../04-ip-routing/ip-addresses/">IPv4 与 IPv6 接口地址</a>
 
@@ -433,20 +339,9 @@
   
   
   
-<a href="../../04-ip-routing/ipv6-router-advertisement/">IPv6 路由通告与 SLAAC</a>
+<a href="../../04-ip-routing/vpn-instance/">VPN 实例与路由隔离</a>
 
   
-  
-</div>
-  </div>
-  
-  
-  
-  <div class="manual-subtopic">
-    
-<a href="../../topics/ip-neighbors/">邻居解析</a>
-
-    <div class="manual-children">
   
   
   
@@ -460,19 +355,21 @@
 
   
   
-</div>
-  </div>
   
   
-  
-  
-<a href="../../04-ip-routing/vpn-instance/">VPN 实例与路由隔离</a>
+<a href="../../04-ip-routing/ipv6-router-advertisement/">IPv6 路由通告与 SLAAC</a>
 
   
   
   
   
 <a href="../../04-ip-routing/ipv6-path-mtu/">IPv6 路径 MTU</a>
+
+  
+  
+  
+  
+<a href="../../04-ip-routing/icmp-send/">IPv4 ICMP 发送控制</a>
 
   
   
@@ -517,13 +414,6 @@
       
   
   
-  <div class="manual-subtopic">
-    
-<a href="../../topics/interior-routing/">域内路由协议</a>
-
-    <div class="manual-children">
-  
-  
   
 <a href="../../05-dynamic-routing/ospf/">OSPF（IPv4）</a>
 
@@ -551,10 +441,6 @@
   
 <a href="../../05-dynamic-routing/ripng/">RIPng（IPv6）</a>
 
-  
-  
-</div>
-  </div>
   
   
   
@@ -610,13 +496,6 @@
       
   
   
-  <div class="manual-subtopic">
-    
-<a href="../../topics/ip-tunnels/">GRE 与 IP-in-IP</a>
-
-    <div class="manual-children">
-  
-  
   
 <a href="../../06-tunnels/gre/">GRE Tunnel</a>
 
@@ -628,17 +507,6 @@
 
   
   
-</div>
-  </div>
-  
-  
-  
-  <div class="manual-subtopic">
-    
-<a href="../../topics/encrypted-tunnels/">加密隧道</a>
-
-    <div class="manual-children">
-  
   
   
 <a href="../../06-tunnels/wireguard/">WireGuard 隧道</a>
@@ -649,10 +517,6 @@
   
 <a href="../../06-tunnels/amneziawg/">AmneziaWG 隧道</a>
 
-  
-  
-</div>
-  </div>
   
   
   
@@ -847,13 +711,6 @@
   
   
   
-  <div class="manual-subtopic">
-    
-<a href="../../topics/discovery-monitoring/">链路发现与网管监控</a>
-
-    <div class="manual-children">
-  
-  
   
 <a href="../../08-network-services/lldp/">LLDP 邻居发现</a>
 
@@ -863,10 +720,6 @@
   
 <a href="../../08-network-services/snmp/">SNMP 监控</a>
 
-  
-  
-</div>
-  </div>
   
   
 
@@ -884,15 +737,14 @@
       
   
   
-  <div class="manual-subtopic">
-    
-<a href="../../topics/observe-device/">状态、资源与日志</a>
-
-    <div class="manual-children">
-  
-  
   
 <a href="../../09-operations/service-health/">服务状态与监听端口</a>
+
+  
+  
+  
+  
+<a href="../../operations/logs/">日志中心</a>
 
   
   
@@ -904,26 +756,15 @@
   
   
   
-<a href="../../operations/logs/">日志中心</a>
-
-  
-  
-</div>
-  </div>
-  
-  
-  
-  
 <a href="../../09-operations/connectivity/">Ping、Tracert 与 MTR 连通性诊断</a>
 
   
   
   
-  <div class="manual-subtopic">
-    
-<a href="../../topics/device-recovery/">清理、恢复与电源操作</a>
+  
+<a href="../../09-operations/backup-support/">脱敏支持包与加密备份</a>
 
-    <div class="manual-children">
+  
   
   
   
@@ -941,10 +782,6 @@
   
 <a href="../../09-operations/power/">重启与关机</a>
 
-  
-  
-</div>
-  </div>
   
   
   
@@ -1070,8 +907,7 @@
   <ul class="wy-breadcrumbs">
       <li><a href="../../../" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="../">系统设置与远程管理</a></li>
-          <li class="breadcrumb-item"><a href="../../topics/management-access/">登录与认证</a></li>
-      <li class="breadcrumb-item active">STelnet 与 VTY</li>
+      <li class="breadcrumb-item active">STelnet、VTY 与 SCP</li>
       <li class="wy-breadcrumbs-aside">
       </li>
   </ul>
@@ -1080,14 +916,14 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="stelnet-vty">
-<span id="section-operator-02-system-services-stelnet-1"></span><h1>STelnet 与 VTY<a class="headerlink" href="#stelnet-vty" title="Link to this heading"></a></h1>
+  <section id="stelnetvty-scp">
+<span id="section-operator-02-system-services-stelnet-1"></span><h1>STelnet、VTY 与 SCP<a class="headerlink" href="#stelnetvty-scp" title="Link to this heading"></a></h1>
 <p><span id="overview"></span></p>
-<p>STelnet 通过 SSH 提供远程 CLI。VTY 管理远端会话数量和空闲超时。</p>
+<p>STelnet 通过 SSH 提供远程 CLI。VTY 管理远端会话数量和空闲超时。SCP 可以使用同一 SSH 端口上传和下载文件。两个服务默认关闭，可分别开启。</p>
 <p><span id="principles"></span></p>
 <section id="section-operator-02-system-services-stelnet-2">
 <span id="id1"></span><h2>工作原理<a class="headerlink" href="#section-operator-02-system-services-stelnet-2" title="Link to this heading"></a></h2>
-<p>STelnet 提供 SSH 登录和 CLI 会话。监听端口、VTY 会话数、超时和本地用户权限可分别配置。</p>
+<p>AAA 的 <code class="docutils literal notranslate"><span class="pre">privilege</span> <span class="pre">level</span></code> 决定用户的 CLI 权限。远程访问需要在 AAA 里允许 <code class="docutils literal notranslate"><span class="pre">ssh</span></code>，再在系统视图建立 SSH 用户并分配服务。<code class="docutils literal notranslate"><span class="pre">service-type</span> <span class="pre">stelnet</span></code> 允许远程 CLI，<code class="docutils literal notranslate"><span class="pre">service-type</span> <span class="pre">scp</span></code> 允许文件传输，<code class="docutils literal notranslate"><span class="pre">service-type</span> <span class="pre">all</span></code> 允许两者。SCP 不占用 VTY。</p>
 <p><span id="examples"></span></p>
 </section>
 <section id="section-operator-02-system-services-stelnet-3">
@@ -1103,6 +939,13 @@
 <section id="section-operator-02-system-services-stelnet-5">
 <span id="id5"></span><h3>配置步骤<a class="headerlink" href="#section-operator-02-system-services-stelnet-5" title="Link to this heading"></a></h3>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>system-view
+aaa
+local-user vortexros privilege level 3
+local-user vortexros service-type terminal ssh
+quit
+ssh user vortexros
+ssh user vortexros authentication-type password
+ssh user vortexros service-type stelnet
 stelnet server enable
 ssh server port 2222
 user-interface maximum-vty 5
@@ -1122,15 +965,45 @@ display aaa user vortexros
 <p>对照以下命令和预期结果核对设备状态。</p>
 <div class="highlight-vortexros-cli notranslate"><div class="highlight"><pre><span></span>display users
 display process tcp listen
+display ssh server status
+display ssh user-information vortexros
 display ssh user login-info succeeded
 </pre></div>
 </div>
 <p>确认端口 2222 处于监听状态。从另一终端登录后，VTY 行应显示 SSH、远端地址和用户名。通过后执行 save。</p>
+</section>
+<section id="scp">
+<h3>为同一用户开启 SCP<a class="headerlink" href="#scp" title="Link to this heading"></a></h3>
+<p>在 Console 进入系统视图，将该用户的 SSH 服务设为 <code class="docutils literal notranslate"><span class="pre">all</span></code>，并独立开启 SCP。</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>system-view
+ssh user vortexros service-type all
+scp server enable
+commit
+return
+display ssh server status
+display ssh user-information vortexros
+</pre></div>
+</div>
+<p>预期两个服务器字段都显示 <code class="docutils literal notranslate"><span class="pre">Enable</span></code>，用户的 <code class="docutils literal notranslate"><span class="pre">Service</span> <span class="pre">type</span></code> 显示 <code class="docutils literal notranslate"><span class="pre">stelnet</span> <span class="pre">|</span> <span class="pre">scp</span></code>。在管理终端使用 <code class="docutils literal notranslate"><span class="pre">scp</span> <span class="pre">-O</span></code> 选择 SCP 协议。以下命令假定设备的管理地址为 <code class="docutils literal notranslate"><span class="pre">192.0.2.1</span></code>、监听端口为 2222，并且本机存在 <code class="docutils literal notranslate"><span class="pre">test.txt</span></code>。</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>scp<span class="w"> </span>-O<span class="w"> </span>-P<span class="w"> </span><span class="m">2222</span><span class="w"> </span>test.txt<span class="w"> </span>vortexros@192.0.2.1:./test.txt
+scp<span class="w"> </span>-O<span class="w"> </span>-P<span class="w"> </span><span class="m">2222</span><span class="w"> </span>vortexros@192.0.2.1:./test.txt<span class="w"> </span>test-returned.txt
+cmp<span class="w"> </span>test.txt<span class="w"> </span>test-returned.txt
+</pre></div>
+</div>
+<p>文件传输使用该账户的 Linux 文件权限。相对路径从账户家目录解析。执行 <code class="docutils literal notranslate"><span class="pre">undo</span> <span class="pre">scp</span> <span class="pre">server</span> <span class="pre">enable</span></code> 并提交后，新 SCP 请求会被拒绝。STelnet 和 SCP 都关闭时，SSH 停止监听。 <a class="reference external" href="https://man.openbsd.org/scp">OpenSSH scp 手册</a></p>
 <p><a class="reference internal" href="../local-aaa/"><span class="std std-doc">本地 AAA 与用户权限</span></a> · <a class="reference internal" href="../ssh-public-key/"><span class="std std-doc">SSH 公钥认证</span></a></p>
 <p><span id="observed"></span></p>
 </section>
 <section id="query-result-02-system-services-stelnet">
 <span id="id7"></span><h3>命令回显实测节选<a class="headerlink" href="#query-result-02-system-services-stelnet" title="Link to this heading"></a></h3>
+<p>启用 SCP、保持 STelnet 关闭时，设备的端口和服务状态如下。管理终端上传文件并下载到另一文件名，两份文件的 SHA-256 一致。</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>&lt;VortexROS&gt; display ssh server status
+SSH version               : 2.0
+SSH server port           : 2222
+STelnet server            : Disable
+SCP server                : Enable
+</pre></div>
+</div>
 <p>r5 实测两把公钥均能建立管理会话。成功记录的 Method 为 publickey。另一次 SSH 请求使用有效公钥，但请求执行远程命令，历史将该会话记为 failed 并保留原因。</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>&lt;VortexROS&gt; display ssh user vortexros login-info succeeded
 Time                     Source          User       Method     Result     Reason
@@ -1148,7 +1021,7 @@ Time                     Source          User       Method     Result  Reason
 </section>
 <section id="section-operator-02-system-services-stelnet-6">
 <span id="id8"></span><h2>注意事项<a class="headerlink" href="#section-operator-02-system-services-stelnet-6" title="Link to this heading"></a></h2>
-<p>变更端口或权限前保留 Console。用另一条新 SSH 会话验证后再停止旧入口。</p>
+<p>变更端口、权限或升级前保留 Console。旧配置依赖隐式 SSH 访问时，升级后从 Console 配置 AAA 服务、SSH 用户和服务器开关，再用一条新 SSH 会话验证并保存。公钥认证可以用 <code class="docutils literal notranslate"><span class="pre">authentication-type</span> <span class="pre">rsa</span></code> 或 <code class="docutils literal notranslate"><span class="pre">authentication-type</span> <span class="pre">ed25519</span></code> 配合对应类型的命名公钥。</p>
 <p data-legacy-id="id1" class="manual-previous-section" data-section-moved><a href="#overview">介绍</a></p>
 <p data-legacy-id="id2" class="manual-previous-section" data-section-moved><a href="#case-conditions-02-system-services-stelnet">配置准备</a></p>
 <p data-legacy-id="id3" class="manual-previous-section" data-section-moved><a href="#examples">配置案例</a></p>
@@ -1160,8 +1033,8 @@ Time                     Source          User       Method     Result  Reason
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="页脚">
-        <a href="../local-aaa/" class="btn btn-neutral float-left" title="本地 AAA 与用户权限" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> 上一页</a>
-        <a href="../ssh-public-key/" class="btn btn-neutral float-right" title="SSH 公钥认证" accesskey="n" rel="next">下一页 <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="../ssh-public-key/" class="btn btn-neutral float-left" title="SSH 公钥认证" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> 上一页</a>
+        <a href="../licensing/" class="btn btn-neutral float-right" title="离线设备授权" accesskey="n" rel="next">下一页 <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
